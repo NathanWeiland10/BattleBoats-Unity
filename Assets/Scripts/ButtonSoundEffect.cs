@@ -8,6 +8,7 @@ public class ButtonSoundEffect : MonoBehaviour
 
     public void PlaySoundEffect()
     {
+        // Play sound:
         FindObjectOfType<AudioManager>().Play(soundEffect);
     }
 }
