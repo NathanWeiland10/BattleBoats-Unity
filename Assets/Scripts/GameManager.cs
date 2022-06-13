@@ -6,37 +6,57 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-
-    public PlayerBase friendlyBase;
-    public PlayerBase enemyBase;
-
-    public float friendlyMoneyPerSecond = 0;
-    public float enemyMoneyPerSecond = 0;
-
-    public float friendlyTotalMoney;
-    public float enemyTotalMoney;
-
-    public List<PlayerBoat> friendlyBoats;
-    public List<PlayerBoat> enemyBoats;
-
-    public float minCameraSize;
-    public float maxCameraSize;
-    public float cameraScrollSpeed;
-
-    public float cameraMoveSpeed;
+    [Tooltip("The GameObject that serves as / holds the main camera")]
     public GameObject mainCameraRig;
+    [Tooltip("The main camera for the scene")]
     public Camera mainCamera;
 
+    [Tooltip("The PlayerBase (script) for the friendly team's base")]
+    public PlayerBase friendlyBase;
+    [Tooltip("The PlayerBase (script) for the enemy team's base")]
+    public PlayerBase enemyBase;
+
+    [Tooltip("The amount of money per second the friendly team currently makes (initial / starting value can be set here)")]
+    public float friendlyMoneyPerSecond = 0;
+    [Tooltip("The amount of money per second the enemy team currently makes (initial / starting value can be set here)")]
+    public float enemyMoneyPerSecond = 0;
+
+    [Tooltip("The total amount of money the friendly team currently has (initial / starting value can be set here)")]
+    public float friendlyTotalMoney = 0;
+    [Tooltip("The total amount of money the enemy team currently has (initial / starting value can be set here)")]
+    public float enemyTotalMoney = 0;
+
+    [Tooltip("The list of all the friendly boats currently on the map")]
+    public List<PlayerBoat> friendlyBoats;
+    [Tooltip("The list of all the enemy boats currently on the map")]
+    public List<PlayerBoat> enemyBoats;
+
+    [Tooltip("The max distance the camera can be scrolled in")]
+    public float minCameraSize;
+    [Tooltip("The max distance the camera can be scrolled out")]
+    public float maxCameraSize;
+    [Tooltip("The speed at which the camera scrolls in and out")]
+    public float cameraScrollSpeed;
+
+    [Tooltip("The speed at which the camera moves around the map")]
+    public float cameraMoveSpeed;
+
+    [Tooltip("The transform that friendly boats will be spawned at")]
     public Transform friendlyBoatSpawn;
+    [Tooltip("The transform that enemy boats will be spawned at")]
     public Transform enemyBoatSpawn;
 
+    [Tooltip("The HUD for the game (can be switched to enabled or disabled)")]
     public GameObject gameHUD;
-
+    
+    [Tooltip("The TMP text that is used to display the player (friendly team's) current total money")]
     public TMP_Text friendlyTotalMoneyText;
 
-    public float moneyDelayTimerStart;
-
     public CapturePoint[] capturePoints;
+
+    // FIX LATER:
+    // Switched from public to private; check what this actually did / what it is used for:
+    float moneyDelayTimerStart;
 
     float moneyTimer = 1;
     float waitTime;
@@ -80,7 +100,6 @@ public class GameManager : MonoBehaviour
             if (mainCamera.orthographicSize - cameraScrollSpeed > minCameraSize)
             {
                 mainCamera.orthographicSize -= cameraScrollSpeed;
-                // mainCamera.transform.position = new Vector3(mainCamera.transform.position.x, mainCamera.transform.position.y, mainCamera.transform.position.z + (cameraScrollSpeed * 1.8f));
             }
         }
         else if (Input.GetAxis("Mouse ScrollWheel") < 0f)
@@ -88,18 +107,8 @@ public class GameManager : MonoBehaviour
             if (mainCamera.orthographicSize + cameraScrollSpeed < maxCameraSize)
             {
                 mainCamera.orthographicSize += cameraScrollSpeed;
-                // mainCamera.transform.position = new Vector3(mainCamera.transform.position.x, mainCamera.transform.position.y, mainCamera.transform.position.z - (cameraScrollSpeed * 1.8f));
             }
         }
-
-        /*
-        if (Input.GetMouseButton(0))
-        {
-            Vector3 dragOrigin = new Vector3(mainCameraRig.transform.position.x, 0f, 0f);
-            Vector3 difference = dragOrigin - mainCamera.ScreenToWorldPoint(Input.mousePosition);
-            mainCameraRig.GetComponent<Rigidbody2D>().AddForce(Vector3.left * difference.x * 2);
-        }
-        */
 
         moneyTimer -= Time.deltaTime;
         if (moneyTimer <= 0)

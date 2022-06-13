@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RangeHitBox : MonoBehaviour
 {
-
+    [Tooltip("The PlayerBoat (script) that this hitbox will correspond to")]
     public PlayerBoat playerBoat;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -48,7 +48,9 @@ public class RangeHitBox : MonoBehaviour
             }
         }
     }
-
+    
+    // FIX LATER:
+    // Added due to a bug with a boat not updating its current enemy; maybe replace this later with the OnTriggerEnter2D
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (playerBoat.currentEnemy == null) {

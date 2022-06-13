@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CreateBoatButton : MonoBehaviour
 {
-    public string boatName;
-    public float boatCost;
+    [Tooltip("The prefab of the boat that this button will correspond to")]
+    public GameObject playerBoat;
 
     GameManager gameManager;
 
@@ -13,22 +13,19 @@ public class CreateBoatButton : MonoBehaviour
     {
         gameManager = FindObjectOfType<GameManager>();   
     }
-    public string GetBoatName()
+    public GameObject GetBoat()
     {
-        return boatName;
+        return playerBoat;
     }
 
-    public float GetBoastCost()
+    // FIX LATER:
+    // Name changed from AttemptPurchase; check to see if this caused any issues (such as the buy boat button event getting removed)
+    public void AttemptFriendlyPurchase()
     {
-        return boatCost;
-    }
-
-    public void AttemptPurchase(GameObject boat)
-    {
-        if (gameManager.friendlyTotalMoney >= boatCost)
+        if (gameManager.friendlyTotalMoney >= playerBoat.GetComponent<PlayerBoat>().boatCost)
         {
-            gameManager.UpdateFriendlyMoney(-boatCost);
-            gameManager.SpawnFriendlyBoat(boat);
+            gameManager.UpdateFriendlyMoney(-playerBoat.GetComponent<PlayerBoat>().boatCost);
+            gameManager.SpawnFriendlyBoat(playerBoat);
         }
         else
         {

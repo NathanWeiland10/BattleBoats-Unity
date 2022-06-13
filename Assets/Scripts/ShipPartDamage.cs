@@ -4,22 +4,27 @@ using UnityEngine;
 
 public class ShipPartDamage : MonoBehaviour
 {
+    [Tooltip("The name of this boat piece (make sure to include a number so that sails can correspond to a specific mast)")]
     public string pieceName;
+    [Tooltip("The amount of move force this boat piece contributes (once this piece is removed, the move force of the boat will be subtracted by this amount)")]
     public float speedIncrement;
 
-    public bool isHullPiece;
-    public bool isCannonPiece;
-
+    [Tooltip("Set enabled if this piece is a hull piece or cannon piece (so that it cannot be removed until the boat is fully destroyed)")]
+    public bool nonRemovablePiece;
+    
+    [Tooltip("The maximum health for this boat piece (once health reaches 0, this piece will be removed from the boat)")]
     public float pieceMaxHealth;
+    [Tooltip("The PlayerBoat (script) that this boat piece will correspond to")]
     public PlayerBoat playerBoat;
 
+    [Tooltip("The amount of mass that will be added to this piece once it has been removed / destroyed")]
     public float deathWeightAmount = 10f;
 
     float pieceCurrentHealth;
 
     void Awake()
     {
-        if (isHullPiece || isCannonPiece)
+        if (nonRemovablePiece)
         {
             pieceCurrentHealth = playerBoat.maxHealth;
         }
@@ -44,7 +49,7 @@ public class ShipPartDamage : MonoBehaviour
                 pieceCurrentHealth -= damage;
             }
 
-            if (pieceCurrentHealth <= 0 && !isHullPiece)
+            if (pieceCurrentHealth <= 0 && !nonRemovablePiece)
             {
                 RemovePiece();
             }
@@ -54,8 +59,13 @@ public class ShipPartDamage : MonoBehaviour
 
     public void RemovePiece()
     {
+        // FIX LATER:
+        // Removed due to a possible bug, however, there needs to still be a way for opposing team boats to not collide with a dead boat
+        // Potentially remove collisions between opposing boats in the collision matrix?
+        // -----
         // PolygonCollider2D collider = GetComponent<PolygonCollider2D>();
         // collider.enabled = false;
+        // -----
         GetComponent<Rigidbody2D>().mass += deathWeightAmount;
         FixedJoint2D joint = GetComponent<FixedJoint2D>();
 
