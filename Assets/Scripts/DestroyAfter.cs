@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class DestroyAfter : MonoBehaviour
 {
-
-    [SerializeField]
-    float fTimer = 4;
+    [Tooltip("The amount of seconds until this object will be destroyed")]
+    public float fTimer = 4;
 
     void Update()
     {
