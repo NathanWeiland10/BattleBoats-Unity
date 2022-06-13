@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CannonBall : MonoBehaviour
 {
-
+    // TEST
     [SerializeField] float cannonBallDamage;
     [SerializeField] string hitSoundEffect;
 
