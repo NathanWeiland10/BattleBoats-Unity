@@ -5,73 +5,104 @@ using UnityEngine.UI;
 
 public class PlayerBoat : MonoBehaviour
 {
+    [Tooltip("Set enabled for a friendly boat or disabled for an enemy ship (determines the movement direction)")]
+    public bool friendlyBoat;
+
+    [Tooltip("The maximum health for this boat")]
+    public float maxHealth;
+
+    [Tooltip("The build cost for this boat")]
+    public float boatCost;
+    
+    [Tooltip("The prefab of the projectile for the weapon of this boat")]
+    public GameObject cannonBall;
+
+    [Tooltip("The minimum shot delay for this boat (in seconds)")]
+    public float minShotDelay;
+    [Tooltip("The maximum shot delay for this boat (in seconds)")]
+    public float maxShotDelay;
+    [Tooltip("The angle variation for each shot of this boat (in degrees)")]
+    public float cannonSpread;
+    [Tooltip("The amount of recoil this boat receives when shooting")]
+    public float shotRecoil;
+    
+    // FIX LATER:
+    // Only have individual piece death weight amounts, not an overall weight to add to each piece (from the ShipPartDamage component):
+    public float deathWeightAmount = 10f;
+    
+    [Tooltip("The movement force (speed) of this boat")]
+    public float boatMoveForce;
+    [Tooltip("The amount of capture points this boat adds to a capture point every second")]
+    public float captureSpeed;
+
+    [Tooltip("The shot sound effects of this boat")]
+    public string[] shotSoundEffects;
+    [Tooltip("The death sound effects of this boat")]
+    public string[] deathSoundEffects;
+    
+    [Tooltip("Set enabled if the cannon(s) of this boat do not change angle (E.g. are build into the hull) or disabled if the cannon angle changed (E.g. the cannon of a raft)")]
+    public bool staticCannon;
+
+    [Tooltip("The collider this boat uses to determine when a boat or base is within reach and will begin attacking")]
+    public CircleCollider2D rangeHitBox;
+    [Tooltip("The collider of this boat that (either checks for other boats or for capturing: *** CHECK LATER ***)")]
+    public BoxCollider2D boatColliderHitBox;
+
+    // FIX LATER:
+    // Rename this to mainHullPiece since some ships may have multiple hull pieces:
+    [Tooltip("The main hull piece of this boat (used for determining the distance from one boat to another)")]
+    public GameObject hullPiece;
+    
+    // FIX LATER:
+    // Rename this to either cannonTransform or cannonPiece:
+    [Tooltip("The collider this boat uses to determine when a boat or base is within reach and will begin attacking")]
+    public Transform cannonJoint;
+    [Tooltip("*** ADD TOOLTIP LATER ***")]
+    public Transform cannonHullConnection;
+    [Tooltip("The transforms that cannonballs will spawn from for this boat")]
+    public Transform[] cannonSpawnPoints;
+
+    [Tooltip("All of the pieces for this boat (including the cannon)")]
+    public GameObject[] boatPieces;
+    
+    // FIX LATER:
+    // Rename this to cannonSmokeEffect so that it is easier to distinguish:
+    [Tooltip("The particle effect that is produced once a cannon is shot for this boat")]
+    public GameObject smokeEffect;
+
+    [Tooltip("The GameObject that holds all of the death weights for this boat; once a boat is destroyed, the deathWeights will become enabled)")]
+    public GameObject deathWeights;
+    
+    [Tooltip("The Slider that shows the current health of this boat")]
+    public Slider healthSlider;
+
+    // FIX LATER:
+    // These variables were switched to private, so they may need getters or setters later:
+    // ----
+    List<PlayerBoat> encounteredEnemies = new List<PlayerBoat>();
+    PlayerBoat currentEnemy = null;
+    PlayerBase encounteredBase = null;
+    bool isCapturing;
+    // ----
 
     GameManager gameManager;
 
     Vector2 mousePos;
     Vector2 barPos;
-
-    public float boatCost;
-
-    public string[] shotSoundEffects;
-    public string[] deathSoundEffects;
-
-    public float boatMoveForce;
-
-    public bool friendlyBoat;
-
-    public float captureSpeed;
-
-    public float deathWeightAmount = 10f;
-
-    public Slider healthSlider;
-
-    public CircleCollider2D rangeHitBox;
-    public BoxCollider2D boatColliderHitBox;
-
-    public GameObject[] boatPieces;
-    public GameObject hullPiece;
-
-    public bool staticCannon;
-
-    public GameObject smokeEffect;
-
-    public GameObject deathWeights;
-
-    public Transform cannonJoint;
-    public Transform cannonHullConnection;
-
-    public Transform[] cannonSpawnPoints;
-
-    [Tooltip("The prefab of the projectile for the weapon of this boat")]
-    public GameObject cannonBall;
-
-    public float cannonSpread;
-
-    public float minShotDelay;
-    public float maxShotDelay;
-
-    public float shotRecoil;
-    public float maxHealth;
-
-    float currentHealth;
-
-    bool isDelaying = false;
-
-    bool isDead = false;
-
-    public bool isCapturing;
-
+    
     float cannonForce;
+    
+    bool isDelaying;
+    bool isDead;
+    
+    float currentHealth;
 
     Rigidbody2D boatRigidBody;
 
-    public List<PlayerBoat> encounteredEnemies = new List<PlayerBoat>();
-    public PlayerBoat currentEnemy = null;
-
-    public PlayerBase encounteredBase = null;
-
-    bool sailRemoved = false;
+    // FIX LATER:
+    // Rather than having a boolean for removed sail, have a list that you can add to so 
+    // that you can check to see which sails have been removed and then reduce the speed:
+    bool sailRemoved;
 
     void Awake()
     {
