@@ -28,9 +28,8 @@ public class CapturePoint : MonoBehaviour
     public float maxCaptureAmount = 5f;
 
     // FIX LATER:
-    // These two variables were set from public to private; check to see if this caused any issues:
+    // These variables were set from public to private; check to see if this caused any issues:
     // -----
-    [Tooltip("The list of sprites that displays the enemy progress of this capture point")]
     List<PlayerBoat> friendlyBoats;
     List<PlayerBoat> enemyBoats;
     
