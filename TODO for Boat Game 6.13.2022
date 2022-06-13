@@ -1,0 +1,3 @@
+TODO:
+1) Fix the comments / tooltips for the PlayerBoat script (such as the boatColliderHitBox variable / tooltip: could be related to the BoatCaptureHitBox script)
+2) Check what the BoatCapureHitBoxScript is used for; only includes a var for playerBoat (could be merged into the PlayerBoat script)
