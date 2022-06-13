@@ -4,30 +4,45 @@ using UnityEngine;
 
 public class CapturePoint : MonoBehaviour
 {
-
+    [Tooltip("The prfeb of the enemy flag that will be visible once the enemy team captures this capture point")]
     public GameObject friendlyFlag;
+    [Tooltip("The prfeb of the friendly flag that will be visible once the friendly team captures this capture point")]
     public GameObject enemyFlag;
 
+    [Tooltip("The slider that shows the current friendly / enemy capture progress of this capture point")]
     public GameObject slider;
+    
+    [Tooltip("The sprite that displays this capture point as neutral")]
     public Sprite neutralSliderSprite;
+    [Tooltip("The list of sprites that displays the enemy progress of this capture point")]
     public Sprite[] enemySliderSprites;
+    [Tooltip("The list of sprites that displays the friendly progress of this capture point")]
     public Sprite[] friendlySliderSprites;
 
+    [Tooltip("The name of this capture point")]
     public string capturePointName;
+    [Tooltip("The amount of money per second a team gains once they have taken this capture point")]
     public float moneyPerSecond;
 
-    public float maxCaptureAmount;
+    [Tooltip("The total amount of points needed to capture or recapture this capture point (a higher value will take longer to capture)")]
+    public float maxCaptureAmount = 5f;
 
-    public List<PlayerBoat> friendlyBoats;
-    public List<PlayerBoat> enemyBoats;
-
-    public float friendlyCaptureSpeed;
-    public float enemyCaptureSpeed;
-
-    public bool friendlyCaptured = false;
-    public bool enemyCaptured = false;
-
-    public float timer = 0;
+    // FIX LATER:
+    // These two variables were set from public to private; check to see if this caused any issues:
+    // -----
+    [Tooltip("The list of sprites that displays the enemy progress of this capture point")]
+    List<PlayerBoat> friendlyBoats;
+    List<PlayerBoat> enemyBoats;
+    
+    float friendlyCaptureSpeed;
+    float enemyCaptureSpeed;
+    
+    bool friendlyCaptured = false;
+    bool enemyCaptured = false;
+    
+    float timer = 0;
+    // -----
+    
     bool beginCapture = false;
 
     GameManager gameManager;
@@ -47,9 +62,6 @@ public class CapturePoint : MonoBehaviour
 
         if (boat != null)
         {
-
-            // if (maxCaptureAmount != Mathf.Abs(timer)) 
-
                 if (boat.GetPlayerBoat().GetBoatFriendlyStatus() && !boat.GetPlayerBoat().IsDead())
                 {
                     if (!friendlyBoats.Contains(boat.GetPlayerBoat())) {
@@ -156,6 +168,7 @@ public class CapturePoint : MonoBehaviour
             else if (timer < maxCaptureAmount * 0.25 && timer > -maxCaptureAmount * 0.25)
             {
                 slider.GetComponent<SpriteRenderer>().sprite = neutralSliderSprite;
+                // FIX LATER: Remove flags / remove captures statuses here:
             }
 
 
@@ -163,11 +176,6 @@ public class CapturePoint : MonoBehaviour
             {
                 timer = -maxCaptureAmount;
 
-                // enemyCaptured = true;
-                // friendlyCaptured = false;
-
-                // gameManager.UpdateEnemyMoneyPerSecond(moneyPerSecond);
-                // gameManager.UpdateFriendlyMoneyPerSecond(-moneyPerSecond);
                 EnemyCapture();
 
                 friendlyFlag.SetActive(false);
@@ -186,11 +194,6 @@ public class CapturePoint : MonoBehaviour
             {
                 timer = maxCaptureAmount;
 
-                // friendlyCaptured = true;
-                // enemyCaptured = false;
-
-                // gameManager.UpdateEnemyMoneyPerSecond(-moneyPerSecond);
-                // gameManager.UpdateFriendlyMoneyPerSecond(moneyPerSecond);
                 FriendlyCapture();
 
                 friendlyFlag.SetActive(true);
@@ -211,13 +214,11 @@ public class CapturePoint : MonoBehaviour
     public void FriendlyCapture()
     {
         gameManager.UpdateCapture(true, true, this);
-        // gameManager.UpdateEnemyCapture(false, this);
     }
 
     public void EnemyCapture()
     {
         gameManager.UpdateCapture(true, false, this);
-        // gameManager.UpdateEnemyCapture(true, this);
     }
 
     public bool IsFriendlyCaptured()
