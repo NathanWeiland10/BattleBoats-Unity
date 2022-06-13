@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerBoat : MonoBehaviour
 {
-    [Tooltip("Set enabled for a friendly boat or disabled for an enemy ship (determines the movement direction)")]
+    [Tooltip("Set enabled for a friendly boat or disabled for an enemy boat (determines the movement direction)")]
     public bool friendlyBoat;
 
     [Tooltip("The maximum health for this boat")]
