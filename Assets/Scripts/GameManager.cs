@@ -52,13 +52,14 @@ public class GameManager : MonoBehaviour
     [Tooltip("The TMP text that is used to display the player (friendly team's) current total money")]
     public TMP_Text friendlyTotalMoneyText;
 
+    [Tooltip("The list of the capture points in the current scene / map")]
     public CapturePoint[] capturePoints;
 
-    // FIX LATER:
-    // Switched from public to private; check what this actually did / what it is used for:
-    float moneyDelayTimerStart;
+    [Tooltip("The time it takes in seconds to add the full amount of money per second to the player (money is added once per second)")]
+    [Range(0f, 1f)]
+    public float moneyDelayTimer = 0.5f;
 
-    float moneyTimer = 1;
+    float moneyTimer = 1; // Initial value serves as an initial wait time for the money to start ticking up
     float waitTime;
 
     void Awake()
@@ -113,7 +114,7 @@ public class GameManager : MonoBehaviour
         moneyTimer -= Time.deltaTime;
         if (moneyTimer <= 0)
         {
-            waitTime = (moneyDelayTimerStart / friendlyMoneyPerSecond);
+            waitTime = (moneyDelayTimer / friendlyMoneyPerSecond);
             StartCoroutine(AddDelayedMoney(friendlyMoneyPerSecond));
             UpdateEnemyMoney(enemyMoneyPerSecond);
             moneyTimer = 1;

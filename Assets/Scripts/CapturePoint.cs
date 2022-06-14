@@ -30,8 +30,8 @@ public class CapturePoint : MonoBehaviour
     // FIX LATER:
     // These variables were set from public to private; check to see if this caused any issues:
     // -----
-    List<PlayerBoat> friendlyBoats;
-    List<PlayerBoat> enemyBoats;
+    public List<PlayerBoat> friendlyBoats;
+    public List<PlayerBoat> enemyBoats;
     
     float friendlyCaptureSpeed;
     float enemyCaptureSpeed;
@@ -56,7 +56,6 @@ public class CapturePoint : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
         BoatCaptureHitBox boat = collision.gameObject.GetComponent<BoatCaptureHitBox>();
 
         if (boat != null)
@@ -80,8 +79,6 @@ public class CapturePoint : MonoBehaviour
                     }
 
                 }
-           
-
         }
 
         if (friendlyCaptureSpeed != enemyCaptureSpeed)

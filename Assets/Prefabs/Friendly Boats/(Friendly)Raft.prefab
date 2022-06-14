@@ -280,8 +280,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pieceName: Mast
   speedIncrement: 0.1
-  isHullPiece: 0
-  isCannonPiece: 0
+  nonRemovablePiece: 0
   pieceMaxHealth: 20
   playerBoat: {fileID: 6037260465085121964}
   deathWeightAmount: 10
@@ -489,7 +488,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6037260465085121965}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -53.699997, y: 0.95, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -509,41 +508,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f7ce7218a0b8246a9c2f0c13afb817, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  friendlyBoat: 1
+  maxHealth: 40
   boatCost: 40
+  cannonBall: {fileID: 1557472514956663906, guid: 6af587cc087e5b84c848c0eeeaefb257, type: 3}
+  minShotDelay: 1
+  maxShotDelay: 2
+  cannonSpread: 20
+  shotRecoil: 30
+  deathWeightAmount: 3.5
+  boatMoveForce: 0.8
+  captureSpeed: 1
   shotSoundEffects:
   - LightCannonShot1
   deathSoundEffects:
   - Death1
-  boatMoveForce: 0.2
-  friendlyBoat: 1
-  captureSpeed: 1
-  deathWeightAmount: 3.5
-  healthSlider: {fileID: 0}
+  staticCannon: 0
   rangeHitBox: {fileID: 7223424627448172576}
   boatColliderHitBox: {fileID: 2610219149067671438}
+  hullPiece: {fileID: 8589925655629899343}
+  cannonJoint: {fileID: 6037260465090665156}
+  cannonHullConnection: {fileID: 8540088049298072579}
+  cannonSpawnPoints:
+  - {fileID: 6037260463387698968}
   boatPieces:
   - {fileID: 6037260464189893279}
   - {fileID: 8589925655629899343}
   - {fileID: 6975441771613541140}
   - {fileID: 6037260465090665157}
-  hullPiece: {fileID: 8589925655629899343}
-  staticCannon: 0
   smokeEffect: {fileID: 5470383468595050592, guid: 81c017d6944c64a429cc21f2e29f3e9f, type: 3}
   deathWeights: {fileID: 6240338546756257015}
-  cannonJoint: {fileID: 6037260465090665156}
-  cannonHullConnection: {fileID: 8540088049298072579}
-  cannonSpawnPoints:
-  - {fileID: 6037260463387698968}
-  cannonBall: {fileID: 1557472514956663906, guid: 6af587cc087e5b84c848c0eeeaefb257, type: 3}
-  cannonSpread: 20
-  minShotDelay: 1
-  maxShotDelay: 2
-  shotRecoil: 30
-  maxHealth: 40
-  isCapturing: 0
-  encounteredEnemies: []
-  currentEnemy: {fileID: 0}
-  encounteredBase: {fileID: 0}
+  healthSlider: {fileID: 0}
 --- !u!1 &6037260465090665157
 GameObject:
   m_ObjectHideFlags: 0
@@ -616,7 +611,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.23500061, y: -0.6205}
+  m_ConnectedAnchor: {x: 0.235, y: -0.6205}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -639,11 +634,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pieceName: Cannon
   speedIncrement: 0
-  isHullPiece: 0
-  isCannonPiece: 1
+  nonRemovablePiece: 1
   pieceMaxHealth: 0
   playerBoat: {fileID: 6037260465085121964}
-  deathWeightAmount: 3
+  deathWeightAmount: 0
 --- !u!1 &6240338546756257015
 GameObject:
   m_ObjectHideFlags: 0
@@ -798,8 +792,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pieceName: Sail
   speedIncrement: 0.1
-  isHullPiece: 0
-  isCannonPiece: 0
+  nonRemovablePiece: 0
   pieceMaxHealth: 15
   playerBoat: {fileID: 6037260465085121964}
   deathWeightAmount: 10
@@ -927,7 +920,7 @@ FixedJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.1800003, y: -0.6615}
+  m_ConnectedAnchor: {x: -0.18, y: -0.6615}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!1 &8589925655629899343
@@ -1055,8 +1048,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pieceName: Hull
   speedIncrement: 0
-  isHullPiece: 1
-  isCannonPiece: 0
+  nonRemovablePiece: 1
   pieceMaxHealth: 0
   playerBoat: {fileID: 6037260465085121964}
   deathWeightAmount: 10

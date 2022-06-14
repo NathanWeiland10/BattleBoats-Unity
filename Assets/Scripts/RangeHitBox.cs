@@ -53,7 +53,7 @@ public class RangeHitBox : MonoBehaviour
     // Added due to a bug with a boat not updating its current enemy; maybe replace this later with the OnTriggerEnter2D
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (playerBoat.currentEnemy == null) {
+        if (playerBoat.getCurrentEnemy() == null) {
             BoatCaptureHitBox boat = collision.gameObject.GetComponent<BoatCaptureHitBox>();
             if (boat != null)
             {

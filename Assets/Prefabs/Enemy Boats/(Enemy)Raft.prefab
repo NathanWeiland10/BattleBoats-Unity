@@ -227,8 +227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pieceName: Sail
   speedIncrement: 0.1
-  isHullPiece: 0
-  isCannonPiece: 0
+  nonRemovablePiece: 0
   pieceMaxHealth: 15
   playerBoat: {fileID: 8956712786129986935}
   deathWeightAmount: 10
@@ -511,8 +510,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pieceName: Hull
   speedIncrement: 0
-  isHullPiece: 1
-  isCannonPiece: 0
+  nonRemovablePiece: 1
   pieceMaxHealth: 0
   playerBoat: {fileID: 8956712786129986935}
   deathWeightAmount: 10
@@ -762,41 +760,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f7ce7218a0b8246a9c2f0c13afb817, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  friendlyBoat: 0
+  maxHealth: 40
   boatCost: 40
+  cannonBall: {fileID: 7836512528782074995, guid: e507ad87a5a8f80469e001e6f346e582, type: 3}
+  minShotDelay: 1
+  maxShotDelay: 2
+  cannonSpread: 20
+  shotRecoil: 30
+  deathWeightAmount: 3.5
+  boatMoveForce: 0.2
+  captureSpeed: 1
   shotSoundEffects:
   - LightCannonShot1
   deathSoundEffects:
   - Death1
-  boatMoveForce: 0.2
-  friendlyBoat: 0
-  captureSpeed: 1
-  deathWeightAmount: 3.5
-  healthSlider: {fileID: 0}
+  staticCannon: 0
   rangeHitBox: {fileID: 5456894735485104379}
   boatColliderHitBox: {fileID: 845927724014597973}
+  hullPiece: {fileID: 6391031645717595796}
+  cannonJoint: {fileID: 8956712786183830047}
+  cannonHullConnection: {fileID: 6413256030933402840}
+  cannonSpawnPoints:
+  - {fileID: 8956712787684968387}
   boatPieces:
   - {fileID: 8956712786878974532}
   - {fileID: 6391031645717595796}
   - {fileID: 5713297582648783823}
   - {fileID: 8956712786183830046}
-  hullPiece: {fileID: 6391031645717595796}
-  staticCannon: 0
   smokeEffect: {fileID: 5470383468595050592, guid: 81c017d6944c64a429cc21f2e29f3e9f, type: 3}
   deathWeights: {fileID: 8727457574561457196}
-  cannonJoint: {fileID: 8956712786183830047}
-  cannonHullConnection: {fileID: 6413256030933402840}
-  cannonSpawnPoints:
-  - {fileID: 8956712787684968387}
-  cannonBall: {fileID: 7836512528782074995, guid: e507ad87a5a8f80469e001e6f346e582, type: 3}
-  cannonSpread: 20
-  minShotDelay: 1
-  maxShotDelay: 2
-  shotRecoil: 30
-  maxHealth: 40
-  isCapturing: 0
-  encounteredEnemies: []
-  currentEnemy: {fileID: 0}
-  encounteredBase: {fileID: 0}
+  healthSlider: {fileID: 0}
 --- !u!1 &8956712786183830046
 GameObject:
   m_ObjectHideFlags: 0
@@ -893,8 +887,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pieceName: Cannon
   speedIncrement: 0
-  isHullPiece: 0
-  isCannonPiece: 1
+  nonRemovablePiece: 0
   pieceMaxHealth: 0
   playerBoat: {fileID: 8956712786129986935}
   deathWeightAmount: 3
@@ -912,11 +905,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pieceName: Cannon
   speedIncrement: 0
-  isHullPiece: 0
-  isCannonPiece: 1
+  nonRemovablePiece: 1
   pieceMaxHealth: 0
   playerBoat: {fileID: 8956712786129986935}
-  deathWeightAmount: 3
+  deathWeightAmount: 0
 --- !u!1 &8956712786707230669
 GameObject:
   m_ObjectHideFlags: 0
@@ -1162,8 +1154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pieceName: Mast
   speedIncrement: 0.1
-  isHullPiece: 0
-  isCannonPiece: 0
+  nonRemovablePiece: 0
   pieceMaxHealth: 20
   playerBoat: {fileID: 8956712786129986935}
   deathWeightAmount: 10

@@ -76,14 +76,10 @@ public class PlayerBoat : MonoBehaviour
     [Tooltip("The Slider that shows the current health of this boat")]
     public Slider healthSlider;
 
-    // FIX LATER:
-    // These variables were switched to private, so they may need getters or setters later:
-    // ----
     List<PlayerBoat> encounteredEnemies = new List<PlayerBoat>();
     PlayerBoat currentEnemy = null;
     PlayerBase encounteredBase = null;
     bool isCapturing;
-    // ----
 
     GameManager gameManager;
 
@@ -228,6 +224,11 @@ public class PlayerBoat : MonoBehaviour
     public bool GetBoatFriendlyStatus()
     {
         return friendlyBoat;
+    }
+
+    public PlayerBoat getCurrentEnemy()
+    {
+        return currentEnemy;
     }
 
     public void AddEncounteredEnemy(PlayerBoat enemy)
