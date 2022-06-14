@@ -80,7 +80,7 @@ public class PlayerBoat : MonoBehaviour
     // These variables were switched to private, so they may need getters or setters later:
     // ----
     List<PlayerBoat> encounteredEnemies = new List<PlayerBoat>();
-    PlayerBoat currentEnemy = null;
+    public PlayerBoat currentEnemy = null; // CHANGE TO A GETTER METHOD LATER (FIX LATER)
     PlayerBase encounteredBase = null;
     bool isCapturing;
     // ----
