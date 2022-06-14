@@ -194,7 +194,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1541100875
-  m_SortingLayer: 12
+  m_SortingLayer: 15
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 31b88792a87104c48a562222cee9b9db, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -292,7 +292,7 @@ Transform:
   m_Children:
   - {fileID: 600005221}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &118797578
 GameObject:
@@ -365,7 +365,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1541100875
-  m_SortingLayer: 12
+  m_SortingLayer: 15
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 31b88792a87104c48a562222cee9b9db, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -423,7 +423,7 @@ Transform:
   m_Children:
   - {fileID: 1085181374}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &195307086
 GameObject:
@@ -526,7 +526,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2016248181
-  m_SortingLayer: 11
+  m_SortingLayer: 14
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0.42077145, b: 0.5943396, a: 0.6666667}
@@ -752,7 +752,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1541100875
-  m_SortingLayer: 12
+  m_SortingLayer: 15
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 31b88792a87104c48a562222cee9b9db, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -933,6 +933,67 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &555363333
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6037260465085121963, guid: 08c57d19cf81a0f42b15beca339e289e, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037260465085121963, guid: 08c57d19cf81a0f42b15beca339e289e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -74.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037260465085121963, guid: 08c57d19cf81a0f42b15beca339e289e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.2537787
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037260465085121963, guid: 08c57d19cf81a0f42b15beca339e289e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037260465085121963, guid: 08c57d19cf81a0f42b15beca339e289e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037260465085121963, guid: 08c57d19cf81a0f42b15beca339e289e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037260465085121963, guid: 08c57d19cf81a0f42b15beca339e289e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037260465085121963, guid: 08c57d19cf81a0f42b15beca339e289e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037260465085121963, guid: 08c57d19cf81a0f42b15beca339e289e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037260465085121963, guid: 08c57d19cf81a0f42b15beca339e289e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037260465085121963, guid: 08c57d19cf81a0f42b15beca339e289e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037260465085121965, guid: 08c57d19cf81a0f42b15beca339e289e, type: 3}
+      propertyPath: m_Name
+      value: (Friendly)Raft
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037260465085121965, guid: 08c57d19cf81a0f42b15beca339e289e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 08c57d19cf81a0f42b15beca339e289e, type: 3}
 --- !u!1 &590395905
 GameObject:
   m_ObjectHideFlags: 0
@@ -1317,10 +1378,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69028b936bd303a418167430632274d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  friendlyBase: 1
   moneyPerSecond: 10
   maxBaseHealth: 100
   deathSoundEffect: Death2
-  friendlyBase: 1
 --- !u!1 &730007002
 GameObject:
   m_ObjectHideFlags: 0
@@ -1746,7 +1807,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2016248181
-  m_SortingLayer: 11
+  m_SortingLayer: 14
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0.23243552, b: 0.3301887, a: 0.5882353}
@@ -1995,7 +2056,7 @@ Transform:
   - {fileID: 1724208009}
   - {fileID: 1881239866}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1076618872
 GameObject:
@@ -2068,7 +2129,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1541100875
-  m_SortingLayer: 12
+  m_SortingLayer: 15
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a505adda54f49814696c02ff01dae728, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2175,11 +2236,6 @@ MonoBehaviour:
   maxCaptureAmount: 5
   friendlyBoats: []
   enemyBoats: []
-  friendlyCaptureSpeed: 0
-  enemyCaptureSpeed: 0
-  friendlyCaptured: 0
-  enemyCaptured: 0
-  timer: 0
 --- !u!212 &1083305819
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2560,7 +2616,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1541100875
-  m_SortingLayer: 12
+  m_SortingLayer: 15
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a505adda54f49814696c02ff01dae728, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2602,6 +2658,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 551ed300d8d4c804789167d674a27200, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCameraRig: {fileID: 82206741}
+  mainCamera: {fileID: 600005224}
   friendlyBase: {fileID: 675411381}
   enemyBase: {fileID: 1324002846}
   friendlyMoneyPerSecond: 0
@@ -2614,16 +2672,15 @@ MonoBehaviour:
   maxCameraSize: 25
   cameraScrollSpeed: 0.5
   cameraMoveSpeed: 30
-  mainCameraRig: {fileID: 82206741}
-  mainCamera: {fileID: 600005224}
   friendlyBoatSpawn: {fileID: 1259561351}
   enemyBoatSpawn: {fileID: 2084720852}
   gameHUD: {fileID: 1637959281}
   friendlyTotalMoneyText: {fileID: 1839347057}
-  moneyDelayTimerStart: 0.2
   capturePoints:
   - {fileID: 1083305818}
+  - {fileID: 1724208011}
   - {fileID: 1881239868}
+  moneyDelayTimer: 0.5
 --- !u!4 &1211498255
 Transform:
   m_ObjectHideFlags: 0
@@ -2706,7 +2763,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1238567065
 GameObject:
@@ -2779,7 +2836,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2016248181
-  m_SortingLayer: 11
+  m_SortingLayer: 14
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0.22529206, b: 0.3207547, a: 0.5882353}
@@ -2863,7 +2920,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1541100875
-  m_SortingLayer: 12
+  m_SortingLayer: 15
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 31b88792a87104c48a562222cee9b9db, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3063,10 +3120,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69028b936bd303a418167430632274d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  friendlyBase: 0
   moneyPerSecond: 10
   maxBaseHealth: 100
   deathSoundEffect: Death2
-  friendlyBase: 0
 --- !u!1 &1432546047
 GameObject:
   m_ObjectHideFlags: 0
@@ -3136,7 +3193,7 @@ Transform:
   - {fileID: 664268771}
   - {fileID: 66484920}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1455062810
 GameObject:
@@ -3209,7 +3266,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 381434737
-  m_SortingLayer: 14
+  m_SortingLayer: 17
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2bba1c45f6a046242bee83ccb6767a91, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3275,8 +3332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c6f8ebd837d69b43a672377aed2db32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boatName: Medium Ship
-  boatCost: 50
+  playerBoat: {fileID: 6037260465085121965, guid: 08c57d19cf81a0f42b15beca339e289e, type: 3}
 --- !u!114 &1475761291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3323,11 +3379,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1475761290}
         m_TargetAssemblyTypeName: CreateBoatButton, Assembly-CSharp
-        m_MethodName: AttemptPurchase
-        m_Mode: 2
+        m_MethodName: AttemptFriendlyPurchase
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 7519091286915643825, guid: fe8870ab33e772347ab84ab44b3a5954, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3424,8 +3480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c6f8ebd837d69b43a672377aed2db32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boatName: Small Ship
-  boatCost: 50
+  playerBoat: {fileID: 6037260465085121965, guid: 08c57d19cf81a0f42b15beca339e289e, type: 3}
 --- !u!114 &1478627299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3472,11 +3527,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1478627298}
         m_TargetAssemblyTypeName: CreateBoatButton, Assembly-CSharp
-        m_MethodName: AttemptPurchase
-        m_Mode: 2
+        m_MethodName: AttemptFriendlyPurchase
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 5581006369737693, guid: dd9f80c3606502d4dbc13015819b4552, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3736,7 +3791,7 @@ RectTransform:
   - {fileID: 1839347056}
   - {fileID: 982072174}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3837,11 +3892,6 @@ MonoBehaviour:
   maxCaptureAmount: 5
   friendlyBoats: []
   enemyBoats: []
-  friendlyCaptureSpeed: 0
-  enemyCaptureSpeed: 0
-  friendlyCaptured: 0
-  enemyCaptured: 0
-  timer: 0
 --- !u!212 &1724208012
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3965,7 +4015,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 981163821
-  m_SortingLayer: 10
+  m_SortingLayer: 13
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a1003d205705c27498abc3bed2485e2f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4049,7 +4099,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 981163821
-  m_SortingLayer: 10
+  m_SortingLayer: 13
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a8ab2691747928144aa283253597635f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4326,11 +4376,6 @@ MonoBehaviour:
   maxCaptureAmount: 5
   friendlyBoats: []
   enemyBoats: []
-  friendlyCaptureSpeed: 0
-  enemyCaptureSpeed: 0
-  friendlyCaptured: 0
-  enemyCaptured: 0
-  timer: 0
 --- !u!212 &1881239869
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4454,7 +4499,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -750935429
-  m_SortingLayer: 13
+  m_SortingLayer: 16
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.21092919, g: 0.2830189, b: 0.17488432, a: 1}
@@ -4616,7 +4661,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 381434737
-  m_SortingLayer: 14
+  m_SortingLayer: 17
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2bba1c45f6a046242bee83ccb6767a91, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4952,7 +4997,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -750935429
-  m_SortingLayer: 13
+  m_SortingLayer: 16
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.21092919, g: 0.2830189, b: 0.17488432, a: 1}

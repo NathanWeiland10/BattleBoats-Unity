@@ -177,7 +177,6 @@ public class PlayerBoat : MonoBehaviour
 
     public void Die()
     {
-
         gameManager.UpdateOtherCurrentEnemy(this);
 
         deathWeights.gameObject.SetActive(true);
