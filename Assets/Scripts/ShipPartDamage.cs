@@ -57,16 +57,8 @@ public class ShipPartDamage : MonoBehaviour
 
     public void RemovePiece()
     {
-        // FIX LATER:
-        // Removed due to a possible bug, however, there needs to still be a way for opposing team boats to not collide with a dead boat
-        // Potentially remove collisions between opposing boats in the collision matrix?
-        // -----
-        // PolygonCollider2D collider = GetComponent<PolygonCollider2D>();
-        // collider.enabled = false;
-        // -----
         GetComponent<Rigidbody2D>().mass += deathWeightAmount;
         FixedJoint2D joint = GetComponent<FixedJoint2D>();
-
         if (playerBoat != null) {
             if (pieceName.ToLower().Contains("mast"))
             {
@@ -74,7 +66,6 @@ public class ShipPartDamage : MonoBehaviour
                 foreach (GameObject b in boatPieces)
                 {
                     string name = b.GetComponent<ShipPartDamage>().pieceName;
-
                     if (name[name.Length - 1] == pieceName[pieceName.Length - 1] && name.ToLower().Contains("sail"))
                     {
                         b.GetComponent<Rigidbody2D>().mass += b.GetComponent<ShipPartDamage>().deathWeightAmount;
@@ -84,9 +75,7 @@ public class ShipPartDamage : MonoBehaviour
                 }
             }
         }
-
         Destroy(joint);
-
         if (pieceName.ToLower().Contains("mast") || pieceName.ToLower().Contains("sail"))
         {
             playerBoat.UpdateBoatSpeed(-speedIncrement);
