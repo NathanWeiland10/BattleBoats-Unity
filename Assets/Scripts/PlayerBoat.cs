@@ -48,15 +48,10 @@ public class PlayerBoat : MonoBehaviour
     [Tooltip("The collider of this boat that (either checks for other boats or for capturing: *** CHECK LATER ***)")]
     public BoxCollider2D boatColliderHitBox;
 
-    // FIX LATER:
-    // Rename this to mainHullPiece since some ships may have multiple hull pieces:
     [Tooltip("The main hull piece of this boat (used for determining the distance from one boat to another)")]
-    public GameObject hullPiece;
-    
-    // FIX LATER:
-    // Rename this to either cannonTransform or cannonPiece:
+    public GameObject mainHullPiece;
     [Tooltip("The collider this boat uses to determine when a boat or base is within reach and will begin attacking")]
-    public Transform cannonJoint;
+    public Transform cannonPiece;
     [Tooltip("*** ADD TOOLTIP LATER ***")]
     public Transform cannonHullConnection;
     [Tooltip("The transforms that cannonballs will spawn from for this boat")]
@@ -65,10 +60,8 @@ public class PlayerBoat : MonoBehaviour
     [Tooltip("All of the pieces for this boat (including the cannon)")]
     public GameObject[] boatPieces;
     
-    // FIX LATER:
-    // Rename this to cannonSmokeEffect so that it is easier to distinguish:
     [Tooltip("The particle effect that is produced once a cannon is shot for this boat")]
-    public GameObject smokeEffect;
+    public GameObject cannonSmokeEffect;
 
     [Tooltip("The GameObject that holds all of the death weights for this boat; once a boat is destroyed, the deathWeights will become enabled)")]
     public GameObject deathWeights;
@@ -107,11 +100,9 @@ public class PlayerBoat : MonoBehaviour
         boatRigidBody = hullPiece.GetComponent<Rigidbody2D>();
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
-
         if (!staticCannon) {
             if (friendlyBoat)
             {
@@ -124,17 +115,8 @@ public class PlayerBoat : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
-        // Remove later: Bug occured: Enemy boat died but was not removed from list / as current enemy:
-        /*
-        if (currentEnemy != null && currentEnemy.IsDead())
-        {
-            UpdateCurrentEnemy();
-        }
-        */
-
         if (!isDead)
         {
             if (currentEnemy == null && !isCapturing && encounteredBase == null)
@@ -170,9 +152,7 @@ public class PlayerBoat : MonoBehaviour
                     StartCoroutine(AIFireBoat(currentEnemy));
                 }
             }
-
         }
-
     }
 
     public void TakeDamage(float damage)
@@ -187,14 +167,11 @@ public class PlayerBoat : MonoBehaviour
     public void Die()
     {
         gameManager.UpdateOtherCurrentEnemy(this);
-
         deathWeights.gameObject.SetActive(true);
-
         foreach (GameObject boatPiece in boatPieces)
         {
-
             if (boatPiece.GetComponent<ShipPartDamage>().GetPieceCurrentHealth() > 0) {
-
+            
                 FindObjectOfType<AudioManager>().PlayAtPoint(deathSoundEffects[Random.Range(0, deathSoundEffects.Length)], hullPiece.transform.position);
 
                 FixedJoint2D joint = boatPiece.GetComponent<FixedJoint2D>();
@@ -209,10 +186,8 @@ public class PlayerBoat : MonoBehaviour
                 isDead = true;
 
                 Destroy(this);
-
             }
         }
-
     }
 
     public float GetCurrentHealth()
@@ -265,7 +240,6 @@ public class PlayerBoat : MonoBehaviour
     public void UpdateCurrentEnemy()
     {
         encounteredEnemies.Remove(currentEnemy);
-
         if (encounteredEnemies.Count != 0)
         {
             currentEnemy = encounteredEnemies[0];
@@ -286,7 +260,6 @@ public class PlayerBoat : MonoBehaviour
 
     IEnumerator AIFireBoat(PlayerBoat enemy)
     {
-
         // Check if the current enemy boat is behind the boat:
         if (CheckIfBehind(enemy))
         {
@@ -294,7 +267,6 @@ public class PlayerBoat : MonoBehaviour
         }
         else
         {
-
             isDelaying = true;
 
             Transform cannonSpawnPoint = cannonSpawnPoints[Random.Range(0, cannonSpawnPoints.Length)];
