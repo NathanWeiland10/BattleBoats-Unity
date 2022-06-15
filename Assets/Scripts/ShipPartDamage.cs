@@ -38,11 +38,9 @@ public class ShipPartDamage : MonoBehaviour
     {
         if (collision.gameObject.tag == "CannonBall")
         {
-            Destroy(collision.gameObject);
-
             if (pieceCurrentHealth > 0)
             {
-                FindObjectOfType<AudioManager>().PlayAtPoint(collision.gameObject.GetComponent<CannonBall>().GetHitSoundEffect(), GetComponentInParent<Transform>().position);
+                FindObjectOfType<AudioManager>().PlayAtPoint(collision.gameObject.GetComponent<CannonBall>().GetHitSoundEffect(), collision.gameObject.transform.position);
 
                 float damage = collision.gameObject.GetComponent<CannonBall>().GetCannonBallDamage();
                 playerBoat.TakeDamage(damage);
@@ -53,8 +51,8 @@ public class ShipPartDamage : MonoBehaviour
             {
                 RemovePiece();
             }
-
         }
+        Destroy(collision.gameObject);
     }
 
     public void RemovePiece()
