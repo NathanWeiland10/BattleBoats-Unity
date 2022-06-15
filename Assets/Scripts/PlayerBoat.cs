@@ -125,7 +125,7 @@ public class PlayerBoat : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // Remove later: Bug occured: Enemy boat died but was not removed from list / as current enemy:
         /*
@@ -141,17 +141,26 @@ public class PlayerBoat : MonoBehaviour
             {
                 if (friendlyBoat)
                 {
-                    // cannonJoint.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
                     MoveLeft();
                 }
                 else
                 {
-                    // cannonJoint.rotation = Quaternion.Euler(new Vector3(0, 0, -180));
                     MoveRight();
                 }
             }
             else
             {
+                if (!staticCannon)
+                {
+                    if (friendlyBoat)
+                    {
+                        cannonJoint.rotation = Quaternion.Euler(new Vector3(0, 0, 45));
+                    }
+                    else
+                    {
+                        cannonJoint.rotation = Quaternion.Euler(new Vector3(0, 0, -225));
+                    }
+                }
                 if (!isDelaying && encounteredBase != null)
                 {
                     StartCoroutine(AIFireBase(encounteredBase));
@@ -186,7 +195,7 @@ public class PlayerBoat : MonoBehaviour
 
             if (boatPiece.GetComponent<ShipPartDamage>().GetPieceCurrentHealth() > 0) {
 
-                FindObjectOfType<AudioManager>().PlayAtPoint(deathSoundEffects[Random.Range(0, deathSoundEffects.Length)], this.transform.position);
+                FindObjectOfType<AudioManager>().PlayAtPoint(deathSoundEffects[Random.Range(0, deathSoundEffects.Length)], hullPiece.transform.position);
 
                 FixedJoint2D joint = boatPiece.GetComponent<FixedJoint2D>();
                 Destroy(joint);
@@ -288,19 +297,6 @@ public class PlayerBoat : MonoBehaviour
 
             isDelaying = true;
 
-            if (!staticCannon) {
-
-                if (friendlyBoat)
-                {
-                    cannonJoint.rotation = Quaternion.Euler(new Vector3(0, 0, 45));
-                }
-                else
-                {
-                    cannonJoint.rotation = Quaternion.Euler(new Vector3(0, 0, -225));
-                }
-
-            }
-
             Transform cannonSpawnPoint = cannonSpawnPoints[Random.Range(0, cannonSpawnPoints.Length)];
 
             float enemyDist = Mathf.Abs(cannonSpawnPoint.position.x - enemy.GetBoatHullXCoord());
@@ -309,7 +305,7 @@ public class PlayerBoat : MonoBehaviour
 
             boatRigidBody.AddForce((cannonSpawnPoint.up) * shotRecoil);
 
-            FindObjectOfType<AudioManager>().PlayAtPoint(shotSoundEffects[Random.Range(0, shotSoundEffects.Length)], this.transform.position);
+            FindObjectOfType<AudioManager>().PlayAtPoint(shotSoundEffects[Random.Range(0, shotSoundEffects.Length)], hullPiece.transform.position);
 
             Instantiate(smokeEffect, cannonSpawnPoint.position, cannonSpawnPoint.rotation);
 
@@ -328,18 +324,6 @@ public class PlayerBoat : MonoBehaviour
     {
         isDelaying = true;
 
-        if (!staticCannon) {
-
-            if (friendlyBoat)
-            {
-                cannonJoint.rotation = Quaternion.Euler(new Vector3(0, 0, 45));
-            }
-            else
-            {
-                cannonJoint.rotation = Quaternion.Euler(new Vector3(0, 0, -225));
-            }
-        }
-
         Transform cannonSpawnPoint = cannonSpawnPoints[Random.Range(0, cannonSpawnPoints.Length)];
 
         float enemyDist = Mathf.Abs(cannonSpawnPoint.position.x - playerBase.GetXCoord());
@@ -348,7 +332,7 @@ public class PlayerBoat : MonoBehaviour
 
         boatRigidBody.AddForce((cannonSpawnPoint.up) * shotRecoil);
 
-        FindObjectOfType<AudioManager>().PlayAtPoint(shotSoundEffects[Random.Range(0, shotSoundEffects.Length)], this.transform.position);
+        FindObjectOfType<AudioManager>().PlayAtPoint(shotSoundEffects[Random.Range(0, shotSoundEffects.Length)], hullPiece.transform.position);
 
         float recoil = Random.Range(-cannonSpread, cannonSpread);
         cannonSpawnPoint.eulerAngles = new Vector3(cannonSpawnPoint.eulerAngles.x, cannonSpawnPoint.eulerAngles.y, cannonSpawnPoint.eulerAngles.z + recoil);

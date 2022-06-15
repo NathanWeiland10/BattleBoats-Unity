@@ -517,7 +517,7 @@ MonoBehaviour:
   cannonSpread: 20
   shotRecoil: 30
   deathWeightAmount: 3.5
-  boatMoveForce: 0.8
+  boatMoveForce: 3.3
   captureSpeed: 1
   shotSoundEffects:
   - LightCannonShot1

@@ -59,6 +59,7 @@ public class AudioManager : MonoBehaviour
 
 		s.source.volume = 0f;
 		float dist = Math.Abs(FindObjectOfType<AudioListener>().GetComponent<Transform>().position.x - v.x);
+
 		if (dist < s.source.minDistance)
         {
 			s.source.volume = 1f;

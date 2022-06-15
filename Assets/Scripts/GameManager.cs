@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
         gameHUD.SetActive(true);    
     }
 
-    void Update()
+    void FixedUpdate()
     {
 
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
@@ -94,8 +94,10 @@ public class GameManager : MonoBehaviour
                 mainCameraRig.GetComponent<Rigidbody2D>().AddForce(Vector3.right * cameraMoveSpeed);
             }
         }
+    }
 
-
+    void Update()
+    {
         if (Input.GetAxis("Mouse ScrollWheel") > 0f)
         {
             if (mainCamera.orthographicSize - cameraScrollSpeed > minCameraSize)
@@ -119,7 +121,6 @@ public class GameManager : MonoBehaviour
             UpdateEnemyMoney(enemyMoneyPerSecond);
             moneyTimer = 1;
         }
-
     }
 
     public void UpdateOtherCurrentEnemy(PlayerBoat boat)
