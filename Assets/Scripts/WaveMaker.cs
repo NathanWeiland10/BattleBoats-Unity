@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class WaveMaker : MonoBehaviour
 {
-
+    [Tooltip("The transform that waves will be spawned at")]
     public Transform waveSpawnPoint;
+    [Tooltip("The prefab for the wave that will be spawned")]
     public GameObject wavePrefab;
 
     GameObject instantiatedWave;
@@ -13,11 +14,6 @@ public class WaveMaker : MonoBehaviour
     void Start()
     {
         instantiatedWave = Instantiate(wavePrefab, waveSpawnPoint.transform.position, waveSpawnPoint.transform.rotation);
-    }
-
-    void Update()
-    {
-        
     }
 
     void FixedUpdate()

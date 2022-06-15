@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BoatCaptureHitBox : MonoBehaviour
 {
-
+    [Tooltip("The boat (PlayerBoat script) that corresponds to this script")]
     public PlayerBoat playerBoat;
 
     public PlayerBoat GetPlayerBoat()

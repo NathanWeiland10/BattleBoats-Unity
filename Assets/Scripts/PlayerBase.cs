@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class PlayerBase : MonoBehaviour
 {
-
+    [Tooltip("Set enabled for a friendly base or disabled for an enemy base (determines the movement direction)")]
+    public bool friendlyBase;
+    [Tooltip("The amount of money per second this base currently makes (initial / starting value can be set here)")]
     public float moneyPerSecond;
-
+    [Tooltip("The maximum health for this base")]
     public float maxBaseHealth;
-    float currentBaseHealth;
-
+    [Tooltip("The sound effect that will play once this base has been destroyed")]
     public string deathSoundEffect;
 
-    public bool friendlyBase;
-
     GameManager gameManager;
+    
+    float currentBaseHealth;
 
     void Awake()
     {
@@ -30,7 +31,6 @@ public class PlayerBase : MonoBehaviour
             if (currentBaseHealth > 0)
             {
                 FindObjectOfType<AudioManager>().PlayAtPoint(collision.gameObject.GetComponent<CannonBall>().GetHitSoundEffect(), this.transform.position);
-
                 float damage = collision.gameObject.GetComponent<CannonBall>().GetCannonBallDamage();
                 ChangeBaseHealth(-damage);
             }
@@ -38,7 +38,6 @@ public class PlayerBase : MonoBehaviour
             {
                 Die();
             }
-
         }
     }
 
@@ -85,7 +84,6 @@ public class PlayerBase : MonoBehaviour
 
     public void Die()
     {
-
         BoxCollider2D collider = GetComponent<BoxCollider2D>();
         Destroy(collider);
 
@@ -99,7 +97,9 @@ public class PlayerBase : MonoBehaviour
         }
 
         FindObjectOfType<AudioManager>().Play(deathSoundEffect);
-        Destroy(this);  // Currently will only destroy the script (might be useful if decided to change sprite to 'death sprite' as to not delete the whole game object)
+        // FIX LATER:
+        // Currently will only destroy the script (might be useful if decided to change sprite to 'death sprite' as to not delete the whole game object)
+        Destroy(this); 
     }
 
     public float GetBaseMoneyPerSecond()

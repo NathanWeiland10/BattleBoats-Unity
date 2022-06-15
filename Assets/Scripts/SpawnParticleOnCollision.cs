@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnParticleOnCollision : MonoBehaviour
 {
-
+    [Tooltip("The particle system that will be instantiated when a collision (OnTriggerEnter2D) occurs with a CannonBall")]
     public ParticleSystem particle;
 
     private void OnTriggerEnter2D(Collider2D collider)
