@@ -18,8 +18,6 @@ public class CreateBoatButton : MonoBehaviour
         return playerBoat;
     }
 
-    // FIX LATER:
-    // Name changed from AttemptPurchase; check to see if this caused any issues (such as the buy boat button event getting removed)
     public void AttemptFriendlyPurchase()
     {
         if (gameManager.friendlyTotalMoney >= playerBoat.GetComponent<PlayerBoat>().boatCost)

@@ -71,7 +71,6 @@ public class GameManager : MonoBehaviour
 
     void FixedUpdate()
     {
-
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.LeftShift))
@@ -125,7 +124,6 @@ public class GameManager : MonoBehaviour
 
     public void UpdateOtherCurrentEnemy(PlayerBoat boat)
     {
-
         if (boat.GetBoatFriendlyStatus())
         {
             friendlyBoats.Remove(boat);
@@ -134,13 +132,11 @@ public class GameManager : MonoBehaviour
             {
                 foreach (PlayerBoat b in enemyBoats)
                 {
-
                     if (b.GetCurrentEnemy() == boat)
                     {
                         // Update the boat's current enemy:
                         b.UpdateCurrentEnemy();
                     }
-
                     // Check if the boat that was killed was in the encounteredEnemyList:
                     if (b.GetEncounteredEnemies().Contains(boat))
                     {
@@ -157,13 +153,11 @@ public class GameManager : MonoBehaviour
             {
                 foreach (PlayerBoat b in friendlyBoats)
                 {
-
                     if (b.GetCurrentEnemy() == boat)
                     {
                         // Update the boat's current enemy:
                         b.UpdateCurrentEnemy();
                     }
-
                     // Check if the boat that was killed was in the encounteredEnemyList:
                     if (b.GetEncounteredEnemies().Contains(boat))
                     {
@@ -229,7 +223,7 @@ public class GameManager : MonoBehaviour
                 break;
             }
         }
-
+        
         if (friend) {
             // Check to see if a new bool value is being used:
             if (b != capturePoint.IsFriendlyCaptured())
