@@ -26,8 +26,7 @@ public class PlayerBase : MonoBehaviour
     {
         if (collision.gameObject.tag == "CannonBall")
         {
-            Destroy(collision.gameObject);
-
+            Destroy(collision.gameObject); // Destroy the cannonball
             if (currentBaseHealth > 0)
             {
                 FindObjectOfType<AudioManager>().PlayAtPoint(collision.gameObject.GetComponent<CannonBall>().GetHitSoundEffect(), this.transform.position);
@@ -44,7 +43,6 @@ public class PlayerBase : MonoBehaviour
     public void ChangeBaseHealth(float f)
     {
         currentBaseHealth += f;
-
         if (currentBaseHealth > maxBaseHealth)
         {
             currentBaseHealth = maxBaseHealth;
