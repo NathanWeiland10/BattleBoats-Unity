@@ -27,9 +27,6 @@ public class CapturePoint : MonoBehaviour
     [Tooltip("The total amount of points needed to capture or recapture this capture point (a higher value will take longer to capture)")]
     public float maxCaptureAmount = 5f;
 
-    // FIX LATER:
-    // These variables were set from public to private; check to see if this caused any issues:
-    // -----
     public List<PlayerBoat> friendlyBoats;
     public List<PlayerBoat> enemyBoats;
     
@@ -40,7 +37,6 @@ public class CapturePoint : MonoBehaviour
     bool enemyCaptured = false;
     
     float timer = 0;
-    // -----
     
     bool beginCapture = false;
 
