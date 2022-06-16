@@ -7,49 +7,65 @@ using UnityEngine.UI;
 
 public class ToolTip : MonoBehaviour
 {
-  // FIX LATER:
-  // Make sure to put this script over the thing you want to spawn the tooltip (Ex: Put this on a button and use the tooltip as the var listed here)
-  // "Renderer" may need to be changed to SpriteRenderer later as well
-  [Tooltip("The GameObject of the tooltip that will fade in upon hovering over this object")]
-  public GameObject toolTip;
-  
-  [Tooltip("The speed at which the tooltip will fade in and out")]
-  public float fadeSpeed = 0.8f;
-  
-  bool fadeIn, fadeOut;
-  
-  void Update() {
-    if (fadeOut) {
-      Color objectColor = toolTip.GetComponent<Renderer>().material.color;
-      float fadeAmount = objectColor.a - (fadeSpeed * Time.deltaTime);
-      
-      objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
-      toolTip.GetComponent<Renderer>().material.color = objectColor;
-      
-      if (objectColor.a <= 0) {
+    // FIX LATER:
+    // Make sure to put this script over the thing you want to spawn the tooltip (Ex: Put this on a button and use the tooltip as the var listed here)
+    // "Renderer" may need to be changed to SpriteRenderer later as well
+    [Tooltip("The GameObject of the tooltip that will fade in upon hovering over this object")]
+    public GameObject toolTip;
+
+    [Tooltip("The speed at which the tooltip will fade in and out")]
+    public float fadeSpeed = 0.8f;
+
+    bool fadeIn, fadeOut;
+
+    void Awake()
+    {
+
+        Color objectColor = toolTip.GetComponent<SpriteRenderer>().material.color;
+        objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, 1f);
+        toolTip.GetComponent<SpriteRenderer>().material.color = objectColor;
+    }
+
+    void Update()
+    {
+        if (fadeOut)
+        {
+            Color objectColor = toolTip.GetComponent<SpriteRenderer>().material.color;
+            float fadeAmount = objectColor.a - (fadeSpeed * Time.deltaTime);
+
+            objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
+            toolTip.GetComponent<SpriteRenderer>().material.color = objectColor;
+
+            if (objectColor.a <= 0)
+            {
+                fadeOut = false;
+            }
+        }
+        else if (fadeIn)
+        {
+            Color objectColor = toolTip.GetComponent<SpriteRenderer>().material.color;
+            float fadeAmount = objectColor.a + (fadeSpeed * Time.deltaTime);
+
+            objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
+            toolTip.GetComponent<SpriteRenderer>().material.color = objectColor;
+
+            if (objectColor.a >= 1)
+            {
+                fadeIn = false;
+            }
+        }
+    }
+
+    void OnMouseOver()
+    {
+        fadeIn = true;
         fadeOut = false;
-      }
-   } else if (fadeIn) {
-      Color objectColor = toolTip.GetComponent<Renderer>().material.color;
-      float fadeAmount = objectColor.a + (fadeSpeed * Time.deltaTime);
-      
-      objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
-      toolTip.GetComponent<Renderer>().material.color = objectColor;
-      
-      if (objectColor.a <= 0) {
+    }
+
+    void OnMouseExit()
+    {
         fadeIn = false;
-      }
-   }
-  }
-  
-  void OnMouseOver() {
-    fadeIn = true;
-    fadeOut = false;
-  }
-  
-  void OnMouseExit() {
-    fadeIn = false;
-    fadeOut = true;
-  }
-  
+        fadeOut = true;
+    }
+
 }
