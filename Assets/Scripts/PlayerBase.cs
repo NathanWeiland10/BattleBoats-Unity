@@ -26,10 +26,15 @@ public class PlayerBase : MonoBehaviour
     {
         if (collision.gameObject.tag == "CannonBall")
         {
-            Destroy(collision.gameObject); // Destroy the cannonball
             if (currentBaseHealth > 0)
             {
                 FindObjectOfType<AudioManager>().PlayAtPoint(collision.gameObject.GetComponent<CannonBall>().GetHitSoundEffect(), this.transform.position);
+
+                if (collision.gameObject.GetComponent<CannonBall>().GetHitEffect() != null)
+                {
+                    Instantiate(collision.gameObject.GetComponent<CannonBall>().GetHitEffect(), collision.gameObject.transform.position, collision.gameObject.transform.rotation);
+                }
+
                 float damage = collision.gameObject.GetComponent<CannonBall>().GetCannonBallDamage();
                 ChangeBaseHealth(-damage);
             }
@@ -37,6 +42,7 @@ public class PlayerBase : MonoBehaviour
             {
                 Die();
             }
+            Destroy(collision.gameObject); // Destroy the cannonball
         }
     }
 

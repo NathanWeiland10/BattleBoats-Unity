@@ -42,6 +42,11 @@ public class ShipPartDamage : MonoBehaviour
             {
                 FindObjectOfType<AudioManager>().PlayAtPoint(collision.gameObject.GetComponent<CannonBall>().GetHitSoundEffect(), collision.gameObject.transform.position);
 
+                if (collision.gameObject.GetComponent<CannonBall>().GetHitEffect() != null)
+                {
+                    Instantiate(collision.gameObject.GetComponent<CannonBall>().GetHitEffect(), collision.gameObject.transform.position, collision.gameObject.transform.rotation);
+                }
+
                 float damage = collision.gameObject.GetComponent<CannonBall>().GetCannonBallDamage();
                 playerBoat.TakeDamage(damage);
                 pieceCurrentHealth -= damage;
@@ -51,8 +56,8 @@ public class ShipPartDamage : MonoBehaviour
             {
                 RemovePiece();
             }
+            Destroy(collision.gameObject);
         }
-        Destroy(collision.gameObject);
     }
 
     public void RemovePiece()
