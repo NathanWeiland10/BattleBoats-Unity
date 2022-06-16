@@ -10,6 +10,9 @@ public class CannonBall : MonoBehaviour
     [Tooltip("The sound effect that is produced once this cannonball collides with another boat")]
     [SerializeField] string hitSoundEffect;
 
+    [Tooltip("The effect that is spawned on collision")]
+    [SerializeField] GameObject hitEffect;
+
     public float GetCannonBallDamage()
     {
         return cannonBallDamage;
@@ -18,6 +21,11 @@ public class CannonBall : MonoBehaviour
     public string GetHitSoundEffect()
     {
         return hitSoundEffect;
+    }
+
+    public GameObject GetHitEffect()
+    {
+        return hitEffect;
     }
 
 }

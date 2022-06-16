@@ -41,7 +41,6 @@ public class ToolTip : MonoBehaviour
       }
    }
   }
- }
   
   void OnMouseOver() {
     fadeIn = true;
