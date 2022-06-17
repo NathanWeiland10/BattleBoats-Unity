@@ -1603,11 +1603,10 @@ MonoBehaviour:
   maxShotDelay: 1.4
   cannonSpread: 10
   shotRecoil: 20
-  deathWeightAmount: 35
   boatMoveForce: 115
   captureSpeed: 2
   shotSoundEffects:
-  - MediumCannonShot1
+  - LightCannonShot1
   deathSoundEffects:
   - Death3
   staticCannon: 1

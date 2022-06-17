@@ -651,7 +651,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 12
+  m_Radius: 14
 --- !u!1 &8067939111664634153
 GameObject:
   m_ObjectHideFlags: 0
@@ -768,7 +768,6 @@ MonoBehaviour:
   maxShotDelay: 2
   cannonSpread: 20
   shotRecoil: 30
-  deathWeightAmount: 3.5
   boatMoveForce: 3.3
   captureSpeed: 1
   shotSoundEffects:
