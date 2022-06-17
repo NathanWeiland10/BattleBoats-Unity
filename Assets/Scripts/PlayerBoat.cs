@@ -38,6 +38,9 @@ public class PlayerBoat : MonoBehaviour
     
     [Tooltip("Set enabled if the cannon(s) of this boat do not change angle (E.g. are build into the hull) or disabled if the cannon angle changed (E.g. the cannon of a raft)")]
     public bool staticCannon;
+        
+    [Tooltip("Set enabled if this boat self destructs into enemy ships (such as a fireship) or disabled otherwise")]
+    public bool kamikaze;
 
     [Tooltip("The collider this boat uses to determine when a boat or base is within reach and will begin attacking")]
     public CircleCollider2D rangeHitBox;
@@ -115,7 +118,7 @@ public class PlayerBoat : MonoBehaviour
     {
         if (!isDead)
         {
-            if (currentEnemy == null && !isCapturing && encounteredBase == null)
+            if ((currentEnemy == null && currentBase == null || kamikaze) && !isCapturing)
             {
                 if (friendlyBoat)
                 {
