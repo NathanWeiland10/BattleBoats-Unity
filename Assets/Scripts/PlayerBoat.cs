@@ -26,10 +26,6 @@ public class PlayerBoat : MonoBehaviour
     [Tooltip("The amount of recoil this boat receives when shooting")]
     public float shotRecoil;
     
-    // FIX LATER:
-    // Only have individual piece death weight amounts, not an overall weight to add to each piece (from the ShipPartDamage component):
-    public float deathWeightAmount = 10f;
-    
     [Tooltip("The movement force (speed) of this boat")]
     public float boatMoveForce;
     [Tooltip("The amount of capture points this boat adds to a capture point every second")]
@@ -181,7 +177,7 @@ public class PlayerBoat : MonoBehaviour
 
                 Destroy(boatColliderHitBox);
 
-                boatPiece.GetComponent<Rigidbody2D>().mass += deathWeightAmount;
+                boatPiece.GetComponent<Rigidbody2D>().mass += boatPiece.GetComponent<ShipPartDamage>().GetDeathWeight();
 
                 isDead = true;
 

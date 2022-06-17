@@ -96,4 +96,9 @@ public class ShipPartDamage : MonoBehaviour
         return pieceCurrentHealth;
     }
 
+    public float GetDeathWeight()
+    {
+        return deathWeightAmount;
+    }
+
 }
