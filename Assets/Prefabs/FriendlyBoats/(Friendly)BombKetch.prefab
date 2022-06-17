@@ -128,7 +128,7 @@ MonoBehaviour:
   nonRemovablePiece: 1
   pieceMaxHealth: 0
   playerBoat: {fileID: 3682845597322823472}
-  deathWeightAmount: 20
+  deathWeightAmount: 70
 --- !u!61 &3682845595664793859
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -892,7 +892,6 @@ MonoBehaviour:
   maxShotDelay: 2
   cannonSpread: 0
   shotRecoil: 50
-  deathWeightAmount: 35
   boatMoveForce: 70
   captureSpeed: 2
   shotSoundEffects:
