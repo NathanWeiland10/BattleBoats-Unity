@@ -47,9 +47,11 @@ public class ShipPartDamage : MonoBehaviour
                     Instantiate(collision.gameObject.GetComponent<CannonBall>().GetHitEffect(), collision.gameObject.transform.position, collision.gameObject.transform.rotation);
                 }
 
-                float damage = collision.gameObject.GetComponent<CannonBall>().GetCannonBallDamage();
-                playerBoat.TakeDamage(damage);
-                pieceCurrentHealth -= damage;
+                if (playerBoat != null) {
+                    float damage = collision.gameObject.GetComponent<CannonBall>().GetCannonBallDamage();
+                    playerBoat.TakeDamage(damage);
+                    pieceCurrentHealth -= damage;
+                }
             }
 
             if (pieceCurrentHealth <= 0 && !nonRemovablePiece)
@@ -75,9 +77,12 @@ public class ShipPartDamage : MonoBehaviour
                     Instantiate(collision.gameObject.GetComponent<KamikazeAttack>().GetHitEffect(), collision.gameObject.transform.position, collision.gameObject.transform.rotation);
                 }
 
-                float damage = collision.gameObject.GetComponent<KamikazeAttack>().GetAttackDamage();
-                playerBoat.TakeDamage(damage);
-                pieceCurrentHealth -= damage;
+                if (playerBoat != null)
+                {
+                    float damage = collision.gameObject.GetComponent<KamikazeAttack>().GetAttackDamage();
+                    playerBoat.TakeDamage(damage);
+                    pieceCurrentHealth -= damage;
+                }
             }
 
             if (pieceCurrentHealth <= 0 && !nonRemovablePiece)
@@ -112,7 +117,7 @@ public class ShipPartDamage : MonoBehaviour
         Destroy(joint);
         if (pieceName.ToLower().Contains("mast") || pieceName.ToLower().Contains("sail"))
         {
-            playerBoat.UpdateBoatSpeed(-speedIncrement);
+            playerBoat.UpdateBoatSpeed(-speedIncrement, pieceName);
         }
     }
 

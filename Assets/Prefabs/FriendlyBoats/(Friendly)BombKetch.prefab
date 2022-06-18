@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 3682845595664793887}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3682845596811737608}
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 349792855
-  m_SortingLayer: 10
+  m_SortingLayer: 11
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: bb42cc5dfe32ec245a8cc900caba9528, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -128,7 +128,7 @@ MonoBehaviour:
   nonRemovablePiece: 1
   pieceMaxHealth: 0
   playerBoat: {fileID: 3682845597322823472}
-  deathWeightAmount: 70
+  deathWeightAmount: 15
 --- !u!61 &3682845595664793859
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -301,7 +301,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3682845595975924328}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.325, y: 0.075, z: 0}
+  m_LocalPosition: {x: -0.321, y: 0.095, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -347,7 +347,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2089424641
-  m_SortingLayer: 11
+  m_SortingLayer: 12
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 1a2a02b00fe3b6343b3df11797b52d9f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -431,7 +431,7 @@ Transform:
   m_GameObject: {fileID: 3682845596271829793}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3682845596236578119}
@@ -476,7 +476,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 979115205
-  m_SortingLayer: 8
+  m_SortingLayer: 9
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 1635f4fc2f0461d4ca38e99a374c2d4b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -522,10 +522,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cf124392768d054a9a3a28edf6d863d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pieceName: 
+  pieceName: Mast2
   speedIncrement: 2
   nonRemovablePiece: 0
-  pieceMaxHealth: 30
+  pieceMaxHealth: 40
   playerBoat: {fileID: 3682845597322823472}
   deathWeightAmount: 15
 --- !u!255 &3682845596271829799
@@ -621,7 +621,7 @@ Transform:
   m_GameObject: {fileID: 3682845596731548996}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3682845596236578119}
@@ -666,7 +666,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 979115205
-  m_SortingLayer: 8
+  m_SortingLayer: 9
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: f7a37dfe549fcd84b9afd55da6c9e4fc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -712,10 +712,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cf124392768d054a9a3a28edf6d863d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pieceName: 
+  pieceName: Mast1
   speedIncrement: 2
   nonRemovablePiece: 0
-  pieceMaxHealth: 30
+  pieceMaxHealth: 40
   playerBoat: {fileID: 3682845597322823472}
   deathWeightAmount: 15
 --- !u!255 &3682845596731548997
@@ -886,19 +886,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   friendlyBoat: 1
   maxHealth: 90
-  boatCost: 120
+  boatCost: 100
   cannonBall: {fileID: 1320022258453440088, guid: 78468bf2ab67cf94d88b37b44bc61062, type: 3}
-  minShotDelay: 1.6
-  maxShotDelay: 2
-  cannonSpread: 0
+  minShotDelay: 1.2
+  maxShotDelay: 3.4
+  cannonSpread: 5
   shotRecoil: 50
-  boatMoveForce: 70
+  boatMoveForce: 35
   captureSpeed: 2
   shotSoundEffects:
   - CannonShot2
   deathSoundEffects:
   - Death3
   staticCannon: 0
+  kamikaze: 0
   rangeHitBox: {fileID: 3682845596811737610}
   boatColliderHitBox: {fileID: 3682845595664793859}
   mainHullPiece: {fileID: 3682845595664793887}
@@ -917,6 +918,8 @@ MonoBehaviour:
   cannonSmokeEffect: {fileID: 5470383468595050592, guid: 81c017d6944c64a429cc21f2e29f3e9f, type: 3}
   deathWeights: {fileID: 5964073028870098256}
   healthSlider: {fileID: 0}
+  fireEffect: {fileID: 0}
+  removedSails: []
 --- !u!1 &3682845597529063336
 GameObject:
   m_ObjectHideFlags: 0
@@ -944,8 +947,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3682845597529063336}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.3, y: -0.3, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalPosition: {x: 0.321, y: -0.095, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3682845595975924329}
@@ -989,7 +992,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.32500076, y: -0.075}
+  m_ConnectedAnchor: {x: 0.32099915, y: -0.09500003}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1015,7 +1018,7 @@ MonoBehaviour:
   nonRemovablePiece: 1
   pieceMaxHealth: 0
   playerBoat: {fileID: 3682845597322823472}
-  deathWeightAmount: 0
+  deathWeightAmount: 15
 --- !u!1 &5964073028870098256
 GameObject:
   m_ObjectHideFlags: 0
@@ -1062,7 +1065,7 @@ GameObject:
   m_Layer: 14
   m_Name: Balancer
   m_TagString: Untagged
-  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1074,7 +1077,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6576721373472954752}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.98, z: 0}
+  m_LocalPosition: {x: 0, y: -1.574, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1094,7 +1097,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.11802292, y: 0.9580345}
+  m_Offset: {x: -0.0047008693, y: 0.98355114}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1105,7 +1108,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.2753067, y: 0.12195206}
+  m_Size: {x: 1.2696795, y: 0.10662246}
   m_EdgeRadius: 0
 --- !u!50 &6576721373472954764
 Rigidbody2D:
@@ -1143,7 +1146,7 @@ FixedJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: -0.745}
+  m_ConnectedAnchor: {x: 0, y: -1.574}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!1 &6576721374801695869
@@ -1208,7 +1211,7 @@ Transform:
   m_GameObject: {fileID: 6576721375012537372}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3682845596236578119}
@@ -1253,7 +1256,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 349792855
-  m_SortingLayer: 10
+  m_SortingLayer: 11
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: c60869f7f11513440a6149ca5d0ad01f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1299,12 +1302,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cf124392768d054a9a3a28edf6d863d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pieceName: 
-  speedIncrement: 2
+  pieceName: Sail2
+  speedIncrement: 8
   nonRemovablePiece: 0
-  pieceMaxHealth: 30
+  pieceMaxHealth: 1
   playerBoat: {fileID: 3682845597322823472}
-  deathWeightAmount: 20
+  deathWeightAmount: 15
 --- !u!255 &6576721375012537370
 FixedJoint2D:
   m_ObjectHideFlags: 0
@@ -1396,7 +1399,7 @@ Transform:
   m_GameObject: {fileID: 6576721375140395354}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3682845596236578119}
@@ -1441,7 +1444,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 349792855
-  m_SortingLayer: 10
+  m_SortingLayer: 11
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 9af7d7672f924da4d9071f71c6d57603, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1487,12 +1490,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cf124392768d054a9a3a28edf6d863d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pieceName: 
-  speedIncrement: 2
+  pieceName: Sail1
+  speedIncrement: 8
   nonRemovablePiece: 0
-  pieceMaxHealth: 30
+  pieceMaxHealth: 1
   playerBoat: {fileID: 3682845597322823472}
-  deathWeightAmount: 20
+  deathWeightAmount: 15
 --- !u!255 &6576721375140395352
 FixedJoint2D:
   m_ObjectHideFlags: 0
@@ -1619,7 +1622,7 @@ Transform:
   m_GameObject: {fileID: 6870428449916694307}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3682845596236578119}
@@ -1664,7 +1667,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 979115205
-  m_SortingLayer: 8
+  m_SortingLayer: 9
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 653c800b6597c20408d6ddab237aea4a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1715,7 +1718,7 @@ MonoBehaviour:
   nonRemovablePiece: 0
   pieceMaxHealth: 30
   playerBoat: {fileID: 3682845597322823472}
-  deathWeightAmount: 20
+  deathWeightAmount: 15
 --- !u!255 &6870428449916694308
 FixedJoint2D:
   m_ObjectHideFlags: 0

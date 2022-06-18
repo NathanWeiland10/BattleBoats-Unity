@@ -90,7 +90,8 @@ public class PlayerBoat : MonoBehaviour
     // FIX LATER:
     // Rather than having a boolean for removed sail, have a list that you can add to so 
     // that you can check to see which sails have been removed and then reduce the speed:
-    bool sailRemoved;
+    // bool sailRemoved;
+    public List<string> removedSails;
 
     void Awake()
     {
@@ -107,13 +108,16 @@ public class PlayerBoat : MonoBehaviour
     {
         currentHealth = maxHealth;
         if (!staticCannon) {
-            if (friendlyBoat)
+            if (!staticCannon)
             {
-                cannonPiece.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-            }
-            else
-            {
-                cannonPiece.rotation = Quaternion.Euler(new Vector3(0, 0, -180));
+                if (friendlyBoat)
+                {
+                    cannonPiece.rotation = Quaternion.Euler(new Vector3(0, 0, 45));
+                }
+                else
+                {
+                    cannonPiece.rotation = Quaternion.Euler(new Vector3(0, 0, -225));
+                }
             }
         }
     }
@@ -123,8 +127,8 @@ public class PlayerBoat : MonoBehaviour
         if (!isDead)
         {
             if ((currentEnemy == null && encounteredBase == null || kamikaze) && !isCapturing)
-            {
-                if (friendlyBoat)
+                {
+                    if (friendlyBoat)
                 {
                     MoveLeft();
                 }
@@ -135,24 +139,15 @@ public class PlayerBoat : MonoBehaviour
             }
             else
             {
-                if (!staticCannon)
-                {
-                    if (friendlyBoat)
+                if (!kamikaze) {
+                    if (!isDelaying && encounteredBase != null)
                     {
-                        cannonPiece.rotation = Quaternion.Euler(new Vector3(0, 0, 45));
+                        StartCoroutine(AIFireBase(encounteredBase));
                     }
-                    else
+                    else if (!isDelaying && currentEnemy != null)
                     {
-                        cannonPiece.rotation = Quaternion.Euler(new Vector3(0, 0, -225));
+                        StartCoroutine(AIFireBoat(currentEnemy));
                     }
-                }
-                if (!isDelaying && encounteredBase != null)
-                {
-                    StartCoroutine(AIFireBase(encounteredBase));
-                }
-                else if (!isDelaying && currentEnemy != null)
-                {
-                    StartCoroutine(AIFireBoat(currentEnemy));
                 }
             }
         }
@@ -178,7 +173,7 @@ public class PlayerBoat : MonoBehaviour
         deathWeights.gameObject.SetActive(true);
         foreach (GameObject boatPiece in boatPieces)
         {
-            if (boatPiece.GetComponent<ShipPartDamage>().GetPieceCurrentHealth() > 0) {
+            if (boatPiece.GetComponent<ShipPartDamage>().GetPieceCurrentHealth() >= 0) {
             
                 FindObjectOfType<AudioManager>().PlayAtPoint(deathSoundEffects[Random.Range(0, deathSoundEffects.Length)], mainHullPiece.transform.position);
 
@@ -258,11 +253,12 @@ public class PlayerBoat : MonoBehaviour
         }
     }
 
-    public void UpdateBoatSpeed(float f)
+    public void UpdateBoatSpeed(float f, string name)
     {
-        if (!sailRemoved) {
+        if (!removedSails.Contains(name))
+        {
             boatMoveForce += f;
-            sailRemoved = true;
+            removedSails.Add(name);
         }
     }
 
@@ -281,13 +277,17 @@ public class PlayerBoat : MonoBehaviour
 
             float enemyDist = Mathf.Abs(cannonSpawnPoint.position.x - enemy.GetBoatHullXCoord());
 
-            cannonForce = Mathf.Sqrt(enemyDist * 6200)-(cannonSpawnPoint.position.y*8.5f)-(14* Mathf.Abs(enemy.GetBoatHullRB().velocity.x));
+            cannonForce = Mathf.Sqrt(enemyDist * 23000)-(cannonSpawnPoint.position.y*8.5f)-(60* Mathf.Abs(enemy.GetBoatHullRB().velocity.x));
+            cannonForce *= cannonBall.GetComponent<Rigidbody2D>().mass;
+
 
             boatRigidBody.AddForce((cannonSpawnPoint.up) * shotRecoil);
 
             FindObjectOfType<AudioManager>().PlayAtPoint(shotSoundEffects[Random.Range(0, shotSoundEffects.Length)], mainHullPiece.transform.position);
 
-            Instantiate(cannonSmokeEffect, cannonSpawnPoint.position, cannonSpawnPoint.rotation);
+            if (cannonSmokeEffect != null) {
+                Instantiate(cannonSmokeEffect, cannonSpawnPoint.position, cannonSpawnPoint.rotation);
+            }
 
             float recoil = Random.Range(-cannonSpread, cannonSpread);
             cannonSpawnPoint.eulerAngles = new Vector3(cannonSpawnPoint.eulerAngles.x, cannonSpawnPoint.eulerAngles.y, cannonSpawnPoint.eulerAngles.z + recoil);
@@ -308,7 +308,7 @@ public class PlayerBoat : MonoBehaviour
 
         float enemyDist = Mathf.Abs(cannonSpawnPoint.position.x - playerBase.GetXCoord());
 
-        cannonForce = Mathf.Sqrt(enemyDist * 5500);
+        cannonForce = Mathf.Sqrt(enemyDist * 22000);
 
         boatRigidBody.AddForce((cannonSpawnPoint.up) * shotRecoil);
 
