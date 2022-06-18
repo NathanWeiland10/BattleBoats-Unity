@@ -38,6 +38,9 @@ public class PlayerBoat : MonoBehaviour
     
     [Tooltip("Set enabled if the cannon(s) of this boat do not change angle (E.g. are build into the hull) or disabled if the cannon angle changed (E.g. the cannon of a raft)")]
     public bool staticCannon;
+        
+    [Tooltip("Set enabled if this boat self destructs into enemy ships (such as a fireship) or disabled otherwise")]
+    public bool kamikaze;
 
     [Tooltip("Set enabled if this boat will self destruct into enemy boats (Ex: a fireship) or disabled otherwise")]
     public bool kamikaze;
@@ -125,6 +128,9 @@ public class PlayerBoat : MonoBehaviour
             if ((currentEnemy == null && encounteredBase == null || kamikaze) && !isCapturing)
                 {
                     if (friendlyBoat)
+            if ((currentEnemy == null && currentBase == null || kamikaze) && !isCapturing)
+            {
+                if (friendlyBoat)
                 {
                     MoveLeft();
                 }
