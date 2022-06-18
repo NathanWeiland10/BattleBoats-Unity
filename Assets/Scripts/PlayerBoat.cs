@@ -42,9 +42,6 @@ public class PlayerBoat : MonoBehaviour
     [Tooltip("Set enabled if this boat self destructs into enemy ships (such as a fireship) or disabled otherwise")]
     public bool kamikaze;
 
-    [Tooltip("Set enabled if this boat will self destruct into enemy boats (Ex: a fireship) or disabled otherwise")]
-    public bool kamikaze;
-
     [Tooltip("The collider this boat uses to determine when a boat or base is within reach and will begin attacking")]
     public CircleCollider2D rangeHitBox;
     [Tooltip("The collider of this boat that (either checks for other boats or for capturing: *** CHECK LATER ***)")]
@@ -126,9 +123,6 @@ public class PlayerBoat : MonoBehaviour
         if (!isDead)
         {
             if ((currentEnemy == null && encounteredBase == null || kamikaze) && !isCapturing)
-                {
-                    if (friendlyBoat)
-            if ((currentEnemy == null && currentBase == null || kamikaze) && !isCapturing)
             {
                 if (friendlyBoat)
                 {
