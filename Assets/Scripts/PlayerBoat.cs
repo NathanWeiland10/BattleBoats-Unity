@@ -39,6 +39,9 @@ public class PlayerBoat : MonoBehaviour
     [Tooltip("Set enabled if the cannon(s) of this boat do not change angle (E.g. are build into the hull) or disabled if the cannon angle changed (E.g. the cannon of a raft)")]
     public bool staticCannon;
 
+    [Tooltip("Set enabled if this boat will self destruct into enemy boats (Ex: a fireship) or disabled otherwise")]
+    public bool kamikaze;
+
     [Tooltip("The collider this boat uses to determine when a boat or base is within reach and will begin attacking")]
     public CircleCollider2D rangeHitBox;
     [Tooltip("The collider of this boat that (either checks for other boats or for capturing: *** CHECK LATER ***)")]
@@ -65,15 +68,15 @@ public class PlayerBoat : MonoBehaviour
     [Tooltip("The Slider that shows the current health of this boat")]
     public Slider healthSlider;
 
+    [Tooltip("The fire particle system of this boat if it is a kamikaze boat")]
+    public GameObject fireEffect;
+
     List<PlayerBoat> encounteredEnemies = new List<PlayerBoat>();
     PlayerBoat currentEnemy = null;
     PlayerBase encounteredBase = null;
     bool isCapturing;
 
     GameManager gameManager;
-
-    Vector2 mousePos;
-    Vector2 barPos;
     
     float cannonForce;
     
@@ -91,6 +94,10 @@ public class PlayerBoat : MonoBehaviour
 
     void Awake()
     {
+        if (kamikaze)
+        {
+            fireEffect.gameObject.SetActive(true);
+        }
         deathWeights.gameObject.SetActive(false);
         gameManager = FindObjectOfType<GameManager>();
         boatRigidBody = mainHullPiece.GetComponent<Rigidbody2D>();
@@ -115,9 +122,9 @@ public class PlayerBoat : MonoBehaviour
     {
         if (!isDead)
         {
-            if (currentEnemy == null && !isCapturing && encounteredBase == null)
-            {
-                if (friendlyBoat)
+            if ((currentEnemy == null && encounteredBase == null || kamikaze) && !isCapturing)
+                {
+                    if (friendlyBoat)
                 {
                     MoveLeft();
                 }
@@ -162,6 +169,11 @@ public class PlayerBoat : MonoBehaviour
 
     public void Die()
     {
+        if (kamikaze)
+        {
+            fireEffect.gameObject.SetActive(false);
+        }
+
         gameManager.UpdateOtherCurrentEnemy(this);
         deathWeights.gameObject.SetActive(true);
         foreach (GameObject boatPiece in boatPieces)

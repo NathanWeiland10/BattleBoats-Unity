@@ -7,6 +7,7 @@ TagManager:
   - CannonBall
   - FriendlyBoat
   - EnemyBoat
+  - KamikazeAttack
   layers:
   - Default
   - TransparentFX
@@ -95,7 +96,10 @@ TagManager:
   - name: Land
     uniqueID: 381434737
     locked: 0
-  - name: Particle Effects
+  - name: Particle Effects(Back)
+    uniqueID: 2792233103
+    locked: 0
+  - name: Particle Effects(Front)
     uniqueID: 3848694001
     locked: 0
   - name: UI

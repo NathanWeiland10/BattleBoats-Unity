@@ -775,6 +775,7 @@ MonoBehaviour:
   deathSoundEffects:
   - Death1
   staticCannon: 0
+  kamikaze: 0
   rangeHitBox: {fileID: 5456894735485104379}
   boatColliderHitBox: {fileID: 845927724014597973}
   mainHullPiece: {fileID: 6391031645717595796}
@@ -801,7 +802,6 @@ GameObject:
   - component: {fileID: 8956712786183830047}
   - component: {fileID: 8956712786183830041}
   - component: {fileID: 8560731607200667783}
-  - component: {fileID: 3423873388655768496}
   - component: {fileID: 3423873387467204368}
   m_Layer: 7
   m_Name: Raft(Cannon)
@@ -872,24 +872,6 @@ HingeJoint2D:
   m_AngleLimits:
     m_LowerAngle: 0
     m_UpperAngle: 360
---- !u!114 &3423873388655768496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8956712786183830046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cf124392768d054a9a3a28edf6d863d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pieceName: Cannon
-  speedIncrement: 0
-  nonRemovablePiece: 0
-  pieceMaxHealth: 0
-  playerBoat: {fileID: 8956712786129986935}
-  deathWeightAmount: 3
 --- !u!114 &3423873387467204368
 MonoBehaviour:
   m_ObjectHideFlags: 0
