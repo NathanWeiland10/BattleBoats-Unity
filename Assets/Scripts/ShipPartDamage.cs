@@ -11,7 +11,7 @@ public class ShipPartDamage : MonoBehaviour
 
     [Tooltip("Set enabled if this piece is a hull piece or cannon piece (so that it cannot be removed until the boat is fully destroyed)")]
     public bool nonRemovablePiece;
-    
+
     [Tooltip("The maximum health for this boat piece (once health reaches 0, this piece will be removed from the boat)")]
     public float pieceMaxHealth;
     [Tooltip("The PlayerBoat (script) that this boat piece will correspond to")]
@@ -31,7 +31,7 @@ public class ShipPartDamage : MonoBehaviour
         else
         {
             pieceCurrentHealth = pieceMaxHealth;
-        }  
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -58,13 +58,42 @@ public class ShipPartDamage : MonoBehaviour
             }
             Destroy(collision.gameObject);
         }
+        if (collision.gameObject.tag == "KamikazeAttack")
+        {
+            PlayerBoat boat = collision.gameObject.GetComponent<KamikazeAttack>().GetPlayerBoat();
+
+            if (pieceCurrentHealth > 0)
+            {
+                if (boat != null) {
+                    boat.Die();
+                }
+
+                FindObjectOfType<AudioManager>().PlayAtPoint(collision.gameObject.GetComponent<KamikazeAttack>().GetHitSoundEffect(), collision.gameObject.transform.position);
+
+                if (collision.gameObject.GetComponent<KamikazeAttack>().GetHitEffect() != null)
+                {
+                    Instantiate(collision.gameObject.GetComponent<KamikazeAttack>().GetHitEffect(), collision.gameObject.transform.position, collision.gameObject.transform.rotation);
+                }
+
+                float damage = collision.gameObject.GetComponent<KamikazeAttack>().GetAttackDamage();
+                playerBoat.TakeDamage(damage);
+                pieceCurrentHealth -= damage;
+            }
+
+            if (pieceCurrentHealth <= 0 && !nonRemovablePiece)
+            {
+                RemovePiece();
+            }
+            Destroy(collision.gameObject);
+        }
     }
 
     public void RemovePiece()
     {
         GetComponent<Rigidbody2D>().mass += deathWeightAmount;
         FixedJoint2D joint = GetComponent<FixedJoint2D>();
-        if (playerBoat != null) {
+        if (playerBoat != null)
+        {
             if (pieceName.ToLower().Contains("mast"))
             {
                 GameObject[] boatPieces = playerBoat.boatPieces;
