@@ -150,7 +150,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6037260463387698969}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.5, y: 0, z: 0}
+  m_LocalPosition: {x: 0.086, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -187,7 +187,7 @@ Transform:
   m_GameObject: {fileID: 6037260464189893279}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalScale: {x: 1, y: 1, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6037260464316912569}
@@ -232,7 +232,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 979115205
-  m_SortingLayer: 8
+  m_SortingLayer: 9
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3a65e84afb21704458a726b6f3c7d70f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -281,7 +281,7 @@ MonoBehaviour:
   pieceName: Mast
   speedIncrement: 0.1
   nonRemovablePiece: 0
-  pieceMaxHealth: 20
+  pieceMaxHealth: 40
   playerBoat: {fileID: 6037260465085121964}
   deathWeightAmount: 10
 --- !u!255 &6037260464189893273
@@ -404,8 +404,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6037260464573943574}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.94, y: 2.38, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalPosition: {x: -0.254, y: 0.573, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6037260465090665156}
@@ -450,7 +450,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2089424641
-  m_SortingLayer: 11
+  m_SortingLayer: 12
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0b95f09f4912c214ba039174d811d343, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -516,13 +516,14 @@ MonoBehaviour:
   maxShotDelay: 2
   cannonSpread: 20
   shotRecoil: 30
-  boatMoveForce: 3.3
+  boatMoveForce: 3
   captureSpeed: 1
   shotSoundEffects:
   - LightCannonShot1
   deathSoundEffects:
   - Death1
   staticCannon: 0
+  kamikaze: 0
   rangeHitBox: {fileID: 7223424627448172576}
   boatColliderHitBox: {fileID: 2610219149067671438}
   mainHullPiece: {fileID: 8589925655629899343}
@@ -538,6 +539,8 @@ MonoBehaviour:
   cannonSmokeEffect: {fileID: 5470383468595050592, guid: 81c017d6944c64a429cc21f2e29f3e9f, type: 3}
   deathWeights: {fileID: 6240338546756257015}
   healthSlider: {fileID: 0}
+  fireEffect: {fileID: 0}
+  removedSails: []
 --- !u!1 &6037260465090665157
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,7 +568,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6037260465090665157}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.94, y: -2.482, z: 0}
+  m_LocalPosition: {x: 0.256, y: -0.588, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -610,7 +613,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.235, y: -0.6205}
+  m_ConnectedAnchor: {x: 0.256, y: -0.588}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -698,7 +701,7 @@ Transform:
   m_GameObject: {fileID: 6975441771613541140}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalScale: {x: 1, y: 1, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6037260464316912569}
@@ -743,7 +746,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 349792855
-  m_SortingLayer: 10
+  m_SortingLayer: 11
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 018698ae4c3681d45bd9d351af2828c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -792,7 +795,7 @@ MonoBehaviour:
   pieceName: Sail
   speedIncrement: 0.1
   nonRemovablePiece: 0
-  pieceMaxHealth: 15
+  pieceMaxHealth: 40
   playerBoat: {fileID: 6037260465085121964}
   deathWeightAmount: 10
 --- !u!255 &1465861955895464812
@@ -864,7 +867,7 @@ GameObject:
   m_Layer: 6
   m_Name: Weight
   m_TagString: Untagged
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -876,7 +879,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7990210464622022023}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.72, y: -2.646, z: 0}
+  m_LocalPosition: {x: -0.145, y: -0.664, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -895,7 +898,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.2
+  m_Mass: 0.35
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -919,7 +922,7 @@ FixedJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.18, y: -0.6615}
+  m_ConnectedAnchor: {x: -0.145, y: -0.664}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!1 &8589925655629899343
@@ -953,7 +956,7 @@ Transform:
   m_GameObject: {fileID: 8589925655629899343}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalScale: {x: 1, y: 1, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5555397660431356726}
@@ -999,7 +1002,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 349792855
-  m_SortingLayer: 10
+  m_SortingLayer: 11
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e7076c7fd5b59bf45a6aa2b6dae2974b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1025,8 +1028,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1.8
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_LinearDrag: 5
+  m_AngularDrag: 2
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -1142,7 +1145,7 @@ GameObject:
   m_Layer: 14
   m_Name: Balancer
   m_TagString: Untagged
-  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1154,7 +1157,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9066496723332190602}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.85, z: 0}
+  m_LocalPosition: {x: 0.014, y: -0.638, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1197,7 +1200,7 @@ FixedJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: -0.7125}
+  m_ConnectedAnchor: {x: 0.014, y: -0.638}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!61 &489463184876537432
@@ -1213,7 +1216,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.12633705, y: -0.17911136}
+  m_Offset: {x: 0.036138445, y: -0.1260755}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1224,5 +1227,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.503559, y: 0.05106139}
+  m_Size: {x: 0.62889653, y: 0.02657044}
   m_EdgeRadius: 0

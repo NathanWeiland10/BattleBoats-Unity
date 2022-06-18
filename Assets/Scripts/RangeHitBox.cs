@@ -7,6 +7,11 @@ public class RangeHitBox : MonoBehaviour
     [Tooltip("The PlayerBoat (script) that this hitbox will correspond to")]
     public PlayerBoat playerBoat;
 
+    void Awake()
+    {
+        GetComponent<CircleCollider2D>().radius += Random.Range(-1f, 1f);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         BoatCaptureHitBox boat = collision.gameObject.GetComponent<BoatCaptureHitBox>();
