@@ -275,9 +275,9 @@ public class PlayerBoat : MonoBehaviour
 
             Transform cannonSpawnPoint = cannonSpawnPoints[Random.Range(0, cannonSpawnPoints.Length)];
 
-            float enemyDist = Mathf.Abs(cannonSpawnPoint.position.x - enemy.GetBoatHullXCoord());
+            float enemyDist = Mathf.Pow(Mathf.Abs(cannonSpawnPoint.position.x - enemy.GetBoatHullXCoord()), 1.07f);
 
-            cannonForce = Mathf.Sqrt(enemyDist * 23000)-(cannonSpawnPoint.position.y*8.5f)-(60* Mathf.Abs(enemy.GetBoatHullRB().velocity.x));
+            cannonForce = Mathf.Sqrt(enemyDist * 19000)-(cannonSpawnPoint.position.y*8.5f)-(30* Mathf.Abs(enemy.GetBoatHullRB().velocity.x));
             cannonForce *= cannonBall.GetComponent<Rigidbody2D>().mass;
 
 
@@ -306,9 +306,9 @@ public class PlayerBoat : MonoBehaviour
 
         Transform cannonSpawnPoint = cannonSpawnPoints[Random.Range(0, cannonSpawnPoints.Length)];
 
-        float enemyDist = Mathf.Abs(cannonSpawnPoint.position.x - playerBase.GetXCoord());
-
-        cannonForce = Mathf.Sqrt(enemyDist * 22000);
+        float enemyDist = Mathf.Pow(Mathf.Abs(cannonSpawnPoint.position.x - playerBase.GetXCoord()), 1.3f);
+        cannonForce = Mathf.Sqrt(enemyDist * 7000) - (cannonSpawnPoint.position.y * 8.5f);
+        cannonForce *= cannonBall.GetComponent<Rigidbody2D>().mass;
 
         boatRigidBody.AddForce((cannonSpawnPoint.up) * shotRecoil);
 

@@ -96,7 +96,7 @@ FixedJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: -0.82700014}
+  m_ConnectedAnchor: {x: 0, y: -0.827}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!1 &3840782507484478392
@@ -815,7 +815,7 @@ FixedJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.39499998, y: -0.5799999}
+  m_ConnectedAnchor: {x: -0.395, y: -0.58}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!1 &4381055464014227172
@@ -1333,7 +1333,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6707019723283535602}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
