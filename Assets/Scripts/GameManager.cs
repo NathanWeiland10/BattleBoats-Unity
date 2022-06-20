@@ -183,7 +183,7 @@ public class GameManager : MonoBehaviour
     public void UpdateFriendlyMoney(float f)
     {
         friendlyTotalMoney += f;
-        friendlyTotalMoneyText.text = friendlyTotalMoney.ToString();
+        friendlyTotalMoneyText.text = "$" + friendlyTotalMoney.ToString();
     }
 
     public void UpdateEnemyMoney(float f)
@@ -201,13 +201,23 @@ public class GameManager : MonoBehaviour
         enemyMoneyPerSecond += f;
     }
 
+    public float GetFriendlyTotalMoney()
+    {
+        return friendlyTotalMoney;
+    }
+
+    public float GetEnemyTotalMoney()
+    {
+        return enemyTotalMoney;
+    }
+
     IEnumerator AddDelayedMoney(float f)
     {
         if (f != 0f)
         {
             yield return new WaitForSeconds(waitTime);
             friendlyTotalMoney += 1;
-            friendlyTotalMoneyText.text = friendlyTotalMoney.ToString();
+            friendlyTotalMoneyText.text = "$" + friendlyTotalMoney.ToString();
             StartCoroutine(AddDelayedMoney(f - 1));
         }
     }
