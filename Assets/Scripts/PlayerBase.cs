@@ -14,13 +14,13 @@ public class PlayerBase : MonoBehaviour
     public string deathSoundEffect;
 
     GameManager gameManager;
-    
+
     float currentBaseHealth;
 
     void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
-        currentBaseHealth = maxBaseHealth;    
+        currentBaseHealth = maxBaseHealth;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -38,11 +38,46 @@ public class PlayerBase : MonoBehaviour
                 float damage = collision.gameObject.GetComponent<CannonBall>().GetCannonBallDamage();
                 ChangeBaseHealth(-damage);
             }
-            else
+
+            if (currentBaseHealth <= 0)
             {
                 Die();
             }
+
             Destroy(collision.gameObject); // Destroy the cannonball
+        }
+
+        if (collision.gameObject.tag == "KamikazeAttack")
+        {
+
+            if (currentBaseHealth > 0)
+            {
+                FindObjectOfType<AudioManager>().PlayAtPoint(collision.gameObject.GetComponent<KamikazeAttack>().GetHitSoundEffect(), this.transform.position);
+
+                if (collision.gameObject.GetComponent<KamikazeAttack>().GetHitEffect() != null)
+                {
+                    Instantiate(collision.gameObject.GetComponent<KamikazeAttack>().GetHitEffect(), collision.gameObject.transform.position, collision.gameObject.transform.rotation);
+                }
+
+                float damage = collision.gameObject.GetComponent<KamikazeAttack>().GetAttackDamage();
+                Debug.Log(damage);
+                ChangeBaseHealth(-damage);
+            }
+
+            if (currentBaseHealth <= 0)
+            {
+                Die();
+            }
+
+            PlayerBoat boat = collision.gameObject.GetComponent<KamikazeAttack>().GetPlayerBoat();
+            if (boat != null)
+            {
+                boat.Die();
+            }
+
+            Destroy(collision.gameObject); // Destroy the attack hitbox
+
+
         }
     }
 
@@ -103,7 +138,7 @@ public class PlayerBase : MonoBehaviour
         FindObjectOfType<AudioManager>().Play(deathSoundEffect);
         // FIX LATER:
         // Currently will only destroy the script (might be useful if decided to change sprite to 'death sprite' as to not delete the whole game object)
-        Destroy(this); 
+        Destroy(this);
     }
 
     public float GetBaseMoneyPerSecond()
