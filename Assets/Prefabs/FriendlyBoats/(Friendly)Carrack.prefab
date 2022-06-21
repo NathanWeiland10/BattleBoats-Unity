@@ -532,7 +532,7 @@ MonoBehaviour:
   pieceName: Mast2
   speedIncrement: 2
   nonRemovablePiece: 0
-  pieceMaxHealth: 1
+  pieceMaxHealth: 30
   playerBoat: {fileID: 1117797895294139580}
   deathWeightAmount: 40
 --- !u!255 &1117797893969975467
@@ -1778,7 +1778,7 @@ MonoBehaviour:
   pieceName: Bow
   speedIncrement: 2
   nonRemovablePiece: 0
-  pieceMaxHealth: 30
+  pieceMaxHealth: 20
   playerBoat: {fileID: 1117797895294139580}
   deathWeightAmount: 20
 --- !u!255 &4485203864922736673
