@@ -913,7 +913,7 @@ MonoBehaviour:
   maxShotDelay: 1.4
   cannonSpread: 10
   shotRecoil: 20
-  boatMoveForce: 28
+  boatMoveForce: 35
   captureSpeed: 2
   shotSoundEffects:
   - MediumCannonShot1
