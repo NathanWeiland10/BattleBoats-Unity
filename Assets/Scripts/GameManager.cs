@@ -48,7 +48,18 @@ public class GameManager : MonoBehaviour
 
     [Tooltip("The HUD for the game (can be switched to enabled or disabled)")]
     public GameObject gameHUD;
-    
+
+    [Tooltip("The slider used to display the player's boat spawn progression")]
+    public Slider spawnSlider;
+
+    public List<Image> spawnListIcons;
+
+    public Sprite inUseIcon;
+    public Sprite emptyIcon;
+
+    [Tooltip("The text used to display the boat that is currently being spawned by the player")]
+    public TMP_Text spawnerText;
+
     [Tooltip("The TMP text that is used to display the player (friendly team's) current total money")]
     public TMP_Text friendlyTotalMoneyText;
 
@@ -62,11 +73,18 @@ public class GameManager : MonoBehaviour
     float moneyTimer = 1; // Initial value serves as an initial wait time for the money to start ticking up
     float waitTime;
 
+    public List<GameObject> friendlySpawnQueue = new List<GameObject>();
+    float friendlySpawnTimer = 0f;
+
+    public List<GameObject> enemySpawnQueue = new List<GameObject>();
+    float enemySpawnTimer = 0f;
+
     void Awake()
     {
         friendlyMoneyPerSecond += friendlyBase.GetBaseMoneyPerSecond();
         enemyMoneyPerSecond += enemyBase.GetBaseMoneyPerSecond();
-        gameHUD.SetActive(true);    
+        gameHUD.SetActive(true);
+        spawnerText.text = "";
     }
 
     void FixedUpdate()
@@ -120,6 +138,61 @@ public class GameManager : MonoBehaviour
             UpdateEnemyMoney(enemyMoneyPerSecond);
             moneyTimer = 1;
         }
+
+        if (friendlySpawnQueue.Count != 0 && friendlySpawnTimer > 0)
+        {
+            float fillValue = ((friendlySpawnQueue[0].GetComponent<PlayerBoat>().spawnDelay - friendlySpawnTimer)/ friendlySpawnQueue[0].GetComponent<PlayerBoat>().spawnDelay);
+            spawnSlider.value = fillValue;
+            friendlySpawnTimer -= Time.deltaTime;
+        }
+        else if (friendlySpawnQueue.Count != 0 && friendlySpawnTimer <= 0)
+        {
+            InstantiateFriendlyBoat(friendlySpawnQueue[0]);
+            friendlySpawnQueue.RemoveAt(0);
+            if (friendlySpawnQueue.Count != 0)
+            {
+                // Start spawning the next boat:
+                friendlySpawnTimer = friendlySpawnQueue[0].GetComponent<PlayerBoat>().spawnDelay;
+                spawnerText.text = "Spawning: " + friendlySpawnQueue[0].GetComponent<PlayerBoat>().boatName;
+            }
+            else
+            {
+                spawnSlider.value = 0f;
+                friendlySpawnTimer = 0f;
+                spawnerText.text = "";
+            }
+            for (int i = 0; i < spawnListIcons.Count; i++)
+            {
+                if (i < friendlySpawnQueue.Count)
+                {
+                    spawnListIcons[i].sprite = inUseIcon;
+                }
+                else
+                {
+                    spawnListIcons[i].sprite = emptyIcon;
+                }
+            }
+        }
+
+        if (enemySpawnQueue.Count != 0 && enemySpawnTimer > 0)
+        {
+            enemySpawnTimer -= Time.deltaTime;
+        }
+        else if (enemySpawnQueue.Count != 0 && enemySpawnTimer <= 0)
+        {
+            InstantiateEnemyBoat(enemySpawnQueue[0]);
+            enemySpawnQueue.RemoveAt(0);
+            if (enemySpawnQueue.Count != 0)
+            {
+                // Start spawning the next boat:
+                enemySpawnTimer = enemySpawnQueue[0].GetComponent<PlayerBoat>().spawnDelay;
+            }
+            else
+            {
+                enemySpawnTimer = 0f;
+            }
+        }
+
     }
 
     public void UpdateOtherCurrentEnemy(PlayerBoat boat)
@@ -170,13 +243,52 @@ public class GameManager : MonoBehaviour
 
     public void SpawnFriendlyBoat(GameObject boat)
     {
-        GameObject spawnedBoat = Instantiate(boat, friendlyBoatSpawn.position, friendlyBoatSpawn.rotation);
-        friendlyBoats.Add(spawnedBoat.GetComponent<PlayerBoat>());
+        if (friendlySpawnQueue.Count == 0)
+        {
+            friendlySpawnTimer = boat.GetComponent<PlayerBoat>().spawnDelay;
+            friendlySpawnQueue.Add(boat);
+            spawnerText.text = "Spawning: " + friendlySpawnQueue[0].GetComponent<PlayerBoat>().boatName;
+        }
+        else
+        {
+            friendlySpawnQueue.Add(boat);
+        }
+        for(int i = 0; i < spawnListIcons.Count; i++)
+        {
+            if (i < friendlySpawnQueue.Count)
+            {
+                spawnListIcons[i].sprite = inUseIcon;
+            }
+            else
+            {
+                spawnListIcons[i].sprite = emptyIcon;
+            }
+        }
     }
 
     public void SpawnEnemyBoat(GameObject boat)
     {
-        GameObject spawnedBoat = Instantiate(boat, enemyBoatSpawn.position, enemyBoatSpawn.rotation);
+        if (enemySpawnQueue.Count == 0)
+        {
+            enemySpawnTimer = boat.GetComponent<PlayerBoat>().spawnDelay;
+            enemySpawnQueue.Add(boat);
+        }
+        else
+        {
+            enemySpawnQueue.Add(boat);
+        }
+    }
+
+    public void InstantiateFriendlyBoat(GameObject boat)
+    {
+        GameObject spawnedBoat = Instantiate(boat, friendlyBoatSpawn.position, friendlyBoatSpawn.rotation);
+        friendlyBoats.Add(spawnedBoat.GetComponent<PlayerBoat>());
+    }
+
+    public void InstantiateEnemyBoat(GameObject boat)
+    {
+
+        GameObject spawnedBoat = Instantiate(boat, enemyBoatSpawn.position, Quaternion.Euler(0, 179.9999f, 0));
         enemyBoats.Add(spawnedBoat.GetComponent<PlayerBoat>());
     }
 

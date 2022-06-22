@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5078476899210001151}
   - component: {fileID: 4930722869838455805}
   - component: {fileID: 7065547537160140592}
-  - component: {fileID: 8629171263263813317}
   m_Layer: 0
   m_Name: Looping Fire Effect 2
   m_TagString: Untagged
@@ -4839,7 +4838,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1502734193
-  m_SortingLayer: 20
+  m_SortingLayer: 15
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -4871,19 +4870,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &8629171263263813317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 387036811427044152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27e28e0596ec3bb45856d1cf19afb09a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fTimer: 3
 --- !u!1 &6928894594509615790
 GameObject:
   m_ObjectHideFlags: 0
@@ -4895,7 +4881,6 @@ GameObject:
   - component: {fileID: 5702147013725431896}
   - component: {fileID: 5270490233830705849}
   - component: {fileID: 6672957313824723697}
-  - component: {fileID: 2215891386171612378}
   m_Layer: 0
   m_Name: Looping Smoke Effect
   m_TagString: Untagged
@@ -9755,19 +9740,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &2215891386171612378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6928894594509615790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27e28e0596ec3bb45856d1cf19afb09a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fTimer: 3
 --- !u!1 &8496472911791840261
 GameObject:
   m_ObjectHideFlags: 0
@@ -9779,7 +9751,6 @@ GameObject:
   - component: {fileID: 6539552088691056978}
   - component: {fileID: 8438508141963798332}
   - component: {fileID: 3479093027195055706}
-  - component: {fileID: 3049376226029080980}
   m_Layer: 0
   m_Name: Looping Fire Effect
   m_TagString: Untagged
@@ -14609,7 +14580,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1502734193
-  m_SortingLayer: 20
+  m_SortingLayer: 15
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -14641,16 +14612,3 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &3049376226029080980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8496472911791840261}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27e28e0596ec3bb45856d1cf19afb09a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fTimer: 3

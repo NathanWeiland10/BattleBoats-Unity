@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27e28e0596ec3bb45856d1cf19afb09a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fTimer: 4
+  fTimer: 3
 --- !u!1 &352800188706005340
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,7 +59,6 @@ GameObject:
   - component: {fileID: 3156402139800001547}
   - component: {fileID: 294834652746193509}
   - component: {fileID: 4703117363995218691}
-  - component: {fileID: 6583527608630897869}
   m_Layer: 0
   m_Name: FireEffect
   m_TagString: Untagged
@@ -4887,7 +4886,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 381434737
-  m_SortingLayer: 19
+  m_SortingLayer: 20
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -4919,19 +4918,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &6583527608630897869
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 352800188706005340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27e28e0596ec3bb45856d1cf19afb09a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fTimer: 3
 --- !u!1 &2736238179595159458
 GameObject:
   m_ObjectHideFlags: 0
@@ -4943,7 +4929,6 @@ GameObject:
   - component: {fileID: 779611753400859381}
   - component: {fileID: 2669228623487777947}
   - component: {fileID: 6942478683903538685}
-  - component: {fileID: 8809345148871330355}
   m_Layer: 0
   m_Name: SmokeEffect
   m_TagString: Untagged
@@ -9771,7 +9756,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 381434737
-  m_SortingLayer: 19
+  m_SortingLayer: 20
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -9803,19 +9788,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &8809345148871330355
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2736238179595159458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27e28e0596ec3bb45856d1cf19afb09a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fTimer: 3
 --- !u!1 &7359214572080553724
 GameObject:
   m_ObjectHideFlags: 0
@@ -9827,7 +9799,6 @@ GameObject:
   - component: {fileID: 8030222052774863381}
   - component: {fileID: 6060815672695761279}
   - component: {fileID: 4833246196042876531}
-  - component: {fileID: 8445331282573912710}
   m_Layer: 0
   m_Name: FireEffect2
   m_TagString: Untagged
@@ -14655,7 +14626,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 381434737
-  m_SortingLayer: 19
+  m_SortingLayer: 20
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -14687,16 +14658,3 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &8445331282573912710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7359214572080553724}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27e28e0596ec3bb45856d1cf19afb09a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fTimer: 3

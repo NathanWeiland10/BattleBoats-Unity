@@ -1175,6 +1175,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8525007467033532567}
   - component: {fileID: 8525007467033532560}
+  - component: {fileID: 1459358326614529743}
   m_Layer: 6
   m_Name: (Friendly)FireRaft
   m_TagString: Untagged
@@ -1210,6 +1211,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f7ce7218a0b8246a9c2f0c13afb817, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyerAfterScript: {fileID: 1459358326614529743}
+  boatName: Fire Raft
   friendlyBoat: 1
   maxHealth: 55
   boatCost: 40
@@ -1220,12 +1223,14 @@ MonoBehaviour:
   shotRecoil: 30
   boatMoveForce: 9
   captureSpeed: 1
+  spawnDelay: 3
   shotSoundEffects:
   - LightCannonShot1
   deathSoundEffects:
   - Death1
   staticCannon: 1
   kamikaze: 1
+  destroyAfter: 10
   rangeHitBox: {fileID: 4735679135155080476}
   boatColliderHitBox: {fileID: 125851220960561842}
   mainHullPiece: {fileID: 5959329551072574323}
@@ -1243,6 +1248,19 @@ MonoBehaviour:
   healthSlider: {fileID: 0}
   fireEffect: {fileID: 3929628038793144891}
   removedSails: []
+--- !u!114 &1459358326614529743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8525007467033532561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d8d7862d19a21b42b80d756dea1af49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  root: {fileID: 8525007467033532561}
 --- !u!1001 &4855266297907967550
 PrefabInstance:
   m_ObjectHideFlags: 0

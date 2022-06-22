@@ -1009,7 +1009,7 @@ MonoBehaviour:
   nonRemovablePiece: 1
   pieceMaxHealth: 0
   playerBoat: {fileID: 5374372289924207934}
-  deathWeightAmount: 40
+  deathWeightAmount: 60
 --- !u!61 &5374372288262902541
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1722,6 +1722,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5374372289924207933}
   - component: {fileID: 5374372289924207934}
+  - component: {fileID: 1989639124268251360}
   m_Layer: 6
   m_Name: (Friendly)Caravel
   m_TagString: Untagged
@@ -1757,6 +1758,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f7ce7218a0b8246a9c2f0c13afb817, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyerAfterScript: {fileID: 1989639124268251360}
+  boatName: Caravel
   friendlyBoat: 1
   maxHealth: 100
   boatCost: 75
@@ -1767,12 +1770,14 @@ MonoBehaviour:
   shotRecoil: 20
   boatMoveForce: 50
   captureSpeed: 2
+  spawnDelay: 4
   shotSoundEffects:
   - LightCannonShot1
   deathSoundEffects:
   - Death3
   staticCannon: 1
   kamikaze: 0
+  destroyAfter: 10
   rangeHitBox: {fileID: 5374372289128720388}
   boatColliderHitBox: {fileID: 5374372288262902541}
   mainHullPiece: {fileID: 5374372288262902545}
@@ -1794,3 +1799,16 @@ MonoBehaviour:
   healthSlider: {fileID: 0}
   fireEffect: {fileID: 0}
   removedSails: []
+--- !u!114 &1989639124268251360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5374372289924207932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d8d7862d19a21b42b80d756dea1af49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  root: {fileID: 5374372289924207932}

@@ -739,6 +739,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2324045384858698960}
   - component: {fileID: 2324045384858698963}
+  - component: {fileID: 1973231746255439379}
   m_Layer: 6
   m_Name: (Friendly)Junk
   m_TagString: Untagged
@@ -774,6 +775,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f7ce7218a0b8246a9c2f0c13afb817, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyerAfterScript: {fileID: 1973231746255439379}
+  boatName: Junk
   friendlyBoat: 1
   maxHealth: 100
   boatCost: 90
@@ -784,12 +787,14 @@ MonoBehaviour:
   shotRecoil: 20
   boatMoveForce: 35
   captureSpeed: 2
+  spawnDelay: 5
   shotSoundEffects:
   - MediumCannonShot1
   deathSoundEffects:
   - Death3
   staticCannon: 1
   kamikaze: 0
+  destroyAfter: 10
   rangeHitBox: {fileID: 2324045385455729129}
   boatColliderHitBox: {fileID: 2324045384304558816}
   mainHullPiece: {fileID: 2324045384304558844}
@@ -813,6 +818,19 @@ MonoBehaviour:
   healthSlider: {fileID: 0}
   fireEffect: {fileID: 0}
   removedSails: []
+--- !u!114 &1973231746255439379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2324045384858698961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d8d7862d19a21b42b80d756dea1af49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  root: {fileID: 2324045384858698961}
 --- !u!1 &2324045385332549287
 GameObject:
   m_ObjectHideFlags: 0

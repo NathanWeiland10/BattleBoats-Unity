@@ -200,7 +200,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.1
+  m_Mass: 0.2
   m_LinearDrag: 2
   m_AngularDrag: 6
   m_GravityScale: 1
@@ -224,7 +224,7 @@ MonoBehaviour:
   pieceName: Mast1
   speedIncrement: 0.1
   nonRemovablePiece: 0
-  pieceMaxHealth: 1
+  pieceMaxHealth: 60
   playerBoat: {fileID: 1095821228283506795}
   deathWeightAmount: 30
 --- !u!255 &1095821228067741534
@@ -299,6 +299,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1095821228283506796}
   - component: {fileID: 1095821228283506795}
+  - component: {fileID: 3283897681184330508}
   m_Layer: 6
   m_Name: (Friendly)Gundalow
   m_TagString: Untagged
@@ -334,6 +335,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f7ce7218a0b8246a9c2f0c13afb817, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyerAfterScript: {fileID: 3283897681184330508}
+  boatName: Gundalow
   friendlyBoat: 1
   maxHealth: 60
   boatCost: 45
@@ -344,12 +347,14 @@ MonoBehaviour:
   shotRecoil: 30
   boatMoveForce: 12
   captureSpeed: 1
+  spawnDelay: 3
   shotSoundEffects:
   - LightCannonShot1
   deathSoundEffects:
   - Death1
   staticCannon: 1
   kamikaze: 0
+  destroyAfter: 10
   rangeHitBox: {fileID: 4090193784172209639}
   boatColliderHitBox: {fileID: 8702317335930397257}
   mainHullPiece: {fileID: 3154771681815729032}
@@ -367,6 +372,19 @@ MonoBehaviour:
   healthSlider: {fileID: 0}
   fireEffect: {fileID: 0}
   removedSails: []
+--- !u!114 &3283897681184330508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095821228283506794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d8d7862d19a21b42b80d756dea1af49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  root: {fileID: 1095821228283506794}
 --- !u!1 &1289497629697189622
 GameObject:
   m_ObjectHideFlags: 0
@@ -586,7 +604,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2391166510945428557}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.477, y: -0.211, z: 0}
+  m_LocalPosition: {x: 0.418, y: -0.278, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -629,7 +647,7 @@ FixedJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.477, y: -0.211}
+  m_ConnectedAnchor: {x: 0.418, y: -0.278}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!61 &6500778740752167839
@@ -645,7 +663,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.44154525, y: -0.07627666}
+  m_Offset: {x: -0.44154525, y: 0.015629351}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -656,7 +674,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4482417, y: 0.041627645}
+  m_Size: {x: 1.4482417, y: 0.09175837}
   m_EdgeRadius: 0
 --- !u!1 &3154771681815729032
 GameObject:
@@ -760,9 +778,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 6
-  m_LinearDrag: 5
-  m_AngularDrag: 40
+  m_Mass: 9
+  m_LinearDrag: 2
+  m_AngularDrag: 20
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -982,7 +1000,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.05
+  m_Mass: 0.1
   m_LinearDrag: 2
   m_AngularDrag: 6
   m_GravityScale: 1
@@ -1006,7 +1024,7 @@ MonoBehaviour:
   pieceName: Sail1
   speedIncrement: 0.1
   nonRemovablePiece: 0
-  pieceMaxHealth: 15
+  pieceMaxHealth: 60
   playerBoat: {fileID: 1095821228283506795}
   deathWeightAmount: 30
 --- !u!255 &5236070430924318379
