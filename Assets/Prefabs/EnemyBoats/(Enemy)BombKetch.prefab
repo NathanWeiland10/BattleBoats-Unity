@@ -1368,6 +1368,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7801592740434453979}
   - component: {fileID: 7801592740434453976}
+  - component: {fileID: 419997946971575870}
   m_Layer: 7
   m_Name: (Enemy)BombKetch
   m_TagString: Untagged
@@ -1403,6 +1404,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f7ce7218a0b8246a9c2f0c13afb817, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyerAfterScript: {fileID: 419997946971575870}
+  boatName: Bomb Ketch
   friendlyBoat: 0
   maxHealth: 90
   boatCost: 100
@@ -1413,12 +1416,14 @@ MonoBehaviour:
   shotRecoil: 50
   boatMoveForce: 35
   captureSpeed: 2
+  spawnDelay: 6
   shotSoundEffects:
   - CannonShot2
   deathSoundEffects:
   - Death3
   staticCannon: 0
   kamikaze: 0
+  destroyAfter: 10
   rangeHitBox: {fileID: 7801592740978252002}
   boatColliderHitBox: {fileID: 7801592739847676907}
   mainHullPiece: {fileID: 7801592739847676919}
@@ -1439,6 +1444,19 @@ MonoBehaviour:
   healthSlider: {fileID: 0}
   fireEffect: {fileID: 0}
   removedSails: []
+--- !u!114 &419997946971575870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7801592740434453978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d8d7862d19a21b42b80d756dea1af49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  root: {fileID: 7801592740434453978}
 --- !u!1 &7801592740629830976
 GameObject:
   m_ObjectHideFlags: 0

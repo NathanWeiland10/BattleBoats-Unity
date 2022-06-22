@@ -277,7 +277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pieceName: Mast1
-  speedIncrement: 2
+  speedIncrement: 1
   nonRemovablePiece: 0
   pieceMaxHealth: 40
   playerBoat: {fileID: 3227315940685533279}
@@ -489,6 +489,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3227315940685533276}
   - component: {fileID: 3227315940685533279}
+  - component: {fileID: 2576875861032163353}
   m_Layer: 6
   m_Name: (Friendly)Bireme
   m_TagString: Untagged
@@ -503,7 +504,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3227315940685533277}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -524,6 +525,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f7ce7218a0b8246a9c2f0c13afb817, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyerAfterScript: {fileID: 2576875861032163353}
+  boatName: Bireme
   friendlyBoat: 1
   maxHealth: 125
   boatCost: 50
@@ -532,14 +535,16 @@ MonoBehaviour:
   maxShotDelay: 1.6
   cannonSpread: 15
   shotRecoil: 0
-  boatMoveForce: 28
+  boatMoveForce: 32
   captureSpeed: 2
+  spawnDelay: 5
   shotSoundEffects:
   - ArrowShot
   deathSoundEffects:
   - Death3
   staticCannon: 1
   kamikaze: 0
+  destroyAfter: 10
   rangeHitBox: {fileID: 3227315939923897701}
   boatColliderHitBox: {fileID: 3227315941209265772}
   mainHullPiece: {fileID: 3227315941209265776}
@@ -559,6 +564,19 @@ MonoBehaviour:
   healthSlider: {fileID: 0}
   fireEffect: {fileID: 0}
   removedSails: []
+--- !u!114 &2576875861032163353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3227315940685533277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d8d7862d19a21b42b80d756dea1af49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  root: {fileID: 3227315940685533277}
 --- !u!1 &3227315940990799736
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,7 +712,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 20
   m_LinearDrag: 4
-  m_AngularDrag: 6
+  m_AngularDrag: 3
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -876,7 +894,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4940614884225942290}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.038, y: -0.023, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1037,7 +1055,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pieceName: Sail1
-  speedIncrement: 8
+  speedIncrement: 4
   nonRemovablePiece: 0
   pieceMaxHealth: 30
   playerBoat: {fileID: 3227315940685533279}
@@ -1130,7 +1148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4940614885615505135}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.523, z: 0}
+  m_LocalPosition: {x: 0.094, y: -1.19, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1150,7 +1168,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.016169071, y: 0.9545443}
+  m_Offset: {x: -0.046153545, y: 0.95059395}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1161,7 +1179,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.9850969, y: 0.13746071}
+  m_Size: {x: 2.1097422, y: 0.14536142}
   m_EdgeRadius: 0
 --- !u!50 &4940614885615505123
 Rigidbody2D:
@@ -1199,7 +1217,7 @@ FixedJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: -1.523}
+  m_ConnectedAnchor: {x: 0.055999998, y: -1.213}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!1 &5553227388722600511

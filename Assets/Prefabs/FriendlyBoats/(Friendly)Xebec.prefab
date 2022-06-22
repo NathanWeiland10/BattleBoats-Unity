@@ -553,7 +553,7 @@ FixedJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.03700018, y: -2.6089997}
+  m_ConnectedAnchor: {x: 0.037, y: -2.609}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!1 &5758148999021156440
@@ -1034,7 +1034,7 @@ FixedJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 2.45, y: -3.2400002}
+  m_ConnectedAnchor: {x: 2.45, y: -3.24}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!1 &5758148999930618723
@@ -1400,7 +1400,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.3460002, y: -0.35599995}
+  m_ConnectedAnchor: {x: 0.346, y: -0.356}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1437,6 +1437,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9103072700593275298}
   - component: {fileID: 9103072700593275297}
+  - component: {fileID: 1431050000600450759}
   m_Layer: 6
   m_Name: (Friendly)Xebec
   m_TagString: Untagged
@@ -1452,7 +1453,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9103072700593275299}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.77, y: -2.15, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1472,6 +1473,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f7ce7218a0b8246a9c2f0c13afb817, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyerAfterScript: {fileID: 1431050000600450759}
+  boatName: Xebec
   friendlyBoat: 1
   maxHealth: 110
   boatCost: 70
@@ -1482,12 +1485,14 @@ MonoBehaviour:
   shotRecoil: 40
   boatMoveForce: 65
   captureSpeed: 2
+  spawnDelay: 4
   shotSoundEffects:
   - LightCannonShot2
   deathSoundEffects:
   - Death3
   staticCannon: 1
   kamikaze: 0
+  destroyAfter: 10
   rangeHitBox: {fileID: 9103072701021551771}
   boatColliderHitBox: {fileID: 9103072702152083346}
   mainHullPiece: {fileID: 9103072702152083342}
@@ -1512,6 +1517,19 @@ MonoBehaviour:
   healthSlider: {fileID: 0}
   fireEffect: {fileID: 0}
   removedSails: []
+--- !u!114 &1431050000600450759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9103072700593275299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d8d7862d19a21b42b80d756dea1af49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  root: {fileID: 9103072700593275299}
 --- !u!1 &9103072701021551764
 GameObject:
   m_ObjectHideFlags: 0

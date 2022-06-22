@@ -5,6 +5,13 @@ using UnityEngine.UI;
 
 public class PlayerBoat : MonoBehaviour
 {
+
+    [Tooltip("The script that destroys the components of this GameObject")]
+    public DestroyAfterCor destroyerAfterScript;
+
+    [Tooltip("The name of this boat")]
+    public string boatName;
+
     [Tooltip("Set enabled for a friendly boat or disabled for an enemy boat (determines the movement direction)")]
     public bool friendlyBoat;
 
@@ -31,6 +38,9 @@ public class PlayerBoat : MonoBehaviour
     [Tooltip("The amount of capture points this boat adds to a capture point every second")]
     public float captureSpeed;
 
+    [Tooltip("The time it takes for this boat to spawn")]
+    public float spawnDelay;
+
     [Tooltip("The shot sound effects of this boat")]
     public string[] shotSoundEffects;
     [Tooltip("The death sound effects of this boat")]
@@ -41,6 +51,9 @@ public class PlayerBoat : MonoBehaviour
         
     [Tooltip("Set enabled if this boat self destructs into enemy ships (such as a fireship) or disabled otherwise")]
     public bool kamikaze;
+
+    [Tooltip("How long in seconds this boat will be destroyed after being killed")]
+    public float destroyAfter = 10f;
 
     [Tooltip("The collider this boat uses to determine when a boat or base is within reach and will begin attacking")]
     public CircleCollider2D rangeHitBox;
@@ -164,6 +177,7 @@ public class PlayerBoat : MonoBehaviour
 
     public void Die()
     {
+        destroyerAfterScript.DestroyAfter(destroyAfter);
         if (kamikaze)
         {
             fireEffect.gameObject.SetActive(false);
@@ -189,6 +203,7 @@ public class PlayerBoat : MonoBehaviour
                 isDead = true;
 
                 Destroy(this);
+
             }
         }
     }

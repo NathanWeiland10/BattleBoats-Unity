@@ -14,15 +14,22 @@ public class CreateBoatButton : MonoBehaviour
     [Tooltip("The TMP text that is used to display the cost of this boat")]
     public TMP_Text boatCostText;
 
+    [Tooltip("The sound effect that is played when buying this boat")]
+    public string buySoundEffect;
+
+    [Tooltip("The sound effect that is played when trying and failing to buy this boat")]
+    public string cannotBuySoundEffect;
+
     GameManager gameManager;
 
     float boatCost;
 
     void Awake()
     {
-        gameManager = FindObjectOfType<GameManager>();
-        boatCost = playerBoat.GetComponent<PlayerBoat>().boatCost;
-        boatCostText.text = "$" + boatCost.ToString();
+        if (playerBoat != null) {
+            gameManager = FindObjectOfType<GameManager>();
+            boatCostText.text = "$" + boatCost.ToString();
+        }
     }
 
     void Update()
@@ -43,15 +50,23 @@ public class CreateBoatButton : MonoBehaviour
 
     public void AttemptFriendlyPurchase()
     {
-        if (gameManager.friendlyTotalMoney >= boatCost)
+        if (gameManager.friendlyTotalMoney >= boatCost && gameManager.friendlySpawnQueue.Count < gameManager.spawnListIcons.Count)
         {
             gameManager.UpdateFriendlyMoney(-boatCost);
             gameManager.SpawnFriendlyBoat(playerBoat);
+            FindObjectOfType<AudioManager>().Play(buySoundEffect);
         }
         else
         {
-            Debug.Log("Broke");
+            FindObjectOfType<AudioManager>().Play(cannotBuySoundEffect);
+            Debug.Log("Cannot buy boat");
         }
+    }
+
+    public void SetBoatCost(float f)
+    {
+        boatCost = f;
+        boatCostText.text = "$" + f;
     }
 
 }

@@ -981,6 +981,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1117797895294139583}
   - component: {fileID: 1117797895294139580}
+  - component: {fileID: 66357759896912129}
   m_Layer: 6
   m_Name: (Friendly)Carrack
   m_TagString: Untagged
@@ -1016,6 +1017,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f7ce7218a0b8246a9c2f0c13afb817, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyerAfterScript: {fileID: 66357759896912129}
+  boatName: Carrack
   friendlyBoat: 1
   maxHealth: 160
   boatCost: 110
@@ -1026,12 +1029,14 @@ MonoBehaviour:
   shotRecoil: 30
   boatMoveForce: 100
   captureSpeed: 2
+  spawnDelay: 6
   shotSoundEffects:
   - MediumCannonShot1
   deathSoundEffects:
   - Death3
   staticCannon: 1
   kamikaze: 0
+  destroyAfter: 10
   rangeHitBox: {fileID: 1117797894497583494}
   boatColliderHitBox: {fileID: 1117797893631130255}
   mainHullPiece: {fileID: 1117797893631130259}
@@ -1057,6 +1062,19 @@ MonoBehaviour:
   healthSlider: {fileID: 0}
   fireEffect: {fileID: 0}
   removedSails: []
+--- !u!114 &66357759896912129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117797895294139582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d8d7862d19a21b42b80d756dea1af49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  root: {fileID: 1117797895294139582}
 --- !u!1 &1117797895499858980
 GameObject:
   m_ObjectHideFlags: 0
