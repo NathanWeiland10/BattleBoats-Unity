@@ -100,10 +100,6 @@ public class PlayerBoat : MonoBehaviour
 
     Rigidbody2D boatRigidBody;
 
-    // FIX LATER:
-    // Rather than having a boolean for removed sail, have a list that you can add to so 
-    // that you can check to see which sails have been removed and then reduce the speed:
-    // bool sailRemoved;
     public List<string> removedSails;
 
     void Awake()
