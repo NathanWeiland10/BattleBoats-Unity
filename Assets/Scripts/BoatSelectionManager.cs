@@ -6,10 +6,13 @@ using UnityEngine.UI;
 public class BoatSelectionManager : MonoBehaviour
 {
 
+    [Tooltip("The list of GameObjects that represent the boats that are selected in the boat selection screen")]
     public List<GameObject> selectedBoats;
 
+    [Tooltip("The list of sprites that represent the boats that have been selected")]
     public List<Sprite> boatButtonSprites;
 
+    [Tooltip("The button used to advance to the game; can be toggled on or off depending on the number of boats the player has currently selected")]
     public GameObject playButton;
 
     void Awake()
