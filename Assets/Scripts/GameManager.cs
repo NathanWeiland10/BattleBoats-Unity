@@ -52,9 +52,12 @@ public class GameManager : MonoBehaviour
     [Tooltip("The slider used to display the player's boat spawn progression")]
     public Slider spawnSlider;
 
+    [Tooltip("The list of images used to display the current queue of boat spawn progression")]
     public List<Image> spawnListIcons;
 
+    [Tooltip("The sprite used to indicate this spot in the queue is currently in use")]
     public Sprite inUseIcon;
+    [Tooltip("The sprite used to indicate this spot in the queue is currently available")]
     public Sprite emptyIcon;
 
     [Tooltip("The text used to display the boat that is currently being spawned by the player")]
@@ -73,9 +76,11 @@ public class GameManager : MonoBehaviour
     float moneyTimer = 1; // Initial value serves as an initial wait time for the money to start ticking up
     float waitTime;
 
+    [Tooltip("The list of boats that the player is currently awaiting to spawn")]
     public List<GameObject> friendlySpawnQueue = new List<GameObject>();
     float friendlySpawnTimer = 0f;
-
+    
+    [Tooltip("The list of boats that the enemy is currently awaiting to spawn")]
     public List<GameObject> enemySpawnQueue = new List<GameObject>();
     float enemySpawnTimer = 0f;
 

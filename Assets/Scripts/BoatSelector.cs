@@ -6,14 +6,20 @@ using UnityEngine.UI;
 public class BoatSelector : MonoBehaviour
 {
 
+    [Tooltip("The GameObject that is used to represent whether this boat has been selected or not (Ex: A yellow glow / outline)")]
     public GameObject selectedBorder;
+    [Tooltip("The prefab of the boat that this button corresponds to")]
     public GameObject boatPrefab;
 
+    [Tooltip("The sprite that is used to display what boat this button corresponds to")]
     public Sprite boatButtonSprite;
 
+    [Tooltip("The manager that handles transferring the boats selected from the selection screen into the game")]
     public BoatSelectionManager manager;
 
+    [Tooltip("The name of the sound effect that will play if this button gets selected")]
     public string selectSound;
+    [Tooltip("The name of the sound effect that will play if this button gets deselected")]
     public string deselectSound;
 
     [Tooltip("The name of the boat corresponding to this boat (NOTE: This does not need to be set in the inspectator. The name is grabbed from boat prefab)")]
@@ -22,6 +28,7 @@ public class BoatSelector : MonoBehaviour
     [Tooltip("A description of the boat corresponding to this button")]
     public string boatDescription;
 
+    [Tooltip("The GameObject of the tooltip that displays information about the boat corresponding to this button")]
     public GameObject tooltipTextBox;
 
     bool boatSelected;

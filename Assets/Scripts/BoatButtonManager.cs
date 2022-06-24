@@ -6,9 +6,12 @@ using UnityEngine.UI;
 public class BoatButtonManager : MonoBehaviour
 {
 
+    [Tooltip("The list of GameObject buttons used to spawn friendly boats in game")]
     public List<GameObject> boatButtons;
 
+    [Tooltip("The list of GameObjects that were selected by the player in the boat selection screen")]
     public List<GameObject> selectedBoatPrefabs;
+    [Tooltip("The list of sprites that represent the boats that were selected in the boat selection screen")]
     public List<Sprite> selectedBoatButtonSprites;
 
     BoatSelectionManager manager;
@@ -19,7 +22,6 @@ public class BoatButtonManager : MonoBehaviour
         if (manager != null) {
             selectedBoatPrefabs = manager.selectedBoats;
             selectedBoatButtonSprites = manager.boatButtonSprites;
-
 
             for (int i = 0; i < selectedBoatPrefabs.Count; i++)
             {
@@ -41,7 +43,5 @@ public class BoatButtonManager : MonoBehaviour
         }
 
     }
-
-    
 
 }
