@@ -74,10 +74,7 @@ public class PlayerBase : MonoBehaviour
             {
                 boat.Die();
             }
-
             Destroy(collision.gameObject); // Destroy the attack hitbox
-
-
         }
     }
 
