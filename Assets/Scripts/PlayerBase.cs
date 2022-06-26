@@ -44,7 +44,7 @@ public class PlayerBase : MonoBehaviour
                 Die();
             }
 
-            Destroy(collision.gameObject); // Destroy the cannonball
+            Destroy(collision.gameObject);
         }
 
         if (collision.gameObject.tag == "KamikazeAttack")
@@ -74,7 +74,7 @@ public class PlayerBase : MonoBehaviour
             {
                 boat.Die();
             }
-            Destroy(collision.gameObject); // Destroy the attack hitbox
+            Destroy(collision.gameObject);
         }
     }
 
