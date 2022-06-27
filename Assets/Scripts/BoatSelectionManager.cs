@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BoatSelectionManager : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class BoatSelectionManager : MonoBehaviour
 
     [Tooltip("The button used to advance to the game; can be toggled on or off depending on the number of boats the player has currently selected")]
     public GameObject playButton;
+
+    string selectedLevel = "Level1.1";
 
     void Awake()
     {
@@ -38,4 +41,23 @@ public class BoatSelectionManager : MonoBehaviour
         }
     }
 
+<<<<<<< HEAD
+    public string GetSelectedLevel()
+    {
+        return selectedLevel;
+    }
+
+    public void SetSelectedLevel(string level)
+    {
+        selectedLevel = level;
+    }
+
+    public void LoadScene()
+    {
+        SceneManager.LoadScene(selectedLevel);
+    }
+
 }
+=======
+}
+>>>>>>> 5cb43b7eb0c99779cc938faa495ab721d27f49ff

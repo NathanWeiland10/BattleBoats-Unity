@@ -1514,6 +1514,7 @@ MonoBehaviour:
   - {fileID: 9103072702152083342}
   cannonSmokeEffect: {fileID: 5470383468595050592, guid: 81c017d6944c64a429cc21f2e29f3e9f, type: 3}
   deathWeights: {fileID: 5758148999021156440}
+  flotationBalances: {fileID: 1589121768422167276}
   healthSlider: {fileID: 0}
   fireEffect: {fileID: 0}
   removedSails: []

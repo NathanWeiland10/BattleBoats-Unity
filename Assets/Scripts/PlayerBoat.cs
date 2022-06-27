@@ -77,7 +77,10 @@ public class PlayerBoat : MonoBehaviour
 
     [Tooltip("The GameObject that holds all of the death weights for this boat; once a boat is destroyed, the deathWeights will become enabled)")]
     public GameObject deathWeights;
-    
+
+    [Tooltip("The GameObject that hold the flotation balances that help assist this boat float properly")]
+    public GameObject flotationBalances;
+
     [Tooltip("The Slider that shows the current health of this boat")]
     public Slider healthSlider;
 
@@ -173,6 +176,7 @@ public class PlayerBoat : MonoBehaviour
 
     public void Die()
     {
+        flotationBalances.SetActive(false);
         destroyerAfterScript.DestroyAfter(destroyAfter);
         if (kamikaze)
         {

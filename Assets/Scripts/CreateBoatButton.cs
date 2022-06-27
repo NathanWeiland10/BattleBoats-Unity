@@ -59,7 +59,6 @@ public class CreateBoatButton : MonoBehaviour
         else
         {
             FindObjectOfType<AudioManager>().Play(cannotBuySoundEffect);
-            Debug.Log("Cannot buy boat");
         }
     }
 
