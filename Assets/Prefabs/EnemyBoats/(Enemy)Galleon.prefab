@@ -1853,7 +1853,7 @@ MonoBehaviour:
   captureSpeed: 2.25
   spawnDelay: 10
   shotSoundEffects:
-  - MediumCannonShot1
+  - HeavyCannonShot1
   deathSoundEffects:
   - Death3
   staticCannon: 1
@@ -1888,6 +1888,7 @@ MonoBehaviour:
   - {fileID: 4588967102322673185}
   cannonSmokeEffect: {fileID: 5470383468595050592, guid: 81c017d6944c64a429cc21f2e29f3e9f, type: 3}
   deathWeights: {fileID: 1014113804815718903}
+  flotationBalances: {fileID: 6338364526652937027}
   healthSlider: {fileID: 0}
   fireEffect: {fileID: 0}
   removedSails: []

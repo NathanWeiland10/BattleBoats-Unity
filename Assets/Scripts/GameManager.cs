@@ -92,61 +92,11 @@ public class GameManager : MonoBehaviour
         spawnerText.text = "";
     }
 
-    void FixedUpdate()
-    {
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-        {
-            if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.LeftShift))
-            {
-                mainCameraRig.GetComponent<Rigidbody2D>().AddForce(Vector3.left * cameraMoveSpeed * 3);
-            }
-            else
-            {
-                mainCameraRig.GetComponent<Rigidbody2D>().AddForce(Vector3.left * cameraMoveSpeed);
-            }
-        }    
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-        {
-            if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.LeftShift))
-            {
-                mainCameraRig.GetComponent<Rigidbody2D>().AddForce(Vector3.right * cameraMoveSpeed * 3);
-            }
-            else
-            {
-                mainCameraRig.GetComponent<Rigidbody2D>().AddForce(Vector3.right * cameraMoveSpeed);
-            }
-        }
-    }
-
     void Update()
     {
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
-        {
-            if (mainCamera.orthographicSize - cameraScrollSpeed > minCameraSize)
-            {
-                mainCamera.orthographicSize -= cameraScrollSpeed;
-            }
-        }
-        else if (Input.GetAxis("Mouse ScrollWheel") < 0f)
-        {
-            if (mainCamera.orthographicSize + cameraScrollSpeed < maxCameraSize)
-            {
-                mainCamera.orthographicSize += cameraScrollSpeed;
-            }
-        }
-
-        moneyTimer -= Time.deltaTime;
-        if (moneyTimer <= 0)
-        {
-            waitTime = (moneyDelayTimer / friendlyMoneyPerSecond);
-            StartCoroutine(AddDelayedMoney(friendlyMoneyPerSecond));
-            UpdateEnemyMoney(enemyMoneyPerSecond);
-            moneyTimer = 1;
-        }
-
         if (friendlySpawnQueue.Count != 0 && friendlySpawnTimer > 0)
         {
-            float fillValue = ((friendlySpawnQueue[0].GetComponent<PlayerBoat>().spawnDelay - friendlySpawnTimer)/ friendlySpawnQueue[0].GetComponent<PlayerBoat>().spawnDelay);
+            float fillValue = ((friendlySpawnQueue[0].GetComponent<PlayerBoat>().spawnDelay - friendlySpawnTimer) / friendlySpawnQueue[0].GetComponent<PlayerBoat>().spawnDelay);
             spawnSlider.value = fillValue;
             friendlySpawnTimer -= Time.deltaTime;
         }
@@ -198,6 +148,56 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+        {
+            if (mainCamera.orthographicSize - cameraScrollSpeed > minCameraSize)
+            {
+                mainCamera.orthographicSize -= cameraScrollSpeed;
+            }
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+        {
+            if (mainCamera.orthographicSize + cameraScrollSpeed < maxCameraSize)
+            {
+                mainCamera.orthographicSize += cameraScrollSpeed;
+            }
+        }
+
+        moneyTimer -= Time.deltaTime;
+        if (moneyTimer <= 0)
+        {
+            waitTime = (moneyDelayTimer / friendlyMoneyPerSecond);
+            StartCoroutine(AddDelayedMoney(friendlyMoneyPerSecond));
+            UpdateEnemyMoney(enemyMoneyPerSecond);
+            moneyTimer = 1;
+        }
+
+    }
+
+    void FixedUpdate()
+    {
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.LeftShift))
+            {
+                mainCameraRig.GetComponent<Rigidbody2D>().AddForce(Vector3.left * cameraMoveSpeed * 3);
+            }
+            else
+            {
+                mainCameraRig.GetComponent<Rigidbody2D>().AddForce(Vector3.left * cameraMoveSpeed);
+            }
+        }
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        {
+            if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.LeftShift))
+            {
+                mainCameraRig.GetComponent<Rigidbody2D>().AddForce(Vector3.right * cameraMoveSpeed * 3);
+            }
+            else
+            {
+                mainCameraRig.GetComponent<Rigidbody2D>().AddForce(Vector3.right * cameraMoveSpeed);
+            }
+        }
     }
 
     public void UpdateOtherCurrentEnemy(PlayerBoat boat)
