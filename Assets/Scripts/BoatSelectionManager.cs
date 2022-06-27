@@ -41,7 +41,6 @@ public class BoatSelectionManager : MonoBehaviour
         }
     }
 
-<<<<<<< HEAD
     public string GetSelectedLevel()
     {
         return selectedLevel;
@@ -58,6 +57,3 @@ public class BoatSelectionManager : MonoBehaviour
     }
 
 }
-=======
-}
->>>>>>> 5cb43b7eb0c99779cc938faa495ab721d27f49ff

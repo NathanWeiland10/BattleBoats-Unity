@@ -12,22 +12,16 @@ public class EnemyPlayer : MonoBehaviour
     [Range(1, 10)]
     public int enemyDifficulty;
 
-<<<<<<< HEAD
+    [Tooltip("The list of boats that the enemy will spawn in this order")]
     public List<GameObject> boatOrder;
 
-    GameObject currentBoat;
-=======
     // FIX LATER: Make this var private since it does not need to be accessed in the inspector:
     [Tooltip("The list of boats that the enemy will spawn in this order")]
     public GameObject currentBoat;
->>>>>>> 5cb43b7eb0c99779cc938faa495ab721d27f49ff
 
     [Tooltip("The list of playstyles that this enemy can choose from")]
-    public enum playStyle { RANDOM, AGRESSIVE, DEFENSIVE, ORDERED };
-    
-    [Tooltip("The list of boats that the enemy will spawn in this order")]
-    public ListGameObject> boatOrder;
-    
+    public enum playStyle { RANDOM, AGRESSIVE };
+
     [Tooltip("The playstyle that this enemy AI will play")]
     public playStyle enemyPlayStyle;
 
@@ -40,21 +34,9 @@ public class EnemyPlayer : MonoBehaviour
     {
         gameManager = FindObjectOfType<GameManager>();
         decisionMaxTime = 10.5f - enemyDifficulty;
-        switch(enemyPlayStyle) {
-            case playStyle.RANDOM {
-                currentBoat = availableEnemyBoats[Random.Range(0, availableEnemyBoats.Count)];
-                break;
-            }
-            case playStyle.ORDERED {
-                if (boatOrder.Count != 0) {
-                    currentBoat = boatOrder[0];
-                    boatOrder.Remove[0];
-                } else {
-                    currentBoat = availableEnemyBoats[Random.Range(0, availableEnemyBoats.Count)];
-                }
-                break;
-            }
-            default: break;
+        if (enemyPlayStyle == playStyle.RANDOM)
+        {
+            currentBoat = availableEnemyBoats[Random.Range(0, availableEnemyBoats.Count)];
         }
     }
 
@@ -83,22 +65,7 @@ public class EnemyPlayer : MonoBehaviour
         {
             gameManager.UpdateEnemyMoney(-boatCost);
             gameManager.SpawnEnemyBoat(currentBoat);
-            switch(enemyPlayStyle) {
-                case playStyle.RANDOM {
-                    currentBoat = availableEnemyBoats[Random.Range(0, availableEnemyBoats.Count)];
-                    break;
-                }
-                case playStyle.ORDERED {
-                    if (boatOrder.Count != 0) {
-                        currentBoat = boatOrder[0];
-                        boatOrder.Remove[0];
-                    } else {
-                        currentBoat = availableEnemyBoats[Random.Range(0, availableEnemyBoats.Count)];
-                    }
-                    break;
-                }
-                default: break;
-            }
+            currentBoat = availableEnemyBoats[Random.Range(0, availableEnemyBoats.Count)];
         }
     }
 
