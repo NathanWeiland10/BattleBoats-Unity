@@ -13,19 +13,17 @@ public class EnemyPlayer : MonoBehaviour
     public int enemyDifficulty;
 
     [Tooltip("The list of boats that the enemy will spawn in this order")]
-    public ListGameObject> boatOrder;
-
-    // FIX LATER: Make this var private since it does not need to be accessed in the inspector:
-    [Tooltip("The list of boats that the enemy will spawn in this order")]
-    public GameObject currentBoat;
+    public List<GameObject> boatOrder;
 
     [Tooltip("The list of playstyles that this enemy can choose from")]
     public enum playStyle { RANDOM, AGRESSIVE };
-    
+
     [Tooltip("The playstyle that this enemy AI will play")]
     public playStyle enemyPlayStyle;
 
     GameManager gameManager;
+    
+    GameObject currentBoat;
 
     float decisionMaxTime;
     float decisionTimer = 0;
@@ -34,7 +32,8 @@ public class EnemyPlayer : MonoBehaviour
     {
         gameManager = FindObjectOfType<GameManager>();
         decisionMaxTime = 10.5f - enemyDifficulty;
-        if (enemyPlayStyle == playStyle.RANDOM) {
+        if (enemyPlayStyle == playStyle.RANDOM)
+        {
             currentBoat = availableEnemyBoats[Random.Range(0, availableEnemyBoats.Count)];
         }
     }
