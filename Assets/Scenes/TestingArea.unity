@@ -676,7 +676,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2103692553
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 10b4e8fa9043fdf4b8d506f515176724, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -760,7 +760,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2103692553
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 601ebeb222b82724690242e57f138606, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -896,11 +896,18 @@ MonoBehaviour:
   friendlyBoatSpawn: {fileID: 1722842171}
   enemyBoatSpawn: {fileID: 1276584549}
   gameHUD: {fileID: 1633249926}
+  spawnSlider: {fileID: 0}
+  spawnListIcons: []
+  inUseIcon: {fileID: 0}
+  emptyIcon: {fileID: 0}
+  spawnerText: {fileID: 0}
   friendlyTotalMoneyText: {fileID: 70573824}
   capturePoints:
   - {fileID: 1966029113}
   - {fileID: 1656103124}
   moneyDelayTimer: 0.3
+  friendlySpawnQueue: []
+  enemySpawnQueue: []
 --- !u!4 &455166254
 Transform:
   m_ObjectHideFlags: 0
@@ -1091,7 +1098,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2103692553
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 10b4e8fa9043fdf4b8d506f515176724, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1475,7 +1482,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2016248181
-  m_SortingLayer: 14
+  m_SortingLayer: 16
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0.42077145, b: 0.5943396, a: 0.6666667}
@@ -2045,7 +2052,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2016248181
-  m_SortingLayer: 14
+  m_SortingLayer: 16
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0.23243552, b: 0.3301887, a: 0.5882353}
@@ -2191,7 +2198,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2103692553
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f3e960e76a665ab45b42d8faef1501b3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2333,7 +2340,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2103692553
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 601ebeb222b82724690242e57f138606, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2399,6 +2406,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerBoat: {fileID: 6037260465085121965, guid: 08c57d19cf81a0f42b15beca339e289e, type: 3}
+  cannotAffordLayer: {fileID: 0}
+  boatCostText: {fileID: 0}
+  buySoundEffect: 
+  cannotBuySoundEffect: 
 --- !u!114 &1008533381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2626,7 +2637,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2103692553
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: fd6f77f6595c89445b664c7a44027e76, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2794,7 +2805,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2016248181
-  m_SortingLayer: 14
+  m_SortingLayer: 16
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0.22529206, b: 0.3207547, a: 0.5882353}
@@ -3748,7 +3759,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2103692553
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f3e960e76a665ab45b42d8faef1501b3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3832,7 +3843,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2103692553
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 10b4e8fa9043fdf4b8d506f515176724, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3980,7 +3991,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2103692553
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: fd6f77f6595c89445b664c7a44027e76, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4064,7 +4075,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2103692553
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: fd6f77f6595c89445b664c7a44027e76, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4131,6 +4142,10 @@ PrefabInstance:
     - target: {fileID: 8956712786129986934, guid: 337534f94acc3e24d92e0e6942fd07eb, type: 3}
       propertyPath: m_Name
       value: (Enemy)Raft
+      objectReference: {fileID: 0}
+    - target: {fileID: 8956712786129986934, guid: 337534f94acc3e24d92e0e6942fd07eb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 337534f94acc3e24d92e0e6942fd07eb, type: 3}
@@ -4205,7 +4220,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2103692553
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 601ebeb222b82724690242e57f138606, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4462,7 +4477,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2103692553
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f3e960e76a665ab45b42d8faef1501b3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4632,6 +4647,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f7ce7218a0b8246a9c2f0c13afb817, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyerAfterScript: {fileID: 0}
+  boatName: 
   friendlyBoat: 1
   maxHealth: 115
   boatCost: 50
@@ -4642,12 +4659,14 @@ MonoBehaviour:
   shotRecoil: 0
   boatMoveForce: 80
   captureSpeed: 2
+  spawnDelay: 0
   shotSoundEffects:
   - ArrowShot
   deathSoundEffects:
   - Death3
   staticCannon: 1
   kamikaze: 0
+  destroyAfter: 10
   rangeHitBox: {fileID: 2516326798654219951}
   boatColliderHitBox: {fileID: 2516326799520161190}
   mainHullPiece: {fileID: 2516326799520161210}
@@ -4664,8 +4683,10 @@ MonoBehaviour:
   - {fileID: 2516326799520161210}
   cannonSmokeEffect: {fileID: 0}
   deathWeights: {fileID: 4842343461653697013}
+  flotationBalances: {fileID: 0}
   healthSlider: {fileID: 0}
   fireEffect: {fileID: 0}
+  removedSails: []
 --- !u!4 &2516326797957553046
 Transform:
   m_ObjectHideFlags: 0
@@ -4875,7 +4896,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 979115205
-  m_SortingLayer: 8
+  m_SortingLayer: 9
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 1e0a394db5e715844b9d77d2a013f9bf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5160,7 +5181,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 349792855
-  m_SortingLayer: 10
+  m_SortingLayer: 11
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 37b1166cd03e95b4a9d8ffdc0e0b3577, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5436,7 +5457,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 349792855
-  m_SortingLayer: 10
+  m_SortingLayer: 11
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: b55706b3d7295ac43bc43cb26a68d139, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
