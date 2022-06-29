@@ -116,6 +116,7 @@ public class GameManager : MonoBehaviour
                 friendlySpawnTimer = 0f;
                 spawnerText.text = "";
             }
+            // Update the spawn queue:
             for (int i = 0; i < spawnListIcons.Count; i++)
             {
                 if (i < friendlySpawnQueue.Count)
@@ -258,6 +259,7 @@ public class GameManager : MonoBehaviour
         {
             friendlySpawnQueue.Add(boat);
         }
+        // Update the spawn queue:
         for(int i = 0; i < spawnListIcons.Count; i++)
         {
             if (i < friendlySpawnQueue.Count)
