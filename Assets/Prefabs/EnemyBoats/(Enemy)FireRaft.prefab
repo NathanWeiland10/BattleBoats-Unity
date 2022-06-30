@@ -766,7 +766,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7578578050354890482}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.6, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -801,7 +801,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 14
+  m_Radius: 8
 --- !u!1 &8263571984573550900
 GameObject:
   m_ObjectHideFlags: 0
@@ -998,18 +998,17 @@ MonoBehaviour:
   destroyerAfterScript: {fileID: 6175801289756395199}
   boatName: Fire Raft
   friendlyBoat: 0
-  maxHealth: 55
-  boatCost: 40
+  maxHealth: 45
+  boatCost: 55
   cannonBall: {fileID: 7836512528782074995, guid: e507ad87a5a8f80469e001e6f346e582, type: 3}
-  minShotDelay: 1
-  maxShotDelay: 2
-  cannonSpread: 20
-  shotRecoil: 30
+  minShotDelay: 99
+  maxShotDelay: 99
+  cannonSpread: 99
+  shotRecoil: 99
   boatMoveForce: 9
-  captureSpeed: 1
-  spawnDelay: 3
-  shotSoundEffects:
-  - LightCannonShot1
+  captureSpeed: 0.75
+  spawnDelay: 2
+  shotSoundEffects: []
   deathSoundEffects:
   - Death1
   staticCannon: 1
@@ -1349,10 +1348,7 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3049376226029080980, guid: ef9e164e67d08b247b4e6912cd3d4f64, type: 3}
-    - {fileID: 2215891386171612378, guid: ef9e164e67d08b247b4e6912cd3d4f64, type: 3}
-    - {fileID: 8629171263263813317, guid: ef9e164e67d08b247b4e6912cd3d4f64, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef9e164e67d08b247b4e6912cd3d4f64, type: 3}
 --- !u!4 &1734449164922232723 stripped
 Transform:

@@ -1187,7 +1187,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6707019723283535602}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.6, z: 0}
+  m_LocalPosition: {x: 0, y: 0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1516,15 +1516,15 @@ MonoBehaviour:
   boatName: Caravel
   friendlyBoat: 0
   maxHealth: 100
-  boatCost: 75
+  boatCost: 110
   cannonBall: {fileID: 7836512528782074995, guid: e507ad87a5a8f80469e001e6f346e582, type: 3}
   minShotDelay: 0.4
   maxShotDelay: 1.6
   cannonSpread: 10
   shotRecoil: 20
-  boatMoveForce: 55
-  captureSpeed: 2
-  spawnDelay: 4
+  boatMoveForce: 50
+  captureSpeed: 1.25
+  spawnDelay: 3.5
   shotSoundEffects:
   - LightCannonShot1
   deathSoundEffects:

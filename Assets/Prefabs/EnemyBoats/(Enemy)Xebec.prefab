@@ -580,7 +580,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4694373805032871025}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1280,16 +1280,16 @@ MonoBehaviour:
   destroyerAfterScript: {fileID: 7775125623410728910}
   boatName: Xebec
   friendlyBoat: 0
-  maxHealth: 110
-  boatCost: 70
+  maxHealth: 100
+  boatCost: 90
   cannonBall: {fileID: 7836512528782074995, guid: e507ad87a5a8f80469e001e6f346e582, type: 3}
   minShotDelay: 0.8
   maxShotDelay: 1.5
   cannonSpread: 10
   shotRecoil: 40
   boatMoveForce: 65
-  captureSpeed: 2
-  spawnDelay: 4
+  captureSpeed: 1.25
+  spawnDelay: 3.25
   shotSoundEffects:
   - LightCannonShot2
   deathSoundEffects:

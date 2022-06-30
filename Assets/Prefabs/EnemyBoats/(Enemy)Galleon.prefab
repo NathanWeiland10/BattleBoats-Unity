@@ -69,7 +69,7 @@ FixedJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -2.45, y: -3.2399998}
+  m_ConnectedAnchor: {x: -2.45, y: -3.24}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!1 &1014113803286976749
@@ -1819,7 +1819,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4588967102808457228}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0.0000009362675}
-  m_LocalPosition: {x: -2.55, y: -1.7304639, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1842,16 +1842,16 @@ MonoBehaviour:
   destroyerAfterScript: {fileID: 3514986945116290483}
   boatName: Galleon
   friendlyBoat: 0
-  maxHealth: 280
-  boatCost: 175
+  maxHealth: 240
+  boatCost: 240
   cannonBall: {fileID: 8179688220145790932, guid: 79ed199bdae1e1f4598c2d386da6f6ce, type: 3}
-  minShotDelay: 1.4
-  maxShotDelay: 1.7
-  cannonSpread: 10
+  minShotDelay: 1.2
+  maxShotDelay: 1.9
+  cannonSpread: 15
   shotRecoil: 30
   boatMoveForce: 120
   captureSpeed: 2.25
-  spawnDelay: 10
+  spawnDelay: 5
   shotSoundEffects:
   - HeavyCannonShot1
   deathSoundEffects:
@@ -1987,7 +1987,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.5899999, y: -0.62}
+  m_ConnectedAnchor: {x: -0.59, y: -0.62}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -2257,7 +2257,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 24
+  m_Radius: 28
 --- !u!114 &4588967103586958645
 MonoBehaviour:
   m_ObjectHideFlags: 0

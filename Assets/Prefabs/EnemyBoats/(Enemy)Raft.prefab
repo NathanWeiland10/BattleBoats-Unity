@@ -651,7 +651,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 14
+  m_Radius: 9
 --- !u!1 &8067939111664634153
 GameObject:
   m_ObjectHideFlags: 0
@@ -767,13 +767,13 @@ MonoBehaviour:
   maxHealth: 40
   boatCost: 40
   cannonBall: {fileID: 7836512528782074995, guid: e507ad87a5a8f80469e001e6f346e582, type: 3}
-  minShotDelay: 1
-  maxShotDelay: 2
+  minShotDelay: 1.6
+  maxShotDelay: 2.6
   cannonSpread: 20
   shotRecoil: 30
-  boatMoveForce: 3
+  boatMoveForce: 4
   captureSpeed: 1
-  spawnDelay: 3
+  spawnDelay: 1.5
   shotSoundEffects:
   - LightCannonShot1
   deathSoundEffects:
@@ -1019,7 +1019,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8956712786751927137}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0.38, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

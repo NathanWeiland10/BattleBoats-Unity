@@ -22,6 +22,9 @@ public class BoatSelector : MonoBehaviour
     [Tooltip("The name of the sound effect that will play if this button gets deselected")]
     public string deselectSound;
 
+    [Tooltip("The name of the sound effect that will play if the player tries to choose more than eight boats")]
+    public string errorSound;
+
     [Tooltip("The name of the boat corresponding to this boat (NOTE: This does not need to be set in the inspectator. The name is grabbed from boat prefab)")]
     public string boatName;
 
@@ -72,7 +75,7 @@ public class BoatSelector : MonoBehaviour
         {
             if (manager.selectedBoats.Count >= 8)
             {
-                Debug.Log("Cannot have more than 8 boats");
+                FindObjectOfType<AudioManager>().Play(errorSound);
             }
             else
             {
