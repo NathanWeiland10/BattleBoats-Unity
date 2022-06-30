@@ -753,7 +753,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8245302018909507891}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -815,7 +815,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 15
+  m_Radius: 10
 --- !u!114 &8245302019199358590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1078,7 +1078,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8245302019995904839}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0.0000009362675}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1101,16 +1101,16 @@ MonoBehaviour:
   destroyerAfterScript: {fileID: 287264611242243726}
   boatName: Bireme
   friendlyBoat: 0
-  maxHealth: 125
+  maxHealth: 110
   boatCost: 50
   cannonBall: {fileID: 7177111853349421609, guid: 3e86f0b3cea744848afef59163bdf522, type: 3}
   minShotDelay: 0.3
   maxShotDelay: 1.6
   cannonSpread: 15
-  shotRecoil: 0
+  shotRecoil: 1
   boatMoveForce: 32
-  captureSpeed: 2
-  spawnDelay: 5
+  captureSpeed: 1.5
+  spawnDelay: 3
   shotSoundEffects:
   - ArrowShot
   deathSoundEffects:
@@ -1134,6 +1134,7 @@ MonoBehaviour:
   - {fileID: 8245302018333551978}
   cannonSmokeEffect: {fileID: 0}
   deathWeights: {fileID: 1420198335547515173}
+  flotationBalances: {fileID: 1888168436327348232}
   healthSlider: {fileID: 0}
   fireEffect: {fileID: 0}
   removedSails: []

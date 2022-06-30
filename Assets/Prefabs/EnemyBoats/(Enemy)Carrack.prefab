@@ -1096,7 +1096,7 @@ MonoBehaviour:
   pieceName: Bow
   speedIncrement: 2
   nonRemovablePiece: 0
-  pieceMaxHealth: 30
+  pieceMaxHealth: 20
   playerBoat: {fileID: 7714687271672152697}
   deathWeightAmount: 20
 --- !u!255 &6534020843628754660
@@ -1695,16 +1695,16 @@ MonoBehaviour:
   destroyerAfterScript: {fileID: 4315289492543917421}
   boatName: Carrack
   friendlyBoat: 0
-  maxHealth: 160
-  boatCost: 110
+  maxHealth: 175
+  boatCost: 190
   cannonBall: {fileID: 1293811483936228863, guid: df1f31238d2dff54b8811c349a75ea7b, type: 3}
   minShotDelay: 0.4
-  maxShotDelay: 2.2
+  maxShotDelay: 1.8
   cannonSpread: 10
   shotRecoil: 30
   boatMoveForce: 100
   captureSpeed: 2
-  spawnDelay: 6
+  spawnDelay: 4.25
   shotSoundEffects:
   - MediumCannonShot1
   deathSoundEffects:
@@ -1901,7 +1901,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 22
+  m_Radius: 23
 --- !u!114 &7714687272031223618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2261,7 +2261,7 @@ MonoBehaviour:
   pieceName: Mast2
   speedIncrement: 2
   nonRemovablePiece: 0
-  pieceMaxHealth: 1
+  pieceMaxHealth: 30
   playerBoat: {fileID: 7714687271672152697}
   deathWeightAmount: 40
 --- !u!255 &7714687272562599534

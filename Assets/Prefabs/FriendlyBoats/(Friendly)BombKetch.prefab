@@ -384,7 +384,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3682845596236578118}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -825,7 +825,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 27
+  m_Radius: 31
 --- !u!114 &3682845596811737611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -889,15 +889,15 @@ MonoBehaviour:
   boatName: Bomb Ketch
   friendlyBoat: 1
   maxHealth: 90
-  boatCost: 100
+  boatCost: 210
   cannonBall: {fileID: 1320022258453440088, guid: 78468bf2ab67cf94d88b37b44bc61062, type: 3}
-  minShotDelay: 1.2
-  maxShotDelay: 3.4
+  minShotDelay: 2.2
+  maxShotDelay: 3.8
   cannonSpread: 5
   shotRecoil: 50
   boatMoveForce: 35
-  captureSpeed: 2
-  spawnDelay: 6
+  captureSpeed: 0.75
+  spawnDelay: 4.75
   shotSoundEffects:
   - CannonShot2
   deathSoundEffects:

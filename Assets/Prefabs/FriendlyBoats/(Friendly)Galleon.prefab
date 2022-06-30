@@ -2230,18 +2230,18 @@ MonoBehaviour:
   destroyerAfterScript: {fileID: 7925173342020952095}
   boatName: Galleon
   friendlyBoat: 1
-  maxHealth: 280
-  boatCost: 175
+  maxHealth: 240
+  boatCost: 240
   cannonBall: {fileID: 5637537077337704572, guid: 31a9e189c043c6c4291a30f57258422d, type: 3}
-  minShotDelay: 1.4
-  maxShotDelay: 1.7
-  cannonSpread: 10
+  minShotDelay: 1.2
+  maxShotDelay: 1.9
+  cannonSpread: 15
   shotRecoil: 30
   boatMoveForce: 120
   captureSpeed: 2.25
-  spawnDelay: 10
+  spawnDelay: 5
   shotSoundEffects:
-  - MediumCannonShot1
+  - HeavyCannonShot1
   deathSoundEffects:
   - Death3
   staticCannon: 1
@@ -2536,7 +2536,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 24
+  m_Radius: 28
 --- !u!114 &7103065494366167193
 MonoBehaviour:
   m_ObjectHideFlags: 0

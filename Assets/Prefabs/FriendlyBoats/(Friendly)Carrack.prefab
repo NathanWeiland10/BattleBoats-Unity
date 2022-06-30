@@ -735,7 +735,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 22
+  m_Radius: 23
 --- !u!114 &1117797894497583495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1020,16 +1020,16 @@ MonoBehaviour:
   destroyerAfterScript: {fileID: 66357759896912129}
   boatName: Carrack
   friendlyBoat: 1
-  maxHealth: 160
-  boatCost: 110
+  maxHealth: 175
+  boatCost: 190
   cannonBall: {fileID: 7736501015343842909, guid: e0e61daa1e95de944874c73b359dd6da, type: 3}
   minShotDelay: 0.4
-  maxShotDelay: 2.2
+  maxShotDelay: 1.8
   cannonSpread: 10
   shotRecoil: 30
   boatMoveForce: 100
   captureSpeed: 2
-  spawnDelay: 6
+  spawnDelay: 4.25
   shotSoundEffects:
   - MediumCannonShot1
   deathSoundEffects:
