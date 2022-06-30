@@ -140,7 +140,7 @@ public class PlayerBoat : MonoBehaviour
         if (!isDead)
         {
 
-            if (kamikaze && (!isCapturing) || (isCapturing && currentEnemy != null))
+            if (kamikaze && ((!isCapturing) || (isCapturing && currentEnemy != null)))
             {
                 if (friendlyBoat)
                 {
