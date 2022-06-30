@@ -1,0 +1,113 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - CannonBall
+  - FriendlyBoat
+  - EnemyBoat
+  - KamikazeAttack
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - FriendlyBoat
+  - EnemyBoat
+  - FriendlyCannonBall
+  - EnemyCannonBall
+  - Camera
+  - Wave
+  - FriendlyBase
+  - EnemyBase
+  - FlotationBalance
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Sky
+    uniqueID: 656518705
+    locked: 0
+  - name: SpawnPointBack
+    uniqueID: 1544193239
+    locked: 0
+  - name: SurfaceWater
+    uniqueID: 1103615915
+    locked: 0
+  - name: Environment
+    uniqueID: 501725987
+    locked: 0
+  - name: Seafloor Decor
+    uniqueID: 1721495973
+    locked: 0
+  - name: Seafloor
+    uniqueID: 3697018157
+    locked: 0
+  - name: SplashEffect
+    uniqueID: 4080009913
+    locked: 0
+  - name: BuildingBack
+    uniqueID: 2103692553
+    locked: 0
+  - name: Boat(Back)
+    uniqueID: 979115205
+    locked: 0
+  - name: Boat(HullBack)
+    uniqueID: 127189519
+    locked: 0
+  - name: Boat(Front)
+    uniqueID: 349792855
+    locked: 0
+  - name: Boat(FrontCannon)
+    uniqueID: 2205542655
+    locked: 0
+  - name: BuildingFront
+    uniqueID: 981163821
+    locked: 0
+  - name: Canon
+    uniqueID: 4204537563
+    locked: 0
+  - name: Particle Effects(Back)
+    uniqueID: 2792233103
+    locked: 0
+  - name: DeepWater
+    uniqueID: 2278719115
+    locked: 0
+  - name: SurfaceWater
+    uniqueID: 3858853765
+    locked: 0
+  - name: SpawnPointFront
+    uniqueID: 2753866421
+    locked: 0
+  - name: Rocks
+    uniqueID: 3544031867
+    locked: 0
+  - name: Land
+    uniqueID: 381434737
+    locked: 0
+  - name: Particle Effects(Front)
+    uniqueID: 3848694001
+    locked: 0
+  - name: UI
+    uniqueID: 1784976285
+    locked: 0
