@@ -1,9 +1,0 @@
-diff a/Assets/Prefabs/EnemyBoats/(Enemy)Bireme.prefab b/Assets/Prefabs/EnemyBoats/(Enemy)Bireme.prefab	(rejected hunks)
-@@ -1134,6 +1134,7 @@
-   - {fileID: 8245302018333551978}
-   cannonSmokeEffect: {fileID: 0}
-   deathWeights: {fileID: 1420198335547515173}
-+  flotationBalances: {fileID: 1888168436327348232}
-   healthSlider: {fileID: 0}
-   fireEffect: {fileID: 0}
-   removedSails: []
