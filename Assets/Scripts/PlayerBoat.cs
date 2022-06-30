@@ -20,7 +20,7 @@ public class PlayerBoat : MonoBehaviour
 
     [Tooltip("The build cost for this boat")]
     public float boatCost;
-    
+
     [Tooltip("The prefab of the projectile for the weapon of this boat")]
     public GameObject cannonBall;
 
@@ -32,7 +32,7 @@ public class PlayerBoat : MonoBehaviour
     public float cannonSpread;
     [Tooltip("The amount of recoil this boat receives when shooting")]
     public float shotRecoil;
-    
+
     [Tooltip("The movement force (speed) of this boat")]
     public float boatMoveForce;
     [Tooltip("The amount of capture points this boat adds to a capture point every second")]
@@ -45,10 +45,10 @@ public class PlayerBoat : MonoBehaviour
     public string[] shotSoundEffects;
     [Tooltip("The death sound effects of this boat")]
     public string[] deathSoundEffects;
-    
+
     [Tooltip("Set enabled if the cannon(s) of this boat do not change angle (E.g. are build into the hull) or disabled if the cannon angle changed (E.g. the cannon of a raft)")]
     public bool staticCannon;
-        
+
     [Tooltip("Set enabled if this boat self destructs into enemy ships (such as a fireship) or disabled otherwise")]
     public bool kamikaze;
 
@@ -71,7 +71,7 @@ public class PlayerBoat : MonoBehaviour
 
     [Tooltip("All of the pieces for this boat (including the cannon)")]
     public GameObject[] boatPieces;
-    
+
     [Tooltip("The particle effect that is produced once a cannon is shot for this boat")]
     public GameObject cannonSmokeEffect;
 
@@ -93,12 +93,12 @@ public class PlayerBoat : MonoBehaviour
     bool isCapturing;
 
     GameManager gameManager;
-    
+
     float cannonForce;
-    
+
     bool isDelaying;
     bool isDead;
-    
+
     float currentHealth;
 
     Rigidbody2D boatRigidBody;
@@ -119,7 +119,8 @@ public class PlayerBoat : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        if (!staticCannon) {
+        if (!staticCannon)
+        {
             if (!staticCannon)
             {
                 if (friendlyBoat)
@@ -138,9 +139,22 @@ public class PlayerBoat : MonoBehaviour
     {
         if (!isDead)
         {
-            if ((currentEnemy == null && encounteredBase == null || kamikaze) && !isCapturing)
+
+            if (kamikaze && (!isCapturing) || (isCapturing && currentEnemy != null))
+            {
+                if (friendlyBoat)
                 {
-                    if (friendlyBoat)
+                    MoveLeft();
+                }
+                else
+                {
+                    MoveRight();
+                }
+            }
+
+            if (!kamikaze && (currentEnemy == null && encounteredBase == null) && !isCapturing)
+            {
+                if (friendlyBoat)
                 {
                     MoveLeft();
                 }
@@ -151,7 +165,8 @@ public class PlayerBoat : MonoBehaviour
             }
             else
             {
-                if (!kamikaze) {
+                if (!kamikaze)
+                {
                     if (!isDelaying && encounteredBase != null)
                     {
                         StartCoroutine(AIFireBase(encounteredBase));
@@ -187,8 +202,9 @@ public class PlayerBoat : MonoBehaviour
         deathWeights.gameObject.SetActive(true);
         foreach (GameObject boatPiece in boatPieces)
         {
-            if (boatPiece.GetComponent<ShipPartDamage>().GetPieceCurrentHealth() >= 0) {
-            
+            if (boatPiece.GetComponent<ShipPartDamage>().GetPieceCurrentHealth() >= 0)
+            {
+
                 FindObjectOfType<AudioManager>().PlayAtPoint(deathSoundEffects[Random.Range(0, deathSoundEffects.Length)], mainHullPiece.transform.position);
 
                 FixedJoint2D joint = boatPiece.GetComponent<FixedJoint2D>();
@@ -292,7 +308,7 @@ public class PlayerBoat : MonoBehaviour
 
             float enemyDist = Mathf.Pow(Mathf.Abs(cannonSpawnPoint.position.x - enemy.GetBoatHullXCoord()), 1.07f);
 
-            cannonForce = Mathf.Sqrt(enemyDist * 20000)-(cannonSpawnPoint.position.y*8.5f)-(30* Mathf.Abs(enemy.GetBoatHullRB().velocity.x));
+            cannonForce = Mathf.Sqrt(enemyDist * 20000) - (cannonSpawnPoint.position.y * 8.5f) - (30 * Mathf.Abs(enemy.GetBoatHullRB().velocity.x));
             cannonForce *= cannonBall.GetComponent<Rigidbody2D>().mass;
 
 
@@ -300,7 +316,8 @@ public class PlayerBoat : MonoBehaviour
 
             FindObjectOfType<AudioManager>().PlayAtPoint(shotSoundEffects[Random.Range(0, shotSoundEffects.Length)], mainHullPiece.transform.position);
 
-            if (cannonSmokeEffect != null) {
+            if (cannonSmokeEffect != null)
+            {
                 Instantiate(cannonSmokeEffect, cannonSpawnPoint.position, cannonSpawnPoint.rotation);
             }
 
