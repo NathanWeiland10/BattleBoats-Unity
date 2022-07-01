@@ -388,7 +388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyerAfterScript: {fileID: 1246135190734624224}
-  boatName: Bireme
+  boatName: Canoe
   friendlyBoat: 0
   maxHealth: 20
   boatCost: 15

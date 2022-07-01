@@ -539,7 +539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyerAfterScript: {fileID: 6754431642077037527}
-  boatName: Bomb Ketch
+  boatName: Sloop
   friendlyBoat: 1
   maxHealth: 85
   boatCost: 75
@@ -561,7 +561,7 @@ MonoBehaviour:
   rangeHitBox: {fileID: 759241122560262595}
   boatColliderHitBox: {fileID: 759241121698659018}
   mainHullPiece: {fileID: 759241121698659030}
-  cannonPiece: {fileID: 0}
+  cannonPiece: {fileID: 1423002362004907414}
   cannonHullConnection: {fileID: 759241121698659023}
   cannonSpawnPoints:
   - {fileID: 1423002360875552048}
@@ -725,7 +725,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: 0.07}
+  m_ConnectedAnchor: {x: -15.83, y: -1.637}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -750,7 +750,7 @@ MonoBehaviour:
   speedIncrement: 0
   nonRemovablePiece: 1
   pieceMaxHealth: 0
-  playerBoat: {fileID: 0}
+  playerBoat: {fileID: 759241123322936569}
   deathWeightAmount: 0
 --- !u!1 &7120314667495514697
 GameObject:
@@ -848,7 +848,7 @@ FixedJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.008, y: -1.107}
+  m_ConnectedAnchor: {x: -0.008000374, y: -1.107}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!1 &7120314668790837172

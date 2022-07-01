@@ -24,7 +24,7 @@ public class ShipPartDamage : MonoBehaviour
 
     void Awake()
     {
-        if (nonRemovablePiece)
+        if (nonRemovablePiece && pieceName.ToLower() != "cannon")
         {
             pieceCurrentHealth = playerBoat.maxHealth;
         }

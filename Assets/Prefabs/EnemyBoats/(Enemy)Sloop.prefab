@@ -97,7 +97,7 @@ MonoBehaviour:
   speedIncrement: 0
   nonRemovablePiece: 1
   pieceMaxHealth: 0
-  playerBoat: {fileID: 0}
+  playerBoat: {fileID: 1318817255803750208}
   deathWeightAmount: 0
 --- !u!1 &827458995212596872
 GameObject:
@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyerAfterScript: {fileID: 5005948087592007790}
-  boatName: Bomb Ketch
+  boatName: Sloop
   friendlyBoat: 0
   maxHealth: 85
   boatCost: 75
@@ -230,7 +230,7 @@ MonoBehaviour:
   rangeHitBox: {fileID: 1318817256348351098}
   boatColliderHitBox: {fileID: 1318817257365242227}
   mainHullPiece: {fileID: 1318817257365242223}
-  cannonPiece: {fileID: 0}
+  cannonPiece: {fileID: 827458994150219311}
   cannonHullConnection: {fileID: 1318817257365242230}
   cannonSpawnPoints:
   - {fileID: 827458995212596873}
