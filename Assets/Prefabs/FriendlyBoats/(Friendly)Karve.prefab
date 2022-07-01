@@ -189,7 +189,7 @@ MonoBehaviour:
   nonRemovablePiece: 0
   pieceMaxHealth: 60
   playerBoat: {fileID: 6425127091335459229}
-  deathWeightAmount: 10
+  deathWeightAmount: 25
 --- !u!255 &3563348669278588917
 FixedJoint2D:
   m_ObjectHideFlags: 0
@@ -734,7 +734,7 @@ MonoBehaviour:
   nonRemovablePiece: 0
   pieceMaxHealth: 50
   playerBoat: {fileID: 6425127091335459229}
-  deathWeightAmount: 20
+  deathWeightAmount: 25
 --- !u!255 &6425127090853221352
 FixedJoint2D:
   m_ObjectHideFlags: 0
