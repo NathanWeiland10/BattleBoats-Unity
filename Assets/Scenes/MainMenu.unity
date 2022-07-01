@@ -165,6 +165,7 @@ RectTransform:
   - {fileID: 2146545704}
   - {fileID: 1615673151}
   - {fileID: 756211561}
+  - {fileID: 1068385587}
   m_Father: {fileID: 828961455}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3371,10 +3372,10 @@ MonoBehaviour:
   selectSound: Select1
   deselectSound: Select1
   errorSound: Denied1
-  boatName: 
   boatDescription: A Chinese ship with battened sails. Higher DPS for its cost with
     lower health and speed.
   tooltipTextBox: {fileID: 1487050084}
+  boatName: 
 --- !u!114 &343300958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4639,10 +4640,10 @@ MonoBehaviour:
   selectSound: Select1
   deselectSound: Select1
   errorSound: Denied1
-  boatName: 
   boatDescription: A fast sailing ship that is good for taking capture points. Low
     general stats.
   tooltipTextBox: {fileID: 1487050084}
+  boatName: 
 --- !u!114 &426757819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5028,10 +5029,10 @@ MonoBehaviour:
   selectSound: Select1
   deselectSound: Select1
   errorSound: Denied1
-  boatName: 
   boatDescription: A ship armed with a mortar useful for backline support and besiegement.
     Slow speed and low DPS.
   tooltipTextBox: {fileID: 1487050084}
+  boatName: 
 --- !u!114 &461323606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5694,9 +5695,9 @@ MonoBehaviour:
   selectSound: Select1
   deselectSound: Select1
   errorSound: Denied1
-  boatName: Galleon
   boatDescription: A large ship with 3 masts and high general stats.
   tooltipTextBox: {fileID: 1487050084}
+  boatName: Galleon
 --- !u!114 &519188812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7319,10 +7320,10 @@ MonoBehaviour:
   selectSound: Select1
   deselectSound: Select1
   errorSound: Denied1
-  boatName: Karve
   boatDescription: A small, longship with a broad hull. High health with lower damage
     and speed.
   tooltipTextBox: {fileID: 1487050084}
+  boatName: Karve
 --- !u!114 &756211564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7478,10 +7479,10 @@ MonoBehaviour:
   selectSound: Select1
   deselectSound: Select1
   errorSound: Denied1
-  boatName: 
   boatDescription: A moderate sized ship with high health and damage with a somewhat
     slow speed.
   tooltipTextBox: {fileID: 1487050084}
+  boatName: 
 --- !u!114 &777696704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8115,9 +8116,9 @@ MonoBehaviour:
   selectSound: Select1
   deselectSound: Select1
   errorSound: Denied1
-  boatName: Canoe
-  boatDescription: A small boat with very low general stats with a low cost.
+  boatDescription: A small boat with very low general stats and a low cost.
   tooltipTextBox: {fileID: 1487050084}
+  boatName: Canoe
 --- !u!1 &796470480
 GameObject:
   m_ObjectHideFlags: 0
@@ -9574,10 +9575,10 @@ MonoBehaviour:
   selectSound: Select1
   deselectSound: Select1
   errorSound: Denied1
-  boatName: 
   boatDescription: A small raft armed with explosives used to rush enemy ships. Good
     against slow, lower range ships.
   tooltipTextBox: {fileID: 1487050084}
+  boatName: 
 --- !u!114 &959037930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10111,10 +10112,10 @@ MonoBehaviour:
   selectSound: Select1
   deselectSound: Select1
   errorSound: Denied1
-  boatName: 
   boatDescription: An ancient warship with two sets of oars. Higher health for its
     cost with lower speed and damage.
   tooltipTextBox: {fileID: 1487050084}
+  boatName: 
 --- !u!114 &992558472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10788,6 +10789,221 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundEffect: Select1
+--- !u!1 &1068385586
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1068385587}
+  - component: {fileID: 1068385592}
+  - component: {fileID: 1068385591}
+  - component: {fileID: 1068385590}
+  - component: {fileID: 1068385589}
+  - component: {fileID: 1068385588}
+  m_Layer: 5
+  m_Name: Boat15
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1068385587
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068385586}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1891617577}
+  m_Father: {fileID: 17138757}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 370, y: -180}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1068385588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068385586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1487050084}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 1487050088}
+          m_TargetAssemblyTypeName: TextToolTip, Assembly-CSharp
+          m_MethodName: UpdateText
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1068385589}
+            m_ObjectArgumentAssemblyTypeName: BoatSelector, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 8
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1487050084}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+--- !u!114 &1068385589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068385586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d86c005e42dc1da4880ba001729e51a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedBorder: {fileID: 1891617576}
+  boatPrefab: {fileID: 6099289372793909008, guid: e990aaaa93006ed46aeae4fc48513e94, type: 3}
+  boatButtonSprite: {fileID: 21300000, guid: 056df52168c38f74bab57db0cd82e6e6, type: 3}
+  manager: {fileID: 338241084}
+  selectSound: Select1
+  deselectSound: Select1
+  errorSound: Denied1
+  boatDescription: A two masted ship with moderate stats and a high speed.
+  tooltipTextBox: {fileID: 1487050084}
+  boatName: Karve
+--- !u!114 &1068385590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068385586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1068385591}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1068385589}
+        m_TargetAssemblyTypeName: BoatSelector, Assembly-CSharp
+        m_MethodName: attemptSelection
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1068385591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068385586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 056df52168c38f74bab57db0cd82e6e6, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1068385592
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068385586}
+  m_CullTransparentMesh: 1
 --- !u!1 &1081634829
 GameObject:
   m_ObjectHideFlags: 0
@@ -12159,10 +12375,10 @@ MonoBehaviour:
   selectSound: Select1
   deselectSound: Select1
   errorSound: Denied1
-  boatName: 
   boatDescription: A crudely constructed single-masted raft armed with a cannon.
     Low general stats.
   tooltipTextBox: {fileID: 1487050084}
+  boatName: 
 --- !u!114 &1237550367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14096,9 +14312,9 @@ MonoBehaviour:
   selectSound: Select1
   deselectSound: Select1
   errorSound: Denied1
-  boatName: 
   boatDescription: A small flat-bottomed ship with low general stats.
   tooltipTextBox: {fileID: 1487050084}
+  boatName: 
 --- !u!114 &1466333640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14644,10 +14860,10 @@ MonoBehaviour:
   selectSound: Select1
   deselectSound: Select1
   errorSound: Denied1
-  boatName: 
   boatDescription: A fast moving maneuverable ship with lower general stats. Useful
     for rushing backline support ships and taking capture points.
   tooltipTextBox: {fileID: 1487050084}
+  boatName: 
 --- !u!114 &1504197433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15376,9 +15592,9 @@ MonoBehaviour:
   selectSound: Select1
   deselectSound: Select1
   errorSound: Denied1
-  boatName: Sloop
   boatDescription: A single-masted ship with low general stats.
   tooltipTextBox: {fileID: 1487050084}
+  boatName: Sloop
 --- !u!114 &1615673154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17509,6 +17725,82 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1891617576
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1891617577}
+  - component: {fileID: 1891617579}
+  - component: {fileID: 1891617578}
+  m_Layer: 5
+  m_Name: SelectedBorder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1891617577
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891617576}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1068385587}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1891617578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891617576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: a84baf35da2d3d94fbee8ef0ade8f0e8, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1891617579
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891617576}
+  m_CullTransparentMesh: 1
 --- !u!1 &1910926468
 GameObject:
   m_ObjectHideFlags: 0
@@ -19947,10 +20239,10 @@ MonoBehaviour:
   selectSound: Select1
   deselectSound: Select1
   errorSound: Denied1
-  boatName: War Galley
   boatDescription: A medium-sized warship with both oars and sails with moderate
     general stats.
   tooltipTextBox: {fileID: 1487050084}
+  boatName: War Galley
 --- !u!114 &2146545707
 MonoBehaviour:
   m_ObjectHideFlags: 0
