@@ -256,7 +256,7 @@ MonoBehaviour:
   nonRemovablePiece: 0
   pieceMaxHealth: 60
   playerBoat: {fileID: 8645716896065121020}
-  deathWeightAmount: 10
+  deathWeightAmount: 25
 --- !u!255 &2279643870884140180
 FixedJoint2D:
   m_ObjectHideFlags: 0
@@ -829,7 +829,7 @@ GameObject:
   - component: {fileID: 8645716896065121020}
   - component: {fileID: 2363848535707538898}
   m_Layer: 7
-  m_Name: (EnemyKarve
+  m_Name: (Enemy)Karve
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1041,7 +1041,7 @@ MonoBehaviour:
   nonRemovablePiece: 0
   pieceMaxHealth: 50
   playerBoat: {fileID: 8645716896065121020}
-  deathWeightAmount: 20
+  deathWeightAmount: 25
 --- !u!255 &8645716896665012361
 FixedJoint2D:
   m_ObjectHideFlags: 0
