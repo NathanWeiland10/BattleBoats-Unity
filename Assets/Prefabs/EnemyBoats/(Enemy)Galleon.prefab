@@ -399,7 +399,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pieceName: Sail3
-  speedIncrement: 20
+  speedIncrement: 15
   nonRemovablePiece: 0
   pieceMaxHealth: 30
   playerBoat: {fileID: 4588967102808457230}
@@ -1847,9 +1847,9 @@ MonoBehaviour:
   cannonBall: {fileID: 8179688220145790932, guid: 79ed199bdae1e1f4598c2d386da6f6ce, type: 3}
   minShotDelay: 1.2
   maxShotDelay: 1.9
-  cannonSpread: 15
+  cannonSpread: 20
   shotRecoil: 30
-  boatMoveForce: 120
+  boatMoveForce: 105
   captureSpeed: 2.25
   spawnDelay: 5
   shotSoundEffects:
@@ -2492,7 +2492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pieceName: Sail1
-  speedIncrement: 20
+  speedIncrement: 15
   nonRemovablePiece: 0
   pieceMaxHealth: 30
   playerBoat: {fileID: 4588967102808457230}
@@ -2717,7 +2717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pieceName: Sail2
-  speedIncrement: 20
+  speedIncrement: 15
   nonRemovablePiece: 0
   pieceMaxHealth: 30
   playerBoat: {fileID: 4588967102808457230}

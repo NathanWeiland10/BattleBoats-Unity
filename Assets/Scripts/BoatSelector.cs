@@ -25,14 +25,14 @@ public class BoatSelector : MonoBehaviour
     [Tooltip("The name of the sound effect that will play if the player tries to choose more than eight boats")]
     public string errorSound;
 
-    [Tooltip("The name of the boat corresponding to this boat (NOTE: This does not need to be set in the inspectator. The name is grabbed from boat prefab)")]
-    public string boatName;
-
     [Tooltip("A description of the boat corresponding to this button")]
     public string boatDescription;
 
     [Tooltip("The GameObject of the tooltip that displays information about the boat corresponding to this button")]
     public GameObject tooltipTextBox;
+
+    [HideInInspector]
+    public string boatName;
 
     bool boatSelected;
 
