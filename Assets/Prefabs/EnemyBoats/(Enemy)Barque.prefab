@@ -1027,7 +1027,7 @@ MonoBehaviour:
   maxShotDelay: 1.3
   cannonSpread: 10
   shotRecoil: 25
-  boatMoveForce: 130
+  boatMoveForce: 140
   captureSpeed: 2
   spawnDelay: 4.75
   shotSoundEffects:
