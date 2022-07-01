@@ -166,6 +166,8 @@ RectTransform:
   - {fileID: 1615673151}
   - {fileID: 756211561}
   - {fileID: 1068385587}
+  - {fileID: 1511068229}
+  - {fileID: 1290159819}
   m_Father: {fileID: 828961455}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11679,6 +11681,82 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1142485168}
   m_CullTransparentMesh: 1
+--- !u!1 &1156950929
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1156950930}
+  - component: {fileID: 1156950932}
+  - component: {fileID: 1156950931}
+  m_Layer: 5
+  m_Name: SelectedBorder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1156950930
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156950929}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1290159819}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1156950931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156950929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: a84baf35da2d3d94fbee8ef0ade8f0e8, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1156950932
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156950929}
+  m_CullTransparentMesh: 1
 --- !u!1 &1159909001
 GameObject:
   m_ObjectHideFlags: 0
@@ -11998,228 +12076,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1178348525}
   m_CullTransparentMesh: 1
---- !u!1 &1216424900
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1216424902}
-  - component: {fileID: 1216424901}
-  m_Layer: 0
-  m_Name: AudioManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1216424901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1216424900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4264e6afecf763749bcbd06a53d84a3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mixerGroup: {fileID: 24300002, guid: bf46bd9ee99cdc34cb11df3b194bb2bd, type: 2}
-  sounds:
-  - name: LightCannonShot1
-    clip: {fileID: 8300000, guid: 703a18e7f2f4ecb4fafed976b7e06370, type: 3}
-    volume: 1
-    volumeVariance: 0
-    pitch: 1
-    pitchVariance: 0.1
-    loop: 0
-    minDistance: 30
-    maxDistance: 70
-    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
-    source: {fileID: 0}
-  - name: LightCannonShot2
-    clip: {fileID: 8300000, guid: 222ade4e944a968498db9676d5f5120d, type: 3}
-    volume: 1
-    volumeVariance: 0
-    pitch: 1
-    pitchVariance: 0.1
-    loop: 0
-    minDistance: 30
-    maxDistance: 70
-    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
-    source: {fileID: 0}
-  - name: MediumCannonShot1
-    clip: {fileID: 8300000, guid: 1aed6bb0a8bc5484eab3ad767e49e354, type: 3}
-    volume: 1
-    volumeVariance: 0
-    pitch: 1
-    pitchVariance: 0.1
-    loop: 0
-    minDistance: 30
-    maxDistance: 70
-    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
-    source: {fileID: 0}
-  - name: Hit1
-    clip: {fileID: 8300000, guid: 223fea90715c1e641a964f6320910e82, type: 3}
-    volume: 0.6
-    volumeVariance: 0
-    pitch: 1
-    pitchVariance: 0
-    loop: 0
-    minDistance: 30
-    maxDistance: 70
-    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
-    source: {fileID: 0}
-  - name: Death1
-    clip: {fileID: 8300000, guid: 1cf9f63f5518eca4b9f58895ec98ffce, type: 3}
-    volume: 1
-    volumeVariance: 0
-    pitch: 1
-    pitchVariance: 0
-    loop: 0
-    minDistance: 30
-    maxDistance: 70
-    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
-    source: {fileID: 0}
-  - name: Death2
-    clip: {fileID: 8300000, guid: 32cbb631dcaf6c546ac4cbb1b3e3090e, type: 3}
-    volume: 1
-    volumeVariance: 0
-    pitch: 1
-    pitchVariance: 0
-    loop: 0
-    minDistance: 30
-    maxDistance: 70
-    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
-    source: {fileID: 0}
-  - name: Death3
-    clip: {fileID: 8300000, guid: a46dbfa40fa4c324cbb72ae301f28605, type: 3}
-    volume: 1
-    volumeVariance: 0
-    pitch: 1
-    pitchVariance: 0
-    loop: 0
-    minDistance: 30
-    maxDistance: 70
-    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
-    source: {fileID: 0}
-  - name: Select1
-    clip: {fileID: 8300000, guid: 2b430f976d07ff64088656bd41ce897a, type: 3}
-    volume: 1
-    volumeVariance: 0
-    pitch: 1
-    pitchVariance: 0
-    loop: 0
-    minDistance: 30
-    maxDistance: 70
-    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
-    source: {fileID: 0}
-  - name: Confirm1
-    clip: {fileID: 8300000, guid: a8e03738d996ce747bfa83fe8f35856f, type: 3}
-    volume: 1
-    volumeVariance: 0
-    pitch: 1
-    pitchVariance: 0
-    loop: 0
-    minDistance: 30
-    maxDistance: 70
-    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
-    source: {fileID: 0}
-  - name: CannonBallExplosion
-    clip: {fileID: 8300000, guid: a9ac91a14ea3d8c4d8771f558042a95a, type: 3}
-    volume: 1
-    volumeVariance: 0
-    pitch: 1
-    pitchVariance: 0.05
-    loop: 0
-    minDistance: 30
-    maxDistance: 70
-    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
-    source: {fileID: 0}
-  - name: CannonShot2
-    clip: {fileID: 8300000, guid: 575e3f0a873c8864b8e27826011ceacf, type: 3}
-    volume: 1
-    volumeVariance: 0
-    pitch: 1
-    pitchVariance: 0.1
-    loop: 0
-    minDistance: 30
-    maxDistance: 70
-    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
-    source: {fileID: 0}
-  - name: WaterHit
-    clip: {fileID: 8300000, guid: 72062d4f708b90e43b6577b6538e4a97, type: 3}
-    volume: 1
-    volumeVariance: 0
-    pitch: 1
-    pitchVariance: 0.2
-    loop: 0
-    minDistance: 30
-    maxDistance: 70
-    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
-    source: {fileID: 0}
-  - name: ArrowShot
-    clip: {fileID: 8300000, guid: f35d8c00182f55c449041d65ccf86558, type: 3}
-    volume: 1
-    volumeVariance: 0
-    pitch: 1
-    pitchVariance: 0.2
-    loop: 0
-    minDistance: 20
-    maxDistance: 60
-    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
-    source: {fileID: 0}
-  - name: Buy1
-    clip: {fileID: 8300000, guid: b50c71353d9cbac43a5b8d0593b1aea8, type: 3}
-    volume: 0.8
-    volumeVariance: 0
-    pitch: 1
-    pitchVariance: 0
-    loop: 0
-    minDistance: 30
-    maxDistance: 70
-    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
-    source: {fileID: 0}
-  - name: Denied1
-    clip: {fileID: 8300000, guid: fcd6a2914262447429bbc994811146d8, type: 3}
-    volume: 0.4
-    volumeVariance: 0
-    pitch: 1
-    pitchVariance: 0
-    loop: 0
-    minDistance: 30
-    maxDistance: 70
-    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
-    source: {fileID: 0}
-  - name: HeavyCannonShot1
-    clip: {fileID: 8300000, guid: 0fdb7ecacfa1aa04dae138e75acd4441, type: 3}
-    volume: 1
-    volumeVariance: 0
-    pitch: 1.1
-    pitchVariance: 0.2
-    loop: 0
-    minDistance: 30
-    maxDistance: 70
-    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
-    source: {fileID: 0}
---- !u!4 &1216424902
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1216424900}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1237550361
 GameObject:
   m_ObjectHideFlags: 0
@@ -12967,6 +12823,221 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1287781143}
+  m_CullTransparentMesh: 1
+--- !u!1 &1290159818
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1290159819}
+  - component: {fileID: 1290159824}
+  - component: {fileID: 1290159823}
+  - component: {fileID: 1290159822}
+  - component: {fileID: 1290159821}
+  - component: {fileID: 1290159820}
+  m_Layer: 5
+  m_Name: Boat17
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1290159819
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1290159818}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1156950930}
+  m_Father: {fileID: 17138757}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 530, y: -180}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1290159820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1290159818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1487050084}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 1487050088}
+          m_TargetAssemblyTypeName: TextToolTip, Assembly-CSharp
+          m_MethodName: UpdateText
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1290159821}
+            m_ObjectArgumentAssemblyTypeName: BoatSelector, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 8
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1487050084}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+--- !u!114 &1290159821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1290159818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d86c005e42dc1da4880ba001729e51a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedBorder: {fileID: 1156950929}
+  boatPrefab: {fileID: 2569359633830751592, guid: 6a864033101ff414eba29453baf3a665, type: 3}
+  boatButtonSprite: {fileID: 21300000, guid: ae7b40f8bd624c847822f53ea1679453, type: 3}
+  manager: {fileID: 338241084}
+  selectSound: Select1
+  deselectSound: Select1
+  errorSound: Denied1
+  boatDescription: A large ship with three masts with moderate stats and a high speed.
+  tooltipTextBox: {fileID: 1487050084}
+  boatName: Karve
+--- !u!114 &1290159822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1290159818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1290159823}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1290159821}
+        m_TargetAssemblyTypeName: BoatSelector, Assembly-CSharp
+        m_MethodName: attemptSelection
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1290159823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1290159818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: ae7b40f8bd624c847822f53ea1679453, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1290159824
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1290159818}
   m_CullTransparentMesh: 1
 --- !u!1 &1310190781
 GameObject:
@@ -15102,6 +15173,222 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1506858418}
+  m_CullTransparentMesh: 1
+--- !u!1 &1511068228
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1511068229}
+  - component: {fileID: 1511068234}
+  - component: {fileID: 1511068233}
+  - component: {fileID: 1511068232}
+  - component: {fileID: 1511068231}
+  - component: {fileID: 1511068230}
+  m_Layer: 5
+  m_Name: Boat16
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1511068229
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511068228}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1851964968}
+  m_Father: {fileID: 17138757}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 450, y: -180}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1511068230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511068228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1487050084}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 1487050088}
+          m_TargetAssemblyTypeName: TextToolTip, Assembly-CSharp
+          m_MethodName: UpdateText
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1511068231}
+            m_ObjectArgumentAssemblyTypeName: BoatSelector, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 8
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1487050084}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+--- !u!114 &1511068231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511068228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d86c005e42dc1da4880ba001729e51a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedBorder: {fileID: 1851964967}
+  boatPrefab: {fileID: 7078082581230116587, guid: 2540081e1fd4d7644b91d3c4bbdfb1e6, type: 3}
+  boatButtonSprite: {fileID: 21300000, guid: d1ad94fac93ce0643b3189001f319230, type: 3}
+  manager: {fileID: 338241084}
+  selectSound: Select1
+  deselectSound: Select1
+  errorSound: Denied1
+  boatDescription: A mercantile ship with moderate general stats. Gains extra money
+    when taking a capture point.
+  tooltipTextBox: {fileID: 1487050084}
+  boatName: Karve
+--- !u!114 &1511068232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511068228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1511068233}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1511068231}
+        m_TargetAssemblyTypeName: BoatSelector, Assembly-CSharp
+        m_MethodName: attemptSelection
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1511068233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511068228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: d1ad94fac93ce0643b3189001f319230, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1511068234
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511068228}
   m_CullTransparentMesh: 1
 --- !u!1 &1557106796
 GameObject:
@@ -17343,6 +17630,82 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1839420151}
   m_CullTransparentMesh: 1
+--- !u!1 &1851964967
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1851964968}
+  - component: {fileID: 1851964970}
+  - component: {fileID: 1851964969}
+  m_Layer: 5
+  m_Name: SelectedBorder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1851964968
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851964967}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1511068229}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1851964969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851964967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: a84baf35da2d3d94fbee8ef0ade8f0e8, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1851964970
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851964967}
+  m_CullTransparentMesh: 1
 --- !u!1 &1861912572
 GameObject:
   m_ObjectHideFlags: 0
@@ -18012,6 +18375,250 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1911314464}
   m_CullTransparentMesh: 1
+--- !u!1 &1914214608
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1914214610}
+  - component: {fileID: 1914214609}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1914214609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914214608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4264e6afecf763749bcbd06a53d84a3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixerGroup: {fileID: 24300002, guid: bf46bd9ee99cdc34cb11df3b194bb2bd, type: 2}
+  sounds:
+  - name: LightCannonShot1
+    clip: {fileID: 8300000, guid: 703a18e7f2f4ecb4fafed976b7e06370, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    minDistance: 30
+    maxDistance: 70
+    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
+    source: {fileID: 0}
+  - name: LightCannonShot2
+    clip: {fileID: 8300000, guid: 222ade4e944a968498db9676d5f5120d, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    minDistance: 30
+    maxDistance: 70
+    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
+    source: {fileID: 0}
+  - name: MediumCannonShot1
+    clip: {fileID: 8300000, guid: 1aed6bb0a8bc5484eab3ad767e49e354, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    minDistance: 30
+    maxDistance: 70
+    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
+    source: {fileID: 0}
+  - name: Hit1
+    clip: {fileID: 8300000, guid: 223fea90715c1e641a964f6320910e82, type: 3}
+    volume: 0.6
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    minDistance: 30
+    maxDistance: 70
+    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
+    source: {fileID: 0}
+  - name: Death1
+    clip: {fileID: 8300000, guid: 1cf9f63f5518eca4b9f58895ec98ffce, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    minDistance: 30
+    maxDistance: 70
+    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
+    source: {fileID: 0}
+  - name: Death2
+    clip: {fileID: 8300000, guid: 32cbb631dcaf6c546ac4cbb1b3e3090e, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    minDistance: 30
+    maxDistance: 70
+    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
+    source: {fileID: 0}
+  - name: Death3
+    clip: {fileID: 8300000, guid: a46dbfa40fa4c324cbb72ae301f28605, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    minDistance: 30
+    maxDistance: 70
+    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
+    source: {fileID: 0}
+  - name: Death4
+    clip: {fileID: 8300000, guid: adfcf1b1c963986459764a5712856c8b, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    minDistance: 30
+    maxDistance: 70
+    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
+    source: {fileID: 0}
+  - name: Select1
+    clip: {fileID: 8300000, guid: 2b430f976d07ff64088656bd41ce897a, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    minDistance: 30
+    maxDistance: 70
+    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
+    source: {fileID: 0}
+  - name: Confirm1
+    clip: {fileID: 8300000, guid: a8e03738d996ce747bfa83fe8f35856f, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    minDistance: 30
+    maxDistance: 70
+    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
+    source: {fileID: 0}
+  - name: CannonBallExplosion
+    clip: {fileID: 8300000, guid: a9ac91a14ea3d8c4d8771f558042a95a, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0.05
+    loop: 0
+    minDistance: 30
+    maxDistance: 70
+    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
+    source: {fileID: 0}
+  - name: CannonShot2
+    clip: {fileID: 8300000, guid: 575e3f0a873c8864b8e27826011ceacf, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    minDistance: 30
+    maxDistance: 70
+    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
+    source: {fileID: 0}
+  - name: WaterHit
+    clip: {fileID: 8300000, guid: 72062d4f708b90e43b6577b6538e4a97, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0.2
+    loop: 0
+    minDistance: 30
+    maxDistance: 70
+    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
+    source: {fileID: 0}
+  - name: ArrowShot
+    clip: {fileID: 8300000, guid: f35d8c00182f55c449041d65ccf86558, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0.2
+    loop: 0
+    minDistance: 20
+    maxDistance: 60
+    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
+    source: {fileID: 0}
+  - name: Buy1
+    clip: {fileID: 8300000, guid: b50c71353d9cbac43a5b8d0593b1aea8, type: 3}
+    volume: 0.8
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    minDistance: 30
+    maxDistance: 70
+    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
+    source: {fileID: 0}
+  - name: Denied1
+    clip: {fileID: 8300000, guid: fcd6a2914262447429bbc994811146d8, type: 3}
+    volume: 0.4
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    minDistance: 30
+    maxDistance: 70
+    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
+    source: {fileID: 0}
+  - name: HeavyCannonShot1
+    clip: {fileID: 8300000, guid: 0fdb7ecacfa1aa04dae138e75acd4441, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1.1
+    pitchVariance: 0.2
+    loop: 0
+    minDistance: 30
+    maxDistance: 70
+    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
+    source: {fileID: 0}
+  - name: JavelinShot
+    clip: {fileID: 8300000, guid: f35d8c00182f55c449041d65ccf86558, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 0.7
+    pitchVariance: 0.2
+    loop: 0
+    minDistance: 20
+    maxDistance: 60
+    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
+    source: {fileID: 0}
+--- !u!4 &1914214610
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914214608}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1925604352
 GameObject:
   m_ObjectHideFlags: 0
