@@ -555,7 +555,7 @@ MonoBehaviour:
   - MediumCannonShot1
   deathSoundEffects:
   - Death4
-  staticCannon: 0
+  staticCannon: 1
   kamikaze: 0
   destroyAfter: 10
   rangeHitBox: {fileID: 759241122560262595}
