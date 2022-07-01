@@ -267,7 +267,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2179870948961249232}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalPosition: {x: 0, y: 0.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -389,7 +389,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyerAfterScript: {fileID: 1246135190734624224}
   boatName: Bireme
-  friendlyBoat: 1
+  friendlyBoat: 0
   maxHealth: 20
   boatCost: 15
   cannonBall: {fileID: 7177111853349421609, guid: 3e86f0b3cea744848afef59163bdf522, type: 3}
