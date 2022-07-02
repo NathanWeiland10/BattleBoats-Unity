@@ -417,7 +417,7 @@ MonoBehaviour:
   pieceName: Sail2
   speedIncrement: 8
   nonRemovablePiece: 0
-  pieceMaxHealth: 1
+  pieceMaxHealth: 20
   playerBoat: {fileID: 7801592740434453976}
   deathWeightAmount: 15
 --- !u!255 &296673471189100274
@@ -605,7 +605,7 @@ MonoBehaviour:
   pieceName: Sail1
   speedIncrement: 8
   nonRemovablePiece: 0
-  pieceMaxHealth: 1
+  pieceMaxHealth: 20
   playerBoat: {fileID: 7801592740434453976}
   deathWeightAmount: 15
 --- !u!255 &296673471300328368

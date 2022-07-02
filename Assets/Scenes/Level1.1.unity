@@ -3818,6 +3818,17 @@ MonoBehaviour:
     maxDistance: 70
     mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
     source: {fileID: 0}
+  - name: Death4
+    clip: {fileID: 8300000, guid: adfcf1b1c963986459764a5712856c8b, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    minDistance: 30
+    maxDistance: 70
+    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
+    source: {fileID: 0}
   - name: Select1
     clip: {fileID: 8300000, guid: 2b430f976d07ff64088656bd41ce897a, type: 3}
     volume: 1
@@ -3915,6 +3926,17 @@ MonoBehaviour:
     loop: 0
     minDistance: 30
     maxDistance: 70
+    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
+    source: {fileID: 0}
+  - name: JavelinShot
+    clip: {fileID: 8300000, guid: f35d8c00182f55c449041d65ccf86558, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 0.7
+    pitchVariance: 0.2
+    loop: 0
+    minDistance: 20
+    maxDistance: 60
     mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
     source: {fileID: 0}
 --- !u!4 &778948871
