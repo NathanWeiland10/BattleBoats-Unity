@@ -1629,6 +1629,7 @@ MonoBehaviour:
   - {fileID: 2507579957303842322}
   - {fileID: 5374372288262902545}
   - {fileID: 5374372289594781094}
+  - {fileID: 6357189068864198785}
   cannonSmokeEffect: {fileID: 5470383468595050592, guid: 81c017d6944c64a429cc21f2e29f3e9f, type: 3}
   deathWeights: {fileID: 3120193287783259998}
   flotationBalances: {fileID: 2507579956539508339}
