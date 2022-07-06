@@ -1847,7 +1847,7 @@ MonoBehaviour:
   cannonBall: {fileID: 8179688220145790932, guid: 79ed199bdae1e1f4598c2d386da6f6ce, type: 3}
   minShotDelay: 1.2
   maxShotDelay: 1.9
-  cannonSpread: 20
+  cannonSpread: 18
   shotRecoil: 30
   boatMoveForce: 105
   captureSpeed: 2.25
