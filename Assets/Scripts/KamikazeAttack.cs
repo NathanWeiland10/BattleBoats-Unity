@@ -36,4 +36,9 @@ public class KamikazeAttack : MonoBehaviour
         return playerBoat;
     }
 
+    public void DisableHitBox()
+    {
+        gameObject.SetActive(false);
+    }
+
 }

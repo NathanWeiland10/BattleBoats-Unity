@@ -1229,6 +1229,7 @@ MonoBehaviour:
   - Death1
   staticCannon: 1
   kamikaze: 1
+  kamikazeScript: {fileID: 968132471730256107}
   destroyAfter: 10
   rangeHitBox: {fileID: 4735679135155080476}
   boatColliderHitBox: {fileID: 125851220960561842}

@@ -52,6 +52,9 @@ public class PlayerBoat : MonoBehaviour
     [Tooltip("Set enabled if this boat self destructs into enemy ships (such as a fireship) or disabled otherwise")]
     public bool kamikaze;
 
+    [Tooltip("The script for the kamikaze hitbox")]
+    public KamikazeAttack kamikazeScript;
+
     [Tooltip("How long in seconds this boat will be destroyed after being killed")]
     public float destroyAfter = 10f;
 
@@ -196,6 +199,7 @@ public class PlayerBoat : MonoBehaviour
         if (kamikaze)
         {
             fireEffect.gameObject.SetActive(false);
+            kamikazeScript.DisableHitBox();
         }
 
         gameManager.UpdateOtherCurrentEnemy(this);
