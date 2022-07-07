@@ -13,4 +13,9 @@ public class TextToolTip : MonoBehaviour
         TMPtext.text = "<color=#34ADB1>Name: </color>" + boat.boatName + "<color=#34ADB1>\nDescription: </color>" + boat.boatDescription;
     }
 
+    public void UpdateName(CreateBoatButton boat)
+    {
+        TMPtext.text = boat.playerBoat.GetComponent<PlayerBoat>().boatName;
+    }
+
 }
