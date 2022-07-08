@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -79,6 +80,8 @@ public class GameManager : MonoBehaviour
     [Tooltip("The current speed the game is playing at")]
     public float gameSpeed = 1f;
 
+    public TMP_Text gameSpeedText;
+
     float moneyTimer = 1; // Initial value serves as an initial wait time for the money to start ticking up
     float waitTime;
 
@@ -96,6 +99,8 @@ public class GameManager : MonoBehaviour
         enemyMoneyPerSecond += enemyBase.GetBaseMoneyPerSecond();
         gameHUD.SetActive(true);
         spawnerText.text = "";
+        Time.timeScale = 1f;
+        gameSpeedText.text = "1.00";
     }
 
     void Update()
@@ -219,7 +224,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = gameSpeed;
     }
 
-    public void IncreaseGameSpeed(TMP_Text TMPtext)
+    public void IncreaseGameSpeed()
     {
         if (gameSpeed != 3f)
         {
@@ -227,28 +232,28 @@ public class GameManager : MonoBehaviour
             switch (gameSpeed)
             {
                 case 1:
-                    TMPtext.text = "1.00";
+                    gameSpeedText.text = "1.00";
                     break;
                 case 1.5f:
-                    TMPtext.text = "1.50";
+                    gameSpeedText.text = "1.50";
                     break;
                 case 2:
-                    TMPtext.text = "2.00";
+                    gameSpeedText.text = "2.00";
                     break;
                 case 2.5f:
-                    TMPtext.text = "2.50";
+                    gameSpeedText.text = "2.50";
                     break;
                 case 3:
-                    TMPtext.text = "3.00";
+                    gameSpeedText.text = "3.00";
                     break;
                 default:
-                    TMPtext.text = gameSpeed + "";
+                    gameSpeedText.text = gameSpeed + "";
                     break;
             }
         }
     }
 
-    public void DecreaseGameSpeed(TMP_Text TMPtext)
+    public void DecreaseGameSpeed()
     {
         if (gameSpeed != .75f)
         {
@@ -256,25 +261,30 @@ public class GameManager : MonoBehaviour
             switch (gameSpeed)
             {
                 case 1:
-                    TMPtext.text = "1.00";
+                    gameSpeedText.text = "1.00";
                     break;
                 case 1.5f:
-                    TMPtext.text = "1.50";
+                    gameSpeedText.text = "1.50";
                     break;
                 case 2:
-                    TMPtext.text = "2.00";
+                    gameSpeedText.text = "2.00";
                     break;
                 case 2.5f:
-                    TMPtext.text = "2.50";
+                    gameSpeedText.text = "2.50";
                     break;
                 case 3:
-                    TMPtext.text = "3.00";
+                    gameSpeedText.text = "3.00";
                     break;
                 default:
-                    TMPtext.text = gameSpeed + "";
+                    gameSpeedText.text = gameSpeed + "";
                     break;
             }
         }
+    }
+
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void UpdateOtherCurrentEnemy(PlayerBoat boat)
