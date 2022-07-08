@@ -15496,9 +15496,9 @@ MonoBehaviour:
   friendlyBoat: 0
   maxHealth: 55
   boatCost: 55
-  cannonBall: {fileID: 7836512528782074995, guid: e507ad87a5a8f80469e001e6f346e582, type: 3}
-  minShotDelay: 99
-  maxShotDelay: 99
+  cannonBall: {fileID: 8845670106250504671}
+  minShotDelay: 20
+  maxShotDelay: 20
   cannonSpread: 99
   shotRecoil: 99
   boatMoveForce: 7
@@ -15871,7 +15871,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01e5177b88c1c5748b7bbdc4d9ffddde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 100
+  attackDamage: 90
   hitSoundEffect: CannonBallExplosion
   hitEffect: {fileID: 131910526034018099, guid: 022a4e3abc5582340aae266b889d6e12, type: 3}
   playerBoat: {fileID: 8645944055837839471}
