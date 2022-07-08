@@ -2506,6 +2506,8 @@ MonoBehaviour:
   gamePaused: 0
   gameSpeed: 1
   gameSpeedText: {fileID: 957197852}
+  gameScreen: {fileID: 1633249926}
+  pauseScreen: {fileID: 1470168476}
   friendlySpawnQueue: []
   enemySpawnQueue: []
 --- !u!4 &455166254

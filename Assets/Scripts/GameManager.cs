@@ -82,6 +82,10 @@ public class GameManager : MonoBehaviour
 
     public TMP_Text gameSpeedText;
 
+    public GameObject gameScreen;
+
+    public GameObject pauseScreen;
+
     float moneyTimer = 1; // Initial value serves as an initial wait time for the money to start ticking up
     float waitTime;
 
@@ -172,6 +176,24 @@ public class GameManager : MonoBehaviour
             if (mainCamera.orthographicSize + cameraScrollSpeed < maxCameraSize)
             {
                 mainCamera.orthographicSize += cameraScrollSpeed / gameSpeed;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!gamePaused)
+            {
+                gamePaused = true;
+                gameScreen.gameObject.SetActive(false);
+                pauseScreen.gameObject.SetActive(true);
+                Time.timeScale = 0f;
+            }
+            else
+            {
+                gamePaused = false;
+                gameScreen.gameObject.SetActive(true);
+                pauseScreen.gameObject.SetActive(false);
+                Time.timeScale = gameSpeed;
             }
         }
 
