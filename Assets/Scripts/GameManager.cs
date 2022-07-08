@@ -73,13 +73,19 @@ public class GameManager : MonoBehaviour
     [Range(0f, 1f)]
     public float moneyDelayTimer = 0.5f;
 
+    [Tooltip("Used to determine whether or not the game is paused")]
+    public bool gamePaused = false;
+
+    [Tooltip("The current speed the game is playing at")]
+    public float gameSpeed = 1f;
+
     float moneyTimer = 1; // Initial value serves as an initial wait time for the money to start ticking up
     float waitTime;
 
     [Tooltip("The list of boats that the player is currently awaiting to spawn")]
     public List<GameObject> friendlySpawnQueue = new List<GameObject>();
     float friendlySpawnTimer = 0f;
-    
+
     [Tooltip("The list of boats that the enemy is currently awaiting to spawn")]
     public List<GameObject> enemySpawnQueue = new List<GameObject>();
     float enemySpawnTimer = 0f;
@@ -149,18 +155,18 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f && !gamePaused)
         {
             if (mainCamera.orthographicSize - cameraScrollSpeed > minCameraSize)
             {
-                mainCamera.orthographicSize -= cameraScrollSpeed;
+                mainCamera.orthographicSize -= cameraScrollSpeed / gameSpeed;
             }
         }
-        else if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0f && !gamePaused)
         {
             if (mainCamera.orthographicSize + cameraScrollSpeed < maxCameraSize)
             {
-                mainCamera.orthographicSize += cameraScrollSpeed;
+                mainCamera.orthographicSize += cameraScrollSpeed / gameSpeed;
             }
         }
 
@@ -181,22 +187,92 @@ public class GameManager : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.LeftShift))
             {
-                mainCameraRig.GetComponent<Rigidbody2D>().AddForce(Vector3.left * cameraMoveSpeed * 3);
+                mainCameraRig.GetComponent<Rigidbody2D>().AddForce((Vector3.left * cameraMoveSpeed * 3) / gameSpeed);
             }
             else
             {
-                mainCameraRig.GetComponent<Rigidbody2D>().AddForce(Vector3.left * cameraMoveSpeed);
+                mainCameraRig.GetComponent<Rigidbody2D>().AddForce((Vector3.left * cameraMoveSpeed) / gameSpeed);
             }
         }
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.LeftShift))
             {
-                mainCameraRig.GetComponent<Rigidbody2D>().AddForce(Vector3.right * cameraMoveSpeed * 3);
+                mainCameraRig.GetComponent<Rigidbody2D>().AddForce((Vector3.right * cameraMoveSpeed * 3) / gameSpeed);
             }
             else
             {
-                mainCameraRig.GetComponent<Rigidbody2D>().AddForce(Vector3.right * cameraMoveSpeed);
+                mainCameraRig.GetComponent<Rigidbody2D>().AddForce((Vector3.right * cameraMoveSpeed) / gameSpeed);
+            }
+        }
+    }
+
+    public void PauseGame()
+    {
+        gamePaused = true;
+        Time.timeScale = 0;
+    }
+
+    public void ResumeGame()
+    {
+        gamePaused = false;
+        Time.timeScale = gameSpeed;
+    }
+
+    public void IncreaseGameSpeed(TMP_Text TMPtext)
+    {
+        if (gameSpeed != 3f)
+        {
+            gameSpeed += 0.25f;
+            switch (gameSpeed)
+            {
+                case 1:
+                    TMPtext.text = "1.00";
+                    break;
+                case 1.5f:
+                    TMPtext.text = "1.50";
+                    break;
+                case 2:
+                    TMPtext.text = "2.00";
+                    break;
+                case 2.5f:
+                    TMPtext.text = "2.50";
+                    break;
+                case 3:
+                    TMPtext.text = "3.00";
+                    break;
+                default:
+                    TMPtext.text = gameSpeed + "";
+                    break;
+            }
+        }
+    }
+
+    public void DecreaseGameSpeed(TMP_Text TMPtext)
+    {
+        if (gameSpeed != .75f)
+        {
+            gameSpeed -= 0.25f;
+            switch (gameSpeed)
+            {
+                case 1:
+                    TMPtext.text = "1.00";
+                    break;
+                case 1.5f:
+                    TMPtext.text = "1.50";
+                    break;
+                case 2:
+                    TMPtext.text = "2.00";
+                    break;
+                case 2.5f:
+                    TMPtext.text = "2.50";
+                    break;
+                case 3:
+                    TMPtext.text = "3.00";
+                    break;
+                default:
+                    TMPtext.text = gameSpeed + "";
+                    break;
             }
         }
     }
@@ -260,7 +336,7 @@ public class GameManager : MonoBehaviour
             friendlySpawnQueue.Add(boat);
         }
         // Update the spawn queue:
-        for(int i = 0; i < spawnListIcons.Count; i++)
+        for (int i = 0; i < spawnListIcons.Count; i++)
         {
             if (i < friendlySpawnQueue.Count)
             {
@@ -344,7 +420,7 @@ public class GameManager : MonoBehaviour
     public void UpdateCapture(bool b, bool friend, CapturePoint capture)
     {
         CapturePoint capturePoint = null;
-        foreach (CapturePoint c in capturePoints) 
+        foreach (CapturePoint c in capturePoints)
         {
             if (c == capture)
             {
@@ -352,8 +428,9 @@ public class GameManager : MonoBehaviour
                 break;
             }
         }
-        
-        if (friend) {
+
+        if (friend)
+        {
             // Check to see if a new bool value is being used:
             if (b != capturePoint.IsFriendlyCaptured())
             {
@@ -377,7 +454,7 @@ public class GameManager : MonoBehaviour
                     capturePoint.SetEnemyCaptured();
                 }
             }
-        } 
+        }
         else
         {
             // Check to see if a new bool value is being used:
