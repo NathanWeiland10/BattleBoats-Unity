@@ -138,7 +138,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 979115205
   m_SortingLayer: 9
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 47584ea6a0bc51a4f928725b0d1381c2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -186,7 +186,7 @@ MonoBehaviour:
   pieceName: Mast1
   speedIncrement: 0.1
   nonRemovablePiece: 0
-  pieceMaxHealth: 20
+  pieceMaxHealth: 35
   playerBoat: {fileID: 311093214939609101}
   deathWeightAmount: 30
 --- !u!255 &311093214224750392
@@ -340,8 +340,10 @@ MonoBehaviour:
   - LightCannonShot1
   deathSoundEffects:
   - Death1
+  - Death2
   staticCannon: 1
   kamikaze: 0
+  kamikazeScript: {fileID: 0}
   destroyAfter: 10
   rangeHitBox: {fileID: 3722035614736035201}
   boatColliderHitBox: {fileID: 8331885509575125551}
@@ -642,9 +644,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 349792855
-  m_SortingLayer: 11
-  m_SortingOrder: 0
+  m_SortingLayerID: 979115205
+  m_SortingLayer: 9
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 4cc8b0d38e49b7249ba63ffbef34261f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -806,7 +808,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3047594982012595243}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.418, y: -0.278, z: 0}
+  m_LocalPosition: {x: 0.418, y: -0.187, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -849,7 +851,7 @@ FixedJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.418, y: -0.278}
+  m_ConnectedAnchor: {x: -0.418, y: -0.187}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!61 &5860165987945970681
@@ -865,7 +867,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.43014002, y: 0.1201157}
+  m_Offset: {x: -0.4239397, y: 0.15525645}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -876,7 +878,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.5075235, y: 0.034653544}
+  m_Size: {x: 1.6595364, y: 0.10493505}
   m_EdgeRadius: 0
 --- !u!1 &3986862783069728437
 GameObject:
@@ -952,9 +954,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 127189519
-  m_SortingLayer: 10
-  m_SortingOrder: 0
+  m_SortingLayerID: 979115205
+  m_SortingLayer: 9
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 20bf16d871038d24cbcb70460224332d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1002,7 +1004,7 @@ MonoBehaviour:
   pieceName: Sail1
   speedIncrement: 4
   nonRemovablePiece: 0
-  pieceMaxHealth: 20
+  pieceMaxHealth: 25
   playerBoat: {fileID: 311093214939609101}
   deathWeightAmount: 30
 --- !u!255 &4885939850374704845

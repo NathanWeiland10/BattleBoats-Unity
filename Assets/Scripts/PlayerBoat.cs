@@ -114,7 +114,10 @@ public class PlayerBoat : MonoBehaviour
         {
             fireEffect.gameObject.SetActive(true);
         }
-        deathWeights.gameObject.SetActive(false);
+        if (deathWeights.gameObject != null)
+        {
+            deathWeights.gameObject.SetActive(false);
+        }
         gameManager = FindObjectOfType<GameManager>();
         boatRigidBody = mainHullPiece.GetComponent<Rigidbody2D>();
     }
@@ -202,15 +205,17 @@ public class PlayerBoat : MonoBehaviour
             kamikazeScript.DisableHitBox();
         }
 
+        FindObjectOfType<AudioManager>().PlayAtPoint(deathSoundEffects[Random.Range(0, deathSoundEffects.Length)], mainHullPiece.transform.position);
+
         gameManager.UpdateOtherCurrentEnemy(this);
-        deathWeights.gameObject.SetActive(true);
+        if (deathWeights.gameObject != null)
+        {
+            deathWeights.gameObject.SetActive(true);
+        }
         foreach (GameObject boatPiece in boatPieces)
         {
             if (boatPiece.GetComponent<ShipPartDamage>().GetPieceCurrentHealth() >= 0)
             {
-
-                FindObjectOfType<AudioManager>().PlayAtPoint(deathSoundEffects[Random.Range(0, deathSoundEffects.Length)], mainHullPiece.transform.position);
-
                 FixedJoint2D joint = boatPiece.GetComponent<FixedJoint2D>();
                 Destroy(joint);
                 HingeJoint2D joint2 = boatPiece.GetComponent<HingeJoint2D>();

@@ -267,9 +267,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 349792855
-  m_SortingLayer: 11
-  m_SortingOrder: 1
+  m_SortingLayerID: 979115205
+  m_SortingLayer: 9
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: b55706b3d7295ac43bc43cb26a68d139, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -315,9 +315,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pieceName: Sail1
-  speedIncrement: 4
+  speedIncrement: 8
   nonRemovablePiece: 0
-  pieceMaxHealth: 30
+  pieceMaxHealth: 40
   playerBoat: {fileID: 8245302019995904837}
   deathWeightAmount: 50
 --- !u!255 &1888168436661835053
@@ -581,9 +581,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 349792855
-  m_SortingLayer: 11
-  m_SortingOrder: 1
+  m_SortingLayerID: 979115205
+  m_SortingLayer: 9
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 37b1166cd03e95b4a9d8ffdc0e0b3577, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -953,7 +953,7 @@ MonoBehaviour:
   pieceName: Mast1
   speedIncrement: 1
   nonRemovablePiece: 0
-  pieceMaxHealth: 40
+  pieceMaxHealth: 50
   playerBoat: {fileID: 8245302019995904837}
   deathWeightAmount: 50
 --- !u!255 &8245302019387607344
@@ -1078,7 +1078,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8245302019995904839}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0.0000009362675}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1114,9 +1114,11 @@ MonoBehaviour:
   shotSoundEffects:
   - ArrowShot
   deathSoundEffects:
-  - Death3
+  - Death1
+  - Death2
   staticCannon: 1
   kamikaze: 0
+  kamikazeScript: {fileID: 0}
   destroyAfter: 10
   rangeHitBox: {fileID: 8245302019199358591}
   boatColliderHitBox: {fileID: 8245302018333551990}
