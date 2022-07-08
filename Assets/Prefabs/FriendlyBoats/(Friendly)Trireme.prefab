@@ -267,9 +267,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2089424641
-  m_SortingLayer: 12
-  m_SortingOrder: 1
+  m_SortingLayerID: 979115205
+  m_SortingLayer: 9
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: f4be5971a3c1901479fccebe37d07bc1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -457,9 +457,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 349792855
-  m_SortingLayer: 11
-  m_SortingOrder: 1
+  m_SortingLayerID: 979115205
+  m_SortingLayer: 9
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: fe9378fadf8c00b428a36507d804501c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -690,7 +690,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 979115205
   m_SortingLayer: 9
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 33f60a59446282e42bef17d9005dd209, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1275,8 +1275,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 127189519
-  m_SortingLayer: 10
+  m_SortingLayerID: 979115205
+  m_SortingLayer: 9
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 42cfc56e831df5840ba077b4413ac460, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1583,9 +1583,11 @@ MonoBehaviour:
   shotSoundEffects:
   - ArrowShot
   deathSoundEffects:
-  - Death1
+  - Death3
+  - Death4
   staticCannon: 1
   kamikaze: 0
+  kamikazeScript: {fileID: 0}
   destroyAfter: 10
   rangeHitBox: {fileID: 4640748991966481571}
   boatColliderHitBox: {fileID: 4640748990949717930}

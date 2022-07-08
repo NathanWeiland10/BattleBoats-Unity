@@ -34,7 +34,7 @@ Transform:
   - {fileID: 827458995212596873}
   - {fileID: 827458995353011203}
   m_Father: {fileID: 1318817256856468791}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &827458994150219306
 Rigidbody2D:
@@ -223,9 +223,11 @@ MonoBehaviour:
   shotSoundEffects:
   - MediumCannonShot1
   deathSoundEffects:
+  - Death3
   - Death4
   staticCannon: 1
   kamikaze: 0
+  kamikazeScript: {fileID: 0}
   destroyAfter: 10
   rangeHitBox: {fileID: 1318817256348351098}
   boatColliderHitBox: {fileID: 1318817257365242227}
@@ -336,7 +338,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 979115205
   m_SortingLayer: 9
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 344d90959bb627b4897c77184982a417, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -384,7 +386,7 @@ MonoBehaviour:
   pieceName: Mast1
   speedIncrement: 2
   nonRemovablePiece: 0
-  pieceMaxHealth: 40
+  pieceMaxHealth: 55
   playerBoat: {fileID: 1318817255803750208}
   deathWeightAmount: 15
 --- !u!255 &1318817256260822325
@@ -529,8 +531,8 @@ Transform:
   - {fileID: 8796740628234467625}
   - {fileID: 1318817256260822334}
   - {fileID: 9082022697337810770}
-  - {fileID: 827458994150219311}
   - {fileID: 1318817257365242230}
+  - {fileID: 827458994150219311}
   - {fileID: 8796740628300476626}
   - {fileID: 5959625970205620614}
   - {fileID: 8796740628971607052}
@@ -573,7 +575,7 @@ Transform:
   m_Children:
   - {fileID: 1318817256348351096}
   m_Father: {fileID: 1318817256856468791}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1318817257365242225
 SpriteRenderer:
@@ -613,8 +615,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 349792855
-  m_SortingLayer: 11
+  m_SortingLayerID: 979115205
+  m_SortingLayer: 9
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 66dc66f494cacc74ab626303cb28b91e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -857,9 +859,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 349792855
-  m_SortingLayer: 11
-  m_SortingOrder: 1
+  m_SortingLayerID: 979115205
+  m_SortingLayer: 9
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 272cf1acf9fe1a740a7abd88497af06b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -907,7 +909,7 @@ MonoBehaviour:
   pieceName: Sail1
   speedIncrement: 12
   nonRemovablePiece: 0
-  pieceMaxHealth: 25
+  pieceMaxHealth: 40
   playerBoat: {fileID: 1318817255803750208}
   deathWeightAmount: 15
 --- !u!255 &8796740628234467624
@@ -1304,9 +1306,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pieceName: Bow
-  speedIncrement: 0
+  speedIncrement: 1
   nonRemovablePiece: 0
-  pieceMaxHealth: 20
+  pieceMaxHealth: 25
   playerBoat: {fileID: 1318817255803750208}
   deathWeightAmount: 15
 --- !u!255 &9082022697337810772

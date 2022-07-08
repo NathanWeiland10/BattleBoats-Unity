@@ -69,23 +69,8 @@ TagManager:
   - name: BuildingBack
     uniqueID: 2103692553
     locked: 0
-  - name: Boat(Back)
+  - name: Boat
     uniqueID: 979115205
-    locked: 0
-  - name: Boat(HullBack)
-    uniqueID: 127189519
-    locked: 0
-  - name: Boat(Front)
-    uniqueID: 349792855
-    locked: 0
-  - name: Boat(FrontCannon)
-    uniqueID: 2205542655
-    locked: 0
-  - name: BuildingFront
-    uniqueID: 981163821
-    locked: 0
-  - name: Canon
-    uniqueID: 4204537563
     locked: 0
   - name: Particle Effects(Back)
     uniqueID: 2792233103
