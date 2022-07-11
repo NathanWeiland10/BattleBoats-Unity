@@ -706,7 +706,7 @@ MonoBehaviour:
   destroyerAfterScript: {fileID: 3610083685136665763}
   boatName: Dromon
   friendlyBoat: 1
-  maxHealth: 90
+  maxHealth: 130
   boatCost: 175
   cannonBall: {fileID: 814116898164213801, guid: 9df346c7ac94f66419da0b4130f92a0a, type: 3}
   minShotDelay: 0.05

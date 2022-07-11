@@ -700,7 +700,7 @@ MonoBehaviour:
   destroyerAfterScript: {fileID: 4652240511948468259}
   boatName: Dromon
   friendlyBoat: 0
-  maxHealth: 90
+  maxHealth: 130
   boatCost: 175
   cannonBall: {fileID: 7513240459868122385, guid: 9b317e3e246b1924bb0997cce1337377, type: 3}
   minShotDelay: 0.05
@@ -1144,7 +1144,7 @@ FixedJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.129, y: -0.86899984}
+  m_ConnectedAnchor: {x: -0.129, y: -0.86899996}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!1 &8773078638964271726
