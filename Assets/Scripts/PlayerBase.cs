@@ -21,7 +21,17 @@ public class PlayerBase : MonoBehaviour
     {
         gameManager = FindObjectOfType<GameManager>();
         currentBaseHealth = maxBaseHealth;
+
+        if (friendlyBase)
+        {
+            moneyPerSecond = moneyPerSecond * gameManager.friendlyMPSMultiplier;
+        }
+        else
+        {
+            moneyPerSecond = moneyPerSecond * gameManager.enemyMPSMultiplier;
+        }
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "CannonBall")

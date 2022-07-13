@@ -197,6 +197,16 @@ public class PlayerBoat : MonoBehaviour
 
     public void Die()
     {
+
+        if (friendlyBoat) 
+        {
+            gameManager.UpdateEnemyMoney(Mathf.Round((boatCost / 10) * gameManager.enemyLootMultiplier));
+        }
+        else
+        {
+            gameManager.UpdateFriendlyMoney(Mathf.Round((boatCost / 10) * gameManager.friendlyLootMultiplier));
+        }
+
         flotationBalances.SetActive(false);
         destroyerAfterScript.DestroyAfter(destroyAfter);
         if (kamikaze)
