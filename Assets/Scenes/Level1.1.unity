@@ -621,7 +621,6 @@ GameObject:
   - component: {fileID: 55817065}
   - component: {fileID: 55817067}
   - component: {fileID: 55817066}
-  - component: {fileID: 55817068}
   m_Layer: 0
   m_Name: Sprite Mask
   m_TagString: Untagged
@@ -708,6 +707,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particle: {fileID: 7562882577317201660, guid: 61a380cf39d78b04a9430b813a5e8cc4, type: 3}
+  soundEffect: WaterHit
 --- !u!61 &55817067
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -734,19 +734,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &55817068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 55817063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19ad9e769ddc78842823e1a3166b0087, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundEffect: WaterHit
 --- !u!1 &60850948
 GameObject:
   m_ObjectHideFlags: 0

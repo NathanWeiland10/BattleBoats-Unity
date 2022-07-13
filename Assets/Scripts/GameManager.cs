@@ -135,6 +135,12 @@ public class GameManager : MonoBehaviour
         gameSpeedText.text = "1.00";
     }
 
+    void Start()
+    {
+        BoatSelectionManager selman = FindObjectOfType<BoatSelectionManager>();
+        Destroy(selman.gameObject);
+    }
+
     void Update()
     {
         if (friendlySpawnQueue.Count != 0 && friendlySpawnTimer > 0)
