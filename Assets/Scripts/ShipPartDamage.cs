@@ -38,6 +38,18 @@ public class ShipPartDamage : MonoBehaviour
     {
         if (collision.gameObject.tag == "CannonBall")
         {
+
+            if (playerBoat != null && !playerBoat.IsDead())
+            {
+                FindObjectOfType<AudioManager>().PlayAtPoint(collision.gameObject.GetComponent<CannonBall>().GetHitSoundEffect(), collision.gameObject.transform.position);
+
+                if (collision.gameObject.GetComponent<CannonBall>().GetHitEffect() != null)
+                {
+                    Instantiate(collision.gameObject.GetComponent<CannonBall>().GetHitEffect(), collision.gameObject.transform.position, collision.gameObject.transform.rotation);
+                }
+                Destroy(collision.gameObject);
+            }
+
             if (pieceCurrentHealth > 0)
             {
 
@@ -53,20 +65,21 @@ public class ShipPartDamage : MonoBehaviour
                 RemovePiece();
             }
 
-            if (playerBoat != null && !playerBoat.IsDead())
-            {
-                FindObjectOfType<AudioManager>().PlayAtPoint(collision.gameObject.GetComponent<CannonBall>().GetHitSoundEffect(), collision.gameObject.transform.position);
-
-                if (collision.gameObject.GetComponent<CannonBall>().GetHitEffect() != null)
-                {
-                    Instantiate(collision.gameObject.GetComponent<CannonBall>().GetHitEffect(), collision.gameObject.transform.position, collision.gameObject.transform.rotation);
-                }
-                Destroy(collision.gameObject);
-            }
         }
         if (collision.gameObject.tag == "KamikazeAttack")
         {
             PlayerBoat boat = collision.gameObject.GetComponent<KamikazeAttack>().GetPlayerBoat();
+
+            if (playerBoat != null && !playerBoat.IsDead())
+            {
+                FindObjectOfType<AudioManager>().PlayAtPoint(collision.gameObject.GetComponent<KamikazeAttack>().GetHitSoundEffect(), collision.gameObject.transform.position);
+
+                if (collision.gameObject.GetComponent<KamikazeAttack>().GetHitEffect() != null)
+                {
+                    Instantiate(collision.gameObject.GetComponent<KamikazeAttack>().GetHitEffect(), collision.gameObject.transform.position, collision.gameObject.transform.rotation);
+                }
+                Destroy(collision.gameObject);
+            }
 
             if (pieceCurrentHealth > 0)
             {
@@ -87,16 +100,6 @@ public class ShipPartDamage : MonoBehaviour
                 RemovePiece();
             }
 
-            if (playerBoat != null && !playerBoat.IsDead())
-            {
-                FindObjectOfType<AudioManager>().PlayAtPoint(collision.gameObject.GetComponent<KamikazeAttack>().GetHitSoundEffect(), collision.gameObject.transform.position);
-
-                if (collision.gameObject.GetComponent<KamikazeAttack>().GetHitEffect() != null)
-                {
-                    Instantiate(collision.gameObject.GetComponent<KamikazeAttack>().GetHitEffect(), collision.gameObject.transform.position, collision.gameObject.transform.rotation);
-                }
-                Destroy(collision.gameObject);
-            }
         }
     }
 

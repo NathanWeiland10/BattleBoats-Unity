@@ -27,6 +27,26 @@ public class GameManager : MonoBehaviour
     [Tooltip("The total amount of money the enemy team currently has (initial / starting value can be set here)")]
     public float enemyTotalMoney = 0;
 
+    [Tooltip("The multiplier used to determine the amount of additional hitpoints added to a spawned friendly boat")]
+    public float friendlyBoatHealthMultiplier = 1.0f;
+    [Tooltip("The multiplier used to determine the amount of additional hitpoints added to a spawned enemy boat")]
+    public float enemyBoatHealthMultiplier = 1.0f;
+
+    [Tooltip("The multiplier used to determine the time it takes for a friendly boat to spawn")]
+    public float friendlySpawnTimeMultiplier = 1.0f;
+    [Tooltip("The multiplier used to determine the time it takes for an enemy boat to spawn")]
+    public float enemySpawnTimeMultiplier = 1.0f;
+
+    [Tooltip("The multiplier used to determine how much money per second the friendly team makes")]
+    public float friendlyMPSMultiplier = 1.0f;
+    [Tooltip("The multiplier used to determine how much money per second the friendly team makes")]
+    public float enemyMPSMultiplier = 1.0f;
+
+    [Tooltip("The multiplier used to determine how much money the friendly team receives when killing an enemy boat")]
+    public float friendlyLootMultiplier = 1.0f;
+    [Tooltip("The multiplier used to determine how much money the friendly team receives when killing an enemy boat")]
+    public float enemyLootMultiplier = 1.0f;
+
     [Tooltip("The list of all the friendly boats currently on the map")]
     public List<PlayerBoat> friendlyBoats;
     [Tooltip("The list of all the enemy boats currently on the map")]
@@ -111,7 +131,7 @@ public class GameManager : MonoBehaviour
     {
         if (friendlySpawnQueue.Count != 0 && friendlySpawnTimer > 0)
         {
-            float fillValue = ((friendlySpawnQueue[0].GetComponent<PlayerBoat>().spawnDelay - friendlySpawnTimer) / friendlySpawnQueue[0].GetComponent<PlayerBoat>().spawnDelay);
+            float fillValue = (((friendlySpawnQueue[0].GetComponent<PlayerBoat>().spawnDelay / friendlySpawnTimeMultiplier) - friendlySpawnTimer) / (friendlySpawnQueue[0].GetComponent<PlayerBoat>().spawnDelay / friendlySpawnTimeMultiplier));
             spawnSlider.value = fillValue;
             friendlySpawnTimer -= Time.deltaTime;
         }
@@ -359,7 +379,7 @@ public class GameManager : MonoBehaviour
     {
         if (friendlySpawnQueue.Count == 0)
         {
-            friendlySpawnTimer = boat.GetComponent<PlayerBoat>().spawnDelay;
+            friendlySpawnTimer = boat.GetComponent<PlayerBoat>().spawnDelay / friendlySpawnTimeMultiplier;
             friendlySpawnQueue.Add(boat);
             spawnerText.text = "Spawning: " + friendlySpawnQueue[0].GetComponent<PlayerBoat>().boatName;
         }
@@ -385,7 +405,7 @@ public class GameManager : MonoBehaviour
     {
         if (enemySpawnQueue.Count == 0)
         {
-            enemySpawnTimer = boat.GetComponent<PlayerBoat>().spawnDelay;
+            enemySpawnTimer = boat.GetComponent<PlayerBoat>().spawnDelay / enemySpawnTimeMultiplier;
             enemySpawnQueue.Add(boat);
         }
         else
@@ -397,13 +417,14 @@ public class GameManager : MonoBehaviour
     public void InstantiateFriendlyBoat(GameObject boat)
     {
         GameObject spawnedBoat = Instantiate(boat, friendlyBoatSpawn.position, friendlyBoatSpawn.rotation);
+        spawnedBoat.GetComponent<PlayerBoat>().maxHealth = spawnedBoat.GetComponent<PlayerBoat>().maxHealth * friendlyBoatHealthMultiplier;
         friendlyBoats.Add(spawnedBoat.GetComponent<PlayerBoat>());
     }
 
     public void InstantiateEnemyBoat(GameObject boat)
     {
-
         GameObject spawnedBoat = Instantiate(boat, enemyBoatSpawn.position, Quaternion.Euler(0, 179.9999f, 0));
+        spawnedBoat.GetComponent<PlayerBoat>().maxHealth = spawnedBoat.GetComponent<PlayerBoat>().maxHealth * enemyBoatHealthMultiplier;
         enemyBoats.Add(spawnedBoat.GetComponent<PlayerBoat>());
     }
 
@@ -440,7 +461,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator AddDelayedMoney(float f)
     {
-        if (f != 0f)
+        if (f > 0f)
         {
             yield return new WaitForSeconds(waitTime);
             friendlyTotalMoney += 1;
@@ -469,19 +490,19 @@ public class GameManager : MonoBehaviour
                 // If b is true, then increase the money per second for the friendly team:
                 if (b == true)
                 {
-                    friendlyMoneyPerSecond += capturePoint.GetMoneyPerSecond();
+                    friendlyMoneyPerSecond += (capturePoint.GetMoneyPerSecond() * friendlyMPSMultiplier);
                     if (capturePoint.IsEnemyCaptured())
                     {
-                        enemyMoneyPerSecond -= capturePoint.GetMoneyPerSecond();
+                        enemyMoneyPerSecond -= (capturePoint.GetMoneyPerSecond() * enemyMPSMultiplier);
                     }
                     capturePoint.SetFriendlyCaptured();
                 }
                 else
                 {
-                    friendlyMoneyPerSecond -= capturePoint.GetMoneyPerSecond();
+                    friendlyMoneyPerSecond -= (capturePoint.GetMoneyPerSecond() * friendlyMPSMultiplier);
                     if (!capturePoint.IsEnemyCaptured())
                     {
-                        enemyMoneyPerSecond += capturePoint.GetMoneyPerSecond();
+                        enemyMoneyPerSecond += (capturePoint.GetMoneyPerSecond() * enemyMPSMultiplier);
                     }
                     capturePoint.SetEnemyCaptured();
                 }
@@ -495,19 +516,19 @@ public class GameManager : MonoBehaviour
                 // If b is true, then increase the money per second for the friendly team:
                 if (b == true)
                 {
-                    enemyMoneyPerSecond += capturePoint.GetMoneyPerSecond();
+                    enemyMoneyPerSecond += (capturePoint.GetMoneyPerSecond() * enemyMPSMultiplier);
                     if (capturePoint.IsFriendlyCaptured())
                     {
-                        friendlyMoneyPerSecond -= capturePoint.GetMoneyPerSecond();
+                        friendlyMoneyPerSecond -= (capturePoint.GetMoneyPerSecond() * friendlyMPSMultiplier);
                     }
                     capturePoint.SetEnemyCaptured();
                 }
                 else
                 {
-                    enemyMoneyPerSecond -= capturePoint.GetMoneyPerSecond();
+                    enemyMoneyPerSecond -= (capturePoint.GetMoneyPerSecond() * enemyMPSMultiplier);
                     if (!capturePoint.IsFriendlyCaptured())
                     {
-                        friendlyMoneyPerSecond += capturePoint.GetMoneyPerSecond();
+                        friendlyMoneyPerSecond += (capturePoint.GetMoneyPerSecond() * friendlyMPSMultiplier);
                     }
                     capturePoint.SetFriendlyCaptured();
                 }
