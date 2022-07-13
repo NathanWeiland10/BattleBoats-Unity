@@ -102,6 +102,10 @@ public class GameManager : MonoBehaviour
 
     public TMP_Text gameSpeedText;
 
+    public GameObject victoryScreen;
+    public GameObject defeatScreen;
+    public float screenTime = 3f;
+
     public GameObject gameScreen;
 
     public GameObject pauseScreen;
@@ -538,14 +542,22 @@ public class GameManager : MonoBehaviour
 
     public void FriendlyWin()
     {
-        // Do victory screen here:
-        Debug.Log("Victory!");
+        victoryScreen.SetActive(true);
+        StartCoroutine(LoadMenuAfter());
     }
 
     public void EnemyWin()
     {
-        // Do game over / defeat screen here:
-        Debug.Log("Defeat!");
+        defeatScreen.SetActive(true);
+        StartCoroutine(LoadMenuAfter());
+    }
+
+    IEnumerator LoadMenuAfter()
+    {
+        Time.timeScale = 1f;
+        gameSpeedText.text = "1.00";
+        yield return new WaitForSeconds(screenTime);
+        SceneManager.LoadScene("MainMenu");
     }
 
 }
