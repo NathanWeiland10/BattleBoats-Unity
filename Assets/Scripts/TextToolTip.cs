@@ -30,4 +30,9 @@ public class TextToolTip : MonoBehaviour
         TMPtext.text = boat.playerBoat.GetComponent<PlayerBoat>().boatName;
     }
 
+    public void UpdateUpgradeName(DockUpgradeButton upgrade)
+    {
+        TMPtext.text = upgrade.upgradeDescription;
+    }
+
 }

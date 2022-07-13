@@ -1119,7 +1119,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: $NaN
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fa92e386fc84f784a8be5e2a7080dd55, type: 2}
   m_sharedMaterial: {fileID: 3348469989474858680, guid: fa92e386fc84f784a8be5e2a7080dd55, type: 2}
@@ -3229,6 +3229,12 @@ MonoBehaviour:
   enemyMoneyPerSecond: 0
   friendlyTotalMoney: 0
   enemyTotalMoney: 0
+  friendlyBoatHealthMultiplier: 1
+  enemyBoatHealthMultiplier: 1
+  friendlySpawnTimeMultiplier: 1
+  enemySpawnTimeMultiplier: 1
+  friendlyLootMultiplier: 1
+  enemyLootMultiplier: 1
   friendlyBoats:
   - {fileID: 0}
   enemyBoats: []
