@@ -106,9 +106,13 @@ public class GameManager : MonoBehaviour
     public GameObject defeatScreen;
     public float screenTime = 3f;
 
+    public GameObject pauseButton;
+
     public GameObject gameScreen;
 
     public GameObject pauseScreen;
+
+    public bool gameEnded = false;
 
     float moneyTimer = 1; // Initial value serves as an initial wait time for the money to start ticking up
     float waitTime;
@@ -192,18 +196,18 @@ public class GameManager : MonoBehaviour
         {
             if (mainCamera.orthographicSize - cameraScrollSpeed > minCameraSize)
             {
-                mainCamera.orthographicSize -= cameraScrollSpeed / gameSpeed;
+                mainCamera.orthographicSize -= cameraScrollSpeed;
             }
         }
         else if (Input.GetAxis("Mouse ScrollWheel") < 0f && !gamePaused)
         {
             if (mainCamera.orthographicSize + cameraScrollSpeed < maxCameraSize)
             {
-                mainCamera.orthographicSize += cameraScrollSpeed / gameSpeed;
+                mainCamera.orthographicSize += cameraScrollSpeed;
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !gameEnded)
         {
             if (!gamePaused)
             {
@@ -554,6 +558,8 @@ public class GameManager : MonoBehaviour
 
     IEnumerator LoadMenuAfter()
     {
+        pauseButton.SetActive(false);
+        gameEnded = true;
         Time.timeScale = 1f;
         gameSpeedText.text = "1.00";
         yield return new WaitForSeconds(screenTime);
