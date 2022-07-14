@@ -138,7 +138,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         BoatSelectionManager selman = FindObjectOfType<BoatSelectionManager>();
-        Destroy(selman.gameObject);
+        if (selman != null) {
+            Destroy(selman.gameObject);
+        }
     }
 
     void Update()
