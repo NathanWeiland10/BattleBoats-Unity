@@ -6,7 +6,7 @@ public class MenuLoader : MonoBehaviour
 {
     public GameObject titleScreen;
 
-    public GameObject playScreen;
+    public GameObject levelSelectScreen;
 
     public GameObject optionsScreen;
 
@@ -17,18 +17,19 @@ public class MenuLoader : MonoBehaviour
         settingsSaver = FindObjectOfType<SettingsSaver>();
         if (settingsSaver != null)
         {
-            if (settingsSaver.goToPlayMenu)
+            if (settingsSaver.goToLevelSelectMenu)
             {
-                LoadPlayScreen();
+                Debug.Log("Here");
+                LoadlevelSelectScreenn();
             }
         }
     }
 
-    void LoadPlayScreen()
+    void LoadlevelSelectScreenn()
     {
         titleScreen.SetActive(false);
-        playScreen.SetActive(true);
+        levelSelectScreen.SetActive(true);
         optionsScreen.SetActive(false);
-        settingsSaver.goToPlayMenu = false;
+        settingsSaver.goToLevelSelectMenu = false;
     }
 }

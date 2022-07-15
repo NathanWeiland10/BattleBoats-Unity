@@ -1750,10 +1750,10 @@ MonoBehaviour:
   friendlyBoat: 1
   maxHealth: 260
   boatCost: 440
-  cannonBall: {fileID: 4871135331962689224, guid: 5e84ca6ae7526cb4b998000e0854eab7, type: 3}
-  minShotDelay: 1.4
-  maxShotDelay: 2.3
-  cannonSpread: 28
+  cannonBall: {fileID: 1702715105591184750, guid: 423fd40e06a232647b20d2147640d95f, type: 3}
+  minShotDelay: 1.7
+  maxShotDelay: 3
+  cannonSpread: 31
   shotRecoil: 20
   boatMoveForce: 85
   captureSpeed: 2
