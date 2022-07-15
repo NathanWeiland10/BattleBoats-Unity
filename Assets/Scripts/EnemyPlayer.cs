@@ -28,6 +28,8 @@ public class EnemyPlayer : MonoBehaviour
     float decisionMaxTime;
     float decisionTimer = 0;
 
+    public bool gameOver = false;
+
     void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
@@ -51,8 +53,10 @@ public class EnemyPlayer : MonoBehaviour
         }
         else
         {
-            decisionTimer = decisionMaxTime;
-            AttemptEnemyPurchase();
+            if (!gameOver) {
+                decisionTimer = decisionMaxTime;
+                AttemptEnemyPurchase();
+            }
         }
     }
 

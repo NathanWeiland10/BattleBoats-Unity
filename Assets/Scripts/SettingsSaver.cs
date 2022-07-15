@@ -7,16 +7,16 @@ public class SettingsSaver : MonoBehaviour
 
     public float gameVolume;
 
-    public bool goToPlayMenu;
+    public bool goToLevelSelectMenu;
 
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
     }
 
-    public void SetGoToPlayMenu(bool b)
+    public void SetGoToLevelSelectMenu(bool b)
     {
-        goToPlayMenu = b;
+        goToLevelSelectMenu = b;
     }
 
 }

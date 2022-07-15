@@ -100,6 +100,9 @@ public class GameManager : MonoBehaviour
     [Tooltip("The current speed the game is playing at")]
     public float gameSpeed = 1f;
 
+    [Tooltip("The GameObject that holds the EnemyPlayer script")]
+    public EnemyPlayer enemyPlayer;
+
     public TMP_Text gameSpeedText;
 
     public GameObject victoryScreen;
@@ -566,6 +569,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator LoadMenuAfter()
     {
+        enemyPlayer.gameOver = true;
         pauseButton.SetActive(false);
         gameEnded = true;
         Time.timeScale = 1f;
