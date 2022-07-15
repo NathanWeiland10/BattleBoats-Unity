@@ -151,14 +151,14 @@ public class GameManager : MonoBehaviour
             spawnSlider.value = fillValue;
             friendlySpawnTimer -= Time.deltaTime;
         }
-        else if (friendlySpawnQueue.Count != 0 && friendlySpawnTimer <= 0)
+        else if (friendlySpawnQueue.Count != 0 && friendlySpawnTimer <= 0 && !gameEnded)
         {
             InstantiateFriendlyBoat(friendlySpawnQueue[0]);
             friendlySpawnQueue.RemoveAt(0);
             if (friendlySpawnQueue.Count != 0)
             {
                 // Start spawning the next boat:
-                friendlySpawnTimer = friendlySpawnQueue[0].GetComponent<PlayerBoat>().spawnDelay;
+                friendlySpawnTimer = friendlySpawnQueue[0].GetComponent<PlayerBoat>().spawnDelay / friendlySpawnTimeMultiplier;
                 spawnerText.text = "Spawning: " + friendlySpawnQueue[0].GetComponent<PlayerBoat>().boatName;
             }
             else
@@ -185,14 +185,14 @@ public class GameManager : MonoBehaviour
         {
             enemySpawnTimer -= Time.deltaTime;
         }
-        else if (enemySpawnQueue.Count != 0 && enemySpawnTimer <= 0)
+        else if (enemySpawnQueue.Count != 0 && enemySpawnTimer <= 0 && !gameEnded)
         {
             InstantiateEnemyBoat(enemySpawnQueue[0]);
             enemySpawnQueue.RemoveAt(0);
             if (enemySpawnQueue.Count != 0)
             {
                 // Start spawning the next boat:
-                enemySpawnTimer = enemySpawnQueue[0].GetComponent<PlayerBoat>().spawnDelay;
+                enemySpawnTimer = enemySpawnQueue[0].GetComponent<PlayerBoat>().spawnDelay / enemySpawnTimeMultiplier;
             }
             else
             {

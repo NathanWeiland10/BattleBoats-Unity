@@ -22,7 +22,7 @@ public class EnemyPlayer : MonoBehaviour
     public playStyle enemyPlayStyle;
 
     GameManager gameManager;
-    
+
     GameObject currentBoat;
 
     float decisionMaxTime;
@@ -51,8 +51,10 @@ public class EnemyPlayer : MonoBehaviour
         }
         else
         {
+
             decisionTimer = decisionMaxTime;
             AttemptEnemyPurchase();
+
         }
     }
 
