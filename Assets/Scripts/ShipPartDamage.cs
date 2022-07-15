@@ -101,10 +101,9 @@ public class ShipPartDamage : MonoBehaviour
 
     public void RemovePiece()
     {
-        GetComponent<Rigidbody2D>().mass += deathWeightAmount;
-        FixedJoint2D joint = GetComponent<FixedJoint2D>();
         if (playerBoat != null)
         {
+            GetComponent<Rigidbody2D>().mass += deathWeightAmount;
             if (pieceName.ToLower().Contains("mast"))
             {
                 GameObject[] boatPieces = playerBoat.boatPieces;
@@ -116,14 +115,20 @@ public class ShipPartDamage : MonoBehaviour
                         b.GetComponent<Rigidbody2D>().mass += b.GetComponent<ShipPartDamage>().deathWeightAmount;
                         FixedJoint2D joint2 = b.GetComponent<FixedJoint2D>();
                         Destroy(joint2);
+
                     }
                 }
             }
-        }
-        Destroy(joint);
-        if (pieceName.ToLower().Contains("mast") || pieceName.ToLower().Contains("sail"))
-        {
-            playerBoat.UpdateBoatSpeed(-speedIncrement, pieceName);
+            FixedJoint2D joint = GetComponent<FixedJoint2D>();
+            Destroy(joint);
+
+            PolygonCollider2D poly = GetComponent<PolygonCollider2D>();
+            Destroy(poly);
+
+            if (pieceName.ToLower().Contains("mast") || pieceName.ToLower().Contains("sail"))
+            {
+                playerBoat.UpdateBoatSpeed(-speedIncrement, pieceName);
+            }
         }
     }
 

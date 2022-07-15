@@ -108,6 +108,8 @@ public class PlayerBoat : MonoBehaviour
 
     public List<string> removedSails;
 
+    Transform cannonAngle;
+
     void Awake()
     {
         if (kamikaze)
@@ -145,7 +147,6 @@ public class PlayerBoat : MonoBehaviour
     {
         if (!isDead)
         {
-
             if (kamikaze && ((!isCapturing) || (isCapturing && currentEnemy != null)))
             {
                 if (friendlyBoat)
@@ -197,7 +198,6 @@ public class PlayerBoat : MonoBehaviour
 
     public void Die()
     {
-
         if (friendlyBoat) 
         {
             gameManager.UpdateEnemyMoney(Mathf.Round((boatCost / 10) * gameManager.enemyLootMultiplier));
@@ -231,16 +231,17 @@ public class PlayerBoat : MonoBehaviour
                 HingeJoint2D joint2 = boatPiece.GetComponent<HingeJoint2D>();
                 Destroy(joint2);
 
-                Destroy(boatColliderHitBox);
+                PolygonCollider2D poly = boatPiece.GetComponent<PolygonCollider2D>();
+                Destroy(poly);
 
                 boatPiece.GetComponent<Rigidbody2D>().mass += boatPiece.GetComponent<ShipPartDamage>().GetDeathWeight();
 
-                isDead = true;
-
-                Destroy(this);
-
             }
         }
+
+        Destroy(boatColliderHitBox);
+        isDead = true;
+        Destroy(this);
     }
 
     public float GetCurrentHealth()
@@ -330,7 +331,6 @@ public class PlayerBoat : MonoBehaviour
             cannonForce = Mathf.Sqrt(enemyDist * 20000) - (cannonSpawnPoint.position.y * 8.5f) - (30 * Mathf.Abs(enemy.GetBoatHullRB().velocity.x));
             cannonForce *= cannonBall.GetComponent<Rigidbody2D>().mass;
 
-
             boatRigidBody.AddForce((cannonSpawnPoint.up) * shotRecoil);
 
             FindObjectOfType<AudioManager>().PlayAtPoint(shotSoundEffects[Random.Range(0, shotSoundEffects.Length)], mainHullPiece.transform.position);
@@ -341,13 +341,13 @@ public class PlayerBoat : MonoBehaviour
             }
 
             float recoil = Random.Range(-cannonSpread, cannonSpread);
-            cannonSpawnPoint.eulerAngles = new Vector3(cannonSpawnPoint.eulerAngles.x, cannonSpawnPoint.eulerAngles.y, cannonSpawnPoint.eulerAngles.z + recoil);
-            GameObject bulletToShoot = Instantiate(cannonBall, cannonSpawnPoint.position, cannonSpawnPoint.rotation);
+            cannonAngle = cannonSpawnPoint;
+            cannonAngle.eulerAngles = new Vector3(cannonSpawnPoint.eulerAngles.x, cannonSpawnPoint.eulerAngles.y, cannonSpawnPoint.eulerAngles.z + recoil);
+            GameObject bulletToShoot = Instantiate(cannonBall, cannonAngle.position, cannonAngle.rotation);
             Rigidbody2D bulletRB = bulletToShoot.GetComponent<Rigidbody2D>();
-            bulletRB.AddForce((-cannonSpawnPoint.up) * cannonForce);
+            bulletRB.AddForce((-cannonAngle.up) * cannonForce);
             yield return new WaitForSeconds(Random.Range(minShotDelay, maxShotDelay));
             isDelaying = false;
-            cannonSpawnPoint.eulerAngles = new Vector3(cannonSpawnPoint.eulerAngles.x, cannonSpawnPoint.eulerAngles.y, cannonSpawnPoint.eulerAngles.z - recoil);
         }
     }
 
@@ -368,13 +368,13 @@ public class PlayerBoat : MonoBehaviour
         Instantiate(cannonSmokeEffect, cannonSpawnPoint.position, cannonSpawnPoint.rotation);
 
         float recoil = Random.Range(-cannonSpread, cannonSpread);
-        cannonSpawnPoint.eulerAngles = new Vector3(cannonSpawnPoint.eulerAngles.x, cannonSpawnPoint.eulerAngles.y, cannonSpawnPoint.eulerAngles.z + recoil);
-        GameObject bulletToShoot = Instantiate(cannonBall, cannonSpawnPoint.position, cannonSpawnPoint.rotation);
+        cannonAngle = cannonSpawnPoint;
+        cannonAngle.eulerAngles = new Vector3(cannonSpawnPoint.eulerAngles.x, cannonSpawnPoint.eulerAngles.y, cannonSpawnPoint.eulerAngles.z + recoil);
+        GameObject bulletToShoot = Instantiate(cannonBall, cannonAngle.position, cannonAngle.rotation);
         Rigidbody2D bulletRB = bulletToShoot.GetComponent<Rigidbody2D>();
-        bulletRB.AddForce((-cannonSpawnPoint.up) * cannonForce);
+        bulletRB.AddForce((-cannonAngle.up) * cannonForce);
         yield return new WaitForSeconds(Random.Range(minShotDelay, maxShotDelay));
         isDelaying = false;
-        cannonSpawnPoint.eulerAngles = new Vector3(cannonSpawnPoint.eulerAngles.x, cannonSpawnPoint.eulerAngles.y, cannonSpawnPoint.eulerAngles.z - recoil);
     }
 
     public bool CheckIfBehind(PlayerBoat enemy)

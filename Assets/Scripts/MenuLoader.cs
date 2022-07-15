@@ -19,6 +19,7 @@ public class MenuLoader : MonoBehaviour
         {
             if (settingsSaver.goToLevelSelectMenu)
             {
+                Debug.Log("Here");
                 LoadlevelSelectScreenn();
             }
         }

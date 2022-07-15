@@ -9,9 +9,20 @@ public class SettingsSaver : MonoBehaviour
 
     public bool goToLevelSelectMenu;
 
+    public static SettingsSaver instance;
+
     void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        if (instance != null)
+        {
+            goToLevelSelectMenu = instance.goToLevelSelectMenu;
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
     public void SetGoToLevelSelectMenu(bool b)

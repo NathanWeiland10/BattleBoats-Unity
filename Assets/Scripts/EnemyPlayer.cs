@@ -22,13 +22,11 @@ public class EnemyPlayer : MonoBehaviour
     public playStyle enemyPlayStyle;
 
     GameManager gameManager;
-    
+
     GameObject currentBoat;
 
     float decisionMaxTime;
     float decisionTimer = 0;
-
-    public bool gameOver = false;
 
     void Awake()
     {
@@ -53,10 +51,10 @@ public class EnemyPlayer : MonoBehaviour
         }
         else
         {
-            if (!gameOver) {
-                decisionTimer = decisionMaxTime;
-                AttemptEnemyPurchase();
-            }
+
+            decisionTimer = decisionMaxTime;
+            AttemptEnemyPurchase();
+
         }
     }
 
