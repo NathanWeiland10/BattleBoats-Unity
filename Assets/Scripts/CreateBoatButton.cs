@@ -50,7 +50,7 @@ public class CreateBoatButton : MonoBehaviour
 
     public void AttemptFriendlyPurchase()
     {
-        if (gameManager.friendlyTotalMoney >= boatCost && gameManager.friendlySpawnQueue.Count < gameManager.spawnListIcons.Count)
+        if (gameManager.friendlyTotalMoney >= boatCost && gameManager.friendlySpawnQueue.Count < gameManager.spawnListIcons.Count && gameManager.friendlyBoatCount < gameManager.friendlyMaxBoats)
         {
             gameManager.UpdateFriendlyMoney(-boatCost);
             gameManager.SpawnFriendlyBoat(playerBoat);

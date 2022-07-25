@@ -9772,7 +9772,7 @@ Transform:
   m_Children:
   - {fileID: 5114418706281410800}
   m_Father: {fileID: 8525007466593783429}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4993364082129948200
 GameObject:
@@ -9944,26 +9944,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.031133652, y: -0.00018191338}
-      - {x: -0.00031089783, y: -0.0009377599}
-      - {x: 0.00030136108, y: 0.031109273}
-      - {x: -0.15595818, y: 0.031265378}
-      - {x: -0.15621185, y: 0.00068706274}
-      - {x: -0.18751526, y: 0}
-      - {x: -0.18727112, y: -0.09378469}
-      - {x: -0.1570282, y: -0.09353757}
-      - {x: -0.1563797, y: -0.12482309}
-      - {x: -0.18754959, y: -0.1250503}
-      - {x: -0.18804169, y: -0.18819183}
-      - {x: -0.15535355, y: -0.1881116}
-      - {x: -0.15535927, y: -0.15653515}
-      - {x: -0.094890594, y: -0.15720338}
-      - {x: -0.09410095, y: -0.18796217}
-      - {x: 0.03287697, y: -0.18764961}
-      - {x: 0.032058716, y: -0.15672272}
-      - {x: 0.061408997, y: -0.1562404}
-      - {x: 0.062301636, y: 0.030740261}
-      - {x: 0.03163719, y: 0.030897439}
+    - - {x: 0.062576294, y: 0.031174421}
+      - {x: -0.18774605, y: 0.031109571}
+      - {x: -0.18777275, y: -0.18750906}
+      - {x: 0.0626564, y: -0.18750668}
 --- !u!1 &5061580976541478150
 GameObject:
   m_ObjectHideFlags: 0
@@ -14834,103 +14818,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!1 &5114418705102827521
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5114418705102827520}
-  - component: {fileID: 5114418705102827525}
-  - component: {fileID: 5114418705102827526}
-  - component: {fileID: 5114418705102827527}
-  m_Layer: 6
-  m_Name: FireRaft(Cannon)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5114418705102827520
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5114418705102827521}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8525007466593783429}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &5114418705102827525
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5114418705102827521}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 0.2
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!233 &5114418705102827526
-HingeJoint2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5114418705102827521}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 1501716848824470460}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: 0}
-  m_UseMotor: 0
-  m_Motor:
-    m_MotorSpeed: 0
-    m_MaximumMotorForce: 10000
-  m_UseLimits: 0
-  m_AngleLimits:
-    m_LowerAngle: 0
-    m_UpperAngle: 360
---- !u!114 &5114418705102827527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5114418705102827521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cf124392768d054a9a3a28edf6d863d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pieceName: Cannon
-  speedIncrement: 0
-  nonRemovablePiece: 0
-  pieceMaxHealth: 0
-  playerBoat: {fileID: 8525007467033532560}
-  deathWeightAmount: 3
 --- !u!1 &5114418706281410801
 GameObject:
   m_ObjectHideFlags: 0
@@ -15000,7 +14887,7 @@ FixedJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.23, y: -0.24}
+  m_ConnectedAnchor: {x: 0.22999954, y: -0.24000001}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!1 &5461639931674998339
@@ -15036,7 +14923,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8525007466593783429}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &7717184314165515093
 BoxCollider2D:
@@ -15100,7 +14987,7 @@ FixedJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.515, y: -0.015}
+  m_ConnectedAnchor: {x: 0.51500034, y: -0.014999986}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!114 &968132471730256107
@@ -15313,30 +15200,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.18746948, y: -0.18815476}
-      - {x: 0.18702507, y: -0.21950275}
-      - {x: 0.15761566, y: -0.21898782}
-      - {x: 0.1570797, y: -0.2486319}
-      - {x: -0.00006866455, y: -0.24945992}
-      - {x: 0.0007381439, y: -0.21871978}
-      - {x: -0.093551636, y: -0.21923769}
-      - {x: -0.094408035, y: -0.18747097}
-      - {x: -0.1250763, y: -0.18735152}
-      - {x: -0.12693405, y: -0.21992481}
-      - {x: -0.15652466, y: -0.21895683}
-      - {x: -0.1568718, y: -0.2494725}
-      - {x: -0.2515068, y: -0.24959761}
-      - {x: -0.2508049, y: -0.28125}
-      - {x: -0.21848679, y: -0.28156626}
-      - {x: -0.2201519, y: -0.31400573}
-      - {x: 0.34340286, y: -0.3119071}
-      - {x: 0.3439083, y: -0.28142786}
-      - {x: 0.37548065, y: -0.28199637}
-      - {x: 0.37539482, y: -0.2494446}
-      - {x: 0.28095245, y: -0.24935025}
-      - {x: 0.28141975, y: -0.21838725}
-      - {x: 0.24938583, y: -0.21816593}
-      - {x: 0.24951363, y: -0.18813646}
+    - - {x: 0.37482452, y: -0.28028548}
+      - {x: 0.37433815, y: -0.2500769}
+      - {x: -0.24978065, y: -0.25018728}
+      - {x: -0.25008202, y: -0.28189135}
+      - {x: -0.21866989, y: -0.31257248}
+      - {x: 0.34349823, y: -0.31224036}
 --- !u!1 &6364971398524030134
 GameObject:
   m_ObjectHideFlags: 0
@@ -15466,7 +15335,7 @@ Transform:
   m_Children:
   - {fileID: 5834587422423037564}
   m_Father: {fileID: 8525007466593783429}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7538741849921588749
 GameObject:
@@ -15559,7 +15428,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8525007466593783429}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8525007466183980963
 GameObject:
@@ -15731,13 +15600,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.061483383, y: -0.25008184}
-      - {x: -0.056695938, y: -0.2501834}
-      - {x: -0.047792435, y: -0.24978924}
-      - {x: -0.030704498, y: -0.24897802}
-      - {x: -0.030605316, y: 0.028883398}
-      - {x: -0.029787064, y: 0.061916113}
-      - {x: -0.06191635, y: 0.06273067}
+    - - {x: -0.03128338, y: 0.06263733}
+      - {x: -0.062711716, y: 0.062818766}
+      - {x: -0.062675476, y: -0.2503025}
+      - {x: -0.030961037, y: -0.25026113}
 --- !u!1 &8525007466593783430
 GameObject:
   m_ObjectHideFlags: 0
@@ -15769,7 +15635,6 @@ Transform:
   - {fileID: 8525007466183980960}
   - {fileID: 4178228930359797526}
   - {fileID: 5981411069028399423}
-  - {fileID: 5114418705102827520}
   - {fileID: 4828048733653299492}
   - {fileID: 3632363953070128365}
   - {fileID: 343467722590200780}
@@ -15847,7 +15712,7 @@ MonoBehaviour:
   rangeHitBox: {fileID: 4735679135155080476}
   boatColliderHitBox: {fileID: 125851220960561842}
   mainHullPiece: {fileID: 5959329551072574323}
-  cannonPiece: {fileID: 5114418705102827520}
+  cannonPiece: {fileID: 0}
   cannonHullConnection: {fileID: 5981411069028399423}
   cannonSpawnPoints:
   - {fileID: 0}
@@ -15855,7 +15720,6 @@ MonoBehaviour:
   - {fileID: 8525007466183980963}
   - {fileID: 5959329551072574323}
   - {fileID: 4993364082129948200}
-  - {fileID: 5114418705102827521}
   cannonSmokeEffect: {fileID: 5470383468595050592, guid: 81c017d6944c64a429cc21f2e29f3e9f, type: 3}
   deathWeights: {fileID: 8294614153569180107}
   flotationBalances: {fileID: 7346875316954756302}
