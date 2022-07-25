@@ -1,10 +1,7 @@
 TODO:
 1) Fix the comments / tooltips for the PlayerBoat script (such as the boatColliderHitBox variable / tooltip: could be related to the BoatCaptureHitBox script)
-2) Remove CaptureHitboxes on 2nd hull pieces
-3) Improve boat polygon colliders
-4) Add custom level screen
-5) Add remaining boats
-6) Add ambient sound effects
-7) Update victory / defeat screen
-8) Improve enemy AI
-
+2) Add custom level screen
+3) Add remaining boats
+4) Add ambient sound effects
+5) Update victory / defeat screen
+6) Improve enemy AI

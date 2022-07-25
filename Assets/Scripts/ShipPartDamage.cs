@@ -119,6 +119,7 @@ public class ShipPartDamage : MonoBehaviour
                     }
                 }
             }
+
             FixedJoint2D joint = GetComponent<FixedJoint2D>();
             Destroy(joint);
 

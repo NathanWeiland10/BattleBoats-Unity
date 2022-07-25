@@ -127,18 +127,15 @@ public class PlayerBoat : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        if (!staticCannon)
+        if (!staticCannon && cannonPiece != null)
         {
-            if (!staticCannon)
+            if (friendlyBoat)
             {
-                if (friendlyBoat)
-                {
-                    cannonPiece.rotation = Quaternion.Euler(new Vector3(0, 0, 45));
-                }
-                else
-                {
-                    cannonPiece.rotation = Quaternion.Euler(new Vector3(0, 0, -225));
-                }
+                cannonPiece.rotation = Quaternion.Euler(new Vector3(0, 0, 45));
+            }
+            else
+            {
+                cannonPiece.rotation = Quaternion.Euler(new Vector3(0, 0, -225));
             }
         }
     }
@@ -198,7 +195,7 @@ public class PlayerBoat : MonoBehaviour
 
     public void Die()
     {
-        if (friendlyBoat) 
+        if (friendlyBoat)
         {
             gameManager.UpdateEnemyMoney(Mathf.Round((boatCost / 10) * gameManager.enemyLootMultiplier));
         }
@@ -348,6 +345,7 @@ public class PlayerBoat : MonoBehaviour
             bulletRB.AddForce((-cannonAngle.up) * cannonForce);
             yield return new WaitForSeconds(Random.Range(minShotDelay, maxShotDelay));
             isDelaying = false;
+            cannonAngle.eulerAngles = new Vector3(cannonSpawnPoint.eulerAngles.x, cannonSpawnPoint.eulerAngles.y, cannonSpawnPoint.eulerAngles.z - recoil);
         }
     }
 
@@ -375,6 +373,7 @@ public class PlayerBoat : MonoBehaviour
         bulletRB.AddForce((-cannonAngle.up) * cannonForce);
         yield return new WaitForSeconds(Random.Range(minShotDelay, maxShotDelay));
         isDelaying = false;
+        cannonAngle.eulerAngles = new Vector3(cannonSpawnPoint.eulerAngles.x, cannonSpawnPoint.eulerAngles.y, cannonSpawnPoint.eulerAngles.z - recoil);
     }
 
     public bool CheckIfBehind(PlayerBoat enemy)
