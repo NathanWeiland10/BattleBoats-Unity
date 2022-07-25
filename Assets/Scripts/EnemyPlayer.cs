@@ -61,7 +61,7 @@ public class EnemyPlayer : MonoBehaviour
     public void AttemptEnemyPurchase()
     {
         float boatCost = currentBoat.GetComponent<PlayerBoat>().boatCost;
-        if (gameManager.enemyTotalMoney >= boatCost && gameManager.enemySpawnQueue.Count < 5)
+        if (gameManager.enemyTotalMoney >= boatCost && gameManager.enemySpawnQueue.Count < 5 && gameManager.enemyBoatCount < gameManager.enemyMaxBoats)
         {
             gameManager.UpdateEnemyMoney(-boatCost);
             gameManager.SpawnEnemyBoat(currentBoat);

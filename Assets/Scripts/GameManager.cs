@@ -52,6 +52,16 @@ public class GameManager : MonoBehaviour
     [Tooltip("The list of all the enemy boats currently on the map")]
     public List<PlayerBoat> enemyBoats;
 
+    [Tooltip("The number of friendly boats on screen")]
+    public int friendlyBoatCount;
+    [Tooltip("The number of enemy boats on screen")]
+    public int enemyBoatCount;
+
+    [Tooltip("The maximum number of boats allowed on screen for the friendly team")]
+    public int friendlyMaxBoats;
+    [Tooltip("The maximum number of boats allowed on screen for the enemy team")]
+    public int enemyMaxBoats;
+
     [Tooltip("The max distance the camera can be scrolled in")]
     public float minCameraSize;
     [Tooltip("The max distance the camera can be scrolled out")]
@@ -350,6 +360,7 @@ public class GameManager : MonoBehaviour
         if (boat.GetBoatFriendlyStatus())
         {
             friendlyBoats.Remove(boat);
+            friendlyBoatCount--;
             // If the boat that was killed was a friendly boat, check the enemy boats and find its current enemy:
             if (enemyBoats.Count < 0)
             {
@@ -371,6 +382,7 @@ public class GameManager : MonoBehaviour
         else
         {
             enemyBoats.Remove(boat);
+            enemyBoatCount--;
             // If the boat that was killed was a enemy boat, check the friendly boats and find its current enemy:
             if (friendlyBoats.Count < 0)
             {
@@ -393,6 +405,7 @@ public class GameManager : MonoBehaviour
 
     public void SpawnFriendlyBoat(GameObject boat)
     {
+        friendlyBoatCount++;
         if (friendlySpawnQueue.Count == 0)
         {
             friendlySpawnTimer = boat.GetComponent<PlayerBoat>().spawnDelay / friendlySpawnTimeMultiplier;
@@ -419,6 +432,7 @@ public class GameManager : MonoBehaviour
 
     public void SpawnEnemyBoat(GameObject boat)
     {
+        enemyBoatCount++;
         if (enemySpawnQueue.Count == 0)
         {
             enemySpawnTimer = boat.GetComponent<PlayerBoat>().spawnDelay / enemySpawnTimeMultiplier;
