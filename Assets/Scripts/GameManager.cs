@@ -94,6 +94,9 @@ public class GameManager : MonoBehaviour
     [Tooltip("The text used to display the boat that is currently being spawned by the player")]
     public TMP_Text spawnerText;
 
+    [Tooltip("The text used to display the number of friendly boats spawned in-game")]
+    public TMP_Text friendlyBoatCountText;
+
     [Tooltip("The TMP text that is used to display the player (friendly team's) current total money")]
     public TMP_Text friendlyTotalMoneyText;
 
@@ -109,6 +112,9 @@ public class GameManager : MonoBehaviour
 
     [Tooltip("The current speed the game is playing at")]
     public float gameSpeed = 1f;
+
+    [Tooltip("Determines whether friendly boats will spawned stopped or not")]
+    public bool spawnFriendlyStopped = false;
 
     public TMP_Text gameSpeedText;
 
@@ -148,7 +154,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         BoatSelectionManager selman = FindObjectOfType<BoatSelectionManager>();
-        if (selman != null) {
+        if (selman != null)
+        {
             Destroy(selman.gameObject);
         }
     }
@@ -361,6 +368,7 @@ public class GameManager : MonoBehaviour
         {
             friendlyBoats.Remove(boat);
             friendlyBoatCount--;
+            friendlyBoatCountText.text = friendlyBoats.Count.ToString() + "/" + friendlyMaxBoats;
             // If the boat that was killed was a friendly boat, check the enemy boats and find its current enemy:
             if (enemyBoats.Count < 0)
             {
@@ -449,6 +457,7 @@ public class GameManager : MonoBehaviour
         GameObject spawnedBoat = Instantiate(boat, friendlyBoatSpawn.position, friendlyBoatSpawn.rotation);
         spawnedBoat.GetComponent<PlayerBoat>().maxHealth = spawnedBoat.GetComponent<PlayerBoat>().maxHealth * friendlyBoatHealthMultiplier;
         friendlyBoats.Add(spawnedBoat.GetComponent<PlayerBoat>());
+        friendlyBoatCountText.text = friendlyBoats.Count.ToString() + "/" + friendlyMaxBoats;
     }
 
     public void InstantiateEnemyBoat(GameObject boat)
@@ -586,6 +595,27 @@ public class GameManager : MonoBehaviour
         gameSpeedText.text = "1.00";
         yield return new WaitForSeconds(screenTime);
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void StopAllFriendlyBoats()
+    {
+        foreach (PlayerBoat b in friendlyBoats)
+        {
+            b.StopBoat();
+        }
+    }
+
+    public void StartAllFriendlyBoats()
+    {
+        foreach (PlayerBoat b in friendlyBoats)
+        {
+            b.StartBoat();
+        }
+    }
+
+    public void UpdatedSpawnedFriendlyStopped(bool b)
+    {
+        spawnFriendlyStopped = b;
     }
 
 }
