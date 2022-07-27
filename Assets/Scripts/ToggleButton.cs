@@ -12,15 +12,26 @@ public class ToggleButton : MonoBehaviour
 
     public Sprite disabledSprite;
 
-    public SettingsSaver settingsSaver;
-
-    bool clicked = false;
+    bool clicked;
 
     Image image;
-    
+
+    SettingsSaver settingsSaver;
+
     private void Awake()
     {
+        settingsSaver = FindObjectOfType<SettingsSaver>();
         image = button.GetComponent<Image>();
+
+        clicked = settingsSaver.showFPS;
+        if (clicked)
+        {
+            image.sprite = enabledSprite;
+        }
+        else
+        {
+            image.sprite = disabledSprite;
+        }
     }
 
     public void UpdateButtonClick()

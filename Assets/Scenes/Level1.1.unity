@@ -3760,6 +3760,7 @@ MonoBehaviour:
   gameSpeed: 1
   spawnFriendlyStopped: 0
   gameSpeedText: {fileID: 1228799321}
+  FPSText: {fileID: 138326133}
   victoryScreen: {fileID: 610035659}
   defeatScreen: {fileID: 1847919137}
   screenTime: 3
