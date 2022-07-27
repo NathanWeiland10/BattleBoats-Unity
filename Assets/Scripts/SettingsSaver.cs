@@ -9,6 +9,8 @@ public class SettingsSaver : MonoBehaviour
 
     public bool goToLevelSelectMenu;
 
+    public bool showFPS;
+
     public static SettingsSaver instance;
 
     void Awake()
@@ -28,6 +30,11 @@ public class SettingsSaver : MonoBehaviour
     public void SetGoToLevelSelectMenu(bool b)
     {
         goToLevelSelectMenu = b;
+    }
+
+    public void SetShowFPS(bool b)
+    {
+        showFPS = b;
     }
 
 }
