@@ -123,10 +123,6 @@ public class ShipPartDamage : MonoBehaviour
             FixedJoint2D joint = GetComponent<FixedJoint2D>();
             Destroy(joint);
 
-            // MARKER
-            // PolygonCollider2D poly = GetComponent<PolygonCollider2D>();
-            // Destroy(poly);
-
             if (pieceName.ToLower().Contains("mast") || pieceName.ToLower().Contains("sail"))
             {
                 playerBoat.UpdateBoatSpeed(-speedIncrement, pieceName);

@@ -9,6 +9,15 @@ public class PlayerBoat : MonoBehaviour
     [Tooltip("The script that destroys the components of this GameObject")]
     public DestroyAfterCor destroyerAfterScript;
 
+    [Tooltip("The gameobject that hold the UI for this boat")]
+    public GameObject boatUI;
+
+    [Tooltip("The gameobject that spawns when this boat dies")]
+    public GameObject deathEffect;
+
+    [Tooltip("The position that the death effect is spawned at")]
+    public Transform deathEffectSpawnPoint;
+
     [Tooltip("The name of this boat")]
     public string boatName;
 
@@ -84,9 +93,6 @@ public class PlayerBoat : MonoBehaviour
     [Tooltip("The GameObject that hold the flotation balances that help assist this boat float properly")]
     public GameObject flotationBalances;
 
-    [Tooltip("The Slider that shows the current health of this boat")]
-    public Slider healthSlider;
-
     [Tooltip("The fire particle system of this boat if it is a kamikaze boat")]
     public GameObject fireEffect;
 
@@ -101,6 +107,8 @@ public class PlayerBoat : MonoBehaviour
 
     bool isDelaying;
     bool isDead;
+
+    bool stopped = false;
 
     float currentHealth;
 
@@ -144,7 +152,7 @@ public class PlayerBoat : MonoBehaviour
     {
         if (!isDead)
         {
-            if (kamikaze && ((!isCapturing) || (isCapturing && currentEnemy != null)))
+            if (kamikaze && ((!isCapturing) || (isCapturing && currentEnemy != null)) && !stopped)
             {
                 if (friendlyBoat)
                 {
@@ -156,7 +164,7 @@ public class PlayerBoat : MonoBehaviour
                 }
             }
 
-            if (!kamikaze && (currentEnemy == null && encounteredBase == null) && !isCapturing)
+            if (!kamikaze && (currentEnemy == null && encounteredBase == null) && !isCapturing && !stopped)
             {
                 if (friendlyBoat)
                 {
@@ -204,7 +212,10 @@ public class PlayerBoat : MonoBehaviour
             gameManager.UpdateFriendlyMoney(Mathf.Round((boatCost / 10) * gameManager.friendlyLootMultiplier));
         }
 
+        Instantiate(deathEffect, deathEffectSpawnPoint.position, deathEffectSpawnPoint.rotation);
+
         flotationBalances.SetActive(false);
+        boatUI.SetActive(false);
         destroyerAfterScript.DestroyAfter(destroyAfter);
         if (kamikaze)
         {
@@ -227,11 +238,6 @@ public class PlayerBoat : MonoBehaviour
                 Destroy(joint);
                 HingeJoint2D joint2 = boatPiece.GetComponent<HingeJoint2D>();
                 Destroy(joint2);
-
-
-                // MARKER
-                // PolygonCollider2D poly = boatPiece.GetComponent<PolygonCollider2D>();
-                // Destroy(poly);
 
                 boatPiece.GetComponent<Rigidbody2D>().mass += boatPiece.GetComponent<ShipPartDamage>().GetDeathWeight();
 
@@ -444,6 +450,16 @@ public class PlayerBoat : MonoBehaviour
     public void SetIsCapturing(bool b)
     {
         isCapturing = b;
+    }
+
+    public void StopBoat()
+    {
+        stopped = true;
+    }
+
+    public void StartBoat()
+    {
+        stopped = false;
     }
 
 }
