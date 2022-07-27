@@ -228,8 +228,10 @@ public class PlayerBoat : MonoBehaviour
                 HingeJoint2D joint2 = boatPiece.GetComponent<HingeJoint2D>();
                 Destroy(joint2);
 
-                PolygonCollider2D poly = boatPiece.GetComponent<PolygonCollider2D>();
-                Destroy(poly);
+
+                // MARKER
+                // PolygonCollider2D poly = boatPiece.GetComponent<PolygonCollider2D>();
+                // Destroy(poly);
 
                 boatPiece.GetComponent<Rigidbody2D>().mass += boatPiece.GetComponent<ShipPartDamage>().GetDeathWeight();
 

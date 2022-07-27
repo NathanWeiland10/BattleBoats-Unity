@@ -1630,7 +1630,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pieceName: Bow
   speedIncrement: 1
-  nonRemovablePiece: 1
+  nonRemovablePiece: 0
   pieceMaxHealth: 25
   playerBoat: {fileID: 5374372289924207934}
   deathWeightAmount: 20
