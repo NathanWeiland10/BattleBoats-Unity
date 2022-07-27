@@ -211,6 +211,8 @@ MonoBehaviour:
   boatUI: {fileID: 9107427200298263570}
   deathEffect: {fileID: 1284032669554615246, guid: d5f87ecc0cb41254ca8520acc50723ec, type: 3}
   deathEffectSpawnPoint: {fileID: 2096719103691031191}
+  stopBorder: {fileID: 9107427200048555186}
+  startBorder: {fileID: 9107427201190046689}
   boatName: Cog
   friendlyBoat: 1
   maxHealth: 125

@@ -2611,6 +2611,8 @@ MonoBehaviour:
   boatUI: {fileID: 106597902336345689}
   deathEffect: {fileID: 1284032669554615246, guid: d5f87ecc0cb41254ca8520acc50723ec, type: 3}
   deathEffectSpawnPoint: {fileID: 7992014373906449121}
+  stopBorder: {fileID: 106597901489504512}
+  startBorder: {fileID: 106597902076714484}
   boatName: Geobukseon
   friendlyBoat: 1
   maxHealth: 475

@@ -3438,6 +3438,8 @@ MonoBehaviour:
   boatUI: {fileID: 4696833664274538831}
   deathEffect: {fileID: 1284032669554615246, guid: d5f87ecc0cb41254ca8520acc50723ec, type: 3}
   deathEffectSpawnPoint: {fileID: 8301980771246813634}
+  stopBorder: {fileID: 4696833663589381269}
+  startBorder: {fileID: 4696833665440853467}
   boatName: Frigate
   friendlyBoat: 1
   maxHealth: 310

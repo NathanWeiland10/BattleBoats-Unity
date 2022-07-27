@@ -597,6 +597,8 @@ MonoBehaviour:
   boatUI: {fileID: 8611824956328780232}
   deathEffect: {fileID: 1284032669554615246, guid: d5f87ecc0cb41254ca8520acc50723ec, type: 3}
   deathEffectSpawnPoint: {fileID: 7138366895381964619}
+  stopBorder: {fileID: 8611824957859584480}
+  startBorder: {fileID: 8611824957540377174}
   boatName: Dromon
   friendlyBoat: 1
   maxHealth: 130

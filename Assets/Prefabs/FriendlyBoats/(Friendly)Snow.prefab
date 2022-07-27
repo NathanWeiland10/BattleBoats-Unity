@@ -2124,6 +2124,8 @@ MonoBehaviour:
   boatUI: {fileID: 8450386097395369204}
   deathEffect: {fileID: 1284032669554615246, guid: d5f87ecc0cb41254ca8520acc50723ec, type: 3}
   deathEffectSpawnPoint: {fileID: 6099289371130571044}
+  stopBorder: {fileID: 1042349312370795495}
+  startBorder: {fileID: 1042349311707278764}
   boatName: Snow
   friendlyBoat: 1
   maxHealth: 135

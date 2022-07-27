@@ -1337,6 +1337,8 @@ MonoBehaviour:
   boatUI: {fileID: 10736047722916826}
   deathEffect: {fileID: 1284032669554615246, guid: d5f87ecc0cb41254ca8520acc50723ec, type: 3}
   deathEffectSpawnPoint: {fileID: 3060749187780661700}
+  stopBorder: {fileID: 10736047549541812}
+  startBorder: {fileID: 10736046681055590}
   boatName: Gundalow
   friendlyBoat: 1
   maxHealth: 60

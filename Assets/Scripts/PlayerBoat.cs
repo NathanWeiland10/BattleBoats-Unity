@@ -18,6 +18,12 @@ public class PlayerBoat : MonoBehaviour
     [Tooltip("The position that the death effect is spawned at")]
     public Transform deathEffectSpawnPoint;
 
+    [Tooltip("The gameobject that indicates the boat is stopped")]
+    public GameObject stopBorder;
+
+    [Tooltip("The gameobject that indicates the boat is not stopped")]
+    public GameObject startBorder;
+
     [Tooltip("The name of this boat")]
     public string boatName;
 
@@ -130,6 +136,11 @@ public class PlayerBoat : MonoBehaviour
         }
         gameManager = FindObjectOfType<GameManager>();
         boatRigidBody = mainHullPiece.GetComponent<Rigidbody2D>();
+
+        if (friendlyBoat) 
+        {
+            stopped = gameManager.spawnFriendlyStopped;
+        }
     }
 
     void Start()
@@ -454,11 +465,21 @@ public class PlayerBoat : MonoBehaviour
 
     public void StopBoat()
     {
+        if (stopBorder != null && startBorder != null)
+        {
+            stopBorder.SetActive(true);
+            startBorder.SetActive(false);
+        }
         stopped = true;
     }
 
     public void StartBoat()
     {
+        if (stopBorder != null && startBorder != null)
+        {
+            stopBorder.SetActive(false);
+            startBorder.SetActive(true);
+        }
         stopped = false;
     }
 

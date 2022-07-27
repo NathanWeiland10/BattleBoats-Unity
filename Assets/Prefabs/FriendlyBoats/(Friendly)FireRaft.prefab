@@ -16692,6 +16692,8 @@ MonoBehaviour:
   boatUI: {fileID: 3343170779418863188}
   deathEffect: {fileID: 1284032669554615246, guid: d5f87ecc0cb41254ca8520acc50723ec, type: 3}
   deathEffectSpawnPoint: {fileID: 5981411069028399423}
+  stopBorder: {fileID: 3343170777705495519}
+  startBorder: {fileID: 3343170779192031305}
   boatName: Fire Raft
   friendlyBoat: 1
   maxHealth: 55

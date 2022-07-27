@@ -113,6 +113,9 @@ public class GameManager : MonoBehaviour
     [Tooltip("The current speed the game is playing at")]
     public float gameSpeed = 1f;
 
+    [Tooltip("Determines whether friendly boats will spawned stopped or not")]
+    public bool spawnFriendlyStopped = false;
+
     public TMP_Text gameSpeedText;
 
     public GameObject victoryScreen;
@@ -592,6 +595,27 @@ public class GameManager : MonoBehaviour
         gameSpeedText.text = "1.00";
         yield return new WaitForSeconds(screenTime);
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void StopAllFriendlyBoats()
+    {
+        foreach (PlayerBoat b in friendlyBoats)
+        {
+            b.StopBoat();
+        }
+    }
+
+    public void StartAllFriendlyBoats()
+    {
+        foreach (PlayerBoat b in friendlyBoats)
+        {
+            b.StartBoat();
+        }
+    }
+
+    public void UpdatedSpawnedFriendlyStopped(bool b)
+    {
+        spawnFriendlyStopped = b;
     }
 
 }

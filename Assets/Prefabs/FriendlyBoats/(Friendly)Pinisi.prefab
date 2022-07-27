@@ -2081,6 +2081,8 @@ MonoBehaviour:
   boatUI: {fileID: 1175663709311775446}
   deathEffect: {fileID: 1284032669554615246, guid: d5f87ecc0cb41254ca8520acc50723ec, type: 3}
   deathEffectSpawnPoint: {fileID: 6885665963486842990}
+  stopBorder: {fileID: 1175663708649288824}
+  startBorder: {fileID: 1175663710209538746}
   boatName: Pinisi
   friendlyBoat: 1
   maxHealth: 150

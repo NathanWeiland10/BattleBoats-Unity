@@ -2396,6 +2396,8 @@ MonoBehaviour:
   boatUI: {fileID: 4592015170892347017}
   deathEffect: {fileID: 1284032669554615246, guid: d5f87ecc0cb41254ca8520acc50723ec, type: 3}
   deathEffectSpawnPoint: {fileID: 4640748990949717935}
+  stopBorder: {fileID: 4592015171184623151}
+  startBorder: {fileID: 4592015169222572418}
   boatName: Trireme
   friendlyBoat: 1
   maxHealth: 130

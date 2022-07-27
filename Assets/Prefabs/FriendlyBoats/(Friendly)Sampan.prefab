@@ -777,6 +777,8 @@ MonoBehaviour:
   boatUI: {fileID: 9119413463417132154}
   deathEffect: {fileID: 1284032669554615246, guid: d5f87ecc0cb41254ca8520acc50723ec, type: 3}
   deathEffectSpawnPoint: {fileID: 5724806631019494512}
+  stopBorder: {fileID: 9119413463534966941}
+  startBorder: {fileID: 9119413461844410810}
   boatName: Sampan
   friendlyBoat: 1
   maxHealth: 60

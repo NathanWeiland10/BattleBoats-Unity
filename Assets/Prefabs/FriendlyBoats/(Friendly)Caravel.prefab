@@ -2453,6 +2453,8 @@ MonoBehaviour:
   boatUI: {fileID: 5020658598433330886}
   deathEffect: {fileID: 1284032669554615246, guid: d5f87ecc0cb41254ca8520acc50723ec, type: 3}
   deathEffectSpawnPoint: {fileID: 5374372288262902536}
+  stopBorder: {fileID: 3285821248027977}
+  startBorder: {fileID: 3285819850494733}
   boatName: Caravel
   friendlyBoat: 1
   maxHealth: 100

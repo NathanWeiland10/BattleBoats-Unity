@@ -2261,6 +2261,8 @@ MonoBehaviour:
   boatUI: {fileID: 6688012213236416478}
   deathEffect: {fileID: 1284032669554615246, guid: d5f87ecc0cb41254ca8520acc50723ec, type: 3}
   deathEffectSpawnPoint: {fileID: 7098160014343399237}
+  stopBorder: {fileID: 6688012213755800678}
+  startBorder: {fileID: 6688012212179689417}
   boatName: Galiot
   friendlyBoat: 1
   maxHealth: 140

@@ -831,6 +831,8 @@ MonoBehaviour:
   boatUI: {fileID: 3980767865496860828}
   deathEffect: {fileID: 1284032669554615246, guid: d5f87ecc0cb41254ca8520acc50723ec, type: 3}
   deathEffectSpawnPoint: {fileID: 3682845595664793862}
+  stopBorder: {fileID: 3980767865674074563}
+  startBorder: {fileID: 3980767865916440693}
   boatName: Bomb Ketch
   friendlyBoat: 1
   maxHealth: 90

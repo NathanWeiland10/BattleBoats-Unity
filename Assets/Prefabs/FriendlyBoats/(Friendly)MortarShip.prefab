@@ -1328,6 +1328,8 @@ MonoBehaviour:
   boatUI: {fileID: 8849409826413005772}
   deathEffect: {fileID: 1284032669554615246, guid: d5f87ecc0cb41254ca8520acc50723ec, type: 3}
   deathEffectSpawnPoint: {fileID: 5929353810482016949}
+  stopBorder: {fileID: 8849409825752115050}
+  startBorder: {fileID: 8849409825771449906}
   boatName: Mortar Ship
   friendlyBoat: 1
   maxHealth: 250

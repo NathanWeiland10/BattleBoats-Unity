@@ -3188,6 +3188,8 @@ MonoBehaviour:
   boatUI: {fileID: 1736602730728905411}
   deathEffect: {fileID: 1284032669554615246, guid: d5f87ecc0cb41254ca8520acc50723ec, type: 3}
   deathEffectSpawnPoint: {fileID: 8148900843795314532}
+  stopBorder: {fileID: 1736602730857998734}
+  startBorder: {fileID: 1736602732188684777}
   boatName: Lorcha
   friendlyBoat: 1
   maxHealth: 190

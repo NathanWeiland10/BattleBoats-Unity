@@ -50,6 +50,8 @@ MonoBehaviour:
   boatUI: {fileID: 1450073927239027991}
   deathEffect: {fileID: 1284032669554615246, guid: d5f87ecc0cb41254ca8520acc50723ec, type: 3}
   deathEffectSpawnPoint: {fileID: 793314990767887061}
+  stopBorder: {fileID: 1450073926176390082}
+  startBorder: {fileID: 1450073927898033657}
   boatName: Ironclad
   friendlyBoat: 1
   maxHealth: 580

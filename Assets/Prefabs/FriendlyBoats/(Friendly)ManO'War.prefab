@@ -3534,6 +3534,8 @@ MonoBehaviour:
   boatUI: {fileID: 164404236640084705}
   deathEffect: {fileID: 1284032669554615246, guid: d5f87ecc0cb41254ca8520acc50723ec, type: 3}
   deathEffectSpawnPoint: {fileID: 7372982414967428818}
+  stopBorder: {fileID: 164404237058599948}
+  startBorder: {fileID: 164404236976053010}
   boatName: Man O' War
   friendlyBoat: 1
   maxHealth: 380

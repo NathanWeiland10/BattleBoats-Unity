@@ -151,6 +151,8 @@ MonoBehaviour:
   boatUI: {fileID: 1269072654271404474}
   deathEffect: {fileID: 1284032669554615246, guid: d5f87ecc0cb41254ca8520acc50723ec, type: 3}
   deathEffectSpawnPoint: {fileID: 13611595170974312}
+  stopBorder: {fileID: 1269072652567488689}
+  startBorder: {fileID: 1269072652526076968}
   boatName: War Galley
   friendlyBoat: 1
   maxHealth: 120

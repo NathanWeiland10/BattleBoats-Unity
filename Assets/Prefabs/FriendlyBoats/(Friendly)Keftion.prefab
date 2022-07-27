@@ -1866,6 +1866,8 @@ MonoBehaviour:
   boatUI: {fileID: 5179899110107349931}
   deathEffect: {fileID: 1284032669554615246, guid: d5f87ecc0cb41254ca8520acc50723ec, type: 3}
   deathEffectSpawnPoint: {fileID: 3099529445890715213}
+  stopBorder: {fileID: 5179899110225744722}
+  startBorder: {fileID: 5179899109333149559}
   boatName: Keftion
   friendlyBoat: 1
   maxHealth: 55

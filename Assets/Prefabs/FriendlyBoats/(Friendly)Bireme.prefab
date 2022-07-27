@@ -1481,6 +1481,8 @@ MonoBehaviour:
   boatUI: {fileID: 3023194943346976372}
   deathEffect: {fileID: 1284032669554615246, guid: d5f87ecc0cb41254ca8520acc50723ec, type: 3}
   deathEffectSpawnPoint: {fileID: 3227315941209265769}
+  stopBorder: {fileID: 3023194943503213010}
+  startBorder: {fileID: 3023194944513973930}
   boatName: Bireme
   friendlyBoat: 1
   maxHealth: 110

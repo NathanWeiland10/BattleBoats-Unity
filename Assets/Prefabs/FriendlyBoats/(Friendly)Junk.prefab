@@ -609,6 +609,8 @@ MonoBehaviour:
   boatUI: {fileID: 6575533548968478443}
   deathEffect: {fileID: 1284032669554615246, guid: d5f87ecc0cb41254ca8520acc50723ec, type: 3}
   deathEffectSpawnPoint: {fileID: 2324045384304558821}
+  stopBorder: {fileID: 6575533549274333691}
+  startBorder: {fileID: 6575533550247465300}
   boatName: Junk
   friendlyBoat: 1
   maxHealth: 125

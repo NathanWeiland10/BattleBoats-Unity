@@ -2569,6 +2569,8 @@ MonoBehaviour:
   boatUI: {fileID: 2025922348072525081}
   deathEffect: {fileID: 1284032669554615246, guid: d5f87ecc0cb41254ca8520acc50723ec, type: 3}
   deathEffectSpawnPoint: {fileID: 7078082581784582367}
+  stopBorder: {fileID: 2025922347916670118}
+  startBorder: {fileID: 2025922348791277114}
   boatName: Fluyt
   friendlyBoat: 1
   maxHealth: 110

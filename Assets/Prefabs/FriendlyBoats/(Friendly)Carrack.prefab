@@ -823,6 +823,8 @@ MonoBehaviour:
   boatUI: {fileID: 6047694246083106289}
   deathEffect: {fileID: 1284032669554615246, guid: d5f87ecc0cb41254ca8520acc50723ec, type: 3}
   deathEffectSpawnPoint: {fileID: 1117797893631130250}
+  stopBorder: {fileID: 6047694245491663970}
+  startBorder: {fileID: 6047694245926820066}
   boatName: Carrack
   friendlyBoat: 1
   maxHealth: 175

@@ -2138,6 +2138,8 @@ MonoBehaviour:
   boatUI: {fileID: 4815154673375857897}
   deathEffect: {fileID: 1284032669554615246, guid: d5f87ecc0cb41254ca8520acc50723ec, type: 3}
   deathEffectSpawnPoint: {fileID: 7095823532044278430}
+  stopBorder: {fileID: 4815154673053775388}
+  startBorder: {fileID: 4815154672442000995}
   boatName: Xebec
   friendlyBoat: 1
   maxHealth: 100

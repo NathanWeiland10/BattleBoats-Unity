@@ -5331,6 +5331,8 @@ MonoBehaviour:
   boatUI: {fileID: 8872402014271047466}
   deathEffect: {fileID: 1284032669554615246, guid: d5f87ecc0cb41254ca8520acc50723ec, type: 3}
   deathEffectSpawnPoint: {fileID: 8102823420737256768}
+  stopBorder: {fileID: 8872402013379284410}
+  startBorder: {fileID: 8872402013467886325}
   boatName: Fireship
   friendlyBoat: 1
   maxHealth: 95

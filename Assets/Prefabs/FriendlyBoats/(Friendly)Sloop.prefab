@@ -526,6 +526,8 @@ MonoBehaviour:
   boatUI: {fileID: 1687027077048614618}
   deathEffect: {fileID: 1284032669554615246, guid: d5f87ecc0cb41254ca8520acc50723ec, type: 3}
   deathEffectSpawnPoint: {fileID: 759241121698659023}
+  stopBorder: {fileID: 1687027077254448122}
+  startBorder: {fileID: 1687027076721340609}
   boatName: Sloop
   friendlyBoat: 1
   maxHealth: 85

@@ -1476,6 +1476,8 @@ MonoBehaviour:
   boatUI: {fileID: 7351248934643841344}
   deathEffect: {fileID: 1284032669554615246, guid: d5f87ecc0cb41254ca8520acc50723ec, type: 3}
   deathEffectSpawnPoint: {fileID: 2569359633274252124}
+  stopBorder: {fileID: 7351248935534617773}
+  startBorder: {fileID: 7351248936010064245}
   boatName: Barque
   friendlyBoat: 1
   maxHealth: 200

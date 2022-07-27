@@ -2491,6 +2491,8 @@ MonoBehaviour:
   boatUI: {fileID: 5998317632138873198}
   deathEffect: {fileID: 1284032669554615246, guid: d5f87ecc0cb41254ca8520acc50723ec, type: 3}
   deathEffectSpawnPoint: {fileID: 7305712627220020698}
+  stopBorder: {fileID: 5998317633078099511}
+  startBorder: {fileID: 5998317633560162568}
   boatName: Erebus
   friendlyBoat: 1
   maxHealth: 260

@@ -2503,6 +2503,8 @@ MonoBehaviour:
   boatUI: {fileID: 3241300024225483031}
   deathEffect: {fileID: 1284032669554615246, guid: d5f87ecc0cb41254ca8520acc50723ec, type: 3}
   deathEffectSpawnPoint: {fileID: 8964101290771038546}
+  stopBorder: {fileID: 3241300023352676860}
+  startBorder: {fileID: 3241300023321745013}
   boatName: Atakebune
   friendlyBoat: 1
   maxHealth: 360

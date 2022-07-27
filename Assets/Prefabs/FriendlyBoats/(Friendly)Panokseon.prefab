@@ -2117,6 +2117,8 @@ MonoBehaviour:
   boatUI: {fileID: 5826640326595271138}
   deathEffect: {fileID: 1284032669554615246, guid: d5f87ecc0cb41254ca8520acc50723ec, type: 3}
   deathEffectSpawnPoint: {fileID: 6200973871667871239}
+  stopBorder: {fileID: 5826640326555904298}
+  startBorder: {fileID: 5826640327100761923}
   boatName: Panokseon
   friendlyBoat: 1
   maxHealth: 250

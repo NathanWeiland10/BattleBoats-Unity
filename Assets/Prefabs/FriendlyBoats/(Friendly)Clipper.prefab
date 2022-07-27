@@ -745,6 +745,8 @@ MonoBehaviour:
   boatUI: {fileID: 2256381490842911860}
   deathEffect: {fileID: 1284032669554615246, guid: d5f87ecc0cb41254ca8520acc50723ec, type: 3}
   deathEffectSpawnPoint: {fileID: 2133108371143473741}
+  stopBorder: {fileID: 2256381490044739292}
+  startBorder: {fileID: 2256381490072106101}
   boatName: Clipper
   friendlyBoat: 1
   maxHealth: 220

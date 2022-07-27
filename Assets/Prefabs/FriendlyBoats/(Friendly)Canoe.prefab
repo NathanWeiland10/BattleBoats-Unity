@@ -1402,6 +1402,8 @@ MonoBehaviour:
   boatUI: {fileID: 314001492095794978}
   deathEffect: {fileID: 1284032669554615246, guid: d5f87ecc0cb41254ca8520acc50723ec, type: 3}
   deathEffectSpawnPoint: {fileID: 6210729647325558972}
+  stopBorder: {fileID: 314001493539733041}
+  startBorder: {fileID: 314001492110263967}
   boatName: Canoe
   friendlyBoat: 1
   maxHealth: 20

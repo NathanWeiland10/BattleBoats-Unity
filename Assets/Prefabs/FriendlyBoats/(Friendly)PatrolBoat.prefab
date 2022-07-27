@@ -1212,6 +1212,8 @@ MonoBehaviour:
   boatUI: {fileID: 1500015273928712913}
   deathEffect: {fileID: 1284032669554615246, guid: d5f87ecc0cb41254ca8520acc50723ec, type: 3}
   deathEffectSpawnPoint: {fileID: 4736740244188391271}
+  stopBorder: {fileID: 1500015273929735881}
+  startBorder: {fileID: 1500015273420207917}
   boatName: Patrol Boat
   friendlyBoat: 1
   maxHealth: 70

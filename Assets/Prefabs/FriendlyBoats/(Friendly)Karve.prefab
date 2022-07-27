@@ -826,6 +826,8 @@ MonoBehaviour:
   boatUI: {fileID: 6713447963037401689}
   deathEffect: {fileID: 1284032669554615246, guid: d5f87ecc0cb41254ca8520acc50723ec, type: 3}
   deathEffectSpawnPoint: {fileID: 6425127091824916395}
+  stopBorder: {fileID: 6713447961539011883}
+  startBorder: {fileID: 6713447962155547262}
   boatName: Karve
   friendlyBoat: 1
   maxHealth: 170

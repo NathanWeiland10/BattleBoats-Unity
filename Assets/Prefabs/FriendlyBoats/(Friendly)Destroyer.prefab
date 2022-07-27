@@ -415,6 +415,8 @@ MonoBehaviour:
   boatUI: {fileID: 742153222641238519}
   deathEffect: {fileID: 1284032669554615246, guid: d5f87ecc0cb41254ca8520acc50723ec, type: 3}
   deathEffectSpawnPoint: {fileID: 308298815447110549}
+  stopBorder: {fileID: 742153224288221159}
+  startBorder: {fileID: 742153224411764587}
   boatName: Destroyer
   friendlyBoat: 1
   maxHealth: 400

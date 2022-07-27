@@ -22362,6 +22362,8 @@ MonoBehaviour:
   boatUI: {fileID: 748400413181652482}
   deathEffect: {fileID: 1284032669554615246, guid: d5f87ecc0cb41254ca8520acc50723ec, type: 3}
   deathEffectSpawnPoint: {fileID: 6909892832609292299}
+  stopBorder: {fileID: 748400413159490037}
+  startBorder: {fileID: 748400411865260071}
   boatName: Hellburner
   friendlyBoat: 1
   maxHealth: 130

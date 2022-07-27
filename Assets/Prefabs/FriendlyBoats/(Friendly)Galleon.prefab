@@ -2875,6 +2875,8 @@ MonoBehaviour:
   boatUI: {fileID: 976864670223756675}
   deathEffect: {fileID: 1284032669554615246, guid: d5f87ecc0cb41254ca8520acc50723ec, type: 3}
   deathEffectSpawnPoint: {fileID: 7103065493235489684}
+  stopBorder: {fileID: 976864668459754509}
+  startBorder: {fileID: 976864670269183457}
   boatName: Galleon
   friendlyBoat: 1
   maxHealth: 240
