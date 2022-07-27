@@ -118,6 +118,8 @@ public class GameManager : MonoBehaviour
 
     public TMP_Text gameSpeedText;
 
+    public GameObject FPSText;
+
     public GameObject victoryScreen;
     public GameObject defeatScreen;
     public float screenTime = 3f;
@@ -141,14 +143,27 @@ public class GameManager : MonoBehaviour
     public List<GameObject> enemySpawnQueue = new List<GameObject>();
     float enemySpawnTimer = 0f;
 
+    SettingsSaver settingsSaver;
+
     void Awake()
     {
+        settingsSaver = FindObjectOfType<SettingsSaver>();
+
         friendlyMoneyPerSecond += friendlyBase.GetBaseMoneyPerSecond();
         enemyMoneyPerSecond += enemyBase.GetBaseMoneyPerSecond();
         gameHUD.SetActive(true);
         spawnerText.text = "";
         Time.timeScale = 1f;
         gameSpeedText.text = "1.00";
+
+        if (settingsSaver.showFPS)
+        {
+            FPSText.SetActive(true);
+        }
+        else
+        {
+            FPSText.SetActive(false);
+        }
     }
 
     void Start()
