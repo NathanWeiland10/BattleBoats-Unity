@@ -325,7 +325,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyerAfterScript: {fileID: 2807613603179486058}
   boatUI: {fileID: 6598284663015912710}
-  deathEffect: {fileID: 1284032669554615246, guid: d5f87ecc0cb41254ca8520acc50723ec, type: 3}
+  deathEffect: {fileID: 7762870664007651785, guid: 2fd50d251708a8b4c833e947101d37a0, type: 3}
   deathEffectSpawnPoint: {fileID: 2386324047287982498}
   stopBorder: {fileID: 0}
   startBorder: {fileID: 0}

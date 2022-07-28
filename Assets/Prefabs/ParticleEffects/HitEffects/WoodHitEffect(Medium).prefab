@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6241055024762965053}
   - component: {fileID: 5513841166651110387}
   m_Layer: 0
-  m_Name: WoodHitEffect
+  m_Name: WoodHitEffect(Medium)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
