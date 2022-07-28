@@ -77,6 +77,8 @@ MonoBehaviour:
   pieceMaxHealth: 0
   playerBoat: {fileID: 13611593539619934}
   deathWeightAmount: 0
+  hitEffect: {fileID: 1386299231865863778, guid: 863e53be96e457948ae68fd50f641475, type: 3}
+  hitSoundEffect: WoodHit1
 --- !u!233 &5378917206359096855
 HingeJoint2D:
   m_ObjectHideFlags: 0
@@ -337,6 +339,8 @@ MonoBehaviour:
   pieceMaxHealth: 55
   playerBoat: {fileID: 13611593539619934}
   deathWeightAmount: 15
+  hitEffect: {fileID: 1386299231865863778, guid: 863e53be96e457948ae68fd50f641475, type: 3}
+  hitSoundEffect: WoodHit1
 --- !u!255 &13611593996955179
 FixedJoint2D:
   m_ObjectHideFlags: 0
@@ -618,6 +622,8 @@ MonoBehaviour:
   pieceMaxHealth: 55
   playerBoat: {fileID: 13611593539619934}
   deathWeightAmount: 15
+  hitEffect: {fileID: 1386299231865863778, guid: 863e53be96e457948ae68fd50f641475, type: 3}
+  hitSoundEffect: WoodHit1
 --- !u!255 &13611594695878729
 FixedJoint2D:
   m_ObjectHideFlags: 0
@@ -798,6 +804,8 @@ MonoBehaviour:
   pieceMaxHealth: 0
   playerBoat: {fileID: 13611593539619934}
   deathWeightAmount: 30
+  hitEffect: {fileID: 1386299231865863778, guid: 863e53be96e457948ae68fd50f641475, type: 3}
+  hitSoundEffect: WoodHit1
 --- !u!61 &13611595170974317
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1064,6 +1072,8 @@ MonoBehaviour:
   pieceMaxHealth: 40
   playerBoat: {fileID: 13611593539619934}
   deathWeightAmount: 15
+  hitEffect: {fileID: 1386299231865863778, guid: 863e53be96e457948ae68fd50f641475, type: 3}
+  hitSoundEffect: WoodHit1
 --- !u!255 &63755274618121431
 FixedJoint2D:
   m_ObjectHideFlags: 0
@@ -2304,6 +2314,8 @@ MonoBehaviour:
   pieceMaxHealth: 45
   playerBoat: {fileID: 13611593539619934}
   deathWeightAmount: 50
+  hitEffect: {fileID: 1386299231865863778, guid: 863e53be96e457948ae68fd50f641475, type: 3}
+  hitSoundEffect: WoodHit1
 --- !u!255 &7523674515442700148
 FixedJoint2D:
   m_ObjectHideFlags: 0
@@ -2480,6 +2492,8 @@ MonoBehaviour:
   pieceMaxHealth: 45
   playerBoat: {fileID: 13611593539619934}
   deathWeightAmount: 20
+  hitEffect: {fileID: 1386299231865863778, guid: 863e53be96e457948ae68fd50f641475, type: 3}
+  hitSoundEffect: WoodHit1
 --- !u!255 &7523674515486700086
 FixedJoint2D:
   m_ObjectHideFlags: 0

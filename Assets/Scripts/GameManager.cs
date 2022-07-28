@@ -7,6 +7,13 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+
+    public CinematicFireworks friendlyFireworks;
+
+    public CinematicFireworks enemyFireworks;
+
+    public LevelLoader menuLoader;
+
     [Tooltip("The GameObject that serves as / holds the main camera")]
     public GameObject mainCameraRig;
     [Tooltip("The main camera for the scene")]
@@ -132,8 +139,13 @@ public class GameManager : MonoBehaviour
 
     public bool gameEnded = false;
 
+    float startDelay = 1;
+    public bool gameStarted;
+
     float moneyTimer = 1; // Initial value serves as an initial wait time for the money to start ticking up
     float waitTime;
+
+    bool friendlyVictory;
 
     [Tooltip("The list of boats that the player is currently awaiting to spawn")]
     public List<GameObject> friendlySpawnQueue = new List<GameObject>();
@@ -156,7 +168,9 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         gameSpeedText.text = "1.00";
 
-        if (settingsSaver.showFPS)
+        friendlyTotalMoneyText.text = "$" + friendlyTotalMoney;
+
+        if (settingsSaver != null && settingsSaver.showFPS)
         {
             FPSText.SetActive(true);
         }
@@ -173,6 +187,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(selman.gameObject);
         }
+
+        StartCoroutine(StartDelay());
     }
 
     void Update()
@@ -232,14 +248,14 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f && !gamePaused)
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f && !gamePaused && gameStarted && !gameEnded)
         {
             if (mainCamera.orthographicSize - cameraScrollSpeed > minCameraSize)
             {
                 mainCamera.orthographicSize -= cameraScrollSpeed;
             }
         }
-        else if (Input.GetAxis("Mouse ScrollWheel") < 0f && !gamePaused)
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0f && !gamePaused && gameStarted && !gameEnded)
         {
             if (mainCamera.orthographicSize + cameraScrollSpeed < maxCameraSize)
             {
@@ -247,10 +263,15 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape) && !gameEnded)
+        if (Input.GetKeyDown(KeyCode.Escape) && !gameEnded && gameStarted)
         {
             if (!gamePaused)
             {
+                foreach (PlayerBoat b in friendlyBoats)
+                {
+                    b.boatUI.GetComponent<HealthHover>().boatCanvas.SetActive(false);
+                }
+
                 gamePaused = true;
                 gameScreen.gameObject.SetActive(false);
                 pauseScreen.gameObject.SetActive(true);
@@ -278,32 +299,48 @@ public class GameManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        if (!gameEnded && gameStarted)
         {
-            if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.LeftShift))
+            if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && gameStarted)
             {
-                mainCameraRig.GetComponent<Rigidbody2D>().AddForce((Vector3.left * cameraMoveSpeed * 3) / gameSpeed);
+                if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.LeftShift))
+                {
+                    mainCameraRig.GetComponent<Rigidbody2D>().AddForce((Vector3.left * cameraMoveSpeed * 3) / gameSpeed);
+                }
+                else
+                {
+                    mainCameraRig.GetComponent<Rigidbody2D>().AddForce((Vector3.left * cameraMoveSpeed) / gameSpeed);
+                }
             }
-            else
+            if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && gameStarted)
             {
-                mainCameraRig.GetComponent<Rigidbody2D>().AddForce((Vector3.left * cameraMoveSpeed) / gameSpeed);
+                if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.LeftShift))
+                {
+                    mainCameraRig.GetComponent<Rigidbody2D>().AddForce((Vector3.right * cameraMoveSpeed * 3) / gameSpeed);
+                }
+                else
+                {
+                    mainCameraRig.GetComponent<Rigidbody2D>().AddForce((Vector3.right * cameraMoveSpeed) / gameSpeed);
+                }
             }
         }
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        else if (gameEnded && friendlyVictory)
         {
-            if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.LeftShift))
-            {
-                mainCameraRig.GetComponent<Rigidbody2D>().AddForce((Vector3.right * cameraMoveSpeed * 3) / gameSpeed);
-            }
-            else
-            {
-                mainCameraRig.GetComponent<Rigidbody2D>().AddForce((Vector3.right * cameraMoveSpeed) / gameSpeed);
-            }
+            mainCameraRig.GetComponent<Rigidbody2D>().AddForce((Vector3.right * cameraMoveSpeed * 16) / gameSpeed);
+        }
+        else if (gameEnded && !friendlyVictory)
+        {
+            mainCameraRig.GetComponent<Rigidbody2D>().AddForce((Vector3.left * cameraMoveSpeed * 16) / gameSpeed);
         }
     }
 
     public void PauseGame()
     {
+        foreach (PlayerBoat b in friendlyBoats)
+        {
+            b.boatUI.GetComponent<HealthHover>().boatCanvas.SetActive(false);
+        }
+
         gamePaused = true;
         Time.timeScale = 0;
     }
@@ -374,7 +411,13 @@ public class GameManager : MonoBehaviour
 
     public void LoadMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        gamePaused = false;
+        gameScreen.gameObject.SetActive(true);
+        pauseScreen.gameObject.SetActive(false);
+
+        gameEnded = true;
+        Time.timeScale = 1f;
+        StartCoroutine(menuLoader.LoadLevelWithAnimation("MainMenu"));
     }
 
     public void UpdateOtherCurrentEnemy(PlayerBoat boat)
@@ -592,24 +635,36 @@ public class GameManager : MonoBehaviour
 
     public void FriendlyWin()
     {
-        victoryScreen.SetActive(true);
-        StartCoroutine(LoadMenuAfter());
+        if (!gameEnded)
+        {
+            friendlyVictory = true;
+            victoryScreen.SetActive(true);
+            StartCoroutine(LoadMenuAfter());
+            StartCoroutine(enemyFireworks.BeginFirworks());
+        }
     }
 
     public void EnemyWin()
     {
-        defeatScreen.SetActive(true);
-        StartCoroutine(LoadMenuAfter());
+        if (!gameEnded)
+        {
+            friendlyVictory = false;
+            defeatScreen.SetActive(true);
+            StartCoroutine(LoadMenuAfter());
+            StartCoroutine(friendlyFireworks.BeginFirworks());
+        }
     }
 
-    IEnumerator LoadMenuAfter()
+    public IEnumerator LoadMenuAfter()
     {
+        gameHUD.SetActive(false);
         pauseButton.SetActive(false);
         gameEnded = true;
         Time.timeScale = 1f;
         gameSpeedText.text = "1.00";
         yield return new WaitForSeconds(screenTime);
-        SceneManager.LoadScene("MainMenu");
+
+        StartCoroutine(menuLoader.LoadLevelWithAnimation("MainMenu"));
     }
 
     public void StopAllFriendlyBoats()
@@ -631,6 +686,12 @@ public class GameManager : MonoBehaviour
     public void UpdatedSpawnedFriendlyStopped(bool b)
     {
         spawnFriendlyStopped = b;
+    }
+
+    public IEnumerator StartDelay()
+    {
+        yield return new WaitForSeconds(startDelay);
+        gameStarted = true;
     }
 
 }

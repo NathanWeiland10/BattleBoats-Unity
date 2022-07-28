@@ -20,7 +20,14 @@ public class HealthHover : MonoBehaviour
 
     Gradient gradient;
 
-    private void Start()
+    GameManager gameManager;
+
+    void Awake()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
+
+    void Start()
     {
         gradient = new Gradient();
         GradientColorKey[] gck = new GradientColorKey[2];
@@ -29,12 +36,7 @@ public class HealthHover : MonoBehaviour
         gck[0].time = 0.0F;
         gck[1].color = Color.green;
         gck[1].time = 1.0F;
-        /*
-        gak[0].alpha = 0.0F;
-        gak[0].time = 1.0F;
-        gak[1].alpha = 0.0F;
-        gak[1].time = -1.0F;
-        */
+
         gradient.SetKeys(gck, gak);
         healthSlider.value = playerBoat.GetCurrentHealth() / playerBoat.maxHealth;
         healthSliderImage.color = gradient.Evaluate(healthSlider.value);
@@ -42,9 +44,12 @@ public class HealthHover : MonoBehaviour
 
     private void OnMouseOver()
     {
-        healthSlider.value = playerBoat.GetCurrentHealth() / playerBoat.maxHealth;
-        healthSliderImage.color = gradient.Evaluate(healthSlider.value);
-        boatCanvas.gameObject.SetActive(true);
+        if (!gameManager.gamePaused)
+        {
+            healthSlider.value = playerBoat.GetCurrentHealth() / playerBoat.maxHealth;
+            healthSliderImage.color = gradient.Evaluate(healthSlider.value);
+            boatCanvas.gameObject.SetActive(true);
+        }
     }
 
     private void OnMouseExit()

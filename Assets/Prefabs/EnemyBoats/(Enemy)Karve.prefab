@@ -257,6 +257,8 @@ MonoBehaviour:
   pieceMaxHealth: 60
   playerBoat: {fileID: 8645716896065121020}
   deathWeightAmount: 25
+  hitEffect: {fileID: 1386299231865863778, guid: 863e53be96e457948ae68fd50f641475, type: 3}
+  hitSoundEffect: WoodHit1
 --- !u!255 &2279643870884140180
 FixedJoint2D:
   m_ObjectHideFlags: 0
@@ -1061,6 +1063,8 @@ MonoBehaviour:
   pieceMaxHealth: 0
   playerBoat: {fileID: 8645716896065121020}
   deathWeightAmount: 0
+  hitEffect: {fileID: 1386299231865863778, guid: 863e53be96e457948ae68fd50f641475, type: 3}
+  hitSoundEffect: WoodHit1
 --- !u!1 &8645716895012409482
 GameObject:
   m_ObjectHideFlags: 0
@@ -1229,6 +1233,8 @@ MonoBehaviour:
   pieceMaxHealth: 0
   playerBoat: {fileID: 8645716896065121020}
   deathWeightAmount: 15
+  hitEffect: {fileID: 1386299231865863778, guid: 863e53be96e457948ae68fd50f641475, type: 3}
+  hitSoundEffect: WoodHit1
 --- !u!61 &8645716895513865423
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1355,6 +1361,8 @@ MonoBehaviour:
   boatUI: {fileID: 7670586064226437291}
   deathEffect: {fileID: 1284032669554615246, guid: d5f87ecc0cb41254ca8520acc50723ec, type: 3}
   deathEffectSpawnPoint: {fileID: 8645716895513865418}
+  stopBorder: {fileID: 0}
+  startBorder: {fileID: 0}
   boatName: Karve
   friendlyBoat: 0
   maxHealth: 170
@@ -1534,6 +1542,8 @@ MonoBehaviour:
   pieceMaxHealth: 50
   playerBoat: {fileID: 8645716896065121020}
   deathWeightAmount: 25
+  hitEffect: {fileID: 1386299231865863778, guid: 863e53be96e457948ae68fd50f641475, type: 3}
+  hitSoundEffect: WoodHit1
 --- !u!255 &8645716896665012361
 FixedJoint2D:
   m_ObjectHideFlags: 0

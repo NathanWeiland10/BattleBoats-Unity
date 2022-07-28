@@ -851,6 +851,8 @@ MonoBehaviour:
   pieceMaxHealth: 0
   playerBoat: {fileID: 8542988453915909914}
   deathWeightAmount: 20
+  hitEffect: {fileID: 1386299231865863778, guid: 863e53be96e457948ae68fd50f641475, type: 3}
+  hitSoundEffect: WoodHit1
 --- !u!61 &8542988452253423913
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1155,6 +1157,8 @@ MonoBehaviour:
   pieceMaxHealth: 0
   playerBoat: {fileID: 8542988453915909914}
   deathWeightAmount: 0
+  hitEffect: {fileID: 1386299231865863778, guid: 863e53be96e457948ae68fd50f641475, type: 3}
+  hitSoundEffect: WoodHit1
 --- !u!1 &8542988453915909912
 GameObject:
   m_ObjectHideFlags: 0
@@ -1206,6 +1210,8 @@ MonoBehaviour:
   boatUI: {fileID: 124865718419581349}
   deathEffect: {fileID: 1284032669554615246, guid: d5f87ecc0cb41254ca8520acc50723ec, type: 3}
   deathEffectSpawnPoint: {fileID: 8542988452253423916}
+  stopBorder: {fileID: 0}
+  startBorder: {fileID: 0}
   boatName: Patrol Boat
   friendlyBoat: 0
   maxHealth: 70
