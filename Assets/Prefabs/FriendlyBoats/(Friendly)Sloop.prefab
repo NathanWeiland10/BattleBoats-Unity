@@ -129,6 +129,8 @@ MonoBehaviour:
   pieceMaxHealth: 0
   playerBoat: {fileID: 759241123322936569}
   deathWeightAmount: 15
+  hitEffect: {fileID: 1386299231865863778, guid: 863e53be96e457948ae68fd50f641475, type: 3}
+  hitSoundEffect: WoodHit1
 --- !u!61 &759241121698659018
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -429,6 +431,8 @@ MonoBehaviour:
   pieceMaxHealth: 55
   playerBoat: {fileID: 759241123322936569}
   deathWeightAmount: 15
+  hitEffect: {fileID: 1386299231865863778, guid: 863e53be96e457948ae68fd50f641475, type: 3}
+  hitSoundEffect: WoodHit1
 --- !u!255 &759241122714902156
 FixedJoint2D:
   m_ObjectHideFlags: 0
@@ -742,6 +746,8 @@ MonoBehaviour:
   pieceMaxHealth: 0
   playerBoat: {fileID: 759241123322936569}
   deathWeightAmount: 0
+  hitEffect: {fileID: 1386299231865863778, guid: 863e53be96e457948ae68fd50f641475, type: 3}
+  hitSoundEffect: WoodHit1
 --- !u!1 &1687027076206645267
 GameObject:
   m_ObjectHideFlags: 0
@@ -2030,6 +2036,8 @@ MonoBehaviour:
   pieceMaxHealth: 40
   playerBoat: {fileID: 759241123322936569}
   deathWeightAmount: 15
+  hitEffect: {fileID: 1386299231865863778, guid: 863e53be96e457948ae68fd50f641475, type: 3}
+  hitSoundEffect: WoodHit1
 --- !u!255 &7120314669129515665
 FixedJoint2D:
   m_ObjectHideFlags: 0
@@ -2208,6 +2216,8 @@ MonoBehaviour:
   pieceMaxHealth: 25
   playerBoat: {fileID: 759241123322936569}
   deathWeightAmount: 15
+  hitEffect: {fileID: 1386299231865863778, guid: 863e53be96e457948ae68fd50f641475, type: 3}
+  hitSoundEffect: WoodHit1
 --- !u!255 &7407839812574794989
 FixedJoint2D:
   m_ObjectHideFlags: 0

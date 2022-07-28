@@ -137,10 +137,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cannonBallDamage: 65
-  hitSoundEffect: CannonBallExplosion
-  hitEffect: {fileID: 695795581602923173, guid: 13112c35489ed034b8effe17d8a3a876, type: 3}
   angledProjectile: 1
   friendly: 1
+  hitEffect: {fileID: 695795581602923173, guid: 13112c35489ed034b8effe17d8a3a876, type: 3}
+  hitSoundEffect: CannonBallExplosion
 --- !u!61 &9185493566664715352
 BoxCollider2D:
   m_ObjectHideFlags: 0

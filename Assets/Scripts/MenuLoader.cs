@@ -19,13 +19,12 @@ public class MenuLoader : MonoBehaviour
         {
             if (settingsSaver.goToLevelSelectMenu)
             {
-                Debug.Log("Here");
-                LoadlevelSelectScreenn();
+                LoadlevelSelectScreen();
             }
         }
     }
 
-    void LoadlevelSelectScreenn()
+    void LoadlevelSelectScreen()
     {
         titleScreen.SetActive(false);
         levelSelectScreen.SetActive(true);

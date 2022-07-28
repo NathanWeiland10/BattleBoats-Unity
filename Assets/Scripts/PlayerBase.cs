@@ -13,6 +13,12 @@ public class PlayerBase : MonoBehaviour
     [Tooltip("The sound effect that will play once this base has been destroyed")]
     public string deathSoundEffect;
 
+    [Tooltip("The effect that is spawned on collision")]
+    [SerializeField] GameObject hitEffect;
+
+    [Tooltip("The sound effect that is produced once this cannonball collides with another boat")]
+    [SerializeField] string hitSoundEffect;
+
     GameManager gameManager;
 
     float currentBaseHealth;
@@ -38,7 +44,17 @@ public class PlayerBase : MonoBehaviour
         {
             if (currentBaseHealth > 0)
             {
-                FindObjectOfType<AudioManager>().PlayAtPoint(collision.gameObject.GetComponent<CannonBall>().GetHitSoundEffect(), this.transform.position);
+                FindObjectOfType<AudioManager>().PlayAtPoint(hitSoundEffect, this.transform.position);
+
+                if (hitEffect != null)
+                {
+                    Instantiate(hitEffect, collision.gameObject.transform.position, collision.gameObject.transform.rotation);
+                }
+
+                if (collision.gameObject.GetComponent<CannonBall>().GetHitSoundEffect() != "")
+                {
+                    FindObjectOfType<AudioManager>().PlayAtPoint(collision.gameObject.GetComponent<CannonBall>().GetHitSoundEffect(), collision.gameObject.transform.position);
+                }
 
                 if (collision.gameObject.GetComponent<CannonBall>().GetHitEffect() != null)
                 {
@@ -62,7 +78,17 @@ public class PlayerBase : MonoBehaviour
 
             if (currentBaseHealth > 0)
             {
-                FindObjectOfType<AudioManager>().PlayAtPoint(collision.gameObject.GetComponent<KamikazeAttack>().GetHitSoundEffect(), this.transform.position);
+                FindObjectOfType<AudioManager>().PlayAtPoint(hitSoundEffect, this.transform.position);
+
+                if (hitEffect != null)
+                {
+                    Instantiate(hitEffect, collision.gameObject.transform.position, collision.gameObject.transform.rotation);
+                }
+
+                if (collision.gameObject.GetComponent<KamikazeAttack>().GetHitSoundEffect() != "") 
+                {
+                    FindObjectOfType<AudioManager>().PlayAtPoint(collision.gameObject.GetComponent<KamikazeAttack>().GetHitSoundEffect(), collision.gameObject.transform.position);
+                }
 
                 if (collision.gameObject.GetComponent<KamikazeAttack>().GetHitEffect() != null)
                 {

@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+
+    public LevelLoader menuLoader;
+
     [Tooltip("The GameObject that serves as / holds the main camera")]
     public GameObject mainCameraRig;
     [Tooltip("The main camera for the scene")]
@@ -156,7 +159,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         gameSpeedText.text = "1.00";
 
-        if (settingsSaver.showFPS)
+        if (settingsSaver != null && settingsSaver.showFPS)
         {
             FPSText.SetActive(true);
         }
@@ -374,7 +377,9 @@ public class GameManager : MonoBehaviour
 
     public void LoadMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        gamePaused = false;
+        Time.timeScale = 1f;
+        StartCoroutine(menuLoader.LoadLevelWithAnimation("MainMenu"));
     }
 
     public void UpdateOtherCurrentEnemy(PlayerBoat boat)
@@ -602,14 +607,15 @@ public class GameManager : MonoBehaviour
         StartCoroutine(LoadMenuAfter());
     }
 
-    IEnumerator LoadMenuAfter()
+    public IEnumerator LoadMenuAfter()
     {
         pauseButton.SetActive(false);
         gameEnded = true;
         Time.timeScale = 1f;
         gameSpeedText.text = "1.00";
         yield return new WaitForSeconds(screenTime);
-        SceneManager.LoadScene("MainMenu");
+
+        StartCoroutine(menuLoader.LoadLevelWithAnimation("MainMenu"));
     }
 
     public void StopAllFriendlyBoats()
