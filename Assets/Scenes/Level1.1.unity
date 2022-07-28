@@ -1336,6 +1336,57 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 89992915}
   m_CullTransparentMesh: 1
+--- !u!1 &96951967
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 96951968}
+  - component: {fileID: 96951969}
+  m_Layer: 0
+  m_Name: FireworksSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &96951968
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96951967}
+  m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1481804168}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
+--- !u!114 &96951969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96951967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa075e0c33d27904a85a5ce3d834fb9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireworkSpawnPoint: {fileID: 96951968}
+  fireworkPrefab: {fileID: 8917468174030918011, guid: 323c946e19050784c9cef73cfe55cc94, type: 3}
+  startDelay: 0.5
+  launchForce: 5000
+  shotSoundEffect: CannonShot2
+  minShotDelay: 0.5
+  maxShotDelay: 1
 --- !u!1 &138326133
 GameObject:
   m_ObjectHideFlags: 0
@@ -3842,6 +3893,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 551ed300d8d4c804789167d674a27200, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  friendlyFireworks: {fileID: 96951969}
+  enemyFireworks: {fileID: 2118701672}
   menuLoader: {fileID: 4366849894419974365}
   mainCameraRig: {fileID: 763284489}
   mainCamera: {fileID: 519420031}
@@ -6196,6 +6249,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1518789956}
+  - {fileID: 2118701671}
   m_Father: {fileID: 1463288688}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13575,6 +13629,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1625167587}
+  - {fileID: 96951968}
   m_Father: {fileID: 436442828}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19060,7 +19115,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 1784976285
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!1 &2087617373
 GameObject:
@@ -19423,6 +19478,57 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2109675602}
   m_CullTransparentMesh: 1
+--- !u!1 &2118701670
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2118701671}
+  - component: {fileID: 2118701672}
+  m_Layer: 0
+  m_Name: FireworksSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2118701671
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118701670}
+  m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 716346131}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
+--- !u!114 &2118701672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118701670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa075e0c33d27904a85a5ce3d834fb9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireworkSpawnPoint: {fileID: 2118701671}
+  fireworkPrefab: {fileID: 617318956535925500, guid: 26f876aae1051c5428170129852f2a8c, type: 3}
+  startDelay: 0.5
+  launchForce: 5000
+  shotSoundEffect: CannonShot2
+  minShotDelay: 0.5
+  maxShotDelay: 1
 --- !u!1 &2124324416
 GameObject:
   m_ObjectHideFlags: 0

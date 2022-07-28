@@ -117,8 +117,6 @@ public class PlayerBase : MonoBehaviour
 
     public void ChangeBaseHealth(float f)
     {
-        healthHoverBase.UpdateHealthBar();
-
         currentBaseHealth += f;
         if (currentBaseHealth > maxBaseHealth)
         {
@@ -128,6 +126,8 @@ public class PlayerBase : MonoBehaviour
         {
             currentBaseHealth = 0;
         }
+
+        healthHoverBase.UpdateHealthBar();
     }
 
     public float GetBaseHealth()
@@ -176,6 +176,7 @@ public class PlayerBase : MonoBehaviour
         FindObjectOfType<AudioManager>().Play(deathSoundEffect);
         // FIX LATER:
         // Currently will only destroy the script (might be useful if decided to change sprite to 'death sprite' as to not delete the whole game object)
+
         Destroy(this);
     }
 
