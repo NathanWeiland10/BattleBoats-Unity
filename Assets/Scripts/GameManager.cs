@@ -135,6 +135,9 @@ public class GameManager : MonoBehaviour
 
     public bool gameEnded = false;
 
+    float startDelay = 1;
+    public bool gameStarted;
+
     float moneyTimer = 1; // Initial value serves as an initial wait time for the money to start ticking up
     float waitTime;
 
@@ -159,6 +162,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         gameSpeedText.text = "1.00";
 
+        friendlyTotalMoneyText.text = "$" + friendlyTotalMoney;
+
         if (settingsSaver != null && settingsSaver.showFPS)
         {
             FPSText.SetActive(true);
@@ -176,6 +181,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(selman.gameObject);
         }
+
+        StartCoroutine(StartDelay());
     }
 
     void Update()
@@ -235,14 +242,14 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f && !gamePaused)
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f && !gamePaused && gameStarted)
         {
             if (mainCamera.orthographicSize - cameraScrollSpeed > minCameraSize)
             {
                 mainCamera.orthographicSize -= cameraScrollSpeed;
             }
         }
-        else if (Input.GetAxis("Mouse ScrollWheel") < 0f && !gamePaused)
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0f && !gamePaused && gameStarted)
         {
             if (mainCamera.orthographicSize + cameraScrollSpeed < maxCameraSize)
             {
@@ -250,10 +257,15 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape) && !gameEnded)
+        if (Input.GetKeyDown(KeyCode.Escape) && !gameEnded && gameStarted)
         {
             if (!gamePaused)
             {
+                foreach (PlayerBoat b in friendlyBoats)
+                {
+                    b.boatUI.GetComponent<HealthHover>().boatCanvas.SetActive(false);
+                }
+
                 gamePaused = true;
                 gameScreen.gameObject.SetActive(false);
                 pauseScreen.gameObject.SetActive(true);
@@ -281,7 +293,7 @@ public class GameManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && gameStarted)
         {
             if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.LeftShift))
             {
@@ -292,7 +304,7 @@ public class GameManager : MonoBehaviour
                 mainCameraRig.GetComponent<Rigidbody2D>().AddForce((Vector3.left * cameraMoveSpeed) / gameSpeed);
             }
         }
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && gameStarted)
         {
             if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.LeftShift))
             {
@@ -307,6 +319,11 @@ public class GameManager : MonoBehaviour
 
     public void PauseGame()
     {
+        foreach (PlayerBoat b in friendlyBoats)
+        {
+            b.boatUI.GetComponent<HealthHover>().boatCanvas.SetActive(false);
+        }
+
         gamePaused = true;
         Time.timeScale = 0;
     }
@@ -378,6 +395,10 @@ public class GameManager : MonoBehaviour
     public void LoadMenu()
     {
         gamePaused = false;
+        gameScreen.gameObject.SetActive(true);
+        pauseScreen.gameObject.SetActive(false);
+
+        gameEnded = true;
         Time.timeScale = 1f;
         StartCoroutine(menuLoader.LoadLevelWithAnimation("MainMenu"));
     }
@@ -597,18 +618,25 @@ public class GameManager : MonoBehaviour
 
     public void FriendlyWin()
     {
-        victoryScreen.SetActive(true);
-        StartCoroutine(LoadMenuAfter());
+        if (!gameEnded)
+        {
+            victoryScreen.SetActive(true);
+            StartCoroutine(LoadMenuAfter());
+        }
     }
 
     public void EnemyWin()
     {
-        defeatScreen.SetActive(true);
-        StartCoroutine(LoadMenuAfter());
+        if (!gameEnded)
+        {
+            defeatScreen.SetActive(true);
+            StartCoroutine(LoadMenuAfter());
+        }
     }
 
     public IEnumerator LoadMenuAfter()
     {
+        gameHUD.SetActive(false);
         pauseButton.SetActive(false);
         gameEnded = true;
         Time.timeScale = 1f;
@@ -637,6 +665,12 @@ public class GameManager : MonoBehaviour
     public void UpdatedSpawnedFriendlyStopped(bool b)
     {
         spawnFriendlyStopped = b;
+    }
+
+    public IEnumerator StartDelay()
+    {
+        yield return new WaitForSeconds(startDelay);
+        gameStarted = true;
     }
 
 }

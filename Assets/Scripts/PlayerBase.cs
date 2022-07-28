@@ -19,6 +19,8 @@ public class PlayerBase : MonoBehaviour
     [Tooltip("The sound effect that is produced once this cannonball collides with another boat")]
     [SerializeField] string hitSoundEffect;
 
+    public HealthHoverBase healthHoverBase;
+
     GameManager gameManager;
 
     float currentBaseHealth;
@@ -96,7 +98,6 @@ public class PlayerBase : MonoBehaviour
                 }
 
                 float damage = collision.gameObject.GetComponent<KamikazeAttack>().GetAttackDamage();
-                Debug.Log(damage);
                 ChangeBaseHealth(-damage);
             }
 
@@ -116,6 +117,8 @@ public class PlayerBase : MonoBehaviour
 
     public void ChangeBaseHealth(float f)
     {
+        healthHoverBase.UpdateHealthBar();
+
         currentBaseHealth += f;
         if (currentBaseHealth > maxBaseHealth)
         {
@@ -156,6 +159,8 @@ public class PlayerBase : MonoBehaviour
 
     public void Die()
     {
+        healthHoverBase.UpdateHealthBar();
+
         BoxCollider2D collider = GetComponent<BoxCollider2D>();
         Destroy(collider);
 

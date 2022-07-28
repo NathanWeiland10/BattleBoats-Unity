@@ -5602,6 +5602,250 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 372896169}
   m_CullTransparentMesh: 1
+--- !u!1 &384828759
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 384828761}
+  - component: {fileID: 384828760}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &384828760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384828759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4264e6afecf763749bcbd06a53d84a3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixerGroup: {fileID: 24300002, guid: bf46bd9ee99cdc34cb11df3b194bb2bd, type: 2}
+  sounds:
+  - name: LightCannonShot1
+    clip: {fileID: 8300000, guid: 703a18e7f2f4ecb4fafed976b7e06370, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    minDistance: 30
+    maxDistance: 70
+    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
+    source: {fileID: 0}
+  - name: LightCannonShot2
+    clip: {fileID: 8300000, guid: 222ade4e944a968498db9676d5f5120d, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    minDistance: 30
+    maxDistance: 70
+    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
+    source: {fileID: 0}
+  - name: MediumCannonShot1
+    clip: {fileID: 8300000, guid: 1aed6bb0a8bc5484eab3ad767e49e354, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    minDistance: 30
+    maxDistance: 70
+    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
+    source: {fileID: 0}
+  - name: WoodHit1
+    clip: {fileID: 8300000, guid: 223fea90715c1e641a964f6320910e82, type: 3}
+    volume: 0.6
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    minDistance: 30
+    maxDistance: 70
+    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
+    source: {fileID: 0}
+  - name: Death1
+    clip: {fileID: 8300000, guid: 1cf9f63f5518eca4b9f58895ec98ffce, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    minDistance: 30
+    maxDistance: 70
+    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
+    source: {fileID: 0}
+  - name: Death2
+    clip: {fileID: 8300000, guid: 32cbb631dcaf6c546ac4cbb1b3e3090e, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 0.85
+    pitchVariance: 0
+    loop: 0
+    minDistance: 30
+    maxDistance: 70
+    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
+    source: {fileID: 0}
+  - name: Death3
+    clip: {fileID: 8300000, guid: a46dbfa40fa4c324cbb72ae301f28605, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    minDistance: 30
+    maxDistance: 70
+    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
+    source: {fileID: 0}
+  - name: Death4
+    clip: {fileID: 8300000, guid: adfcf1b1c963986459764a5712856c8b, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    minDistance: 30
+    maxDistance: 70
+    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
+    source: {fileID: 0}
+  - name: Select1
+    clip: {fileID: 8300000, guid: 2b430f976d07ff64088656bd41ce897a, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    minDistance: 30
+    maxDistance: 70
+    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
+    source: {fileID: 0}
+  - name: Confirm1
+    clip: {fileID: 8300000, guid: a8e03738d996ce747bfa83fe8f35856f, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    minDistance: 30
+    maxDistance: 70
+    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
+    source: {fileID: 0}
+  - name: CannonBallExplosion
+    clip: {fileID: 8300000, guid: a9ac91a14ea3d8c4d8771f558042a95a, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0.05
+    loop: 0
+    minDistance: 30
+    maxDistance: 70
+    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
+    source: {fileID: 0}
+  - name: CannonShot2
+    clip: {fileID: 8300000, guid: 575e3f0a873c8864b8e27826011ceacf, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    minDistance: 30
+    maxDistance: 70
+    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
+    source: {fileID: 0}
+  - name: WaterHit
+    clip: {fileID: 8300000, guid: 72062d4f708b90e43b6577b6538e4a97, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0.2
+    loop: 0
+    minDistance: 30
+    maxDistance: 70
+    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
+    source: {fileID: 0}
+  - name: ArrowShot
+    clip: {fileID: 8300000, guid: f35d8c00182f55c449041d65ccf86558, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0.2
+    loop: 0
+    minDistance: 20
+    maxDistance: 60
+    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
+    source: {fileID: 0}
+  - name: Buy1
+    clip: {fileID: 8300000, guid: b50c71353d9cbac43a5b8d0593b1aea8, type: 3}
+    volume: 0.8
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    minDistance: 30
+    maxDistance: 70
+    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
+    source: {fileID: 0}
+  - name: Denied1
+    clip: {fileID: 8300000, guid: fcd6a2914262447429bbc994811146d8, type: 3}
+    volume: 0.4
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    minDistance: 30
+    maxDistance: 70
+    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
+    source: {fileID: 0}
+  - name: HeavyCannonShot1
+    clip: {fileID: 8300000, guid: 0fdb7ecacfa1aa04dae138e75acd4441, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1.1
+    pitchVariance: 0.2
+    loop: 0
+    minDistance: 30
+    maxDistance: 70
+    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
+    source: {fileID: 0}
+  - name: JavelinShot
+    clip: {fileID: 8300000, guid: f35d8c00182f55c449041d65ccf86558, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 0.7
+    pitchVariance: 0.2
+    loop: 0
+    minDistance: 20
+    maxDistance: 60
+    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
+    source: {fileID: 0}
+--- !u!4 &384828761
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384828759}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &385453996
 GameObject:
   m_ObjectHideFlags: 0
@@ -24284,250 +24528,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1659298661}
   m_CullTransparentMesh: 1
---- !u!1 &1660719029
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1660719031}
-  - component: {fileID: 1660719030}
-  m_Layer: 0
-  m_Name: AudioManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1660719030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1660719029}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4264e6afecf763749bcbd06a53d84a3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mixerGroup: {fileID: 24300002, guid: bf46bd9ee99cdc34cb11df3b194bb2bd, type: 2}
-  sounds:
-  - name: LightCannonShot1
-    clip: {fileID: 8300000, guid: 703a18e7f2f4ecb4fafed976b7e06370, type: 3}
-    volume: 1
-    volumeVariance: 0
-    pitch: 1
-    pitchVariance: 0.1
-    loop: 0
-    minDistance: 30
-    maxDistance: 70
-    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
-    source: {fileID: 0}
-  - name: LightCannonShot2
-    clip: {fileID: 8300000, guid: 222ade4e944a968498db9676d5f5120d, type: 3}
-    volume: 1
-    volumeVariance: 0
-    pitch: 1
-    pitchVariance: 0.1
-    loop: 0
-    minDistance: 30
-    maxDistance: 70
-    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
-    source: {fileID: 0}
-  - name: MediumCannonShot1
-    clip: {fileID: 8300000, guid: 1aed6bb0a8bc5484eab3ad767e49e354, type: 3}
-    volume: 1
-    volumeVariance: 0
-    pitch: 1
-    pitchVariance: 0.1
-    loop: 0
-    minDistance: 30
-    maxDistance: 70
-    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
-    source: {fileID: 0}
-  - name: Hit1
-    clip: {fileID: 8300000, guid: 223fea90715c1e641a964f6320910e82, type: 3}
-    volume: 0.6
-    volumeVariance: 0
-    pitch: 1
-    pitchVariance: 0
-    loop: 0
-    minDistance: 30
-    maxDistance: 70
-    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
-    source: {fileID: 0}
-  - name: Death1
-    clip: {fileID: 8300000, guid: 1cf9f63f5518eca4b9f58895ec98ffce, type: 3}
-    volume: 1
-    volumeVariance: 0
-    pitch: 1
-    pitchVariance: 0
-    loop: 0
-    minDistance: 30
-    maxDistance: 70
-    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
-    source: {fileID: 0}
-  - name: Death2
-    clip: {fileID: 8300000, guid: 32cbb631dcaf6c546ac4cbb1b3e3090e, type: 3}
-    volume: 1
-    volumeVariance: 0
-    pitch: 0.85
-    pitchVariance: 0
-    loop: 0
-    minDistance: 30
-    maxDistance: 70
-    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
-    source: {fileID: 0}
-  - name: Death3
-    clip: {fileID: 8300000, guid: a46dbfa40fa4c324cbb72ae301f28605, type: 3}
-    volume: 1
-    volumeVariance: 0
-    pitch: 1
-    pitchVariance: 0
-    loop: 0
-    minDistance: 30
-    maxDistance: 70
-    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
-    source: {fileID: 0}
-  - name: Death4
-    clip: {fileID: 8300000, guid: adfcf1b1c963986459764a5712856c8b, type: 3}
-    volume: 1
-    volumeVariance: 0
-    pitch: 1
-    pitchVariance: 0
-    loop: 0
-    minDistance: 30
-    maxDistance: 70
-    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
-    source: {fileID: 0}
-  - name: Select1
-    clip: {fileID: 8300000, guid: 2b430f976d07ff64088656bd41ce897a, type: 3}
-    volume: 1
-    volumeVariance: 0
-    pitch: 1
-    pitchVariance: 0
-    loop: 0
-    minDistance: 30
-    maxDistance: 70
-    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
-    source: {fileID: 0}
-  - name: Confirm1
-    clip: {fileID: 8300000, guid: a8e03738d996ce747bfa83fe8f35856f, type: 3}
-    volume: 1
-    volumeVariance: 0
-    pitch: 1
-    pitchVariance: 0
-    loop: 0
-    minDistance: 30
-    maxDistance: 70
-    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
-    source: {fileID: 0}
-  - name: CannonBallExplosion
-    clip: {fileID: 8300000, guid: a9ac91a14ea3d8c4d8771f558042a95a, type: 3}
-    volume: 1
-    volumeVariance: 0
-    pitch: 1
-    pitchVariance: 0.05
-    loop: 0
-    minDistance: 30
-    maxDistance: 70
-    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
-    source: {fileID: 0}
-  - name: CannonShot2
-    clip: {fileID: 8300000, guid: 575e3f0a873c8864b8e27826011ceacf, type: 3}
-    volume: 1
-    volumeVariance: 0
-    pitch: 1
-    pitchVariance: 0.1
-    loop: 0
-    minDistance: 30
-    maxDistance: 70
-    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
-    source: {fileID: 0}
-  - name: WaterHit
-    clip: {fileID: 8300000, guid: 72062d4f708b90e43b6577b6538e4a97, type: 3}
-    volume: 1
-    volumeVariance: 0
-    pitch: 1
-    pitchVariance: 0.2
-    loop: 0
-    minDistance: 30
-    maxDistance: 70
-    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
-    source: {fileID: 0}
-  - name: ArrowShot
-    clip: {fileID: 8300000, guid: f35d8c00182f55c449041d65ccf86558, type: 3}
-    volume: 1
-    volumeVariance: 0
-    pitch: 1
-    pitchVariance: 0.2
-    loop: 0
-    minDistance: 20
-    maxDistance: 60
-    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
-    source: {fileID: 0}
-  - name: Buy1
-    clip: {fileID: 8300000, guid: b50c71353d9cbac43a5b8d0593b1aea8, type: 3}
-    volume: 0.8
-    volumeVariance: 0
-    pitch: 1
-    pitchVariance: 0
-    loop: 0
-    minDistance: 30
-    maxDistance: 70
-    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
-    source: {fileID: 0}
-  - name: Denied1
-    clip: {fileID: 8300000, guid: fcd6a2914262447429bbc994811146d8, type: 3}
-    volume: 0.4
-    volumeVariance: 0
-    pitch: 1
-    pitchVariance: 0
-    loop: 0
-    minDistance: 30
-    maxDistance: 70
-    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
-    source: {fileID: 0}
-  - name: HeavyCannonShot1
-    clip: {fileID: 8300000, guid: 0fdb7ecacfa1aa04dae138e75acd4441, type: 3}
-    volume: 1
-    volumeVariance: 0
-    pitch: 1.1
-    pitchVariance: 0.2
-    loop: 0
-    minDistance: 30
-    maxDistance: 70
-    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
-    source: {fileID: 0}
-  - name: JavelinShot
-    clip: {fileID: 8300000, guid: f35d8c00182f55c449041d65ccf86558, type: 3}
-    volume: 1
-    volumeVariance: 0
-    pitch: 0.7
-    pitchVariance: 0.2
-    loop: 0
-    minDistance: 20
-    maxDistance: 60
-    mixerGroup: {fileID: 24300002, guid: 1f02d8f6e4654bb4f811ab3426232393, type: 2}
-    source: {fileID: 0}
---- !u!4 &1660719031
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1660719029}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1711090754
 GameObject:
   m_ObjectHideFlags: 0
@@ -28296,6 +28296,7 @@ GameObject:
   - component: {fileID: 1974432109}
   - component: {fileID: 1974432108}
   - component: {fileID: 1974432107}
+  - component: {fileID: 1974432111}
   m_Layer: 5
   m_Name: FPSToggleButton
   m_TagString: Untagged
@@ -28407,6 +28408,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1974432111}
+        m_TargetAssemblyTypeName: ButtonSoundEffect, Assembly-CSharp
+        m_MethodName: PlaySoundEffect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1974432109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28445,6 +28458,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1974432105}
   m_CullTransparentMesh: 1
+--- !u!114 &1974432111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974432105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e2d21ccda6a825459c882dd3110262e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEffect: Select1
 --- !u!1 &1975169709
 GameObject:
   m_ObjectHideFlags: 0
