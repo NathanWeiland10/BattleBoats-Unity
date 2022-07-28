@@ -27,6 +27,18 @@ public class CapturePoint : MonoBehaviour
     [Tooltip("The total amount of points needed to capture or recapture this capture point (a higher value will take longer to capture)")]
     public float maxCaptureAmount = 5f;
 
+    [Tooltip("The effect (particle system) that is spawned when the player team captures this capture point")]
+    public GameObject friendlyCaptureEffect;
+
+    [Tooltip("The effect (particle system) that is spawned when the enemy team captures this capture point")]
+    public GameObject enemyCaptureEffect;
+
+    [Tooltip("The position that the friendly capture effect will spawn at")]
+    public Transform friendlyCaptureEffectPos;
+
+    [Tooltip("The position that the friendly capture effect will spawn at")]
+    public Transform enemyCaptureEffectPos;
+
     public List<PlayerBoat> friendlyBoats;
     public List<PlayerBoat> enemyBoats;
     
@@ -160,12 +172,17 @@ public class CapturePoint : MonoBehaviour
             else if (timer < maxCaptureAmount * 0.25 && timer > -maxCaptureAmount * 0.25)
             {
                 slider.GetComponent<SpriteRenderer>().sprite = neutralSliderSprite;
-                // FIX LATER: Remove flags / remove captures statuses here:
             }
 
 
             if (timer <= -maxCaptureAmount)
             {
+
+                if (!enemyCaptured)
+                {
+                    Instantiate(enemyCaptureEffect, enemyCaptureEffectPos.position, enemyCaptureEffectPos.rotation);
+                }
+
                 timer = -maxCaptureAmount;
 
                 EnemyCapture();
@@ -184,6 +201,12 @@ public class CapturePoint : MonoBehaviour
             }
             else if (timer >= maxCaptureAmount)
             {
+
+                if (!friendlyCaptured)
+                {
+                    Instantiate(friendlyCaptureEffect, friendlyCaptureEffectPos.position, friendlyCaptureEffectPos.rotation);
+                }
+
                 timer = maxCaptureAmount;
 
                 FriendlyCapture();

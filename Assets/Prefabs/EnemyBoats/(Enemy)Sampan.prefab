@@ -189,6 +189,8 @@ MonoBehaviour:
   pieceMaxHealth: 35
   playerBoat: {fileID: 311093214939609101}
   deathWeightAmount: 30
+  hitEffect: {fileID: 1386299231865863778, guid: 863e53be96e457948ae68fd50f641475, type: 3}
+  hitSoundEffect: WoodHit1
 --- !u!255 &311093214224750392
 FixedJoint2D:
   m_ObjectHideFlags: 0
@@ -323,8 +325,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyerAfterScript: {fileID: 2807613603179486058}
   boatUI: {fileID: 6598284663015912710}
-  deathEffect: {fileID: 1284032669554615246, guid: d5f87ecc0cb41254ca8520acc50723ec, type: 3}
+  deathEffect: {fileID: 7762870664007651785, guid: 2fd50d251708a8b4c833e947101d37a0, type: 3}
   deathEffectSpawnPoint: {fileID: 2386324047287982498}
+  stopBorder: {fileID: 0}
+  startBorder: {fileID: 0}
   boatName: Sampan
   friendlyBoat: 0
   maxHealth: 60
@@ -474,6 +478,8 @@ MonoBehaviour:
   pieceMaxHealth: 0
   playerBoat: {fileID: 311093214939609101}
   deathWeightAmount: 0
+  hitEffect: {fileID: 1386299231865863778, guid: 863e53be96e457948ae68fd50f641475, type: 3}
+  hitSoundEffect: WoodHit1
 --- !u!1 &1723339968752391251
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,6 +703,8 @@ MonoBehaviour:
   pieceMaxHealth: 0
   playerBoat: {fileID: 311093214939609101}
   deathWeightAmount: 40
+  hitEffect: {fileID: 1386299231865863778, guid: 863e53be96e457948ae68fd50f641475, type: 3}
+  hitSoundEffect: WoodHit1
 --- !u!61 &8331885509575125551
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -999,6 +1007,8 @@ MonoBehaviour:
   pieceMaxHealth: 25
   playerBoat: {fileID: 311093214939609101}
   deathWeightAmount: 30
+  hitEffect: {fileID: 1386299231865863778, guid: 863e53be96e457948ae68fd50f641475, type: 3}
+  hitSoundEffect: WoodHit1
 --- !u!255 &4885939850374704845
 FixedJoint2D:
   m_ObjectHideFlags: 0
