@@ -382,7 +382,10 @@ public class PlayerBoat : MonoBehaviour
 
         FindObjectOfType<AudioManager>().PlayAtPoint(shotSoundEffects[Random.Range(0, shotSoundEffects.Length)], mainHullPiece.transform.position);
 
-        Instantiate(cannonSmokeEffect, cannonSpawnPoint.position, cannonSpawnPoint.rotation);
+        if (cannonSmokeEffect != null)
+        {
+            Instantiate(cannonSmokeEffect, cannonSpawnPoint.position, cannonSpawnPoint.rotation);
+        }
 
         float recoil = Random.Range(-cannonSpread, cannonSpread);
         cannonAngle = cannonSpawnPoint;
