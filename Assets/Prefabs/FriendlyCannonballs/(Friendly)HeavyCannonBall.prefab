@@ -74,9 +74,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -90429733
-  m_SortingLayer: 14
-  m_SortingOrder: 0
+  m_SortingLayerID: 979115205
+  m_SortingLayer: 9
+  m_SortingOrder: 99
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27e28e0596ec3bb45856d1cf19afb09a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fTimer: 4
+  fTimer: 3
 --- !u!114 &2365977942976060259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cannonBallDamage: 30
-  hitSoundEffect: Hit1
-  hitEffect: {fileID: 1386299231865863778, guid: 863e53be96e457948ae68fd50f641475, type: 3}
   angledProjectile: 1
   friendly: 1
+  hitEffect: {fileID: 0}
+  hitSoundEffect: 

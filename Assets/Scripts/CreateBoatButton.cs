@@ -11,8 +11,14 @@ public class CreateBoatButton : MonoBehaviour
     [Tooltip("The GameObject that covers this button icon if the player cannot afford this boat")]
     public GameObject cannotAffordLayer;
 
+    [Tooltip("The GameObject that covers this button icon if the player cannot currently click this button")]
+    public GameObject grayedLayer;
+
     [Tooltip("The TMP text that is used to display the cost of this boat")]
     public TMP_Text boatCostText;
+
+    [Tooltip("The TMP text that is used for the tooltip area")]
+    public TMP_Text tooltipText;
 
     [Tooltip("The sound effect that is played when buying this boat")]
     public string buySoundEffect;
@@ -26,7 +32,8 @@ public class CreateBoatButton : MonoBehaviour
 
     void Awake()
     {
-        if (playerBoat != null) {
+        if (playerBoat != null)
+        {
             gameManager = FindObjectOfType<GameManager>();
             boatCostText.text = "$" + boatCost.ToString();
         }
@@ -34,15 +41,25 @@ public class CreateBoatButton : MonoBehaviour
 
     void Update()
     {
-        if (gameManager.GetFriendlyTotalMoney() < boatCost)
+        if (gameManager.friendlyBoatCount >= gameManager.friendlyMaxBoats)
+        {
+            grayedLayer.gameObject.SetActive(true);
+        }
+        else if (gameManager.friendlySpawnQueue.Count >= gameManager.spawnListIcons.Count)
+        {
+            grayedLayer.gameObject.SetActive(true);
+        }
+        else if (gameManager.friendlyTotalMoney < boatCost)
         {
             cannotAffordLayer.gameObject.SetActive(true);
         }
         else
         {
             cannotAffordLayer.gameObject.SetActive(false);
+            grayedLayer.gameObject.SetActive(false);
         }
     }
+
     public GameObject GetBoat()
     {
         return playerBoat;
@@ -50,15 +67,26 @@ public class CreateBoatButton : MonoBehaviour
 
     public void AttemptFriendlyPurchase()
     {
-        if (gameManager.friendlyTotalMoney >= boatCost && gameManager.friendlySpawnQueue.Count < gameManager.spawnListIcons.Count)
+        if (gameManager.friendlyTotalMoney < boatCost)
+        {
+            tooltipText.text = "Cannot afford";
+            FindObjectOfType<AudioManager>().Play(cannotBuySoundEffect);
+        }
+        else if (gameManager.friendlySpawnQueue.Count >= gameManager.spawnListIcons.Count)
+        {
+            tooltipText.text = "Spawn queue limit reached";
+            FindObjectOfType<AudioManager>().Play(cannotBuySoundEffect);
+        }
+        else if (gameManager.friendlyBoatCount >= gameManager.friendlyMaxBoats)
+        {
+            tooltipText.text = "Max number of boats reached";
+            FindObjectOfType<AudioManager>().Play(cannotBuySoundEffect);
+        }
+        else
         {
             gameManager.UpdateFriendlyMoney(-boatCost);
             gameManager.SpawnFriendlyBoat(playerBoat);
             FindObjectOfType<AudioManager>().Play(buySoundEffect);
-        }
-        else
-        {
-            FindObjectOfType<AudioManager>().Play(cannotBuySoundEffect);
         }
     }
 

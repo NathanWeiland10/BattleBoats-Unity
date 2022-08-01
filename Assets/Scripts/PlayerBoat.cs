@@ -9,6 +9,21 @@ public class PlayerBoat : MonoBehaviour
     [Tooltip("The script that destroys the components of this GameObject")]
     public DestroyAfterCor destroyerAfterScript;
 
+    [Tooltip("The gameobject that hold the UI for this boat")]
+    public GameObject boatUI;
+
+    [Tooltip("The gameobject that spawns when this boat dies")]
+    public GameObject deathEffect;
+
+    [Tooltip("The position that the death effect is spawned at")]
+    public Transform deathEffectSpawnPoint;
+
+    [Tooltip("The gameobject that indicates the boat is stopped")]
+    public GameObject stopBorder;
+
+    [Tooltip("The gameobject that indicates the boat is not stopped")]
+    public GameObject startBorder;
+
     [Tooltip("The name of this boat")]
     public string boatName;
 
@@ -52,6 +67,9 @@ public class PlayerBoat : MonoBehaviour
     [Tooltip("Set enabled if this boat self destructs into enemy ships (such as a fireship) or disabled otherwise")]
     public bool kamikaze;
 
+    [Tooltip("The script for the kamikaze hitbox")]
+    public KamikazeAttack kamikazeScript;
+
     [Tooltip("How long in seconds this boat will be destroyed after being killed")]
     public float destroyAfter = 10f;
 
@@ -81,9 +99,6 @@ public class PlayerBoat : MonoBehaviour
     [Tooltip("The GameObject that hold the flotation balances that help assist this boat float properly")]
     public GameObject flotationBalances;
 
-    [Tooltip("The Slider that shows the current health of this boat")]
-    public Slider healthSlider;
-
     [Tooltip("The fire particle system of this boat if it is a kamikaze boat")]
     public GameObject fireEffect;
 
@@ -99,11 +114,15 @@ public class PlayerBoat : MonoBehaviour
     bool isDelaying;
     bool isDead;
 
+    bool stopped = false;
+
     float currentHealth;
 
     Rigidbody2D boatRigidBody;
 
     public List<string> removedSails;
+
+    Transform cannonAngle;
 
     void Awake()
     {
@@ -111,26 +130,31 @@ public class PlayerBoat : MonoBehaviour
         {
             fireEffect.gameObject.SetActive(true);
         }
-        deathWeights.gameObject.SetActive(false);
+        if (deathWeights.gameObject != null)
+        {
+            deathWeights.gameObject.SetActive(false);
+        }
         gameManager = FindObjectOfType<GameManager>();
         boatRigidBody = mainHullPiece.GetComponent<Rigidbody2D>();
+
+        if (friendlyBoat) 
+        {
+            stopped = gameManager.spawnFriendlyStopped;
+        }
     }
 
     void Start()
     {
         currentHealth = maxHealth;
-        if (!staticCannon)
+        if (!staticCannon && cannonPiece != null)
         {
-            if (!staticCannon)
+            if (friendlyBoat)
             {
-                if (friendlyBoat)
-                {
-                    cannonPiece.rotation = Quaternion.Euler(new Vector3(0, 0, 45));
-                }
-                else
-                {
-                    cannonPiece.rotation = Quaternion.Euler(new Vector3(0, 0, -225));
-                }
+                cannonPiece.rotation = Quaternion.Euler(new Vector3(0, 0, 45));
+            }
+            else
+            {
+                cannonPiece.rotation = Quaternion.Euler(new Vector3(0, 0, -225));
             }
         }
     }
@@ -139,8 +163,7 @@ public class PlayerBoat : MonoBehaviour
     {
         if (!isDead)
         {
-
-            if (kamikaze && ((!isCapturing) || (isCapturing && currentEnemy != null)))
+            if (kamikaze && ((!isCapturing) || (isCapturing && currentEnemy != null)) && !stopped)
             {
                 if (friendlyBoat)
                 {
@@ -152,7 +175,7 @@ public class PlayerBoat : MonoBehaviour
                 }
             }
 
-            if (!kamikaze && (currentEnemy == null && encounteredBase == null) && !isCapturing)
+            if (!kamikaze && (currentEnemy == null && encounteredBase == null) && !isCapturing && !stopped)
             {
                 if (friendlyBoat)
                 {
@@ -191,37 +214,50 @@ public class PlayerBoat : MonoBehaviour
 
     public void Die()
     {
+        if (friendlyBoat)
+        {
+            gameManager.UpdateEnemyMoney(Mathf.Round((boatCost / 10) * gameManager.enemyLootMultiplier));
+        }
+        else
+        {
+            gameManager.UpdateFriendlyMoney(Mathf.Round((boatCost / 10) * gameManager.friendlyLootMultiplier));
+        }
+
+        Instantiate(deathEffect, deathEffectSpawnPoint.position, deathEffectSpawnPoint.rotation);
+
         flotationBalances.SetActive(false);
+        boatUI.SetActive(false);
         destroyerAfterScript.DestroyAfter(destroyAfter);
         if (kamikaze)
         {
             fireEffect.gameObject.SetActive(false);
+            kamikazeScript.DisableHitBox();
         }
 
+        FindObjectOfType<AudioManager>().PlayAtPoint(deathSoundEffects[Random.Range(0, deathSoundEffects.Length)], mainHullPiece.transform.position);
+
         gameManager.UpdateOtherCurrentEnemy(this);
-        deathWeights.gameObject.SetActive(true);
+        if (deathWeights.gameObject != null)
+        {
+            deathWeights.gameObject.SetActive(true);
+        }
         foreach (GameObject boatPiece in boatPieces)
         {
             if (boatPiece.GetComponent<ShipPartDamage>().GetPieceCurrentHealth() >= 0)
             {
-
-                FindObjectOfType<AudioManager>().PlayAtPoint(deathSoundEffects[Random.Range(0, deathSoundEffects.Length)], mainHullPiece.transform.position);
-
                 FixedJoint2D joint = boatPiece.GetComponent<FixedJoint2D>();
                 Destroy(joint);
                 HingeJoint2D joint2 = boatPiece.GetComponent<HingeJoint2D>();
                 Destroy(joint2);
 
-                Destroy(boatColliderHitBox);
-
                 boatPiece.GetComponent<Rigidbody2D>().mass += boatPiece.GetComponent<ShipPartDamage>().GetDeathWeight();
-
-                isDead = true;
-
-                Destroy(this);
 
             }
         }
+
+        Destroy(boatColliderHitBox);
+        isDead = true;
+        Destroy(this);
     }
 
     public float GetCurrentHealth()
@@ -311,7 +347,6 @@ public class PlayerBoat : MonoBehaviour
             cannonForce = Mathf.Sqrt(enemyDist * 20000) - (cannonSpawnPoint.position.y * 8.5f) - (30 * Mathf.Abs(enemy.GetBoatHullRB().velocity.x));
             cannonForce *= cannonBall.GetComponent<Rigidbody2D>().mass;
 
-
             boatRigidBody.AddForce((cannonSpawnPoint.up) * shotRecoil);
 
             FindObjectOfType<AudioManager>().PlayAtPoint(shotSoundEffects[Random.Range(0, shotSoundEffects.Length)], mainHullPiece.transform.position);
@@ -322,13 +357,14 @@ public class PlayerBoat : MonoBehaviour
             }
 
             float recoil = Random.Range(-cannonSpread, cannonSpread);
-            cannonSpawnPoint.eulerAngles = new Vector3(cannonSpawnPoint.eulerAngles.x, cannonSpawnPoint.eulerAngles.y, cannonSpawnPoint.eulerAngles.z + recoil);
-            GameObject bulletToShoot = Instantiate(cannonBall, cannonSpawnPoint.position, cannonSpawnPoint.rotation);
+            cannonAngle = cannonSpawnPoint;
+            cannonAngle.eulerAngles = new Vector3(cannonSpawnPoint.eulerAngles.x, cannonSpawnPoint.eulerAngles.y, cannonSpawnPoint.eulerAngles.z + recoil);
+            GameObject bulletToShoot = Instantiate(cannonBall, cannonAngle.position, cannonAngle.rotation);
             Rigidbody2D bulletRB = bulletToShoot.GetComponent<Rigidbody2D>();
-            bulletRB.AddForce((-cannonSpawnPoint.up) * cannonForce);
+            bulletRB.AddForce((-cannonAngle.up) * cannonForce);
             yield return new WaitForSeconds(Random.Range(minShotDelay, maxShotDelay));
             isDelaying = false;
-            cannonSpawnPoint.eulerAngles = new Vector3(cannonSpawnPoint.eulerAngles.x, cannonSpawnPoint.eulerAngles.y, cannonSpawnPoint.eulerAngles.z - recoil);
+            cannonAngle.eulerAngles = new Vector3(cannonSpawnPoint.eulerAngles.x, cannonSpawnPoint.eulerAngles.y, cannonSpawnPoint.eulerAngles.z - recoil);
         }
     }
 
@@ -346,16 +382,20 @@ public class PlayerBoat : MonoBehaviour
 
         FindObjectOfType<AudioManager>().PlayAtPoint(shotSoundEffects[Random.Range(0, shotSoundEffects.Length)], mainHullPiece.transform.position);
 
-        Instantiate(cannonSmokeEffect, cannonSpawnPoint.position, cannonSpawnPoint.rotation);
+        if (cannonSmokeEffect != null)
+        {
+            Instantiate(cannonSmokeEffect, cannonSpawnPoint.position, cannonSpawnPoint.rotation);
+        }
 
         float recoil = Random.Range(-cannonSpread, cannonSpread);
-        cannonSpawnPoint.eulerAngles = new Vector3(cannonSpawnPoint.eulerAngles.x, cannonSpawnPoint.eulerAngles.y, cannonSpawnPoint.eulerAngles.z + recoil);
-        GameObject bulletToShoot = Instantiate(cannonBall, cannonSpawnPoint.position, cannonSpawnPoint.rotation);
+        cannonAngle = cannonSpawnPoint;
+        cannonAngle.eulerAngles = new Vector3(cannonSpawnPoint.eulerAngles.x, cannonSpawnPoint.eulerAngles.y, cannonSpawnPoint.eulerAngles.z + recoil);
+        GameObject bulletToShoot = Instantiate(cannonBall, cannonAngle.position, cannonAngle.rotation);
         Rigidbody2D bulletRB = bulletToShoot.GetComponent<Rigidbody2D>();
-        bulletRB.AddForce((-cannonSpawnPoint.up) * cannonForce);
+        bulletRB.AddForce((-cannonAngle.up) * cannonForce);
         yield return new WaitForSeconds(Random.Range(minShotDelay, maxShotDelay));
         isDelaying = false;
-        cannonSpawnPoint.eulerAngles = new Vector3(cannonSpawnPoint.eulerAngles.x, cannonSpawnPoint.eulerAngles.y, cannonSpawnPoint.eulerAngles.z - recoil);
+        cannonAngle.eulerAngles = new Vector3(cannonSpawnPoint.eulerAngles.x, cannonSpawnPoint.eulerAngles.y, cannonSpawnPoint.eulerAngles.z - recoil);
     }
 
     public bool CheckIfBehind(PlayerBoat enemy)
@@ -424,6 +464,26 @@ public class PlayerBoat : MonoBehaviour
     public void SetIsCapturing(bool b)
     {
         isCapturing = b;
+    }
+
+    public void StopBoat()
+    {
+        if (stopBorder != null && startBorder != null)
+        {
+            stopBorder.SetActive(true);
+            startBorder.SetActive(false);
+        }
+        stopped = true;
+    }
+
+    public void StartBoat()
+    {
+        if (stopBorder != null && startBorder != null)
+        {
+            stopBorder.SetActive(false);
+            startBorder.SetActive(true);
+        }
+        stopped = false;
     }
 
 }

@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class BoatSelectionManager : MonoBehaviour
 {
 
+    public LevelLoader menuLoader;
+
     [Tooltip("The list of GameObjects that represent the boats that are selected in the boat selection screen")]
     public List<GameObject> selectedBoats;
 
@@ -53,7 +55,7 @@ public class BoatSelectionManager : MonoBehaviour
 
     public void LoadScene()
     {
-        SceneManager.LoadScene(selectedLevel);
+        StartCoroutine(menuLoader.LoadLevelWithAnimation(selectedLevel));
     }
 
 }

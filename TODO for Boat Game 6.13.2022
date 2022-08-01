@@ -1,7 +1,8 @@
 TODO:
 1) Fix the comments / tooltips for the PlayerBoat script (such as the boatColliderHitBox variable / tooltip: could be related to the BoatCaptureHitBox script)
-2) Check what the BoatCapureHitBoxScript is used for; only includes a var for playerBoat (could be merged into the PlayerBoat script)
-3) In the CapturePoint script, when the capture point becomes neutral, remove all flags and set both teams to not have the capture point (right after line 162)
-
-ONCE EVERYTHING HAS BEEN CHECKED:
-1) Use control+f to check through all of the script files and remove all of the "FIX LATER" or "CHECK LATER" comments / issues
+2) Add custom level screen
+3) Add remaining boats
+4) Add ambient sound effects
+5) Improve enemy AI
+6) Add player flag customization
+7) Update level progression; make sure levels are locked and unlocked when passing the previous level

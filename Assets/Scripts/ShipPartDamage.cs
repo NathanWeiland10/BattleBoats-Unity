@@ -20,6 +20,12 @@ public class ShipPartDamage : MonoBehaviour
     [Tooltip("The amount of mass that will be added to this piece once it has been removed / destroyed")]
     public float deathWeightAmount = 10f;
 
+    [Tooltip("The effect that is spawned on collision")]
+    [SerializeField] GameObject hitEffect;
+
+    [Tooltip("The sound effect that is produced once this cannonball collides with another boat")]
+    [SerializeField] string hitSoundEffect;
+
     float pieceCurrentHealth;
 
     void Awake()
@@ -38,19 +44,34 @@ public class ShipPartDamage : MonoBehaviour
     {
         if (collision.gameObject.tag == "CannonBall")
         {
+
             if (pieceCurrentHealth > 0)
             {
-                FindObjectOfType<AudioManager>().PlayAtPoint(collision.gameObject.GetComponent<CannonBall>().GetHitSoundEffect(), collision.gameObject.transform.position);
 
-                if (collision.gameObject.GetComponent<CannonBall>().GetHitEffect() != null)
+                if (playerBoat != null)
                 {
-                    Instantiate(collision.gameObject.GetComponent<CannonBall>().GetHitEffect(), collision.gameObject.transform.position, collision.gameObject.transform.rotation);
-                }
-
-                if (playerBoat != null) {
                     float damage = collision.gameObject.GetComponent<CannonBall>().GetCannonBallDamage();
                     playerBoat.TakeDamage(damage);
                     pieceCurrentHealth -= damage;
+
+                    FindObjectOfType<AudioManager>().PlayAtPoint(hitSoundEffect, collision.gameObject.transform.position);
+
+                    if (hitEffect != null)
+                    {
+                        Instantiate(hitEffect, collision.gameObject.transform.position, collision.gameObject.transform.rotation);
+                    }
+
+                    if (collision.gameObject.GetComponent<CannonBall>().GetHitSoundEffect() != "")
+                    {
+                        FindObjectOfType<AudioManager>().PlayAtPoint(collision.gameObject.GetComponent<CannonBall>().GetHitSoundEffect(), collision.gameObject.transform.position);
+                    }
+
+                    if (collision.gameObject.GetComponent<CannonBall>().GetHitEffect() != null)
+                    {
+                        Instantiate(collision.gameObject.GetComponent<CannonBall>().GetHitEffect(), collision.gameObject.transform.position, collision.gameObject.transform.rotation);
+                    }
+
+                    Destroy(collision.gameObject);
                 }
             }
 
@@ -58,7 +79,7 @@ public class ShipPartDamage : MonoBehaviour
             {
                 RemovePiece();
             }
-            Destroy(collision.gameObject);
+
         }
         if (collision.gameObject.tag == "KamikazeAttack")
         {
@@ -66,15 +87,9 @@ public class ShipPartDamage : MonoBehaviour
 
             if (pieceCurrentHealth > 0)
             {
-                if (boat != null) {
-                    boat.Die();
-                }
-
-                FindObjectOfType<AudioManager>().PlayAtPoint(collision.gameObject.GetComponent<KamikazeAttack>().GetHitSoundEffect(), collision.gameObject.transform.position);
-
-                if (collision.gameObject.GetComponent<KamikazeAttack>().GetHitEffect() != null)
+                if (boat != null)
                 {
-                    Instantiate(collision.gameObject.GetComponent<KamikazeAttack>().GetHitEffect(), collision.gameObject.transform.position, collision.gameObject.transform.rotation);
+                    boat.Die();
                 }
 
                 if (playerBoat != null)
@@ -82,6 +97,25 @@ public class ShipPartDamage : MonoBehaviour
                     float damage = collision.gameObject.GetComponent<KamikazeAttack>().GetAttackDamage();
                     playerBoat.TakeDamage(damage);
                     pieceCurrentHealth -= damage;
+
+                    FindObjectOfType<AudioManager>().PlayAtPoint(hitSoundEffect, collision.gameObject.transform.position);
+
+                    if (hitEffect != null)
+                    {
+                        Instantiate(hitEffect, collision.gameObject.transform.position, collision.gameObject.transform.rotation);
+                    }
+
+                    if (collision.gameObject.GetComponent<KamikazeAttack>().GetHitSoundEffect() != "")
+                    {
+                        FindObjectOfType<AudioManager>().PlayAtPoint(collision.gameObject.GetComponent<KamikazeAttack>().GetHitSoundEffect(), collision.gameObject.transform.position);
+                    }
+
+                    if (collision.gameObject.GetComponent<KamikazeAttack>().GetHitEffect() != null)
+                    {
+                        Instantiate(collision.gameObject.GetComponent<KamikazeAttack>().GetHitEffect(), collision.gameObject.transform.position, collision.gameObject.transform.rotation);
+                    }
+
+                    Destroy(collision.gameObject);
                 }
             }
 
@@ -89,16 +123,15 @@ public class ShipPartDamage : MonoBehaviour
             {
                 RemovePiece();
             }
-            Destroy(collision.gameObject);
+
         }
     }
 
     public void RemovePiece()
     {
-        GetComponent<Rigidbody2D>().mass += deathWeightAmount;
-        FixedJoint2D joint = GetComponent<FixedJoint2D>();
         if (playerBoat != null)
         {
+            GetComponent<Rigidbody2D>().mass += deathWeightAmount;
             if (pieceName.ToLower().Contains("mast"))
             {
                 GameObject[] boatPieces = playerBoat.boatPieces;
@@ -110,14 +143,18 @@ public class ShipPartDamage : MonoBehaviour
                         b.GetComponent<Rigidbody2D>().mass += b.GetComponent<ShipPartDamage>().deathWeightAmount;
                         FixedJoint2D joint2 = b.GetComponent<FixedJoint2D>();
                         Destroy(joint2);
+
                     }
                 }
             }
-        }
-        Destroy(joint);
-        if (pieceName.ToLower().Contains("mast") || pieceName.ToLower().Contains("sail"))
-        {
-            playerBoat.UpdateBoatSpeed(-speedIncrement, pieceName);
+
+            FixedJoint2D joint = GetComponent<FixedJoint2D>();
+            Destroy(joint);
+
+            if (pieceName.ToLower().Contains("mast") || pieceName.ToLower().Contains("sail"))
+            {
+                playerBoat.UpdateBoatSpeed(-speedIncrement, pieceName);
+            }
         }
     }
 
@@ -133,6 +170,16 @@ public class ShipPartDamage : MonoBehaviour
     public float GetDeathWeight()
     {
         return deathWeightAmount;
+    }
+
+    public string GetHitSoundEffect()
+    {
+        return hitSoundEffect;
+    }
+
+    public GameObject GetHitEffect()
+    {
+        return hitEffect;
     }
 
 }

@@ -22,7 +22,7 @@ public class EnemyPlayer : MonoBehaviour
     public playStyle enemyPlayStyle;
 
     GameManager gameManager;
-    
+
     GameObject currentBoat;
 
     float decisionMaxTime;
@@ -51,15 +51,17 @@ public class EnemyPlayer : MonoBehaviour
         }
         else
         {
+
             decisionTimer = decisionMaxTime;
             AttemptEnemyPurchase();
+
         }
     }
 
     public void AttemptEnemyPurchase()
     {
         float boatCost = currentBoat.GetComponent<PlayerBoat>().boatCost;
-        if (gameManager.enemyTotalMoney >= boatCost && gameManager.enemySpawnQueue.Count < 5)
+        if (gameManager.enemyTotalMoney >= boatCost && gameManager.enemySpawnQueue.Count < 5 && gameManager.enemyBoatCount < gameManager.enemyMaxBoats)
         {
             gameManager.UpdateEnemyMoney(-boatCost);
             gameManager.SpawnEnemyBoat(currentBoat);

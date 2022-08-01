@@ -13,6 +13,14 @@ public class PlayerBase : MonoBehaviour
     [Tooltip("The sound effect that will play once this base has been destroyed")]
     public string deathSoundEffect;
 
+    [Tooltip("The effect that is spawned on collision")]
+    [SerializeField] GameObject hitEffect;
+
+    [Tooltip("The sound effect that is produced once this cannonball collides with another boat")]
+    [SerializeField] string hitSoundEffect;
+
+    public HealthHoverBase healthHoverBase;
+
     GameManager gameManager;
 
     float currentBaseHealth;
@@ -21,14 +29,34 @@ public class PlayerBase : MonoBehaviour
     {
         gameManager = FindObjectOfType<GameManager>();
         currentBaseHealth = maxBaseHealth;
+
+        if (friendlyBase)
+        {
+            moneyPerSecond = moneyPerSecond * gameManager.friendlyMPSMultiplier;
+        }
+        else
+        {
+            moneyPerSecond = moneyPerSecond * gameManager.enemyMPSMultiplier;
+        }
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "CannonBall")
         {
             if (currentBaseHealth > 0)
             {
-                FindObjectOfType<AudioManager>().PlayAtPoint(collision.gameObject.GetComponent<CannonBall>().GetHitSoundEffect(), this.transform.position);
+                FindObjectOfType<AudioManager>().PlayAtPoint(hitSoundEffect, this.transform.position);
+
+                if (hitEffect != null)
+                {
+                    Instantiate(hitEffect, collision.gameObject.transform.position, collision.gameObject.transform.rotation);
+                }
+
+                if (collision.gameObject.GetComponent<CannonBall>().GetHitSoundEffect() != "")
+                {
+                    FindObjectOfType<AudioManager>().PlayAtPoint(collision.gameObject.GetComponent<CannonBall>().GetHitSoundEffect(), collision.gameObject.transform.position);
+                }
 
                 if (collision.gameObject.GetComponent<CannonBall>().GetHitEffect() != null)
                 {
@@ -52,7 +80,17 @@ public class PlayerBase : MonoBehaviour
 
             if (currentBaseHealth > 0)
             {
-                FindObjectOfType<AudioManager>().PlayAtPoint(collision.gameObject.GetComponent<KamikazeAttack>().GetHitSoundEffect(), this.transform.position);
+                FindObjectOfType<AudioManager>().PlayAtPoint(hitSoundEffect, this.transform.position);
+
+                if (hitEffect != null)
+                {
+                    Instantiate(hitEffect, collision.gameObject.transform.position, collision.gameObject.transform.rotation);
+                }
+
+                if (collision.gameObject.GetComponent<KamikazeAttack>().GetHitSoundEffect() != "") 
+                {
+                    FindObjectOfType<AudioManager>().PlayAtPoint(collision.gameObject.GetComponent<KamikazeAttack>().GetHitSoundEffect(), collision.gameObject.transform.position);
+                }
 
                 if (collision.gameObject.GetComponent<KamikazeAttack>().GetHitEffect() != null)
                 {
@@ -60,7 +98,6 @@ public class PlayerBase : MonoBehaviour
                 }
 
                 float damage = collision.gameObject.GetComponent<KamikazeAttack>().GetAttackDamage();
-                Debug.Log(damage);
                 ChangeBaseHealth(-damage);
             }
 
@@ -89,6 +126,8 @@ public class PlayerBase : MonoBehaviour
         {
             currentBaseHealth = 0;
         }
+
+        healthHoverBase.UpdateHealthBar();
     }
 
     public float GetBaseHealth()
@@ -120,6 +159,8 @@ public class PlayerBase : MonoBehaviour
 
     public void Die()
     {
+        healthHoverBase.UpdateHealthBar();
+
         BoxCollider2D collider = GetComponent<BoxCollider2D>();
         Destroy(collider);
 
@@ -135,6 +176,7 @@ public class PlayerBase : MonoBehaviour
         FindObjectOfType<AudioManager>().Play(deathSoundEffect);
         // FIX LATER:
         // Currently will only destroy the script (might be useful if decided to change sprite to 'death sprite' as to not delete the whole game object)
+
         Destroy(this);
     }
 
