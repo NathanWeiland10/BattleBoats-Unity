@@ -6987,6 +6987,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: bf46bd9ee99cdc34cb11df3b194bb2bd, type: 2}
   volumeSlider: {fileID: 244691732}
+  showFPSButton: {fileID: 1974432107}
 --- !u!1 &432786839
 GameObject:
   m_ObjectHideFlags: 0
@@ -28340,6 +28341,8 @@ MonoBehaviour:
   button: {fileID: 1974432105}
   enabledSprite: {fileID: 21300000, guid: 35f1c97997ec00c42b2c1374baa1c40c, type: 3}
   disabledSprite: {fileID: 21300000, guid: 395afdea53726ab48957ec0042135690, type: 3}
+  clicked: 0
+  image: {fileID: 1974432109}
 --- !u!114 &1974432108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28396,9 +28399,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1974432107}
-        m_TargetAssemblyTypeName: ToggleButton, Assembly-CSharp
-        m_MethodName: SetShowFPS
+      - m_Target: {fileID: 1974432111}
+        m_TargetAssemblyTypeName: ButtonSoundEffect, Assembly-CSharp
+        m_MethodName: PlaySoundEffect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -28408,9 +28411,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1974432111}
-        m_TargetAssemblyTypeName: ButtonSoundEffect, Assembly-CSharp
-        m_MethodName: PlaySoundEffect
+      - m_Target: {fileID: 430904874}
+        m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
+        m_MethodName: SetShowFPS
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
