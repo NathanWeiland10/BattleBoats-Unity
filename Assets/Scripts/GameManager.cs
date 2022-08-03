@@ -114,6 +114,8 @@ public class GameManager : MonoBehaviour
     [Range(0f, 1f)]
     public float moneyDelayTimer = 0.5f;
 
+    public List<GameObject> pauseSubMenus;
+
     [Tooltip("Used to determine whether or not the game is paused")]
     public bool gamePaused = false;
 
@@ -146,6 +148,8 @@ public class GameManager : MonoBehaviour
     float waitTime;
 
     bool friendlyVictory;
+
+    bool manualQuit = false;
 
     [Tooltip("The list of boats that the player is currently awaiting to spawn")]
     public List<GameObject> friendlySpawnQueue = new List<GameObject>();
@@ -272,6 +276,12 @@ public class GameManager : MonoBehaviour
                     b.boatUI.GetComponent<HealthHover>().boatCanvas.SetActive(false);
                 }
 
+                foreach (GameObject g in pauseSubMenus)
+                {
+                    g.SetActive(false);
+                }
+                pauseSubMenus[0].SetActive(true);
+
                 gamePaused = true;
                 gameScreen.gameObject.SetActive(false);
                 pauseScreen.gameObject.SetActive(true);
@@ -324,11 +334,11 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
-        else if (gameEnded && friendlyVictory)
+        else if (gameEnded && friendlyVictory && !manualQuit)
         {
             mainCameraRig.GetComponent<Rigidbody2D>().AddForce((Vector3.right * cameraMoveSpeed * 16) / gameSpeed);
         }
-        else if (gameEnded && !friendlyVictory)
+        else if (gameEnded && !friendlyVictory && !manualQuit)
         {
             mainCameraRig.GetComponent<Rigidbody2D>().AddForce((Vector3.left * cameraMoveSpeed * 16) / gameSpeed);
         }
@@ -416,6 +426,7 @@ public class GameManager : MonoBehaviour
         pauseScreen.gameObject.SetActive(false);
 
         gameEnded = true;
+        manualQuit = true;
         Time.timeScale = 1f;
         StartCoroutine(menuLoader.LoadLevelWithAnimation("MainMenu"));
     }

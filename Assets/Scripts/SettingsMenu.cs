@@ -13,6 +13,8 @@ public class SettingsMenu : MonoBehaviour
 
     public Slider volumeSlider;
 
+    public ToggleButton showFPSButton;
+
     SettingsSaver settingsSaver;
 
     void Awake()
@@ -21,6 +23,16 @@ public class SettingsMenu : MonoBehaviour
         if (settingsSaver != null)
         {
             volumeSlider.value = settingsSaver.gameVolume;
+            if (settingsSaver.showFPS)
+            {
+                showFPSButton.clicked = true;
+                showFPSButton.image.sprite = showFPSButton.enabledSprite;
+            }
+            else
+            {
+                showFPSButton.clicked = false;
+                showFPSButton.image.sprite = showFPSButton.disabledSprite;
+            }
         }
     }
 
@@ -30,6 +42,14 @@ public class SettingsMenu : MonoBehaviour
         if (settingsSaver != null)
         {
             settingsSaver.gameVolume = v;
+        }
+    }
+
+    public void SetShowFPS()
+    {
+        if (settingsSaver != null)
+        {
+            settingsSaver.SetShowFPS(showFPSButton.clicked);
         }
     }
 
