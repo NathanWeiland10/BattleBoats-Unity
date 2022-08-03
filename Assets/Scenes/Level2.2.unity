@@ -574,7 +574,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -20.233238}
+  m_Offset: {x: 0, y: -31.65}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1414,7 +1414,7 @@ MonoBehaviour:
   enemyBase: {fileID: 1463288690}
   friendlyMoneyPerSecond: 0
   enemyMoneyPerSecond: 0
-  friendlyTotalMoney: 999
+  friendlyTotalMoney: 0
   enemyTotalMoney: 0
   friendlyBoatHealthMultiplier: 1
   enemyBoatHealthMultiplier: 1
@@ -3692,7 +3692,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -20.233238}
+  m_Offset: {x: 0, y: -31.65}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -4847,7 +4847,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -20.233238}
+  m_Offset: {x: 0, y: -31.65}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
