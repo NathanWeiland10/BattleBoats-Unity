@@ -5491,6 +5491,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 76217196113944194, guid: 38d19e893d1c61a47b4c1bff1e63e620, type: 3}
+      propertyPath: m_Color.a
+      value: 0.11764706
+      objectReference: {fileID: 0}
     - target: {fileID: 1046063507418330378, guid: 38d19e893d1c61a47b4c1bff1e63e620, type: 3}
       propertyPath: m_Name
       value: GameScreen
