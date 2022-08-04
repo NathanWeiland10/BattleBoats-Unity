@@ -55,6 +55,9 @@ public class ShipPartDamage : MonoBehaviour
                 if (playerBoat != null)
                 {
                     float damage = collision.gameObject.GetComponent<CannonBall>().GetCannonBallDamage();
+
+                    damage += Mathf.Round(Random.Range(-damage * 0.15f, damage * 0.15f));
+
                     playerBoat.TakeDamage(damage);
                     pieceCurrentHealth -= damage;
 
@@ -99,6 +102,9 @@ public class ShipPartDamage : MonoBehaviour
                 if (playerBoat != null)
                 {
                     float damage = collision.gameObject.GetComponent<KamikazeAttack>().GetAttackDamage();
+
+                    damage += Mathf.Round(Random.Range(-damage * 0.15f, damage * 0.15f));
+
                     playerBoat.TakeDamage(damage);
                     pieceCurrentHealth -= damage;
 

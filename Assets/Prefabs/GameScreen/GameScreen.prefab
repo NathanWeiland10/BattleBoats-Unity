@@ -2841,7 +2841,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0.8
+          m_FloatArgument: 0.5
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -2861,7 +2861,7 @@ MonoBehaviour:
   cannotAffordLayer: {fileID: 9174295433522835289}
   purchasedLayer: {fileID: 9174295433673695305}
   upgradeCostText: {fileID: 9174295432602066788}
-  upgradeDescription: Increase boat health by 80%
+  upgradeDescription: Increase boat health by 50%
   upgradeCost: 500
   buySoundEffect: Buy1
   cannotBuySoundEffect: Denied1
@@ -6037,7 +6037,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0.4
+          m_FloatArgument: 0.25
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -6057,8 +6057,8 @@ MonoBehaviour:
   cannotAffordLayer: {fileID: 9174295432615136946}
   purchasedLayer: {fileID: 9174295433502167963}
   upgradeCostText: {fileID: 9174295432702121134}
-  upgradeDescription: Increase boat health by 40%
-  upgradeCost: 200
+  upgradeDescription: Increase boat health by 25%
+  upgradeCost: 250
   buySoundEffect: Buy1
   cannotBuySoundEffect: Denied1
 --- !u!114 &5036178906328590987
@@ -6328,7 +6328,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0.5
+          m_FloatArgument: 0.2
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -6348,7 +6348,7 @@ MonoBehaviour:
   cannotAffordLayer: {fileID: 9174295432778295307}
   purchasedLayer: {fileID: 9174295433550241044}
   upgradeCostText: {fileID: 9174295433464531177}
-  upgradeDescription: Increase money per second by 50%
+  upgradeDescription: Increase money per second by 20%
   upgradeCost: 500
   buySoundEffect: Buy1
   cannotBuySoundEffect: Denied1
@@ -6564,7 +6564,7 @@ MonoBehaviour:
   purchasedLayer: {fileID: 9174295434119696347}
   upgradeCostText: {fileID: 9174295432458994243}
   upgradeDescription: Increase boat killed money by 100%
-  upgradeCost: 200
+  upgradeCost: 250
   buySoundEffect: Buy1
   cannotBuySoundEffect: Denied1
 --- !u!114 &5036178906375682588
@@ -6834,7 +6834,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0.25
+          m_FloatArgument: 0.1
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -6854,8 +6854,8 @@ MonoBehaviour:
   cannotAffordLayer: {fileID: 9174295432768768550}
   purchasedLayer: {fileID: 5036178906234733157}
   upgradeCostText: {fileID: 9174295433710337227}
-  upgradeDescription: Increase money per second by 25%
-  upgradeCost: 200
+  upgradeDescription: Increase money per second by 10%
+  upgradeCost: 250
   buySoundEffect: Buy1
   cannotBuySoundEffect: Denied1
 --- !u!114 &5036178906396143329
@@ -7551,7 +7551,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0.5
+          m_FloatArgument: 0.3
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -7571,8 +7571,8 @@ MonoBehaviour:
   cannotAffordLayer: {fileID: 9174295432583949009}
   purchasedLayer: {fileID: 9174295433983388758}
   upgradeCostText: {fileID: 9174295432492777920}
-  upgradeDescription: Decrease boat spawn time by 50%
-  upgradeCost: 200
+  upgradeDescription: Decrease boat spawn time by 30%
+  upgradeCost: 250
   buySoundEffect: Buy1
   cannotBuySoundEffect: Denied1
 --- !u!114 &5036178906465912458
@@ -8482,7 +8482,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 1
+          m_FloatArgument: 0.6
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -8502,7 +8502,7 @@ MonoBehaviour:
   cannotAffordLayer: {fileID: 9174295433016794619}
   purchasedLayer: {fileID: 9174295433378353390}
   upgradeCostText: {fileID: 9174295432485761732}
-  upgradeDescription: Decrease boat spawn time by 100%
+  upgradeDescription: Decrease boat spawn time by 60%
   upgradeCost: 500
   buySoundEffect: Buy1
   cannotBuySoundEffect: Denied1
