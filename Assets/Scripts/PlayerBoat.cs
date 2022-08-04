@@ -112,7 +112,7 @@ public class PlayerBoat : MonoBehaviour
     float cannonForce;
 
     bool isDelaying;
-    public bool isDead; // *****
+    public bool isDead;
 
     bool stopped = false;
 
@@ -126,7 +126,9 @@ public class PlayerBoat : MonoBehaviour
 
     void Awake()
     {
-        if (kamikaze)
+        gameManager = FindObjectOfType<GameManager>();
+
+        if (kamikaze && gameManager.showBoatEffects)
         {
             fireEffect.gameObject.SetActive(true);
         }
@@ -134,10 +136,9 @@ public class PlayerBoat : MonoBehaviour
         {
             deathWeights.gameObject.SetActive(false);
         }
-        gameManager = FindObjectOfType<GameManager>();
         boatRigidBody = mainHullPiece.GetComponent<Rigidbody2D>();
 
-        if (friendlyBoat) 
+        if (friendlyBoat)
         {
             stopped = gameManager.spawnFriendlyStopped;
         }
@@ -224,7 +225,10 @@ public class PlayerBoat : MonoBehaviour
             gameManager.UpdateFriendlyMoney(Mathf.Round((boatCost / 10) * gameManager.friendlyLootMultiplier));
         }
 
-        Instantiate(deathEffect, deathEffectSpawnPoint.position, deathEffectSpawnPoint.rotation);
+        if (gameManager.showBoatEffects)
+        {
+            Instantiate(deathEffect, deathEffectSpawnPoint.position, deathEffectSpawnPoint.rotation);
+        }
 
         flotationBalances.SetActive(false);
         boatUI.SetActive(false);
@@ -351,9 +355,12 @@ public class PlayerBoat : MonoBehaviour
 
             FindObjectOfType<AudioManager>().PlayAtPoint(shotSoundEffects[Random.Range(0, shotSoundEffects.Length)], mainHullPiece.transform.position);
 
-            if (cannonSmokeEffect != null)
+            if (cannonSmokeEffect != null && gameManager.showBoatEffects)
             {
+
+
                 Instantiate(cannonSmokeEffect, cannonSpawnPoint.position, cannonSpawnPoint.rotation);
+
             }
 
             float recoil = Random.Range(-cannonSpread, cannonSpread);
@@ -382,7 +389,7 @@ public class PlayerBoat : MonoBehaviour
 
         FindObjectOfType<AudioManager>().PlayAtPoint(shotSoundEffects[Random.Range(0, shotSoundEffects.Length)], mainHullPiece.transform.position);
 
-        if (cannonSmokeEffect != null)
+        if (cannonSmokeEffect != null && gameManager.showBoatEffects)
         {
             Instantiate(cannonSmokeEffect, cannonSpawnPoint.position, cannonSpawnPoint.rotation);
         }

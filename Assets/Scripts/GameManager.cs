@@ -129,6 +129,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject FPSText;
 
+    public GameObject levelParticleEffects;
+
     public GameObject victoryScreen;
     public GameObject defeatScreen;
     public float screenTime = 3f;
@@ -143,6 +145,8 @@ public class GameManager : MonoBehaviour
 
     float startDelay = 1;
     public bool gameStarted;
+
+    public bool showBoatEffects = true;
 
     float moneyTimer = 1; // Initial value serves as an initial wait time for the money to start ticking up
     float waitTime;
@@ -174,14 +178,38 @@ public class GameManager : MonoBehaviour
 
         friendlyTotalMoneyText.text = "$" + friendlyTotalMoney;
 
-        if (settingsSaver != null && settingsSaver.showFPS)
+        if (settingsSaver != null)
         {
-            FPSText.SetActive(true);
+            if (settingsSaver.showFPS)
+            {
+                FPSText.SetActive(true);
+            }
+            else
+            {
+                FPSText.SetActive(false);
+            }
+
+            if (levelParticleEffects != null) {
+                if (settingsSaver.showLevelParticleEffects)
+                {
+                    levelParticleEffects.SetActive(true);
+                }
+                else
+                {
+                    levelParticleEffects.SetActive(false);
+                }
+            }
+
+            if (settingsSaver.showBoatParticleEffects)
+            {
+                showBoatEffects = true;
+            }
+            else
+            {
+                showBoatEffects = false;
+            }
         }
-        else
-        {
-            FPSText.SetActive(false);
-        }
+
     }
 
     void Start()

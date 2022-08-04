@@ -107,7 +107,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 99
+  m_SortingOrder: 999
   m_TargetDisplay: 0
 --- !u!114 &2394405633917647719
 MonoBehaviour:
@@ -255,6 +255,6 @@ CanvasGroup:
   m_GameObject: {fileID: 5792506984818154365}
   m_Enabled: 1
   m_Alpha: 0
-  m_Interactable: 1
+  m_Interactable: 0
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0

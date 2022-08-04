@@ -23,9 +23,18 @@ public class ToggleButton : MonoBehaviour
     private void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
+
+        if (clicked)
+        {
+            image.sprite = enabledSprite;
+        }
+        else
+        {
+            image.sprite = disabledSprite;
+        }
     }
 
-    public void UpdateButtonClick()
+    public void ShowFPSUpdateButtonClick()
     {
         clicked = !clicked;
         if (clicked)
@@ -46,6 +55,59 @@ public class ToggleButton : MonoBehaviour
             else
             {
                 gameManager.FPSText.SetActive(false);
+            }
+        }
+    }
+
+    public void ShowLevelEffectsUpdateButtonClick()
+    {
+        clicked = !clicked;
+        if (clicked)
+        {
+            image.sprite = enabledSprite;
+        }
+        else
+        {
+            image.sprite = disabledSprite;
+        }
+
+        if (gameManager != null)
+        {
+            if (gameManager.levelParticleEffects != null)
+            {
+                if (clicked)
+                {
+                    gameManager.levelParticleEffects.SetActive(true);
+                }
+                else
+                {
+                    gameManager.levelParticleEffects.SetActive(false);
+                }
+            }
+        }
+    }
+
+    public void ShowBoatEffectsUpdateButtonClick()
+    {
+        clicked = !clicked;
+        if (clicked)
+        {
+            image.sprite = enabledSprite;
+        }
+        else
+        {
+            image.sprite = disabledSprite;
+        }
+
+        if (gameManager != null)
+        {
+            if (clicked)
+            {
+                gameManager.showBoatEffects = true;
+            }
+            else
+            {
+                gameManager.showBoatEffects = true;
             }
         }
     }
