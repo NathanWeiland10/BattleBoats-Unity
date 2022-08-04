@@ -64,6 +64,9 @@ public class PlayerBase : MonoBehaviour
                 }
 
                 float damage = collision.gameObject.GetComponent<CannonBall>().GetCannonBallDamage();
+
+                damage += Mathf.Round(Random.Range(-damage * 0.15f, damage * 0.15f));
+
                 ChangeBaseHealth(-damage);
             }
 
@@ -98,6 +101,9 @@ public class PlayerBase : MonoBehaviour
                 }
 
                 float damage = collision.gameObject.GetComponent<KamikazeAttack>().GetAttackDamage();
+
+                damage += Mathf.Round(Random.Range(-damage * 0.15f, damage * 0.15f));
+
                 ChangeBaseHealth(-damage);
             }
 

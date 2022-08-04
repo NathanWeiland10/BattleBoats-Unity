@@ -15,6 +15,10 @@ public class SettingsMenu : MonoBehaviour
 
     public ToggleButton showFPSButton;
 
+    public ToggleButton showLevelEffectsButton;
+
+    public ToggleButton showBoatEffectsButton;
+
     SettingsSaver settingsSaver;
 
     void Awake()
@@ -33,6 +37,28 @@ public class SettingsMenu : MonoBehaviour
                 showFPSButton.clicked = false;
                 showFPSButton.image.sprite = showFPSButton.disabledSprite;
             }
+
+            if (settingsSaver.showLevelParticleEffects)
+            {
+                showLevelEffectsButton.clicked = true;
+                showLevelEffectsButton.image.sprite = showLevelEffectsButton.enabledSprite;
+            }
+            else
+            {
+                showLevelEffectsButton.clicked = false;
+                showLevelEffectsButton.image.sprite = showLevelEffectsButton.disabledSprite;
+            }
+
+            if (settingsSaver.showBoatParticleEffects)
+            {
+                showBoatEffectsButton.clicked = true;
+                showBoatEffectsButton.image.sprite = showBoatEffectsButton.enabledSprite;
+            }
+            else
+            {
+                showBoatEffectsButton.clicked = false;
+                showBoatEffectsButton.image.sprite = showBoatEffectsButton.disabledSprite;
+            }
         }
     }
 
@@ -50,6 +76,22 @@ public class SettingsMenu : MonoBehaviour
         if (settingsSaver != null)
         {
             settingsSaver.SetShowFPS(showFPSButton.clicked);
+        }
+    }
+
+    public void SetShowLevelParticleEffects()
+    {
+        if (settingsSaver != null)
+        {
+            settingsSaver.SetShowLevelParticleEffects(showLevelEffectsButton.clicked);
+        }
+    }
+
+    public void SetShowBoatParticleEffects()
+    {
+        if (settingsSaver != null)
+        {
+            settingsSaver.SetShowBoatParticleEffects(showBoatEffectsButton.clicked);
         }
     }
 

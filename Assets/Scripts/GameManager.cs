@@ -129,6 +129,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject FPSText;
 
+    public GameObject levelParticleEffects;
+
     public GameObject victoryScreen;
     public GameObject defeatScreen;
     public float screenTime = 3f;
@@ -143,6 +145,10 @@ public class GameManager : MonoBehaviour
 
     float startDelay = 1;
     public bool gameStarted;
+
+    public bool showBoatEffects = true;
+
+    public GameObject postScreenCanvas;
 
     float moneyTimer = 1; // Initial value serves as an initial wait time for the money to start ticking up
     float waitTime;
@@ -170,18 +176,70 @@ public class GameManager : MonoBehaviour
         gameHUD.SetActive(true);
         spawnerText.text = "";
         Time.timeScale = 1f;
-        gameSpeedText.text = "1.00";
 
         friendlyTotalMoneyText.text = "$" + friendlyTotalMoney;
 
-        if (settingsSaver != null && settingsSaver.showFPS)
+        if (settingsSaver != null)
         {
-            FPSText.SetActive(true);
+            Time.timeScale = settingsSaver.savedGameSpeed;
+            gameSpeed = settingsSaver.savedGameSpeed;
+
+            if (settingsSaver.showFPS)
+            {
+                FPSText.SetActive(true);
+            }
+            else
+            {
+                FPSText.SetActive(false);
+            }
+
+            if (levelParticleEffects != null) {
+                if (settingsSaver.showLevelParticleEffects)
+                {
+                    levelParticleEffects.SetActive(true);
+                }
+                else
+                {
+                    levelParticleEffects.SetActive(false);
+                }
+            }
+
+            if (settingsSaver.showBoatParticleEffects)
+            {
+                showBoatEffects = true;
+            }
+            else
+            {
+                showBoatEffects = false;
+            }
         }
         else
         {
-            FPSText.SetActive(false);
+            Time.timeScale = 1f;
         }
+
+        switch (gameSpeed)
+        {
+            case 1:
+                gameSpeedText.text = "1.00";
+                break;
+            case 1.5f:
+                gameSpeedText.text = "1.50";
+                break;
+            case 2:
+                gameSpeedText.text = "2.00";
+                break;
+            case 2.5f:
+                gameSpeedText.text = "2.50";
+                break;
+            case 3:
+                gameSpeedText.text = "3.00";
+                break;
+            default:
+                gameSpeedText.text = gameSpeed + "";
+                break;
+        }
+
     }
 
     void Start()
@@ -388,6 +446,11 @@ public class GameManager : MonoBehaviour
                     break;
             }
         }
+
+        if (settingsSaver != null)
+        {
+            settingsSaver.savedGameSpeed = gameSpeed;
+        }
     }
 
     public void DecreaseGameSpeed()
@@ -416,6 +479,11 @@ public class GameManager : MonoBehaviour
                     gameSpeedText.text = gameSpeed + "";
                     break;
             }
+        }
+
+        if (settingsSaver != null)
+        {
+            settingsSaver.savedGameSpeed = gameSpeed;
         }
     }
 
@@ -676,6 +744,7 @@ public class GameManager : MonoBehaviour
     {
         if (!gameEnded)
         {
+            postScreenCanvas.SetActive(true);
             friendlyVictory = true;
             victoryScreen.SetActive(true);
             StartCoroutine(LoadMenuAfter());
@@ -687,6 +756,7 @@ public class GameManager : MonoBehaviour
     {
         if (!gameEnded)
         {
+            postScreenCanvas.SetActive(true);
             friendlyVictory = false;
             defeatScreen.SetActive(true);
             StartCoroutine(LoadMenuAfter());
