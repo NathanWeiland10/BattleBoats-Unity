@@ -107,7 +107,7 @@ public class ToggleButton : MonoBehaviour
             }
             else
             {
-                gameManager.showBoatEffects = true;
+                gameManager.showBoatEffects = false;
             }
         }
     }

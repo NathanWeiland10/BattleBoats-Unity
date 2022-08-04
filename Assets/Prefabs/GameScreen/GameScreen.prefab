@@ -10250,7 +10250,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Show level particle effects:'
+  m_text: 'Show boat particle effects:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 413fdff110e999745a6c7ac8eb1b3302, type: 2}
   m_sharedMaterial: {fileID: -5806620189701555659, guid: 413fdff110e999745a6c7ac8eb1b3302, type: 2}

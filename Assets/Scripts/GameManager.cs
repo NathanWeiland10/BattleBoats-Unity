@@ -148,6 +148,8 @@ public class GameManager : MonoBehaviour
 
     public bool showBoatEffects = true;
 
+    public GameObject postScreenCanvas;
+
     float moneyTimer = 1; // Initial value serves as an initial wait time for the money to start ticking up
     float waitTime;
 
@@ -174,12 +176,14 @@ public class GameManager : MonoBehaviour
         gameHUD.SetActive(true);
         spawnerText.text = "";
         Time.timeScale = 1f;
-        gameSpeedText.text = "1.00";
 
         friendlyTotalMoneyText.text = "$" + friendlyTotalMoney;
 
         if (settingsSaver != null)
         {
+            Time.timeScale = settingsSaver.savedGameSpeed;
+            gameSpeed = settingsSaver.savedGameSpeed;
+
             if (settingsSaver.showFPS)
             {
                 FPSText.SetActive(true);
@@ -208,6 +212,32 @@ public class GameManager : MonoBehaviour
             {
                 showBoatEffects = false;
             }
+        }
+        else
+        {
+            Time.timeScale = 1f;
+        }
+
+        switch (gameSpeed)
+        {
+            case 1:
+                gameSpeedText.text = "1.00";
+                break;
+            case 1.5f:
+                gameSpeedText.text = "1.50";
+                break;
+            case 2:
+                gameSpeedText.text = "2.00";
+                break;
+            case 2.5f:
+                gameSpeedText.text = "2.50";
+                break;
+            case 3:
+                gameSpeedText.text = "3.00";
+                break;
+            default:
+                gameSpeedText.text = gameSpeed + "";
+                break;
         }
 
     }
@@ -416,6 +446,11 @@ public class GameManager : MonoBehaviour
                     break;
             }
         }
+
+        if (settingsSaver != null)
+        {
+            settingsSaver.savedGameSpeed = gameSpeed;
+        }
     }
 
     public void DecreaseGameSpeed()
@@ -444,6 +479,11 @@ public class GameManager : MonoBehaviour
                     gameSpeedText.text = gameSpeed + "";
                     break;
             }
+        }
+
+        if (settingsSaver != null)
+        {
+            settingsSaver.savedGameSpeed = gameSpeed;
         }
     }
 
@@ -704,6 +744,7 @@ public class GameManager : MonoBehaviour
     {
         if (!gameEnded)
         {
+            postScreenCanvas.SetActive(true);
             friendlyVictory = true;
             victoryScreen.SetActive(true);
             StartCoroutine(LoadMenuAfter());
@@ -715,6 +756,7 @@ public class GameManager : MonoBehaviour
     {
         if (!gameEnded)
         {
+            postScreenCanvas.SetActive(true);
             friendlyVictory = false;
             defeatScreen.SetActive(true);
             StartCoroutine(LoadMenuAfter());

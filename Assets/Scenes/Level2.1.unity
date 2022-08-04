@@ -1312,6 +1312,7 @@ MonoBehaviour:
   spawnFriendlyStopped: 0
   gameSpeedText: {fileID: 1228799321}
   FPSText: {fileID: 138326133}
+  levelParticleEffects: {fileID: 0}
   victoryScreen: {fileID: 606920502}
   defeatScreen: {fileID: 337193044}
   screenTime: 3
@@ -1320,6 +1321,8 @@ MonoBehaviour:
   pauseScreen: {fileID: 745402205}
   gameEnded: 0
   gameStarted: 0
+  showBoatEffects: 1
+  postScreenCanvas: {fileID: 9174295433922937301}
   friendlySpawnQueue: []
   enemySpawnQueue: []
 --- !u!4 &455166254
@@ -5378,3 +5381,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38d19e893d1c61a47b4c1bff1e63e620, type: 3}
+--- !u!1 &9174295433922937301 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5036178905021060845, guid: 38d19e893d1c61a47b4c1bff1e63e620, type: 3}
+  m_PrefabInstance: {fileID: 9174295433922937300}
+  m_PrefabAsset: {fileID: 0}

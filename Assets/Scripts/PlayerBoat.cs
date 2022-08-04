@@ -126,6 +126,9 @@ public class PlayerBoat : MonoBehaviour
 
     void Awake()
     {
+
+        currentHealth = maxHealth;
+
         gameManager = FindObjectOfType<GameManager>();
 
         if (kamikaze && gameManager.showBoatEffects)
