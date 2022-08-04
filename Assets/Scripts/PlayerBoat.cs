@@ -112,11 +112,11 @@ public class PlayerBoat : MonoBehaviour
     float cannonForce;
 
     bool isDelaying;
-    bool isDead;
+    public bool isDead; // *****
 
     bool stopped = false;
 
-    float currentHealth;
+    public float currentHealth;
 
     Rigidbody2D boatRigidBody;
 
@@ -145,7 +145,6 @@ public class PlayerBoat : MonoBehaviour
 
     void Start()
     {
-        currentHealth = maxHealth;
         if (!staticCannon && cannonPiece != null)
         {
             if (friendlyBoat)
@@ -214,6 +213,8 @@ public class PlayerBoat : MonoBehaviour
 
     public void Die()
     {
+        isDead = true;
+
         if (friendlyBoat)
         {
             gameManager.UpdateEnemyMoney(Mathf.Round((boatCost / 10) * gameManager.enemyLootMultiplier));
@@ -256,7 +257,6 @@ public class PlayerBoat : MonoBehaviour
         }
 
         Destroy(boatColliderHitBox);
-        isDead = true;
         Destroy(this);
     }
 

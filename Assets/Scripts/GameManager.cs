@@ -525,6 +525,20 @@ public class GameManager : MonoBehaviour
     {
         GameObject spawnedBoat = Instantiate(boat, friendlyBoatSpawn.position, friendlyBoatSpawn.rotation);
         spawnedBoat.GetComponent<PlayerBoat>().maxHealth = spawnedBoat.GetComponent<PlayerBoat>().maxHealth * friendlyBoatHealthMultiplier;
+        spawnedBoat.GetComponent<PlayerBoat>().currentHealth = spawnedBoat.GetComponent<PlayerBoat>().maxHealth;
+
+        foreach (GameObject s in spawnedBoat.GetComponent<PlayerBoat>().boatPieces)
+        {
+            if (s.GetComponent<ShipPartDamage>().nonRemovablePiece && s.GetComponent<ShipPartDamage>().pieceName.ToLower() != "cannon")
+            {
+                s.GetComponent<ShipPartDamage>().pieceCurrentHealth = s.GetComponent<ShipPartDamage>().playerBoat.maxHealth;
+            }
+            else
+            {
+                s.GetComponent<ShipPartDamage>().pieceCurrentHealth = s.GetComponent<ShipPartDamage>().pieceMaxHealth;
+            }
+        }
+
         friendlyBoats.Add(spawnedBoat.GetComponent<PlayerBoat>());
         friendlyBoatCountText.text = friendlyBoats.Count.ToString() + "/" + friendlyMaxBoats;
     }
@@ -533,6 +547,20 @@ public class GameManager : MonoBehaviour
     {
         GameObject spawnedBoat = Instantiate(boat, enemyBoatSpawn.position, Quaternion.Euler(0, 179.9999f, 0));
         spawnedBoat.GetComponent<PlayerBoat>().maxHealth = spawnedBoat.GetComponent<PlayerBoat>().maxHealth * enemyBoatHealthMultiplier;
+        spawnedBoat.GetComponent<PlayerBoat>().currentHealth = spawnedBoat.GetComponent<PlayerBoat>().maxHealth;
+
+        foreach (GameObject s in spawnedBoat.GetComponent<PlayerBoat>().boatPieces)
+        {
+            if (s.GetComponent<ShipPartDamage>().nonRemovablePiece && s.GetComponent<ShipPartDamage>().pieceName.ToLower() != "cannon")
+            {
+                s.GetComponent<ShipPartDamage>().pieceCurrentHealth = s.GetComponent<ShipPartDamage>().playerBoat.maxHealth;
+            }
+            else
+            {
+                s.GetComponent<ShipPartDamage>().pieceCurrentHealth = s.GetComponent<ShipPartDamage>().pieceMaxHealth;
+            }
+        }
+
         enemyBoats.Add(spawnedBoat.GetComponent<PlayerBoat>());
     }
 
