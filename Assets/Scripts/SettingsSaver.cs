@@ -11,6 +11,12 @@ public class SettingsSaver : MonoBehaviour
 
     public bool showFPS;
 
+    public bool showLevelParticleEffects = true;
+
+    public bool showBoatParticleEffects = true;
+
+    public float savedGameSpeed = 1f;
+
     public static SettingsSaver instance;
 
     void Awake()
@@ -35,6 +41,21 @@ public class SettingsSaver : MonoBehaviour
     public void SetShowFPS(bool b)
     {
         showFPS = b;
+    }
+
+    public void SetShowLevelParticleEffects(bool b)
+    {
+        showLevelParticleEffects = b;
+    }
+
+    public void SetShowBoatParticleEffects(bool b)
+    {
+        showBoatParticleEffects = b;
+    }
+
+    public void SetSavedGameSpeed(float f)
+    {
+        savedGameSpeed = f;
     }
 
 }

@@ -28,8 +28,12 @@ public class ShipPartDamage : MonoBehaviour
 
     public float pieceCurrentHealth;
 
+    GameManager gameManager;
+
     void Awake()
     {
+        gameManager = FindObjectOfType<GameManager>();
+
         if (nonRemovablePiece && pieceName.ToLower() != "cannon")
         {
             pieceCurrentHealth = playerBoat.maxHealth;
@@ -51,12 +55,15 @@ public class ShipPartDamage : MonoBehaviour
                 if (playerBoat != null)
                 {
                     float damage = collision.gameObject.GetComponent<CannonBall>().GetCannonBallDamage();
+
+                    damage += Mathf.Round(Random.Range(-damage * 0.15f, damage * 0.15f));
+
                     playerBoat.TakeDamage(damage);
                     pieceCurrentHealth -= damage;
 
                     FindObjectOfType<AudioManager>().PlayAtPoint(hitSoundEffect, collision.gameObject.transform.position);
 
-                    if (hitEffect != null)
+                    if (hitEffect != null && gameManager.showBoatEffects)
                     {
                         Instantiate(hitEffect, collision.gameObject.transform.position, collision.gameObject.transform.rotation);
                     }
@@ -66,7 +73,7 @@ public class ShipPartDamage : MonoBehaviour
                         FindObjectOfType<AudioManager>().PlayAtPoint(collision.gameObject.GetComponent<CannonBall>().GetHitSoundEffect(), collision.gameObject.transform.position);
                     }
 
-                    if (collision.gameObject.GetComponent<CannonBall>().GetHitEffect() != null)
+                    if (collision.gameObject.GetComponent<CannonBall>().GetHitEffect() != null && gameManager.showBoatEffects)
                     {
                         Instantiate(collision.gameObject.GetComponent<CannonBall>().GetHitEffect(), collision.gameObject.transform.position, collision.gameObject.transform.rotation);
                     }
@@ -95,12 +102,15 @@ public class ShipPartDamage : MonoBehaviour
                 if (playerBoat != null)
                 {
                     float damage = collision.gameObject.GetComponent<KamikazeAttack>().GetAttackDamage();
+
+                    damage += Mathf.Round(Random.Range(-damage * 0.15f, damage * 0.15f));
+
                     playerBoat.TakeDamage(damage);
                     pieceCurrentHealth -= damage;
 
                     FindObjectOfType<AudioManager>().PlayAtPoint(hitSoundEffect, collision.gameObject.transform.position);
 
-                    if (hitEffect != null)
+                    if (hitEffect != null && gameManager.showBoatEffects)
                     {
                         Instantiate(hitEffect, collision.gameObject.transform.position, collision.gameObject.transform.rotation);
                     }
@@ -110,7 +120,7 @@ public class ShipPartDamage : MonoBehaviour
                         FindObjectOfType<AudioManager>().PlayAtPoint(collision.gameObject.GetComponent<KamikazeAttack>().GetHitSoundEffect(), collision.gameObject.transform.position);
                     }
 
-                    if (collision.gameObject.GetComponent<KamikazeAttack>().GetHitEffect() != null)
+                    if (collision.gameObject.GetComponent<KamikazeAttack>().GetHitEffect() != null && gameManager.showBoatEffects)
                     {
                         Instantiate(collision.gameObject.GetComponent<KamikazeAttack>().GetHitEffect(), collision.gameObject.transform.position, collision.gameObject.transform.rotation);
                     }
