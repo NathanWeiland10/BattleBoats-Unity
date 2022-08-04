@@ -26,7 +26,7 @@ public class ShipPartDamage : MonoBehaviour
     [Tooltip("The sound effect that is produced once this cannonball collides with another boat")]
     [SerializeField] string hitSoundEffect;
 
-    float pieceCurrentHealth;
+    public float pieceCurrentHealth;
 
     void Awake()
     {
