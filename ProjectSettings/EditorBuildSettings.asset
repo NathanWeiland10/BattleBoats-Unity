@@ -89,4 +89,28 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level9.3.unity
     guid: b096bb7018d07f741af0fc4ca10b67e2
+  - enabled: 1
+    path: Assets/Scenes/Level10.1.unity
+    guid: e6aee8755fc35124db5921fa9604e32b
+  - enabled: 1
+    path: Assets/Scenes/Level10.2.unity
+    guid: b5bb1df9108c3434f9803b491cdc3621
+  - enabled: 1
+    path: Assets/Scenes/Level10.3.unity
+    guid: a788b21688ebc424fab0043eb2a9ab03
+  - enabled: 1
+    path: Assets/Scenes/LevelChallenge1.unity
+    guid: 44cda3fee8d42ff469d8f998b50db6d7
+  - enabled: 1
+    path: Assets/Scenes/LevelChallenge2.unity
+    guid: 21d65483dfdc2d84487be8c27ee9202e
+  - enabled: 1
+    path: Assets/Scenes/LevelChallenge3.unity
+    guid: e0981de66a0c1b44fa4e75996775e8af
+  - enabled: 1
+    path: Assets/Scenes/LevelChallenge4.unity
+    guid: 5574e6a13169b1840a48d3d923d16345
+  - enabled: 1
+    path: Assets/Scenes/LevelChallenge5.unity
+    guid: 8b3ec98e76a28d249bc51d80d7ead104
   m_configObjects: {}
