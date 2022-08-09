@@ -81,7 +81,7 @@ public class PlayerBoat : MonoBehaviour
     [Tooltip("The main hull piece of this boat (used for determining the distance from one boat to another)")]
     public GameObject mainHullPiece;
     [Tooltip("The collider this boat uses to determine when a boat or base is within reach and will begin attacking")]
-    public Transform cannonPiece;
+    public Transform[] cannonPieces;
     [Tooltip("*** ADD TOOLTIP LATER ***")]
     public Transform cannonHullConnection;
     [Tooltip("The transforms that cannonballs will spawn from for this boat")]
@@ -149,15 +149,21 @@ public class PlayerBoat : MonoBehaviour
 
     void Start()
     {
-        if (!staticCannon && cannonPiece != null)
+        if (!staticCannon && cannonPieces != null)
         {
             if (friendlyBoat)
             {
-                cannonPiece.rotation = Quaternion.Euler(new Vector3(0, 0, 45));
+                foreach (Transform boatPiece in cannonPieces)
+                {
+                    boatPiece.rotation = Quaternion.Euler(new Vector3(0, 0, 45));
+                }
             }
             else
             {
-                cannonPiece.rotation = Quaternion.Euler(new Vector3(0, 0, -225));
+                foreach (Transform boatPiece in cannonPieces)
+                {
+                    boatPiece.rotation = Quaternion.Euler(new Vector3(0, 0, -225));
+                }
             }
         }
     }
