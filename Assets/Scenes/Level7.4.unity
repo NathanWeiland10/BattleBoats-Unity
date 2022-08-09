@@ -6629,7 +6629,7 @@ MonoBehaviour:
   mainCamera: {fileID: 519420031}
   friendlyBase: {fileID: 436442830}
   enemyBase: {fileID: 1463288690}
-  friendlyMoneyPerSecond: 30
+  friendlyMoneyPerSecond: 0
   enemyMoneyPerSecond: 0
   friendlyTotalMoney: 0
   enemyTotalMoney: 0
