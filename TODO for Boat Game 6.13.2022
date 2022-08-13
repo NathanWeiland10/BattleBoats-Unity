@@ -1,9 +1,9 @@
 TODO:
 1) Fix / add comments
 2) Add custom level screen
-3) Add remaining boats
-4) Add ambient sound effects
-5) Improve enemy AI
-6) Update level progression; make sure levels are locked and unlocked when passing the previous level
-7) Update fire boats fire effects 
-8) Finish aircraft carrier (add planes)
+3) Add ambient sound effects
+4) Improve enemy AI
+5) Update level progression; make sure levels are locked and unlocked when passing the previous level
+6) Update fire boats fire effects 
+7) Finish aircraft carrier (add planes)
+8) Add functionality to remaining boats
