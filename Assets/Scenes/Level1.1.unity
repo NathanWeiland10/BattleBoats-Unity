@@ -5187,7 +5187,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2109675604 stripped
 MonoBehaviour:
@@ -5429,7 +5429,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5273844256728687265, guid: 38d19e893d1c61a47b4c1bff1e63e620, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5273844256728687265, guid: 38d19e893d1c61a47b4c1bff1e63e620, type: 3}
       propertyPath: m_LocalPosition.x
