@@ -48,7 +48,7 @@ public class PlayerBase : MonoBehaviour
             {
                 FindObjectOfType<AudioManager>().PlayAtPoint(hitSoundEffect, this.transform.position);
 
-                if (hitEffect != null)
+                if (hitEffect != null && gameManager.showBoatEffects)
                 {
                     Instantiate(hitEffect, collision.gameObject.transform.position, collision.gameObject.transform.rotation);
                 }
@@ -58,12 +58,15 @@ public class PlayerBase : MonoBehaviour
                     FindObjectOfType<AudioManager>().PlayAtPoint(collision.gameObject.GetComponent<CannonBall>().GetHitSoundEffect(), collision.gameObject.transform.position);
                 }
 
-                if (collision.gameObject.GetComponent<CannonBall>().GetHitEffect() != null)
+                if (collision.gameObject.GetComponent<CannonBall>().GetHitEffect() != null && gameManager.showBoatEffects)
                 {
                     Instantiate(collision.gameObject.GetComponent<CannonBall>().GetHitEffect(), collision.gameObject.transform.position, collision.gameObject.transform.rotation);
                 }
 
                 float damage = collision.gameObject.GetComponent<CannonBall>().GetCannonBallDamage();
+
+                damage += Mathf.Round(Random.Range(-damage * 0.15f, damage * 0.15f));
+
                 ChangeBaseHealth(-damage);
             }
 
@@ -82,7 +85,7 @@ public class PlayerBase : MonoBehaviour
             {
                 FindObjectOfType<AudioManager>().PlayAtPoint(hitSoundEffect, this.transform.position);
 
-                if (hitEffect != null)
+                if (hitEffect != null && gameManager.showBoatEffects)
                 {
                     Instantiate(hitEffect, collision.gameObject.transform.position, collision.gameObject.transform.rotation);
                 }
@@ -92,12 +95,15 @@ public class PlayerBase : MonoBehaviour
                     FindObjectOfType<AudioManager>().PlayAtPoint(collision.gameObject.GetComponent<KamikazeAttack>().GetHitSoundEffect(), collision.gameObject.transform.position);
                 }
 
-                if (collision.gameObject.GetComponent<KamikazeAttack>().GetHitEffect() != null)
+                if (collision.gameObject.GetComponent<KamikazeAttack>().GetHitEffect() != null && gameManager.showBoatEffects)
                 {
                     Instantiate(collision.gameObject.GetComponent<KamikazeAttack>().GetHitEffect(), collision.gameObject.transform.position, collision.gameObject.transform.rotation);
                 }
 
                 float damage = collision.gameObject.GetComponent<KamikazeAttack>().GetAttackDamage();
+
+                damage += Mathf.Round(Random.Range(-damage * 0.15f, damage * 0.15f));
+
                 ChangeBaseHealth(-damage);
             }
 

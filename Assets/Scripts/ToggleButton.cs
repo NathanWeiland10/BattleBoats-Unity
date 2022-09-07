@@ -12,18 +12,18 @@ public class ToggleButton : MonoBehaviour
 
     public Sprite disabledSprite;
 
-    bool clicked;
+    public bool clicked;
 
-    Image image;
+    public Image image;
 
     SettingsSaver settingsSaver;
 
+    GameManager gameManager;
+
     private void Awake()
     {
-        settingsSaver = FindObjectOfType<SettingsSaver>();
-        image = button.GetComponent<Image>();
+        gameManager = FindObjectOfType<GameManager>();
 
-        clicked = settingsSaver.showFPS;
         if (clicked)
         {
             image.sprite = enabledSprite;
@@ -34,7 +34,7 @@ public class ToggleButton : MonoBehaviour
         }
     }
 
-    public void UpdateButtonClick()
+    public void ShowFPSUpdateButtonClick()
     {
         clicked = !clicked;
         if (clicked)
@@ -45,11 +45,71 @@ public class ToggleButton : MonoBehaviour
         {
             image.sprite = disabledSprite;
         }
+
+        if (gameManager != null)
+        {
+            if (clicked)
+            {
+                gameManager.FPSText.SetActive(true);
+            }
+            else
+            {
+                gameManager.FPSText.SetActive(false);
+            }
+        }
     }
 
-    public void SetShowFPS()
+    public void ShowLevelEffectsUpdateButtonClick()
     {
-        settingsSaver.SetShowFPS(clicked);
+        clicked = !clicked;
+        if (clicked)
+        {
+            image.sprite = enabledSprite;
+        }
+        else
+        {
+            image.sprite = disabledSprite;
+        }
+
+        if (gameManager != null)
+        {
+            if (gameManager.levelParticleEffects != null)
+            {
+                if (clicked)
+                {
+                    gameManager.levelParticleEffects.SetActive(true);
+                }
+                else
+                {
+                    gameManager.levelParticleEffects.SetActive(false);
+                }
+            }
+        }
+    }
+
+    public void ShowBoatEffectsUpdateButtonClick()
+    {
+        clicked = !clicked;
+        if (clicked)
+        {
+            image.sprite = enabledSprite;
+        }
+        else
+        {
+            image.sprite = disabledSprite;
+        }
+
+        if (gameManager != null)
+        {
+            if (clicked)
+            {
+                gameManager.showBoatEffects = true;
+            }
+            else
+            {
+                gameManager.showBoatEffects = false;
+            }
+        }
     }
 
 }

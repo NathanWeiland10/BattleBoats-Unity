@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ae4c6bf9837a03438ce68d2a7232229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cannonBallDamage: 50
+  cannonBallDamage: 55
   angledProjectile: 1
   friendly: 1
   hitEffect: {fileID: 131910526034018099, guid: 022a4e3abc5582340aae266b889d6e12, type: 3}

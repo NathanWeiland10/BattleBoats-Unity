@@ -1,8 +1,8 @@
 TODO:
-1) Fix the comments / tooltips for the PlayerBoat script (such as the boatColliderHitBox variable / tooltip: could be related to the BoatCaptureHitBox script)
+1) Fix / add comments
 2) Add custom level screen
-3) Add remaining boats
-4) Add ambient sound effects
-5) Improve enemy AI
-6) Add player flag customization
-7) Update level progression; make sure levels are locked and unlocked when passing the previous level
+3) Add ambient sound effects
+4) Update level progression; make sure levels are locked and unlocked when passing the previous level
+5) Update fire boats fire effects 
+6) Finish aircraft carrier (add planes)
+7) Add functionality to remaining boats

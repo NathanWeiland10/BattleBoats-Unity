@@ -114,6 +114,8 @@ public class GameManager : MonoBehaviour
     [Range(0f, 1f)]
     public float moneyDelayTimer = 0.5f;
 
+    public List<GameObject> pauseSubMenus;
+
     [Tooltip("Used to determine whether or not the game is paused")]
     public bool gamePaused = false;
 
@@ -126,6 +128,8 @@ public class GameManager : MonoBehaviour
     public TMP_Text gameSpeedText;
 
     public GameObject FPSText;
+
+    public GameObject levelParticleEffects;
 
     public GameObject victoryScreen;
     public GameObject defeatScreen;
@@ -142,10 +146,16 @@ public class GameManager : MonoBehaviour
     float startDelay = 1;
     public bool gameStarted;
 
+    public bool showBoatEffects = true;
+
+    public GameObject postScreenCanvas;
+
     float moneyTimer = 1; // Initial value serves as an initial wait time for the money to start ticking up
     float waitTime;
 
     bool friendlyVictory;
+
+    bool manualQuit = false;
 
     [Tooltip("The list of boats that the player is currently awaiting to spawn")]
     public List<GameObject> friendlySpawnQueue = new List<GameObject>();
@@ -166,18 +176,70 @@ public class GameManager : MonoBehaviour
         gameHUD.SetActive(true);
         spawnerText.text = "";
         Time.timeScale = 1f;
-        gameSpeedText.text = "1.00";
 
         friendlyTotalMoneyText.text = "$" + friendlyTotalMoney;
 
-        if (settingsSaver != null && settingsSaver.showFPS)
+        if (settingsSaver != null)
         {
-            FPSText.SetActive(true);
+            Time.timeScale = settingsSaver.savedGameSpeed;
+            gameSpeed = settingsSaver.savedGameSpeed;
+
+            if (settingsSaver.showFPS)
+            {
+                FPSText.SetActive(true);
+            }
+            else
+            {
+                FPSText.SetActive(false);
+            }
+
+            if (levelParticleEffects != null) {
+                if (settingsSaver.showLevelParticleEffects)
+                {
+                    levelParticleEffects.SetActive(true);
+                }
+                else
+                {
+                    levelParticleEffects.SetActive(false);
+                }
+            }
+
+            if (settingsSaver.showBoatParticleEffects)
+            {
+                showBoatEffects = true;
+            }
+            else
+            {
+                showBoatEffects = false;
+            }
         }
         else
         {
-            FPSText.SetActive(false);
+            Time.timeScale = 1f;
         }
+
+        switch (gameSpeed)
+        {
+            case 1:
+                gameSpeedText.text = "1.00";
+                break;
+            case 1.5f:
+                gameSpeedText.text = "1.50";
+                break;
+            case 2:
+                gameSpeedText.text = "2.00";
+                break;
+            case 2.5f:
+                gameSpeedText.text = "2.50";
+                break;
+            case 3:
+                gameSpeedText.text = "3.00";
+                break;
+            default:
+                gameSpeedText.text = gameSpeed + "";
+                break;
+        }
+
     }
 
     void Start()
@@ -272,6 +334,12 @@ public class GameManager : MonoBehaviour
                     b.boatUI.GetComponent<HealthHover>().boatCanvas.SetActive(false);
                 }
 
+                foreach (GameObject g in pauseSubMenus)
+                {
+                    g.SetActive(false);
+                }
+                pauseSubMenus[0].SetActive(true);
+
                 gamePaused = true;
                 gameScreen.gameObject.SetActive(false);
                 pauseScreen.gameObject.SetActive(true);
@@ -324,11 +392,11 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
-        else if (gameEnded && friendlyVictory)
+        else if (gameEnded && friendlyVictory && !manualQuit)
         {
             mainCameraRig.GetComponent<Rigidbody2D>().AddForce((Vector3.right * cameraMoveSpeed * 16) / gameSpeed);
         }
-        else if (gameEnded && !friendlyVictory)
+        else if (gameEnded && !friendlyVictory && !manualQuit)
         {
             mainCameraRig.GetComponent<Rigidbody2D>().AddForce((Vector3.left * cameraMoveSpeed * 16) / gameSpeed);
         }
@@ -378,6 +446,11 @@ public class GameManager : MonoBehaviour
                     break;
             }
         }
+
+        if (settingsSaver != null)
+        {
+            settingsSaver.savedGameSpeed = gameSpeed;
+        }
     }
 
     public void DecreaseGameSpeed()
@@ -407,6 +480,11 @@ public class GameManager : MonoBehaviour
                     break;
             }
         }
+
+        if (settingsSaver != null)
+        {
+            settingsSaver.savedGameSpeed = gameSpeed;
+        }
     }
 
     public void LoadMenu()
@@ -416,6 +494,7 @@ public class GameManager : MonoBehaviour
         pauseScreen.gameObject.SetActive(false);
 
         gameEnded = true;
+        manualQuit = true;
         Time.timeScale = 1f;
         StartCoroutine(menuLoader.LoadLevelWithAnimation("MainMenu"));
     }
@@ -514,6 +593,20 @@ public class GameManager : MonoBehaviour
     {
         GameObject spawnedBoat = Instantiate(boat, friendlyBoatSpawn.position, friendlyBoatSpawn.rotation);
         spawnedBoat.GetComponent<PlayerBoat>().maxHealth = spawnedBoat.GetComponent<PlayerBoat>().maxHealth * friendlyBoatHealthMultiplier;
+        spawnedBoat.GetComponent<PlayerBoat>().currentHealth = spawnedBoat.GetComponent<PlayerBoat>().maxHealth;
+
+        foreach (GameObject s in spawnedBoat.GetComponent<PlayerBoat>().boatPieces)
+        {
+            if (s.GetComponent<ShipPartDamage>().nonRemovablePiece && s.GetComponent<ShipPartDamage>().pieceName.ToLower() != "cannon")
+            {
+                s.GetComponent<ShipPartDamage>().pieceCurrentHealth = s.GetComponent<ShipPartDamage>().playerBoat.maxHealth;
+            }
+            else
+            {
+                s.GetComponent<ShipPartDamage>().pieceCurrentHealth = s.GetComponent<ShipPartDamage>().pieceMaxHealth;
+            }
+        }
+
         friendlyBoats.Add(spawnedBoat.GetComponent<PlayerBoat>());
         friendlyBoatCountText.text = friendlyBoats.Count.ToString() + "/" + friendlyMaxBoats;
     }
@@ -522,6 +615,20 @@ public class GameManager : MonoBehaviour
     {
         GameObject spawnedBoat = Instantiate(boat, enemyBoatSpawn.position, Quaternion.Euler(0, 179.9999f, 0));
         spawnedBoat.GetComponent<PlayerBoat>().maxHealth = spawnedBoat.GetComponent<PlayerBoat>().maxHealth * enemyBoatHealthMultiplier;
+        spawnedBoat.GetComponent<PlayerBoat>().currentHealth = spawnedBoat.GetComponent<PlayerBoat>().maxHealth;
+
+        foreach (GameObject s in spawnedBoat.GetComponent<PlayerBoat>().boatPieces)
+        {
+            if (s.GetComponent<ShipPartDamage>().nonRemovablePiece && s.GetComponent<ShipPartDamage>().pieceName.ToLower() != "cannon")
+            {
+                s.GetComponent<ShipPartDamage>().pieceCurrentHealth = s.GetComponent<ShipPartDamage>().playerBoat.maxHealth;
+            }
+            else
+            {
+                s.GetComponent<ShipPartDamage>().pieceCurrentHealth = s.GetComponent<ShipPartDamage>().pieceMaxHealth;
+            }
+        }
+
         enemyBoats.Add(spawnedBoat.GetComponent<PlayerBoat>());
     }
 
@@ -637,6 +744,7 @@ public class GameManager : MonoBehaviour
     {
         if (!gameEnded)
         {
+            postScreenCanvas.SetActive(true);
             friendlyVictory = true;
             victoryScreen.SetActive(true);
             StartCoroutine(LoadMenuAfter());
@@ -648,6 +756,7 @@ public class GameManager : MonoBehaviour
     {
         if (!gameEnded)
         {
+            postScreenCanvas.SetActive(true);
             friendlyVictory = false;
             defeatScreen.SetActive(true);
             StartCoroutine(LoadMenuAfter());

@@ -4885,7 +4885,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4105841642580291511
 Transform:
   m_ObjectHideFlags: 0
@@ -5267,6 +5267,8 @@ MonoBehaviour:
   deathWeights: {fileID: 5928702603059323152}
   flotationBalances: {fileID: 4949385723776044053}
   fireEffect: {fileID: 1716522208681906912}
+  isDead: 0
+  currentHealth: 0
   removedSails: []
 --- !u!114 &3826430832621252116
 MonoBehaviour:
@@ -5410,6 +5412,7 @@ MonoBehaviour:
   deathWeightAmount: 15
   hitEffect: {fileID: 1386299231865863778, guid: 863e53be96e457948ae68fd50f641475, type: 3}
   hitSoundEffect: WoodHit1
+  pieceCurrentHealth: 0
 --- !u!255 &6274764583073812350
 FixedJoint2D:
   m_ObjectHideFlags: 0
@@ -5632,6 +5635,7 @@ MonoBehaviour:
   deathWeightAmount: 15
   hitEffect: {fileID: 1386299231865863778, guid: 863e53be96e457948ae68fd50f641475, type: 3}
   hitSoundEffect: WoodHit1
+  pieceCurrentHealth: 0
 --- !u!255 &1192065140174222987
 FixedJoint2D:
   m_ObjectHideFlags: 0
@@ -10685,6 +10689,7 @@ MonoBehaviour:
   deathWeightAmount: 15
   hitEffect: {fileID: 1386299231865863778, guid: 863e53be96e457948ae68fd50f641475, type: 3}
   hitSoundEffect: WoodHit1
+  pieceCurrentHealth: 0
 --- !u!255 &7992045071156896151
 FixedJoint2D:
   m_ObjectHideFlags: 0
@@ -15739,6 +15744,7 @@ MonoBehaviour:
   deathWeightAmount: 15
   hitEffect: {fileID: 1386299231865863778, guid: 863e53be96e457948ae68fd50f641475, type: 3}
   hitSoundEffect: WoodHit1
+  pieceCurrentHealth: 0
 --- !u!255 &7992045071845837932
 FixedJoint2D:
   m_ObjectHideFlags: 0
@@ -15919,6 +15925,7 @@ MonoBehaviour:
   deathWeightAmount: 5
   hitEffect: {fileID: 1386299231865863778, guid: 863e53be96e457948ae68fd50f641475, type: 3}
   hitSoundEffect: WoodHit1
+  pieceCurrentHealth: 0
 --- !u!255 &7992045072410047902
 FixedJoint2D:
   m_ObjectHideFlags: 0
@@ -20970,6 +20977,7 @@ MonoBehaviour:
   deathWeightAmount: 15
   hitEffect: {fileID: 1386299231865863778, guid: 863e53be96e457948ae68fd50f641475, type: 3}
   hitSoundEffect: WoodHit1
+  pieceCurrentHealth: 0
 --- !u!61 &2370447288297632361
 BoxCollider2D:
   m_ObjectHideFlags: 0

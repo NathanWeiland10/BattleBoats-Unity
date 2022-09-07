@@ -1285,6 +1285,7 @@ MonoBehaviour:
   deathWeightAmount: 5
   hitEffect: {fileID: 1386299231865863778, guid: 863e53be96e457948ae68fd50f641475, type: 3}
   hitSoundEffect: WoodHit1
+  pieceCurrentHealth: 0
 --- !u!255 &6037260464189893273
 FixedJoint2D:
   m_ObjectHideFlags: 0
@@ -1539,7 +1540,8 @@ MonoBehaviour:
   rangeHitBox: {fileID: 7223424627448172576}
   boatColliderHitBox: {fileID: 2610219149067671438}
   mainHullPiece: {fileID: 8589925655629899343}
-  cannonPiece: {fileID: 6037260465090665156}
+  cannonPieces:
+  - {fileID: 6037260465090665156}
   cannonHullConnection: {fileID: 8540088049298072579}
   cannonSpawnPoints:
   - {fileID: 6037260463387698968}
@@ -1552,6 +1554,8 @@ MonoBehaviour:
   deathWeights: {fileID: 6240338546756257015}
   flotationBalances: {fileID: 4644083492233341426}
   fireEffect: {fileID: 0}
+  isDead: 0
+  currentHealth: 0
   removedSails: []
 --- !u!114 &6281576346211814922
 MonoBehaviour:
@@ -1667,6 +1671,7 @@ MonoBehaviour:
   deathWeightAmount: 0
   hitEffect: {fileID: 1386299231865863778, guid: 863e53be96e457948ae68fd50f641475, type: 3}
   hitSoundEffect: WoodHit1
+  pieceCurrentHealth: 0
 --- !u!1 &6240338546756257015
 GameObject:
   m_ObjectHideFlags: 0
@@ -1827,6 +1832,7 @@ MonoBehaviour:
   deathWeightAmount: 10
   hitEffect: {fileID: 1386299231865863778, guid: 863e53be96e457948ae68fd50f641475, type: 3}
   hitSoundEffect: WoodHit1
+  pieceCurrentHealth: 0
 --- !u!255 &1465861955895464812
 FixedJoint2D:
   m_ObjectHideFlags: 0
@@ -2081,6 +2087,7 @@ MonoBehaviour:
   deathWeightAmount: 10
   hitEffect: {fileID: 1386299231865863778, guid: 863e53be96e457948ae68fd50f641475, type: 3}
   hitSoundEffect: WoodHit1
+  pieceCurrentHealth: 0
 --- !u!61 &2610219149067671438
 BoxCollider2D:
   m_ObjectHideFlags: 0
