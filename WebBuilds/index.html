@@ -58,9 +58,9 @@
       var buildUrl = "Build";
       var loaderUrl = buildUrl + "/WebBuilds.loader.js";
       var config = {
-        dataUrl: buildUrl + "/WebBuilds.data.br",
-        frameworkUrl: buildUrl + "/WebBuilds.framework.js.br",
-        codeUrl: buildUrl + "/WebBuilds.wasm.br",
+        dataUrl: buildUrl + "/WebBuilds.data",
+        frameworkUrl: buildUrl + "/WebBuilds.framework.js",
+        codeUrl: buildUrl + "/WebBuilds.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "Boat Battle Game",
@@ -99,7 +99,7 @@
         canvas.style.height = "720px";
       }
 
-      canvas.style.background = "url('" + buildUrl + "/WebBuilds.jpg.br') center / cover";
+      canvas.style.background = "url('" + buildUrl + "/WebBuilds.jpg') center / cover";
       loadingBar.style.display = "block";
 
       var script = document.createElement("script");
