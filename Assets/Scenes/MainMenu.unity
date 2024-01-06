@@ -11428,7 +11428,7 @@ MonoBehaviour:
   selectSound: Select1
   deselectSound: Select1
   errorSound: Denied1
-  boatDescription: A moderate sized ship with high health and damage with a somewhat
+  boatDescription: A moderately sized ship with high health and damage with a somewhat
     slow speed.
   tooltipTextBox: {fileID: 1487050084}
   boatName: 
