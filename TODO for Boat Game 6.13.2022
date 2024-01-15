@@ -6,3 +6,5 @@ TODO:
 5) Update fire boats fire effects 
 6) Finish aircraft carrier (add planes)
 7) Add functionality to remaining boats
+8) Fix bug with changing FPS during game not working
+9) Add disable transparency feature for water
